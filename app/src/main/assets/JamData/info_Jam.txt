@@ -1,0 +1,12 @@
+[StartInfoJAM]
+	#Version1.0.0
+	[StartMachineModel]
+		Machine_model = null
+		Language = 1
+	[EndPMachineModel]
+	[StartLastProgram]
+		LastProgram_R = /storage/emulated/0/JamData/file_empty.xml
+		LastProgram_L = /storage/emulated/0/JamData/file_empty.xml
+		LastProgram_R_T2 = /storage/emulated/0/JamData/file_empty.xml
+		LastProgram_L_T2 = /storage/emulated/0/JamData/file_empty.xml
+	[EndLastProgram]

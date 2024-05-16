@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/border1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView_intestazione"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textSize="34sp" />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".9"
+                android:background="@drawable/border1">
+
+                <CheckBox
+                    android:id="@+id/checkBox_Sys"
+                    android:layout_width="149dp"
+                    android:layout_height="32dp"
+                    android:text="Sys"
+                    app:layout_constraintStart_toStartOf="@+id/checkBox_Prog"
+                    app:layout_constraintTop_toTopOf="@+id/checkBox_plc" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_Prog"
+                    android:layout_width="149dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="108dp"
+                    android:text="Prog"
+                    app:layout_constraintStart_toEndOf="@+id/checkBox_param"
+                    app:layout_constraintTop_toTopOf="@+id/checkBox_param" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_plc"
+                    android:layout_width="149dp"
+                    android:layout_height="32dp"
+                    android:text="PLC"
+                    app:layout_constraintStart_toStartOf="@+id/checkBox_param"
+                    app:layout_constraintTop_toTopOf="@+id/checkBox_fw" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_param"
+                    android:layout_width="149dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="108dp"
+                    android:text="Params"
+                    app:layout_constraintStart_toEndOf="@+id/checkBox_userdata"
+                    app:layout_constraintTop_toTopOf="@+id/checkBox_userdata" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_fw"
+                    android:layout_width="149dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="20dp"
+                    android:text="firmware"
+                    app:layout_constraintStart_toStartOf="@+id/checkBox_userdata"
+                    app:layout_constraintTop_toBottomOf="@+id/checkBox_userdata" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_userdata"
+                    android:layout_width="149dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:text="userdata"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_Var"
+                    android:layout_width="149dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="60dp"
+                    android:text="Variables"
+                    app:layout_constraintStart_toEndOf="@+id/checkBox_Prog"
+                    app:layout_constraintTop_toTopOf="@+id/checkBox_Prog" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ListView
+                android:id="@+id/ListView_upgrade"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".6"
+                android:background="@drawable/border1" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.05"
+                android:width="15dp"
+                android:background="@drawable/border1" />
+
+            <TextView
+                android:id="@+id/textView_barra_sotto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.05"
+                android:background="@drawable/border1"
+                android:text="TextView"
+                android:textSize="24sp"
+                tools:text="Working......." />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/imageUsb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:src="@drawable/ic_usb_x" />
+
+            <ImageButton
+                android:id="@+id/imagePlay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:onClick="onclick_play"
+                android:src="@drawable/ic_button_play" />
+
+
+            <ImageButton
+                android:id="@+id/imageStop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:onClick="onclick_stop"
+                android:src="@drawable/stop_black" />
+
+            <ImageButton
+                android:id="@+id/imagepassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:onClick="on_click_password"
+                android:src="@drawable/ic_password" />
+
+            <ImageButton
+                android:id="@+id/imageButton_exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:onClick="onclick_button_Exit"
+                android:src="@drawable/tasto_exit" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

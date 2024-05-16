@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    signingConfigs {
+        jamint {
+            storeFile file('C:\\Users\\PCLavoro\\Desktop\\GitRepository\\Java Projects\\JT862_M8\\app\\src\\main\\KayJam.jks')
+            storePassword '07167872'
+            keyAlias = 'KeyJam'
+            keyPassword '07167872'
+        }
+
+    }
+
+    defaultConfig {
+        applicationId "com.jam_int.jt882_m8"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.jamint
+
+            android.applicationVariants.all {
+                variant ->
+                    variant.outputs.all {
+                        def appName = "JamPocket"
+                        outputFileName = appName+"-${variant.versionName}.apk"
+                    }
+            }
+
+
+
+        }
+        debug {
+            signingConfig signingConfigs.jamint
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude("META-INF/*.kotlin_module")
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.1.0'
+    implementation files('C:\\Users\\PCLavoro\\Desktop\\GitRepository\\Java Projects\\JT862_M8\\app\\libs\\kabeja-0.4.jar')
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation project(path: ':rS232Support-release')
+    implementation project(path: ':ricette_M8')
+    implementation 'com.github.mjdev:libaums:0.6.0'
+
+    implementation 'org.apache.ftpserver:ftpserver-core:1.1.1'
+    implementation 'commons-io:commons-io:2.6'
+
+
+}

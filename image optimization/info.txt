@@ -1,0 +1,16 @@
+Ho cercato di fare pulizia di immagini. 
+Per fare una cosa decente sarebbe anche da scegliere un modo per impostare il nome, rinominarle tutte e togliere eventuali doppioni
+
+Per ora ci sono:
+Dentro le cartelle del progetto ci sono le immagini che ho riaggiunto una alla volta in base agli errori che mi dava Android studio
+Dentro le 2 cartelle "img old" e "img old mdpi" ci sono le immagini che non ho riaggiunto. Con win merge ho confrontato "img old" con "drwable" e "img old mdpi" con "drawable-mdpi" e non ci sono errori, però ci potrebbero essere dato che dovrei fare tutte le combinazioni di confronto per fare una cosa fatta per bene
+Dentro le 2 cartelle "img old - Backup" e "img old mdpi - Backup" ci sono le immagini vecchie nella vecchia suddivisione. Quindi in caso di errori li ho tutte le immagini com'erano prima
+Dentro res.zip ci sono le cartelle sistemate senza doppioni.
+Dentro "drawable" ci sono tutte le immagini senza doppioni e suddivise per tipo (più o meno)
+
+Per fare un lavoro decente bisogna: 
+- decidere come e rinominarle 
+- decidere le varie dimensioni per farle fisse (ora alcuni bottoni hanno una dimensione alcuni altre)
+- mettere dentro drawable solo gli xml che devono rimanere globali, il resto tutto dentro le varie risoluzioni
+
+Il programma FSResizer serve a cambiare la dimensione di più immaigni contemporaneamente e sovrascrivere le vecchie (basta cambiare 2-3 valori su advanced options)

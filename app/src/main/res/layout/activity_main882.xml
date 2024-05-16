@@ -1,0 +1,1375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".48"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout_LoadLeft"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border1"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="0dp">
+
+                    <Button
+                        android:id="@+id/button_tascaDX"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/ic_tasca_dx"
+
+                        android:onClick="onclickTascaDXButton"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <Button
+                        android:id="@+id/button_load_R"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/tasto_load_prog"
+
+                        android:onClick="On_click_Load_R"
+                        app:layout_constraintStart_toEndOf="@+id/button_tascaDX"
+                        app:layout_constraintTop_toTopOf="@+id/button_tascaDX" />
+
+                    <TextView
+                        android:id="@+id/textView_nomeprog_R"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/Prog_name_"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/button_load_R"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView_nomeprog_R_val"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text=".............."
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/textView_nomeprog_R"
+                        app:layout_constraintTop_toTopOf="@+id/textView_nomeprog_R" />
+
+                    <TextView
+                        android:id="@+id/textView_folder_R"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/Folder_"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@+id/textView_nomeprog_R"
+                        app:layout_constraintTop_toBottomOf="@+id/textView_nomeprog_R" />
+
+                    <TextView
+                        android:id="@+id/textView_folder_R_val"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text=".............."
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/textView_folder_R"
+                        app:layout_constraintTop_toTopOf="@+id/textView_folder_R" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout_Load_Right"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout_LoadLeft">
+
+                    <TextView
+                        android:id="@+id/textView_nomeprog_L2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/Prog_nameL_"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/button_load_L"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView_nomeprog_L_val"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text=".............."
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/textView_nomeprog_L2"
+                        app:layout_constraintTop_toTopOf="@+id/textView_nomeprog_L2" />
+
+                    <TextView
+                        android:id="@+id/textView_folder_L2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/FolderL_"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@+id/textView_nomeprog_L2"
+                        app:layout_constraintTop_toBottomOf="@+id/textView_nomeprog_L2" />
+
+                    <TextView
+                        android:id="@+id/textView_folder_L_val"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text=".............."
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/textView_folder_L2"
+                        app:layout_constraintTop_toTopOf="@+id/textView_folder_L2" />
+
+                    <Button
+                        android:id="@+id/button_tascaSX"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/ic_tasca_sx"
+
+                        android:onClick="onclickTascaSXButton"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/button_load_L"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/tasto_load_prog"
+
+                        android:onClick="On_click_Load_L"
+                        app:layout_constraintStart_toEndOf="@+id/button_tascaSX"
+                        app:layout_constraintTop_toTopOf="@+id/button_tascaSX" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout_spola"
+                    android:layout_width="match_parent"
+                    android:layout_height="423dp"
+                    android:background="@drawable/border1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout_Load_Right">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:background="@drawable/border2"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="end"
+                                    android:text="100"
+                                    android:textSize="12sp" />
+
+                                <SeekBar
+                                    android:id="@+id/seekBar_speed"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_weight="0.2" />
+
+                                <TextView
+                                    android:id="@+id/textView_max_speed_value"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:text="value"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.4"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/textView_testo_production"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical"
+                                        android:text="@string/Prod_"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/textView_val_production"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical"
+                                        android:text="val prod"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/textView_speed"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="end|center_vertical"
+                                        android:text="@string/Speed_"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textSize="25sp" />
+
+                                    <TextView
+                                        android:id="@+id/textView_speed_val"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginStart="5dp"
+                                        android:layout_weight="1"
+                                        android:gravity="start|center_vertical"
+                                        android:numeric="integer"
+                                        android:text="00000"
+                                        android:textSize="24sp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.4"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/textView_testo_Stitch"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:text="@string/Stitch_"
+                                            android:textSize="18sp" />
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:id="@+id/textView_punti_parziale"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1"
+                                                android:gravity="center"
+                                                android:text="P.Parz"
+                                                android:textSize="18sp" />
+
+                                            <TextView
+                                                android:id="@+id/textView10"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1.3"
+                                                android:gravity="center"
+                                                android:text=" / "
+                                                android:textSize="18sp" />
+
+                                            <TextView
+                                                android:id="@+id/textView_punti_tot"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1"
+                                                android:gravity="center"
+                                                android:text="P.tot"
+                                                android:textSize="18sp" />
+
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="287dp"
+                                android:layout_height="match_parent">
+
+                                <Button
+                                    android:id="@+id/button_step_piu"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginStart="4dp"
+                                    android:layout_marginBottom="2dp"
+                                    android:background="@drawable/tasto_step_piu"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent" />
+
+
+                                <Button
+                                    android:id="@+id/button_step_meno"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginStart="30dp"
+                                    android:background="@drawable/tasto_step_meno"
+                                    app:layout_constraintBottom_toBottomOf="@+id/button_step_piu"
+                                    app:layout_constraintStart_toEndOf="@+id/button_step_piu" />
+
+                                <Button
+                                    android:id="@+id/button_reset"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginStart="30dp"
+                                    android:background="@drawable/tasto_reset"
+                                    app:layout_constraintStart_toEndOf="@+id/button_step_meno"
+                                    app:layout_constraintTop_toTopOf="@+id/button_step_meno" />
+
+                                <Button
+                                    android:id="@+id/btn_All"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginBottom="6dp"
+                                    android:background="@drawable/tasto_zoom_all"
+                                    android:onClick="btn_Center_on_click"
+                                    app:layout_constraintBottom_toTopOf="@+id/button_step_piu"
+                                    app:layout_constraintStart_toStartOf="@+id/button_step_piu" />
+
+                                <Button
+                                    android:id="@+id/btn_zoomPiu"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginStart="30dp"
+                                    android:background="@drawable/tasto_zoom_piu"
+                                    android:onClick="btn_ZoomPiu_on_click"
+                                    app:layout_constraintBottom_toBottomOf="@+id/btn_All"
+                                    app:layout_constraintStart_toEndOf="@+id/btn_All" />
+
+                                <Button
+                                    android:id="@+id/btn_zoomMeno"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginStart="30dp"
+                                    android:background="@drawable/tasto_zoom_meno"
+                                    android:onClick="btn_ZoomMeno_on_click"
+                                    app:layout_constraintBottom_toBottomOf="@+id/btn_zoomPiu"
+                                    app:layout_constraintStart_toEndOf="@+id/btn_zoomPiu" />
+
+                                <Button
+                                    android:id="@+id/button_tens_piu"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginBottom="4dp"
+                                    android:background="@drawable/tasto_tensione_piu"
+                                    android:onClick="on_click_button_tens_piu"
+                                    app:layout_constraintBottom_toTopOf="@+id/btn_All"
+                                    app:layout_constraintStart_toStartOf="@+id/btn_zoomMeno" />
+
+                                <Button
+                                    android:id="@+id/button_tens_meno"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:background="@drawable/tasto_tensione_meno"
+                                    android:onClick="on_click_button_tens_meno"
+                                    app:layout_constraintBottom_toBottomOf="@+id/button_tens_piu"
+                                    app:layout_constraintStart_toStartOf="@+id/button_reset_spola" />
+
+                                <Button
+                                    android:id="@+id/button_reset_allarme"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginTop="4dp"
+                                    android:layout_marginEnd="12dp"
+                                    android:background="@drawable/tasto_reset"
+                                    android:onClick="onClick_ResetAllarme"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/textView_valore_tensione"
+                                    android:layout_width="32dp"
+                                    android:layout_height="26dp"
+                                    android:layout_marginStart="40dp"
+                                    android:gravity="center"
+                                    android:text="00000"
+                                    android:textColor="@android:color/holo_red_dark"
+                                    android:textSize="18sp"
+                                    app:layout_constraintBottom_toBottomOf="@+id/button_tens_piu"
+                                    app:layout_constraintStart_toEndOf="@+id/button_tens_meno"
+                                    app:layout_constraintTop_toTopOf="@+id/button_tens_piu" />
+
+                                <TextView
+                                    android:id="@+id/textView_percento"
+                                    android:layout_width="18dp"
+                                    android:layout_height="26dp"
+                                    android:layout_marginStart="8dp"
+                                    android:gravity="center"
+                                    android:text="%"
+                                    android:textColor="@android:color/holo_red_dark"
+                                    android:textSize="18sp"
+                                    app:layout_constraintStart_toEndOf="@+id/textView_valore_tensione"
+                                    app:layout_constraintTop_toTopOf="@+id/textView_valore_tensione" />
+
+                                <Button
+                                    android:id="@+id/button_reset_spola"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginBottom="6dp"
+                                    android:background="@drawable/ic_spola_reset_yellow"
+                                    app:layout_constraintBottom_toTopOf="@+id/button_tens_piu"
+                                    app:layout_constraintStart_toStartOf="@+id/btn_All" />
+
+                                <TextView
+                                    android:id="@+id/textView_Cnt_spola"
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="32dp"
+                                    android:gravity="center"
+                                    android:text="00000"
+                                    android:textSize="15sp"
+                                    app:layout_constraintStart_toEndOf="@+id/button_reset_spola"
+                                    app:layout_constraintTop_toTopOf="@+id/button_reset_spola" />
+
+                                <TextView
+                                    android:id="@+id/textSpola_limite"
+                                    android:layout_width="100dp"
+                                    android:layout_height="53dp"
+                                    android:gravity="center"
+                                    android:text="00000"
+                                    android:textColor="@android:color/holo_red_dark"
+                                    android:textSize="18sp"
+                                    app:layout_constraintEnd_toEndOf="@+id/textView_Cnt_spola"
+                                    app:layout_constraintStart_toStartOf="@+id/textView_Cnt_spola"
+                                    app:layout_constraintTop_toBottomOf="@+id/textView_Cnt_spola" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <FrameLayout
+                                android:id="@+id/frameLayout"
+                                android:layout_width="330dp"
+                                android:layout_height="300dp"
+
+                                android:background="@drawable/border1"
+                                android:translationY="2dp"
+                                tools:ignore="MissingConstraints">
+
+                                <ImageView
+                                    android:id="@+id/imageView_tasca"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" />
+
+                            </FrameLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayoutC2_LoadLeft"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="0dp">
+
+                    <Button
+                        android:id="@+id/button_tascaDX_C2"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/ic_tasca_dx"
+
+                        android:onClick="onclickTascaDXButton_C2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <Button
+                        android:id="@+id/button_load_R_C2"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/tasto_load_prog"
+
+                        android:onClick="On_click_Load_R_C2"
+                        app:layout_constraintStart_toEndOf="@+id/button_tascaDX_C2"
+                        app:layout_constraintTop_toTopOf="@+id/button_tascaDX_C2" />
+
+                    <TextView
+                        android:id="@+id/textView_nomeprog_R_C2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/Prog_name_"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/button_load_R_C2"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView_nomeprog_R_val_C2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text=".............."
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/textView_nomeprog_R_C2"
+                        app:layout_constraintTop_toTopOf="@+id/textView_nomeprog_R_C2" />
+
+                    <TextView
+                        android:id="@+id/textView_folder_R_C2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/Folder_"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@+id/textView_nomeprog_R_C2"
+                        app:layout_constraintTop_toBottomOf="@+id/textView_nomeprog_R_C2" />
+
+                    <TextView
+                        android:id="@+id/textView_folder_R_val_C2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text=".............."
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/textView_folder_R_C2"
+                        app:layout_constraintTop_toTopOf="@+id/textView_folder_R_C2" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout_Load_Right_C2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayoutC2_LoadLeft">
+
+                    <Button
+                        android:id="@+id/button_tascaSX_C2"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/ic_tasca_sx"
+                        android:onClick="onclickTascaSXButton_C2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <Button
+                        android:id="@+id/button_load_L_C2"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="4dp"
+                        android:background="@drawable/tasto_load_prog"
+
+                        android:onClick="On_click_Load_L_C2"
+                        app:layout_constraintStart_toEndOf="@+id/button_tascaSX_C2"
+                        app:layout_constraintTop_toTopOf="@+id/button_tascaSX_C2" />
+
+                    <TextView
+                        android:id="@+id/textView_nomeprog_L2_C2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/Prog_nameL_"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/button_load_L_C2"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView_nomeprog_L_val_C2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text=".............."
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/textView_nomeprog_L2_C2"
+                        app:layout_constraintTop_toTopOf="@+id/textView_nomeprog_L2_C2" />
+
+                    <TextView
+                        android:id="@+id/textView_folder_L2_C2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/FolderL_"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@+id/textView_nomeprog_L2_C2"
+                        app:layout_constraintTop_toBottomOf="@+id/textView_nomeprog_L2_C2" />
+
+                    <TextView
+                        android:id="@+id/textView_folder_L_val_C2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text=".............."
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/textView_folder_L2_C2"
+                        app:layout_constraintTop_toTopOf="@+id/textView_folder_L2_C2" />
+
+
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout_spola_C2"
+                    android:layout_width="match_parent"
+                    android:layout_height="423dp"
+                    android:background="@drawable/border1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout_Load_Right_C2">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:background="@drawable/border2"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="end"
+                                    android:text="100"
+                                    android:textSize="12sp" />
+
+                                <SeekBar
+                                    android:id="@+id/seekBar_speed_C2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_weight="0.2" />
+
+                                <TextView
+                                    android:id="@+id/textView_max_speed_value_C2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:text="value"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.4"
+                                    android:orientation="horizontal"/>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/textView_speed_C2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="end|center_vertical"
+                                        android:text="@string/Speed_"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textSize="25sp" />
+
+                                    <TextView
+                                        android:id="@+id/textView_speed_val_C2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginStart="5dp"
+                                        android:layout_weight="1"
+                                        android:gravity="start|center_vertical"
+                                        android:numeric="integer"
+                                        android:text="00000"
+                                        android:textSize="24sp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.4"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/textView_testo_Stitch_C2"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:text="@string/Stitch_"
+                                            android:textSize="18sp" />
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:id="@+id/textView_punti_parziale_C2"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1"
+                                                android:gravity="center"
+                                                android:text="P.Parz"
+                                                android:textSize="18sp" />
+
+                                            <TextView
+                                                android:id="@+id/textView10_C2"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1.3"
+                                                android:gravity="center"
+                                                android:text=" / "
+                                                android:textSize="18sp" />
+
+                                            <TextView
+                                                android:id="@+id/textView_punti_tot_C2"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1"
+                                                android:gravity="center"
+                                                android:text="P.tot"
+                                                android:textSize="18sp" />
+
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="287dp"
+                                android:layout_height="match_parent">
+
+                                <Button
+                                    android:id="@+id/button_step_piu_C2"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginStart="4dp"
+                                    android:layout_marginBottom="2dp"
+                                    android:background="@drawable/tasto_step_piu"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent" />
+
+
+                                <Button
+                                    android:id="@+id/button_step_meno_C2"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginStart="30dp"
+                                    android:background="@drawable/tasto_step_meno"
+                                    app:layout_constraintBottom_toBottomOf="@+id/button_step_piu_C2"
+                                    app:layout_constraintStart_toEndOf="@+id/button_step_piu_C2" />
+
+                                <Button
+                                    android:id="@+id/button_reset_C2"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginStart="30dp"
+                                    android:background="@drawable/tasto_reset"
+                                    app:layout_constraintStart_toEndOf="@+id/button_step_meno_C2"
+                                    app:layout_constraintTop_toTopOf="@+id/button_step_meno_C2" />
+
+                                <Button
+                                    android:id="@+id/btn_All_C2"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginBottom="6dp"
+                                    android:background="@drawable/tasto_zoom_all"
+                                    android:onClick="btn_Center_on_click_C2"
+                                    app:layout_constraintBottom_toTopOf="@+id/button_step_piu_C2"
+                                    app:layout_constraintStart_toStartOf="@+id/button_step_piu_C2" />
+
+                                <Button
+                                    android:id="@+id/btn_zoomPiu_C2"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginStart="30dp"
+                                    android:background="@drawable/tasto_zoom_piu"
+                                    android:onClick="btn_ZoomPiu_on_click_C2"
+                                    app:layout_constraintBottom_toBottomOf="@+id/btn_All_C2"
+                                    app:layout_constraintStart_toEndOf="@+id/btn_All_C2" />
+
+                                <Button
+                                    android:id="@+id/btn_zoomMeno_C2"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginStart="30dp"
+                                    android:background="@drawable/tasto_zoom_meno"
+                                    android:onClick="btn_ZoomMeno_on_click_C2"
+                                    app:layout_constraintBottom_toBottomOf="@+id/btn_zoomPiu_C2"
+                                    app:layout_constraintStart_toEndOf="@+id/btn_zoomPiu_C2" />
+
+                                <Button
+                                    android:id="@+id/button_tens_piu_C2"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginBottom="6dp"
+                                    android:background="@drawable/tasto_tensione_piu"
+                                    android:onClick="on_click_button_tens_piu_C2"
+                                    app:layout_constraintBottom_toTopOf="@+id/btn_All_C2"
+                                    app:layout_constraintEnd_toEndOf="@+id/btn_zoomMeno_C2" />
+
+
+                                <Button
+                                    android:id="@+id/button_tens_meno_C2"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:background="@drawable/tasto_tensione_meno"
+                                    android:onClick="on_click_button_tens_meno_C2"
+                                    app:layout_constraintBottom_toBottomOf="@+id/button_tens_piu_C2"
+                                    app:layout_constraintStart_toStartOf="@+id/button_reset_spola_C2" />
+
+                                <TextView
+                                    android:id="@+id/textView_valore_tensione_C2"
+                                    android:layout_width="32dp"
+                                    android:layout_height="26dp"
+                                    android:layout_marginStart="35dp"
+                                    android:gravity="center"
+                                    android:text="00000"
+                                    android:textColor="@android:color/holo_red_dark"
+                                    android:textSize="18sp"
+                                    app:layout_constraintBottom_toBottomOf="@+id/button_tens_piu_C2"
+                                    app:layout_constraintStart_toEndOf="@+id/button_reset_spola_C2"
+                                    app:layout_constraintTop_toTopOf="@+id/button_tens_piu_C2" />
+
+                                <TextView
+                                    android:id="@+id/textView_percento_C2"
+                                    android:layout_width="18dp"
+                                    android:layout_height="26dp"
+                                    android:layout_marginStart="8dp"
+                                    android:gravity="center"
+                                    android:text="%"
+                                    android:textColor="@android:color/holo_red_dark"
+                                    android:textSize="18sp"
+                                    app:layout_constraintStart_toEndOf="@+id/textView_valore_tensione_C2"
+                                    app:layout_constraintTop_toTopOf="@+id/textView_valore_tensione_C2" />
+
+                                <Button
+                                    android:id="@+id/button_reset_spola_C2"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginBottom="6dp"
+                                    android:background="@drawable/ic_spola_reset_yellow"
+                                    app:layout_constraintBottom_toTopOf="@+id/button_tens_piu_C2"
+                                    app:layout_constraintStart_toStartOf="@+id/btn_All_C2" />
+
+                                <TextView
+                                    android:id="@+id/textView_Cnt_spola_C2"
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="32dp"
+                                    android:gravity="center"
+                                    android:text="00000"
+                                    android:textSize="15sp"
+                                    app:layout_constraintStart_toEndOf="@+id/button_reset_spola_C2"
+                                    app:layout_constraintTop_toTopOf="@+id/button_reset_spola_C2" />
+
+                                <TextView
+                                    android:id="@+id/textSpola_limite_C2"
+                                    android:layout_width="100dp"
+                                    android:layout_height="53dp"
+                                    android:gravity="center"
+                                    android:text="00000"
+                                    android:textColor="@android:color/holo_red_dark"
+                                    android:textSize="18sp"
+                                    app:layout_constraintEnd_toEndOf="@+id/textView_Cnt_spola_C2"
+                                    app:layout_constraintStart_toStartOf="@+id/textView_Cnt_spola_C2"
+                                    app:layout_constraintTop_toBottomOf="@+id/textView_Cnt_spola_C2" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <FrameLayout
+                                android:id="@+id/frameLayout_C2"
+                                android:layout_width="330dp"
+                                android:layout_height="300dp"
+
+                                android:background="@drawable/border1"
+                                android:translationY="2dp"
+                                tools:ignore="MissingConstraints">
+
+                                <ImageView
+                                    android:id="@+id/imageView_tasca_C2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" />
+
+                            </FrameLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.42"
+            android:background="@drawable/border1">
+
+            <Button
+                android:id="@+id/btn_Folder"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/ic_folder"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_Cambio_pinza"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/ic_cambio_all1"
+                android:onClick="On_click_Pinze_All_C1"
+                app:layout_constraintStart_toStartOf="@+id/btn_Folder"
+                app:layout_constraintTop_toBottomOf="@+id/btn_Folder" />
+
+            <Button
+                android:id="@+id/btn_Cambio_pinza_C2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/ic_cambio_all2"
+                android:onClick="On_click_Pinze_All_C2"
+                app:layout_constraintStart_toEndOf="@+id/btn_Cambio_pinza"
+                app:layout_constraintTop_toTopOf="@+id/btn_Cambio_pinza" />
+
+            <Button
+                android:id="@+id/btn_Loader"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/ic_loader"
+                app:layout_constraintStart_toEndOf="@+id/button_stato_folder"
+                app:layout_constraintTop_toTopOf="@+id/btn_Folder" />
+
+            <Button
+                android:id="@+id/btn_sgancio_ago"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/ic_sblocca_ago_t1"
+                app:layout_constraintStart_toEndOf="@+id/btn_Trasl_test_status"
+                app:layout_constraintTop_toTopOf="@+id/button_test_piegatore" />
+
+
+            <Button
+                android:id="@+id/btn_sgancio_ago_T2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="60dp"
+                android:background="@drawable/ic_sblocca_ago_t2"
+                app:layout_constraintStart_toEndOf="@+id/btn_test_cuci"
+                app:layout_constraintTop_toTopOf="@+id/btn_sgancio_ago" />
+
+            <Button
+                android:id="@+id/button_stato_loader"
+                android:layout_width="25dp"
+                android:layout_height="70dp"
+                android:background="@drawable/stato_rosso"
+                app:layout_constraintStart_toEndOf="@+id/btn_Loader"
+                app:layout_constraintTop_toTopOf="@+id/btn_Loader" />
+
+            <Button
+                android:id="@+id/button_stato_folder"
+                android:layout_width="25dp"
+                android:layout_height="70dp"
+                android:background="@drawable/stato_rosso"
+                app:layout_constraintStart_toEndOf="@+id/btn_Folder"
+                app:layout_constraintTop_toTopOf="@+id/btn_Folder" />
+
+            <Button
+                android:id="@+id/button_stato_test_folder"
+                android:layout_width="25dp"
+                android:layout_height="70dp"
+                android:background="@drawable/stato_rosso"
+                app:layout_constraintStart_toEndOf="@+id/button_test_piegatore"
+                app:layout_constraintTop_toTopOf="@+id/button_test_piegatore" />
+
+
+            <Button
+                android:id="@+id/btn_Trasl_test"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/ic_loader2_test"
+                app:layout_constraintStart_toEndOf="@+id/button_stato_test_folder"
+                app:layout_constraintTop_toTopOf="@+id/button_stato_test_folder" />
+
+            <Button
+                android:id="@+id/btn_Trasl_test_status"
+                android:layout_width="25dp"
+                android:layout_height="70dp"
+                android:background="@drawable/stato_rosso"
+                app:layout_constraintStart_toEndOf="@+id/btn_Trasl_test"
+                app:layout_constraintTop_toTopOf="@+id/btn_Trasl_test" />
+
+            <Button
+                android:id="@+id/button_test_piegatore"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/ic_test_piegatore"
+                app:layout_constraintStart_toEndOf="@+id/button_stato_stacker"
+                app:layout_constraintTop_toTopOf="@+id/btn_stacker" />
+
+            <Button
+                android:id="@+id/btn_pagina_tools"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginEnd="
+                6dp"
+                android:background="@drawable/tasto_pagina_tools"
+                android:onClick="onclickPaginaTools"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <Button
+                android:id="@+id/btn_etichetta"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/ic_etichetta"
+                app:layout_constraintStart_toEndOf="@+id/btn_cambio_spigoli"
+                app:layout_constraintTop_toTopOf="@+id/btn_cambio_spigoli" />
+
+            <Button
+                android:id="@+id/button_stato_stacker"
+                android:layout_width="25dp"
+                android:layout_height="70dp"
+                android:background="@drawable/stato_rosso"
+                app:layout_constraintStart_toEndOf="@+id/btn_stacker"
+                app:layout_constraintTop_toTopOf="@+id/btn_stacker" />
+
+            <Button
+                android:id="@+id/btn_test_cuci"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/ic_test_cucitura"
+                app:layout_constraintStart_toEndOf="@+id/btn_sgancio_ago"
+                app:layout_constraintTop_toTopOf="@+id/btn_sgancio_ago" />
+
+
+            <Button
+                android:id="@+id/btn_test_cuci_C2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/ic_test_cucitura_c2"
+                app:layout_constraintStart_toEndOf="@+id/btn_sgancio_ago_T2"
+                app:layout_constraintTop_toTopOf="@+id/btn_sgancio_ago" />
+
+            <Button
+                android:id="@+id/btn_cambio_laterali"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/ic_cambio_laterale"
+                android:onClick="On_click_Cambio_laterali"
+                app:layout_constraintStart_toEndOf="@+id/btn_cambio_frontale"
+                app:layout_constraintTop_toTopOf="@+id/btn_cambio_frontale" />
+
+            <Button
+                android:id="@+id/btn_rinforzo"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/tasto_rinforzo"
+                app:layout_constraintStart_toEndOf="@+id/btn_Scarico_pinza"
+                app:layout_constraintTop_toTopOf="@+id/btn_Scarico_pinza" />
+
+            <Button
+                android:id="@+id/btn_4_0"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/tasto_4e0"
+                android:onClick="on_click_tcp4e0"
+                app:layout_constraintEnd_toStartOf="@+id/btn_pagina_tools"
+                app:layout_constraintTop_toTopOf="@+id/btn_rinforzo" />
+
+            <Button
+                android:id="@+id/btn_testa_1_2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/ic_due_teste"
+                app:layout_constraintStart_toStartOf="@+id/btn_sgancio_ago_T2"
+                app:layout_constraintTop_toTopOf="@+id/btn_etichetta" />
+
+            <Button
+                android:id="@+id/btn_start_cucitura_T2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/ic_start_cucitura_c2"
+                app:layout_constraintStart_toEndOf="@+id/btn_testa_1_2"
+                app:layout_constraintTop_toTopOf="@+id/btn_testa_1_2" />
+            <Button
+                android:id="@+id/btn_pedale_singolo"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/pedale_singolo"
+                app:layout_constraintStart_toEndOf="@+id/btn_test_cuci_C2"
+                app:layout_constraintTop_toTopOf="@+id/btn_test_cuci_C2" />
+            <Button
+                android:id="@+id/btn_pattina_on_off"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/ic_pattina_onoff"
+                app:layout_constraintStart_toEndOf="@+id/btn_start_cucitura_T2"
+                app:layout_constraintTop_toTopOf="@+id/btn_start_cucitura_T2" />
+            <Button
+                android:id="@+id/btn_pattina_test"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/ic_pattina_test"
+                app:layout_constraintStart_toEndOf="@+id/btn_pattina_on_off"
+                app:layout_constraintTop_toTopOf="@+id/btn_pattina_on_off" />
+
+            <Button
+                android:id="@+id/btn_cambio_spigoli"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/ic_cambio_spigoli"
+                android:onClick="On_click_Cambio_spigoli"
+                app:layout_constraintStart_toEndOf="@+id/btn_cambio_corpo"
+                app:layout_constraintTop_toTopOf="@+id/btn_cambio_corpo" />
+
+
+            <Button
+                android:id="@+id/btn_stacker"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/ic_stacker"
+                app:layout_constraintStart_toEndOf="@+id/button_stato_loader"
+                app:layout_constraintTop_toTopOf="@+id/btn_Loader" />
+
+            <Button
+                android:id="@+id/btn_Scarico_pinza"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/tasto_scaric_pinza"
+                app:layout_constraintStart_toEndOf="@+id/btn_etichetta"
+                app:layout_constraintTop_toTopOf="@+id/btn_etichetta" />
+
+            <Button
+                android:id="@+id/btn_cambio_corpo"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/ic_cambio_corpo"
+                android:onClick="On_click_Cambio_corpo"
+                app:layout_constraintStart_toEndOf="@+id/btn_cambio_laterali"
+                app:layout_constraintTop_toTopOf="@+id/btn_cambio_laterali" />
+
+            <Button
+                android:id="@+id/btn_cambio_frontale"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/ic_cambio_frontale"
+                android:onClick="On_click_Cambio_frontale"
+                app:layout_constraintStart_toEndOf="@+id/btn_Cambio_pinza_C2"
+                app:layout_constraintTop_toTopOf="@+id/btn_Cambio_pinza" />
+
+            <Button
+                android:id="@+id/button_debug"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:background="@drawable/debug"
+                android:onClick="on_click_debug"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/textView_riga_fork"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Riga Fork:"
+                android:textColor="@color/opaque_red"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/textView_programma_in_esecuzione"
+                app:layout_constraintTop_toTopOf="@+id/button_debug" />
+
+            <TextView
+                android:id="@+id/textView_programma_in_esecuzione"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
+                android:text="Programma in esecuzione:"
+                android:textColor="@color/opaque_red"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@+id/button_debug"
+                app:layout_constraintTop_toBottomOf="@+id/textView_riga_fork" />
+
+            <TextView
+                android:id="@+id/textView_cnt_thread"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cnt Thread:"
+                android:textColor="@color/opaque_red"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/textView_programma_in_esecuzione"
+                app:layout_constraintTop_toBottomOf="@+id/textView_programma_in_esecuzione" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.7"
+            android:background="@drawable/border2">
+
+            <TextView
+                android:id="@+id/textView_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="TextView_data"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView_errore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="TextView_allarm"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

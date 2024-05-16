@@ -1,0 +1,7 @@
+[StartInfoJAM]
+	#Version1.0.0
+	[StartTcp]
+		TcpEnable = false
+		TcpButton = false
+		TcpNomeCommessa = null
+	[EndTcp]

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0"
+        android:background="@drawable/border1"
+        android:orientation="horizontal">
+
+        <ImageButton
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:onClick="On_click_btn_reset"
+
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_delete_files" />
+
+        <ImageButton
+
+            android:id="@+id/btn_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:onClick="On_click_btn_change_password"
+
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_password" />
+
+
+        <ImageButton
+            android:id="@+id/btn_TCP"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:onClick="On_click_btn_socketTcp"
+            android:src="@drawable/ic_tcp_off" />
+
+        <ImageButton
+
+
+            android:id="@+id/imageButton_exit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:onClick="onClick_Button_exit"
+
+            android:scaleType="centerInside"
+            android:src="@drawable/tasto_exit" />
+    </LinearLayout>
+</RelativeLayout>

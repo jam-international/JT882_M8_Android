@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">JT882_M8</string>
+    <string name="Arco3P_p2">Muoviti con le frecce al secondo punto dell arco e poi premi Enter</string>
+    <string name="Arco3P_p3">Muoviti con le frecce al punto finale dell arco e poi premi Enter</string>
+    <string name="DigitaLP">Inserisci la lunghezza punto</string>
+    <string name="Errore">Errore</string>
+    <string name="Fatto">Fatto</string>
+    <string name="StringMove1">Premi + - fino all ultimo punto da muovere, poi premi Enter</string>
+    <string name="StringMove2">Spostati con le frecce e poi premi Enter</string>
+    <string name="StringMove3">Avanza alla prossima entità o spostati con le frecce e poi premi Enter</string>
+    <string name="StringMove4">Avanza al prossimo punto o spostati con le frecce e poi premi Enter</string>
+    <string name="StretchStep">Premi - fino al punto di stretch e poi premi Enter</string>
+    <string name="StretchPointFrecce">Muoviti con le frecce al punto finale di stretch e poi premi Enter</string>
+    <string name="ZigZag">Muoviti con le frecce al punto finale della travetta e poi premi Enter</string>
+    <string name="ZigZag1">Digita altezza della travetta</string>
+    <string name="ZigZag2">Digita il passo della travetta</string>
+    <string name="MiddlePointStep">Premi + - fino ad un punto medio dell arco e premi Enter</string>
+    <string name="Feed">Muoviti con le frecce al punto finale del feed e poi premi Enter</string>
+    <string name="EndPointStep">Premi + - fino al punto di fine arco e poi premi Enter</string>
+    <string name="StringRaddrizzaLinea1">Premi + - fino all ultimo punto da allineare, poi premi Enter</string>
+    <string name="StringCancella">Premi tasti + - fino ultimo punto da cancellare poi premi Enter</string>
+    <string name="EndStretchStep">Premi + fino al punto finale di stretch e poi premi Enter</string>
+    <string name="DigitaNuovaLP">Inserisci la nuova lunghezza punto</string>
+    <string name="Code_error">Questi codici sono stati rimossi</string>
+    <string name="freccia_sx_all"><![CDATA[<-]]> All</string>
+    <string name="freccia_dx_all">All <![CDATA[->]]></string>
+    <string name="freccia_sx"><![CDATA[<-]]></string>
+    <string name="freccia_dx"><![CDATA[->]]></string>
+    <string name="Stato_azzeramento">Stato_azzeramento</string>
+    <string name="togliere_ago">Attenzione, l\'ago ruoterà per alcuni giri, togliere l\'ago.</string>
+    <string name="Ready">Pronto</string>
+    <string name="Done">Eseguito correttamente</string>
+    <string name="SelezionaSize">Selezionare Size16 o 32</string>
+    <string name="InserireValore">Inserire un valore</string>
+    <string name="Press_emergency">Premi Emergenza per uscire </string>
+    <string name="Save">Salva</string>
+    <string name="Prog_esecuzione">CN:</string>
+    <string name="Riga_esecuzione">Line: </string>
+    <string name="cnt_thread">Numero Thread:</string>
+    <string name="MachineMemory">Memoria della macchina</string>
+    <string name="FileName_">Nome File:</string>
+    <string name="Cancel">Cancella</string>
+    <string name="Folder">Cartella</string>
+    <string name="Azz_taccaZ">Azzeramento Tacca Z</string>
+    <string name="Prod_">Prod:</string>
+    <string name="Stitch_">Punti:</string>
+    <string name="Speed_">Velocità:</string>
+    <string name="Prog_name_">Nome_prog:</string>
+    <string name="Folder_">Cartella:</string>
+    <string name="Prog_nameL_">Nome_prog Sx:</string>
+    <string name="FolderL_">Cartella Sx:</string>
+    <string name="DeleteFile">Cancella File</string>
+
+    <string name="Skip">Salta</string>
+    <string name="Fermature">Fermature</string>
+    <string name="Repeat">Ripeti</string>
+    <string name="PointsNumber">Numero punti</string>
+    <string name="Head1">Testa 1</string>
+    <string name="Head2">Testa 2</string>
+    <string name="DrawThePocket">Draw The Pocket</string>
+    <string name="Next">Avanti</string>
+    <string name="Back">Indietro</string>
+    <string name="Exit">Esci</string>
+    <string name="MuoviP1">Move to P1 and press Enter</string>
+    <string name="MuoviP2">Move to P2 and press Enter</string>
+    <string name="MuoviP3">Move to P3 and press Enter</string>
+    <string name="MuoviP4">Move to P4 and press Enter</string>
+    <string name="MuoviP5">Move to P5 and press Enter</string>
+    <string name="MuoviP6">Move to P6 and press Enter</string>
+    <string name="MuoviP7">Move to P7 and press Enter</string>
+    <string name="MuoviP8">Move to P8 and press Enter</string>
+    <string name="MuoviP9">Move to P9 and press Enter</string>
+    <string name="MuoviP10">Move to P10 and press Enter</string>
+    <string name="MuoviP11">Move to P11 and press Enter</string>
+    <string name="MuoviP12">Move to P12 and press Enter</string>
+    <string name="MuoviP13">Move to P13 and press Enter</string>
+    <string name="UsbXmlUnmounted">Usb storage not mounted</string>
+    <string name="DoneNext">Fatto, Save and go to the next step</string>
+    <string name="ConfirmEditPoint">Move to the new point and press the button Edit Point</string>
+    <string name="UsbXmlWait">Aspetta...</string>
+    <string name="ClearLog">Clear Log</string>
+    <string name="Production">Produzione</string>
+    <string name="SkipStitch">Punit saltati</string>
+    <string name="ConfermaSalva">Sono stati cambiati dei dati, vuoi salvarli?</string>
+    <string name="SpostoCarZero">Vuoi spostare il caricatore al punto 0?</string>
+    <string name="ErroreUSB_FAT32">non è possibile utilizzare questa penna USB, controllare che sia formattata in FAT32.</string>
+    <string name="PremiTastoVerde">Premere il pulsante verde per attivare la macchina</string>
+    <string name="PremiStartAzz">Premere i pulsanti di start per azzeramento</string>
+    <string name="PremiEmergenza">Premere il pulsante emergenza</string>
+    <string name="MancaAria">Aria insufficiente</string>
+    <string name="MancaSensPiegDietro">Il sensore piegatore dietro è spento</string>
+    <string name="MancaSensLanciaDietro">Il sensore dietro della lancia è spento</string>
+    <string name="SensEsternaAltaAcceso">Il sensore della pinza esterna è acceso</string>
+    <string name="DriverXAllarme">Il driver asse X è in allarme</string>
+    <string name="DriverYAllarme">Il driver asse Y è in allarme</string>
+    <string name="MancaSensCaricAlto">Il sensore della pinza carico alta è spento</string>
+    <string name="ToccaTouch">Premere il touch al centro dei cerchi rossi</string>
+    <string name="ErroreCicloAuto">0) Ciclo Automatico interrotto, preme + per maggiori dettagli</string>
+    <string name="WarningMoceMotor">Attenzione i motori verranno riportati nelle posizioni originali, procedere?</string>
+    <string name="Commessa">Commessa</string>
+    <string name="NumeroDima">N.Dima</string>
+    <string name="ProgDxT1">Prog. destro</string>
+    <string name="ProgSxT1">Prog. sinistro</string>
+    <string name="QuantitàCommessa">Quantità</string>
+    <string name="Evaso">Evaso</string>
+
+
+    <string-array name="Descrizione_parametri_Udf_Cucitura_T1">
+        <item> </item>
+        <item>Velocità massima cucitura [rpm]</item>“ “<!-- 1 -->
+        <item>Numero punti lenti iniziali </item>“ “<!-- 2 -->
+        <item>Velocità punti lenti inizio [rpm]</item>“ “<!-- 3 -->
+        <item>Numero punti lenti fine</item>“ “<!-- 4 -->
+        <item>Velocità punti lenti fine [rpm]</item>“ “<!-- 5 -->
+        <item>Velocità movimenti XY feed [%]</item>“ “<!-- 6 -->
+        <item>Valore tensione [%]</item>“ “<!-- 7 -->
+        <item>Potenza magnete piegatore [%]</item>“ “<!-- 8 -->
+        <item>Potenza magnete sotto lamiera [%]</item>“ “<!-- 9 -->
+        <item>Velocità caricatore [%]</item>“ “<!-- 10 -->
+
+    </string-array>
+    <string-array name="Descrizione_parametri_Udf_Cucitura_T2">
+        <item> </item>
+        <item>Velocità massima cucitura [rpm]</item>“ “<!-- 1 -->
+        <item>Numero punti lenti iniziali </item>“ “<!-- 2 -->
+        <item>Velocità punti lenti inizio [rpm]</item>“ “<!-- 3 -->
+        <item>Numero punti lenti fine</item>“ “<!-- 4 -->
+        <item>Velocità punti lenti fine [rpm]</item>“ “<!-- 5 -->
+        <item>Velocità movimenti XY feed [%]</item>“ “<!-- 6 -->
+        <item>Valore tensione [%]</item>“ “<!-- 7 -->
+
+    </string-array>
+
+
+    <string-array name="Descrizione_parametri_C1_Param">
+        <item> </item>
+        <item>Abilita Rottura Filo</item>“ “<!-- 1 -->
+        <item>Abilita controllo spola</item>“ “<!-- 2 -->
+        <item>Ago alto [gradi]</item>“ “<!-- 3 -->
+        <item>Start camma apritensione [gradi]</item>“ “<!-- 4 -->
+        <item>Stop camma apritensione [gradi]</item>“ “<!-- 5 -->
+        <item>Start camma coltello [gradi]</item>“ “<!-- 6 -->
+        <item>Stop camma coltello [gradi]</item>“ “<!-- 7 -->
+        <item>Tempo salita piedino [s]</item>“ “<!-- 8 -->
+        <item>Tempo discesa piedino [s]</item>“ “<!-- 9 -->
+        <item>Vel. lavoro ago [RPM]</item>“ “<!-- 10 -->
+        <item>Start camma pinzafilo primo giro [gradi]</item>“ “<!-- 11 -->
+        <item>Stop camma pinzafilo primo giro [gradi]</item>“ “<!-- 12 -->
+        <item>Start camma pinzafilo ultimo giro [gradi]</item>“ “<!-- 13 -->
+        <item>Stop camma pinzafilo ultimo giro [gradi]</item>“ “<!-- 14 -->
+        <item>Reset contapezzi</item>“ “<!-- 15 -->
+        <item>Contapezzi vita</item>“ “<!-- 16 -->
+        <item>Contapezzi vita x 100.000</item>“ “<!-- 17 -->
+        <item>Abilita tasca Dx Sx</item>“ “<!-- 18 -->
+        <item>    </item>“ “<!-- 19  Velocità XY durante Reset da HMI -->
+        <item>Velocità motore caricatore con pinza alte [%]</item>“ “<!--20 -->
+        <item>Abilita Raffreddamento ago</item>“ “<!-- 21 -->
+        <item>Abilita kit lentezza tasca</item>“ “<!-- 22 -->
+        <item>Anticipo trasporto cucitura[gradi]</item>“ “<!-- 23 -->
+        <item>Tipo Pinza</item>“ “<!-- 24 -->
+        <item>Tasca Cargo</item>“ “<!-- 25 -->
+        <item>Quota Y durante reset</item>“ “<!-- 26 -->
+        <item>Ritardo aspirazione con kit lentezza</item>“ “<!-- 27 -->
+        <item>Abilita kit rinforzo</item>“ “<!-- 28 -->
+    </string-array>
+
+    <string-array name="Descrizione_parametri_C2_Param">
+        <item> </item>
+        <item>Abilita Rottura Filo</item>“ “<!-- 1 -->
+        <item>Abilita controllo spola</item>“ “<!-- 2 -->
+        <item>Ago alto [gradi]</item>“ “<!-- 3 -->
+        <item>Start camma apritensione [gradi]</item>“ “<!-- 4 -->
+        <item>Stop  camma apritensione [gradi]</item>“ “<!-- 5 -->
+        <item>Start camma coltello [gradi]</item>“ “<!-- 6 -->
+        <item>Stop  camma coltello [gradi]</item>“ “<!-- 7 -->
+        <item>Tempo salita piedino [s]</item>“ “<!-- 8 -->
+        <item>Tempo discesa piedino [s]</item>“ “<!-- 9 -->
+        <item>Vel. lavoro ago [RPM]</item>“ “<!-- 10 -->
+        <item>Start camma pinzafilo primo giro [gradi]</item>“ “<!-- 11 -->
+        <item>Stop camma pinzafilo primo giro [gradi]</item>“ “<!-- 12 -->
+        <item>Start camma pinzafilo ultimo giro [gradi]</item>“ “<!-- 13 -->
+        <item>Stop camma pinzafilo ultimo giro [gradi]</item>“ “<!-- 14 -->
+        <item>Anticipo trasporto cucitura [gradi]</item>“ “<!-- 15 -->
+        <item>Caricatore Pattina</item>“ “<!-- 16 -->
+        <item>Quota Y durante reset</item>“ “<!-- 17 -->
+
+    </string-array>
+    <string-array name="Descrizione_parametri_Scaricatore">
+        <item> </item>
+        <item>N.Punti partenza scaricatore (contando dalla fine)</item>“ “<!-- 1 -->
+        <item>Ritardo partenza Barra1 da pinze alte [s]</item>“ “<!-- 2 -->
+        <item>Tempo tra Barra1 ON e Barra2 ON [s]</item>“ “<!-- 3 -->
+        <item>Tempo tra Barra2 ON e Scaricatore a DX [s]</item>“ “<!-- 4 -->
+        <item>Tempo tra Scaricatore a dx e Barra1-2 OFF [s]</item>“ “<!-- 5 -->
+        <item>Start scaricatore su rasafilo</item>“ “<!-- 6 -->
+        <item>Distanza movimento pinza per pezzi corti</item>“ “<!-- 7 -->
+        <item>Ritardo avanzata Traslatore dopo scaricatore [s]</item>“ “<!-- 8 -->
+        <item>Ritardo Barra1 con partenza su rasafilo [s]</item>“ “<!-- 9 -->
+        <item>Ritardo Barra2 OFF e Barra1 OFF[s]</item>“ “<!-- 10 -->
+    </string-array>
+
+    <string-array name="Descrizione_parametri_Traslatore">
+        <item> </item>
+        <item>modo XL</item>“ “<!-- 1 -->
+        <item>Posizione attesa scarico pinze2 XL [mm]</item>“ “<!-- 2 -->
+        <item>Velocità motore movimenti pinza alta [%]</item>“ “<!-- 3 -->
+        <item>Velocità motore movimenti pinza bassa [%]</item>“ “<!-- 4 -->
+        <item>Tempo discesa pinza traslatore [s]</item>“ “<!-- 5 -->
+        <item>Posizione attesa carico [mm]</item>“ “<!-- 6 -->
+        <item>Posizione attesa Scarico [mm]</item>“ “<!-- 7 -->
+    </string-array>
+
+    <string-array name="Descrizione_parametri_Piegatore">
+        <item> </item>
+
+    </string-array>
+
+    <string-array name="allarmi">
+        <item> </item>
+        <item>overlapping codici rotazione</item>                  <!-- 1 -->
+
+    </string-array>
+
+    <string-array name="allarmi_vn2">
+        <item> </item>
+        <item>Cambiare spola</item>                         <!-- 1 -->
+        <item>Rottura filo</item>                           <!-- 2 -->
+        <item>Errore primo punto udf</item>                 <!-- 3 -->
+        <item>Errore creazione tabella</item>                 <!-- 4 -->
+        <item>Errore azzeramento asse3</item>                 <!-- 5-->
+        <item>Errore azzeramento asse4</item>                 <!-- 6-->
+        <item>Errore azzeramento asse1</item>                 <!-- 7-->
+        <item>Errore azzeramento asse5</item>                 <!-- 8-->
+        <item>Errore azzeramento asse6</item>                 <!-- 9-->
+        <item>Errore azzeramento asse2</item>                 <!-- 10-->
+        <item>Punto corrente >= punti totali cucitura</item>    <!-- 11-->
+        <item>Centratura pinza con ago</item>               <!-- 12-->
+        <item>vn2=13</item>                                 <!-- 13-->
+        <item>Allarme Driver Asse X</item>                  <!-- 14-->
+        <item>Allarme Driver Asse Y</item>                  <!-- 15-->
+        <item>CN in allarme</item>                          <!-- 16-->
+        <item>Manca sensore pinza carico alta</item>        <!-- 17-->
+        <item>Manca sensore piegatore dietro</item>         <!-- 18-->
+        <item>Manca sensore lancia dietro</item>            <!-- 19-->
+        <item>Pinza interna bassa</item>                    <!-- 20-->
+        <item>Pinza esterna bassa</item>                    <!-- 21-->
+        <item>Cambio pinza attivo</item>                    <!-- 22-->
+        <item>Timeout sensore pinza esterna</item>          <!-- 23-->
+        <item>Timeout sensore pinza esterna</item>          <!-- 24-->
+        <item>Timeout sensore pinza interna</item>          <!-- 25-->
+        <item>Timeout sensore pinza interna</item>          <!-- 26-->
+        <item>Timeout sensore pinza carico alta</item>          <!-- 27-->
+        <item>Timeout sensore piegatore avanti</item>          <!-- 28-->
+        <item>Timeout sensore piegatore dietro</item>          <!-- 29-->
+        <item>Timeout sensore lancia dietro</item>          <!-- 30-->
+        <item>Timeout sensore piegatore basso</item>          <!-- 31-->
+        <item>Timeout sensore piegatore alto</item>          <!-- 32-->
+        <item>Timeout sensore pinza interna ON</item>          <!-- 33-->
+        <item>Timeout sensore pinza interna OFF</item>          <!-- 34-->
+        <item>Timeout sensore pinza traslatore ON</item>          <!-- 35-->
+        <item>Timeout sensore pinza traslatore OFF</item>          <!-- 36-->
+        <item>Cambiare spola 2</item>                         <!-- 37 -->
+        <item>Rottura filo 2</item>                           <!-- 38 -->
+        <item>Sollevare la pinza cucitura della testa 2</item>      <!-- 39 -->
+        <item>Finite Pattine</item>      <!-- 40 -->
+        <item>Timeout zero caricatore pattine</item>      <!-- 41 -->
+
+
+    </string-array>
+    <string-array name="warning_vn4">
+        <item> </item>
+        <item>Allarme driver X</item>                       <!-- 1 -->
+        <item>Allarme Driver Y</item>                       <!-- 2 -->
+        <item>Allarme scheda magneti</item>                 <!-- 3 -->
+        <item>Timeout zero caricatore pattine</item>      <!-- 4 -->
+
+    </string-array>
+
+
+
+    <string-array name="output_magneti_JT882M">
+        <item> </item>
+        <item>C1 Tensione filo </item>               <!-- 1 -->
+        <item>C2 Tensione filo</item>                <!-- 2 -->
+        <item>Magnete piegatore</item>               <!-- 3 -->
+        <item>Magnete per lancia</item>              <!-- 4 -->
+    </string-array>
+
+
+
+
+    <string-array name="output_JT882M">
+        <item> </item>
+        <item>o1 Piegatore 1</item>              <!-- 1 -->
+        <item>o2 Piegatore 2</item>                            <!-- 2 -->
+        <item>o3 Piegatore 3</item>        <!-- 3 -->
+        <item>o4 Piegatore 4</item>        <!-- 4 -->
+        <item>o5 Cambio corpo</item>           <!-- 5 -->
+        <item>o6 Cambio lamelle frontale</item>         <!-- 6 -->
+        <item>o7 Cambio lamelle laterale</item>                <!-- 7 -->
+        <item>o8 Cambio Lamelle 4-5</item>    <!-- 8 -->
+        <item>o9 Lancia Avanti Dietro</item>                    <!-- 9 -->
+        <item>o10 Piegatore Avanti Dietro</item>       <!-- 10 -->
+        <item>o11 Piegatore Su Giu</item> <!-- 11 -->
+        <item>o12 Bilanciere Su Giu</item>         <!-- 12 -->
+        <item>o13 </item>             <!-- 13 -->
+        <item>o14 C1 Rasafilo</item>            <!-- 14 -->
+        <item>o15 Ev Aspiratore</item>                 <!-- 15 -->
+        <item>o16 </item>    <!-- 16 -->
+        <item>o17 C1 Piedino su giu</item>           <!-- 17 -->
+        <item>o18 C1 Pinza Interna Su Giu</item>                           <!-- 18 -->
+        <item>o19 C1 Pinza Esterna Su Giu</item>          <!-- 19 -->
+        <item>o20 C1 Retrattile Aperta Chiusa</item>                <!-- 20 -->
+        <item>o21 C1 Raffreddamento Ago</item>                <!-- 21 -->
+        <item>o22 </item>                <!-- 22 -->
+        <item>o23 Kit lentezza Avanti Dietro</item>                <!-- 23 -->
+        <item>o24 Pinza Carico Su Giu</item>   <!-- 24 -->
+        <item>o25 Cambio Pinza</item>    <!-- 25 -->
+        <item>o26 C1 Scalino Piedino</item>               <!-- 26 -->
+        <item>o27 C1 Retrattile Su Giu</item>              <!-- 27 -->
+        <item>o28 </item>             <!-- 28 -->
+        <item>o29 </item>                           <!-- 29 -->
+        <item>o30 </item>                           <!-- 30 -->
+        <item>o31 C1 BloccaFilo</item>                           <!-- 31 -->
+        <item>o32 C1 Enable assi XY</item>         <!-- 32 -->
+        <item>o33 Valvolone aria</item>                           <!-- 33 -->
+        <item>o34 </item>                            <!-- 34 -->
+        <item>o35 </item>    <!-- 35 -->
+        <item>o36 </item>                           <!-- 36 -->
+        <item>o37 </item>                           <!-- 37 -->
+        <item>o38 </item>                           <!-- 38 -->
+        <item>o39 </item>            <!-- 39 -->
+        <item>o40 </item>                           <!-- 40 -->
+        <item>o41 </item>                <!-- 41 -->
+        <item>o42 </item>                           <!-- 42 -->
+        <item>o43 </item>      <!-- 43 -->
+        <item>o44</item>                            <!-- 44 -->
+        <item>o45 </item>          <!-- 45 -->
+        <item>o46 C2 Rasafilo</item>                            <!-- 46 -->
+        <item>o47</item>                            <!-- 47 -->
+        <item>o48 C2 Enable assi XY </item>                <!-- 48 -->
+        <item>o49 C2 Piedino su giu</item>              <!-- 49 -->
+        <item>o50 C2 Pinza Interna Su Giu</item>                            <!-- 50 -->
+        <item>o51</item>                            <!-- 51 -->
+        <item>o52</item>                            <!-- 52 -->
+        <item>o53 C2 Raffreddamento ago</item>         <!-- 53 -->
+        <item>o54 Scaricatore dx sx</item>              <!-- 54 -->
+        <item>o55</item>                            <!-- 55 -->
+        <item>o56 Pinza traslatore Su Giu</item>                           <!-- 56 -->
+        <item>o57 C2 Cambio Pinza</item>                            <!-- 57 -->
+        <item>o58 C2 Scalino Piedino</item>                            <!-- 58 -->
+        <item>o59 C2 Retrattile Aperta Chiusa</item>                            <!-- 59 -->
+        <item>o60 Prima barra</item>                            <!-- 60 -->
+        <item>o61 Seconda barra</item>                            <!-- 61 -->
+        <item>o62 </item>    <!-- 62 -->
+        <item>o63 C2 BloccaFilo </item>                           <!-- 63 -->
+        <item>o64 </item>         <!-- 64 -->
+        <item>o65 </item>         <!-- 65-->
+        <item>o66 </item>         <!-- 66 -->
+        <item>o67 </item>         <!-- 67 -->
+    </string-array>
+
+
+    <string-array name="input_JT882M">
+        <item> </item>
+        <item>i1 Pulsanti Start</item>                  <!-- 1 -->
+        <item>i2 C1 Pedana Dx</item>                    <!-- 2 -->
+        <item>i3 C1 Pedana Sx</item>                    <!-- 3 -->
+        <item>i4 C1 Sens. Zero Crochet</item>                     <!-- 4 -->
+        <item>i5 C1 Sens. Carico Alta</item>                       <!-- 5 -->
+        <item>i6 Sens. Zero Asse Caricatore</item>           <!-- 6 -->
+        <item>i7 Sens. Piegatore Avanti</item>            <!-- 7 -->
+        <item>i8 Sens. Piegatore Dietro</item>          <!-- 8 -->
+        <item>i9 Sens. Piegatore Basso</item>            <!-- 9 -->
+        <item>i10 Sens. Piegatore Alto</item>                                <!-- 10 -->
+        <item>i11 Sens. Lancia Dietro</item>              <!-- 11 -->
+        <item>i12 Sens. Bilanciere Alto</item>           <!-- 12 -->
+        <item>i13 Sens. Bilanciere Basso</item>   <!-- 13 -->
+        <item>i14 Opt. RInforzo1</item>    <!-- 14 -->
+        <item>i15 Opt. Rinforzo2</item>          <!-- 15 -->
+        <item>i16 </item>         <!-- 16 -->
+        <item>i17 </item>         <!-- 17 -->
+        <item>i18 C1 Sens. Rottura filo</item>     <!-- 18 -->
+        <item>i19 C1 Sens. Zero Asse X</item>          <!-- 19 -->
+        <item>i20 C1 Sens. Zero Asse Y</item>            <!-- 20 -->
+        <item>i21 Emergenza</item>       <!-- 21 -->
+        <item>i22 C1 Sens. Zero Ago</item>      <!-- 22 -->
+        <item>i23 C1 Sens. Pinza Interna Bassa</item>                 <!-- 23 -->
+        <item>i24 C1 Sens. Pinza Esterna Alta</item>                                <!-- 24 -->
+        <item>i25 C1 Pulsante Reset Piegatore</item>                 <!-- 25 -->
+        <item>i26 C1 Pulsante Stop Cucitura</item>             <!-- 26 -->
+        <item>i27 C2 Pulsante Stop Cucitura</item>                                <!-- 27 -->
+        <item>i28</item>                                <!-- 28 -->
+        <item>i29</item>                                <!-- 29 -->
+        <item>i30 </item>             <!-- 30 -->
+        <item>i31 C1 Driver X Status</item>                                <!-- 31 -->
+        <item>i32 C1 Driver Y Status</item>                                <!-- 32 -->
+        <item>i33 C2 Pedana Dx</item>                                <!-- 33 -->
+        <item>i34 </item>                   <!-- 34 -->
+        <item>i35 Pressostato</item>                                <!-- 35 -->
+        <item>i36 </item>                               <!-- 36 -->
+        <item>i37 C2 Sens. Zero Crochet</item>                                <!-- 37 -->
+        <item>i38 Sens. Pinza Traslatore Alta  </item>         <!-- 38 -->
+        <item>i39 C2 Sens. Zero Asse Caricatore</item>           <!-- 39 -->
+        <item>i40 </item>         <!-- 40 -->
+        <item>i41 </item>           <!-- 41 -->
+        <item>i42</item>                                <!-- 42 -->
+        <item>i43 </item>              <!-- 43 -->
+        <item>i44 </item>                               <!-- 44 -->
+        <item>i45 </item>   <!-- 45 -->
+        <item>i46</item>                                <!-- 46 -->
+        <item>i47 C2 Driver X Status</item>          <!-- 47 -->
+        <item>i48 C2 Driver Y Status</item>                                <!-- 48 -->
+        <item>i49 </item>    <!-- 49 -->
+        <item>i50 C2 Sens. Rottura filo</item>  <!-- 50 -->
+        <item>i51 C2 Sens. Zero Asse X</item>                               <!-- 51 -->
+        <item>i52 C2 Sens. Zero Asse Y</item>                               <!-- 52 -->
+        <item>i53 C2 Sens. Dietro Asse Y</item>                                <!-- 53 -->
+        <item>i54 C2 Sens. Zero Ago</item>      <!-- 54 -->
+        <item>i55 C2 Sens. Pinza Interna Bassa</item>                               <!-- 55 -->
+        <item>i56</item>                                <!-- 56 -->
+        <item>i57</item>                                <!-- 57 -->
+        <item>i58 C2 Pulsante Stop Cucitura</item>             <!-- 58 -->
+        <item>i59</item>                                <!-- 59 -->
+        <item>i60</item>                                <!-- 60 -->
+        <item>i61</item>                                <!-- 61 -->
+        <item>i62 </item>             <!-- 62 -->
+        <item>i63</item>                                <!-- 63 -->
+        <item>i64</item>                                <!-- 64 -->
+    </string-array>
+
+
+    <string-array name="AllarmiCN_Descrizione_JAM">
+        <item>  </item>  <!-- 0 //emergenza all'accensione -->
+        <item>1) Premere pulsante verde o Emergenza premuta (FUN90 2)</item>  <!-- 1 -->
+        <item>2) Manca aria (FUN90 3)</item>  <!-- 2 -->
+        <item>3) Allarme driver X (FUN90 4)</item>  <!-- 3 -->
+        <item>4) Allarme driver Y (FUN90 5)</item>  <!-- 4 -->
+        <item>5) Allarme scheda solenoidi (FUN90 6)</item>  <!-- 5 -->
+        <item>6) Allarme FUN90 7</item>  <!-- 6 -->
+
+        <item>7) Errore di inseguimento asse Asse AGO1</item>  <!-- 7 -->
+        <item>8) Errore di inseguimento asse Crochet1</item>  <!-- 8 -->
+        <item>9) Errore di inseguimento asse Caricatore1</item>  <!-- 9 -->
+        <item>10) Errore di inseguimento asse AGO2</item>  <!-- 10 -->
+        <item>11) Errore di inseguimento asse Crochet2</item>  <!-- 11 -->
+        <item>12) Errore di inseguimento asse Caricatore2</item>  <!-- 12 -->
+
+        <item>13) Errore azzeramento asse X1</item>  <!-- 13 -->
+        <item>14) Errore azzeramento asse Y1</item>  <!-- 14 -->
+        <item>15) Errore azzeramento asse Ago1</item>  <!-- 15 -->
+        <item>16) Errore azzeramento asse Crochet1</item>  <!-- 16 -->
+        <item>17) Errore azzeramento asse Caricatore1</item>  <!-- 17 -->
+        <item>18) Errore azzeramento asse X2</item>  <!-- 18 -->
+        <item>19) Errore azzeramento asse Y2</item>  <!-- 19 -->
+        <item>20) Errore azzeramento asse Ago2</item>  <!-- 20 -->
+        <item>21) Errore azzeramento asse Crochet2</item>  <!-- 21 -->
+        <item>22) Errore azzeramento asse Caricatore2</item>  <!-- 22 -->
+
+        <item>23) Attesa rilascio micro di zero asse X1</item>  <!-- 23 -->
+        <item>24) Attesa rilascio micro di zero asse Y1</item>  <!-- 24 -->
+        <item>25) Attesa rilascio micro di zero asse Ago1</item>  <!-- 25 -->
+        <item>26) Attesa rilascio micro di zero asse Crochet1</item>  <!-- 26 -->
+        <item>27) Attesa rilascio micro di zero asse Caricatore1</item>  <!-- 27 -->
+        <item>28) Attesa rilascio micro di zero asse X2</item>  <!-- 28 -->
+        <item>29) Attesa rilascio micro di zero asse Y2</item>  <!-- 29 -->
+        <item>30) Attesa rilascio micro di zero Ago2</item>  <!-- 30 -->
+        <item>31) Attesa rilascio micro di zero Crochet2</item>  <!-- 31 -->
+        <item>32) Attesa rilascio micro di zero asse Caricatore2</item>  <!--32 -->
+        <item>33) Ago T1 timeout driver</item>  <!--33 -->
+        <item>34) Crochet T1 timeout driver</item>  <!--34 -->
+        <item>35) Caricatore T1 timeout driver</item>  <!--35 -->
+        <item>36) Ago2 timeout driver</item>  <!--36 -->
+        <item>37) Crochet2 timeout driver</item>  <!--37 -->
+        <item>38) Traslatore timeout driver</item>  <!--38 -->
+
+        <item>39) Error Ethercat driver Ago</item>  <!--39 -->
+        <item>40) Error Ethercat driver Crochet</item>  <!--40 -->
+        <item>41) Error Ethercat driver Caricatore</item>  <!--41 -->
+        <item>42) Error Ethercat driver Ago2</item>  <!--42 -->
+        <item>43) Error Ethercat driver Crochet2</item>  <!--43 -->
+        <item>44) Error Ethercat driver Traslatore</item>  <!--44 -->
+    </string-array>
+</resources>

@@ -1,0 +1,59 @@
+(baseline for mdpi)
+Button image size: 72 x 72
+Pocket images: 468 x 468
+Fermature images: 468 x 468
+
+CUSTOM:
+
+foto_sfilatura: 600 x 600
+foto_spola: 600 x 600
+
+casetta: 144 x 144
+dito1: 144 x 144
+tast_verde: 144 x 144
+
+flag_english: 216 x 144
+flag_france: 216 x 144
+flag_italy: 216 x 144
+flag_spagna: 216 x 144
+flag_turchia: 216 x 144
+
+file_icon: 72 x 72
+folder_icon: 72 x 72
+
+firstcode: 468 x 468
+secondcode: 468 x 468
+
+info: 72 x 72
+info_press: 72 x 72
+
+lp: 468 x 468
+margine: 468 x 468
+
+stato_rosso: 36 x 96
+stato_rosso_oriz: 96 x 36
+stato_verde: 36 x 96
+stato_verde_oriz: 96 x 36
+
+errore_press: 48 x 48
+
+info_cucitura: 144 x 144
+info_travetta: 144 x 144
+
+tasto_enter_a: 100 x 300
+tasto_enter_b: 100 x 300
+
+warning: 72 x 72
+
+freccia_giu: 44 x 44
+freccia_su: 44 x 44
+
+
+Per ora ho deciso di usare PNG come formato ma JPEG è circa 10 volte più piccolo quindi in caso di poco spazio posso cambiare le immagini
+
+FSResizer advanced settings:
+Output format: PNG
+Resize:
+	On
+	Pixel: <size>
+	all checkbocx off

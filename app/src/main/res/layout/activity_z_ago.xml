@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/ic_password"
+        android:onClick="on_click_password"
+        app:layout_constraintBottom_toBottomOf="@+id/button_exit3"
+        app:layout_constraintEnd_toStartOf="@+id/button_exit3" />
+
+    <Button
+        android:id="@+id/button_exit3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/tasto_exit"
+        android:onClick="onClick_exit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_z"
+        android:layout_width="249dp"
+        android:layout_height="236dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/border2"
+        app:layout_constraintStart_toStartOf="@+id/constraint_Jogx"
+        app:layout_constraintTop_toBottomOf="@+id/constraint_Jogx">
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/border2"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="2dp"
+                android:text="@string/Azz_taccaZ"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/border1"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+            <TextView
+                android:id="@+id/textView_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/Stato_azzeramento"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/button_Fai_Z"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/run"
+                android:onClick="onClickRun" />
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_Jogx"
+        android:layout_width="250dp"
+        android:layout_height="221dp"
+        android:layout_marginStart="36dp"
+        android:background="@drawable/border2"
+        app:layout_constraintStart_toEndOf="@+id/constraint_JogAgo"
+        app:layout_constraintTop_toTopOf="@+id/constraint_JogAgo">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutX"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/border2"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="2dp"
+                android:text="JOG X"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_Xpiu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/tasto_piu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutX" />
+
+        <Button
+            android:id="@+id/button_Xmeno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/tasto_meno"
+            app:layout_constraintStart_toEndOf="@+id/button_Xpiu"
+            app:layout_constraintTop_toTopOf="@+id/button_Xpiu" />
+
+        <TextView
+            android:id="@+id/textView_quota_asseX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="72dp"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/button_Xpiu"
+            app:layout_constraintTop_toBottomOf="@+id/button_Xpiu" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="250dp"
+        android:layout_height="221dp"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/border2"
+        app:layout_constraintStart_toEndOf="@+id/constraint_Jogx"
+        app:layout_constraintTop_toTopOf="@+id/constraint_Jogx">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutY"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/border2"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="2dp"
+                android:text="JOG Y"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_Ypiu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/tasto_piu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutY" />
+
+        <Button
+            android:id="@+id/button_Ymeno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/tasto_meno"
+            app:layout_constraintStart_toEndOf="@+id/button_Ypiu"
+            app:layout_constraintTop_toTopOf="@+id/button_Ypiu" />
+
+        <TextView
+            android:id="@+id/textView_quota_asseY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="72dp"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/button_Ypiu"
+            app:layout_constraintTop_toBottomOf="@+id/button_Ypiu" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="250dp"
+        android:layout_height="221dp"
+        android:layout_marginStart="48dp"
+        android:background="@drawable/border2"
+        app:layout_constraintStart_toEndOf="@+id/constraint_Jogx"
+        app:layout_constraintTop_toTopOf="@+id/constraint_z">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutLoader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/border2"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="2dp"
+                android:text="JOG Loader"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_Loaderpiu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/tasto_piu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutLoader" />
+
+        <Button
+            android:id="@+id/button_Loadermeno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/tasto_meno"
+            app:layout_constraintStart_toEndOf="@+id/button_Loaderpiu"
+            app:layout_constraintTop_toTopOf="@+id/button_Loaderpiu" />
+
+        <TextView
+            android:id="@+id/textView_quota_asseLoader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="72dp"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/button_Loaderpiu"
+            app:layout_constraintTop_toBottomOf="@+id/button_Loaderpiu" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_JogAgo"
+        android:layout_width="247dp"
+        android:layout_height="564dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/border2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <SeekBar
+            android:id="@+id/seekBar_speed"
+            android:layout_width="193dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="44dp"
+            android:min="5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_Vel_ago" />
+
+        <LinearLayout
+            android:id="@+id/linearLayoutAgo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/border2"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="2dp"
+                android:text="JOG NEEDLE"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_Agopiu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/tasto_piu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutAgo" />
+
+        <Button
+            android:id="@+id/button_Agomeno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/tasto_meno"
+            app:layout_constraintStart_toEndOf="@+id/button_Agopiu"
+            app:layout_constraintTop_toTopOf="@+id/button_Agopiu" />
+
+        <TextView
+            android:id="@+id/textView_quota_Ago"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/button_Agopiu"
+            app:layout_constraintTop_toBottomOf="@+id/switch_run_ago" />
+
+        <TextView
+            android:id="@+id/textView_quota_Crochet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/textView_quota_Ago"
+            app:layout_constraintTop_toBottomOf="@+id/textView_quota_Ago" />
+
+        <TextView
+            android:id="@+id/textView_quota_errore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/textView_quota_Crochet"
+            app:layout_constraintTop_toBottomOf="@+id/textView_quota_Crochet" />
+
+        <TextView
+            android:id="@+id/textView_quota_maxerror"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/textView_quota_errore"
+            app:layout_constraintTop_toBottomOf="@+id/textView_quota_errore" />
+
+        <Button
+            android:id="@+id/button_reset_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="Reset"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/textView_Vel_ago"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/button_Agopiu"
+            app:layout_constraintTop_toBottomOf="@+id/button_Agopiu"
+            tools:text="Target Speed:" />
+
+        <TextView
+            android:id="@+id/textView_RealVel_ago"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/button_Agopiu"
+            app:layout_constraintTop_toBottomOf="@+id/textView_Vel_ago"
+            tools:text="Real Speed:" />
+
+        <Switch
+            android:id="@+id/switch_run_ago"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Run Needle"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/seekBar_speed"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar_speed" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

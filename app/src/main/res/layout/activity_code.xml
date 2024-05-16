@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/border1">
+
+    <TextView
+        android:id="@+id/editText_tension"
+        android:layout_width="163dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="none"
+        android:text="Thread tension:"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/editText_slow"
+        app:layout_constraintTop_toBottomOf="@+id/editText_slow" />
+
+    <TextView
+        android:id="@+id/textView_tension_valore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="press to set (0 = normal)"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/textView_slow_valore"
+        app:layout_constraintTop_toTopOf="@+id/editText_tension" />
+
+    <TextView
+        android:id="@+id/editText_slow"
+        android:layout_width="163dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="68dp"
+        android:ems="10"
+        android:inputType="none"
+        android:text="Slow speed (rpm):"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/button_op1"
+        app:layout_constraintTop_toBottomOf="@+id/button_Split1" />
+
+    <TextView
+        android:id="@+id/textView_slow_valore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:text="press to set (0 = normal)"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/editText_slow"
+        app:layout_constraintTop_toTopOf="@+id/editText_slow" />
+
+    <Button
+        android:id="@+id/button_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/tasto_exit"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button_op3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:background="@drawable/tasto_code_op3"
+        app:layout_constraintStart_toEndOf="@+id/button_op2"
+        app:layout_constraintTop_toTopOf="@+id/button_op2" />
+
+    <Button
+        android:id="@+id/button_op2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:background="@drawable/tasto_code_op2"
+        app:layout_constraintStart_toEndOf="@+id/button_op1"
+        app:layout_constraintTop_toTopOf="@+id/button_op1" />
+
+    <Button
+        android:id="@+id/button_op1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tasto_code_op1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <Button
+        android:id="@+id/button_Split1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/code_split1"
+        app:layout_constraintStart_toStartOf="@+id/button_op1"
+        app:layout_constraintTop_toBottomOf="@+id/button_op1" />
+    <Button
+        android:id="@+id/button_Split2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/code_split2"
+        app:layout_constraintStart_toStartOf="@+id/button_op2"
+        app:layout_constraintTop_toBottomOf="@+id/button_op1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

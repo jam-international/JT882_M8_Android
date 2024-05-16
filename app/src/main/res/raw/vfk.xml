@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DocumentElement>
+  <VFK>
+    <Index>0</Index>
+    <Description>Numero canali attivi                              </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int16, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>1</Index>
+    <Description>lista canali attivi                               </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Array, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>2</Index>
+    <Description>numero processi attivi (di tutti i canali)        </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int16, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>3</Index>
+    <Description>lista processi attivi  (di tutti i canali)        </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Array, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>4</Index>
+    <Description>numero processi attivi (di un canale)             </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int16, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>5</Index>
+    <Description>lista processi attivi  (di un canale)             </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Array, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>6</Index>
+    <Description>Stato del ciclo automatico gestito dal processo   </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>8</Index>
+    <Description>Numero della linea corrente (CurLineNum)          </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>9</Index>
+    <Description>Seek offset della linea corrente (CurSeekOffs)    </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>10</Index>
+    <Description>ID dell'istruzione corrente (CurIstrID)           </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>11</Index>
+    <Description>ID del file corrente (ProgID)                     </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>12</Index>
+    <Description>Numero della linea di partenza (StartLineNum)     </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>13</Index>
+    <Description>Nome del file di partenza (Main) (MainFileName)   </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>14</Index>
+    <Description>Nome del file corrente (CurFileName)              </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>15</Index>
+    <Description>Linea corrente (CurLineStr)                       </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>16</Index>
+    <Description>Stato di trace                                    </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>17</Index>
+    <Description>Comando {stop, stepinto, stepout, stepover, go}   </Description>
+    <CanRead>false</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int16, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>18</Index>
+    <Description>Nome del file di livello 0 (Lev0FileName)</Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>19</Index>
+    <Description>Nome del file non trovato</Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>22</Index>
+    <Description>Contatore programmi della sequenza di programmi   </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>23</Index>
+    <Description>Numero di linea scritto dal metacomando #MARKLINE </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>24</Index>
+    <Description>Numero ultima linea eseguita dal main             </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>25</Index>
+    <Description>Seek offset dell'ultima linea eseguita dal main   </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>26</Index>
+    <Description>Set flag di ripristino del nome del file main     </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>27</Index>
+    <Description>Nome del file dati senza path ne' estensione      </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>28</Index>
+    <Description>Messaggio ISO corrente                            </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>29</Index>
+    <Description>Nome del file di matrici                          </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>30</Index>
+    <Description>Nome del file dati                                </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>31</Index>
+    <Description>Comando di elaborazione file di dati              </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>33</Index>
+    <Description>tempo residuo del timer                           </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>34</Index>
+    <Description>Abilitazione/disabilitazione jog interpolato geom.</Description>
+    <CanRead>false</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>35</Index>
+    <Description>Numero di blocchi presenti nell'interpolatore     </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>36</Index>
+    <Description>Udt: parametro 1 (generalmente StepNum)           </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>37</Index>
+    <Description>Udt: parametro 2 (generalmente MtxId)             </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>38</Index>
+    <Description>Udt: parametro 3                                  </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>40</Index>
+    <Description>Linea di programma da inserire (cmda)             </Description>
+    <CanRead>false</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>43</Index>
+    <Description>Comando di configurazione cmda                    </Description>
+    <CanRead>false</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>44</Index>
+    <Description>Numero di linee ricevute (TotCmda)                </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>45</Index>
+    <Description>Numero di linee presenti nel buffer (NumCmda)     </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>50</Index>
+    <Description>Contatore cicli dell'automatico              </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>51</Index>
+    <Description>Numero di START del ciclo automatico              </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>52</Index>
+    <Description>Numero di END senza errore del ciclo automatico   </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>53</Index>
+    <Description>Numero di RESET del ciclo automatico              </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>54</Index>
+    <Description>Numero di END CON ERRORE del ciclo automatico     </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>55</Index>
+    <Description>livello corrente di "for" della sequenza programmi</Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>56</Index>
+    <Description>Stato/Comando gestione sequenza programmi         </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>57</Index>
+    <Description>Indice (da 1) del programma corrente              </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>58</Index>
+    <Description>Numero totale di ripetizioni                      </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>59</Index>
+    <Description>Numero di ripetizione corrente                    </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>60</Index>
+    <Description>Numero del file sequenza                          </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>61</Index>
+    <Description>Numero di linea corrente                          </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>62</Index>
+    <Description>ripetizioni totali del "for" corrente             </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>63</Index>
+    <Description>ripetizione corrente del "for" corrente           </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>64</Index>
+    <Description>Parametro 1                                       </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>65</Index>
+    <Description>Parametro 2                                       </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>66</Index>
+    <Description>Parametro 3                                       </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>67</Index>
+    <Description>Parametro 4                                       </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>68</Index>
+    <Description>Parametro 5                                       </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>69</Index>
+    <Description>Parametro 6                                       </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>70</Index>
+    <Description>Parametro 7                                       </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>71</Index>
+    <Description>Parametro 8                                       </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>80</Index>
+    <Description>Codice comando                                    </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int16, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>81</Index>
+    <Description>Codice di Ritorno                                 </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>85</Index>
+    <Description>Comando di trace a fork custom {go, stop, trace}  </Description>
+    <CanRead>false</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>86</Index>
+    <Description>Campo a bit di "file di parametri cnc modificato" </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>87</Index>
+    <Description>Comando di gestione file di parametri cnc         </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>88</Index>
+    <Description>Stato della gestione file di parametri cnc        </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>89</Index>
+    <Description>Errore della gestione file di parametri cnc       </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>91</Index>
+    <Description>Nome del file che contiene il breakpoint          </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>92</Index>
+    <Description>Numero di linea del breakpoint                    </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>93</Index>
+    <Description>Identificativo (Id) del breakpoint                </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>94</Index>
+    <Description>Comando di gestione breakpoint                    </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>95</Index>
+    <Description>Numero di breakpoint attivi                       </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>100</Index>
+    <Description>Data e ora nel formato DD/MM/YYYY HH:MM:SS        </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>101</Index>
+    <Description>Numero di rete                                    </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>102</Index>
+    <Description>Numero di nodo                                    </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>103</Index>
+    <Description>Nome del file di parametri                        </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>104</Index>
+    <Description>Comando di gestione lettura/scrittura parametri   </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>105</Index>
+    <Description>Stato della gestione parametri nodi               </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>106</Index>
+    <Description>Codice errore della gestione parametri nodi       </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>151</Index>
+    <Description>Numero totale di interrupt del dma</Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>152</Index>
+    <Description>Numero corrente di interrupt per tick del dma</Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>153</Index>
+    <Description>Numero massimo di interrupt per tick del dma</Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>154</Index>
+    <Description>Numero totale di richieste del dma</Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>155</Index>
+    <Description>Numero corrente di richieste per tick del dma</Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>156</Index>
+    <Description>Numero massimo di richieste per tick del dma</Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>161</Index>
+    <Description>TgsFileName - Nome del file teach                 </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>162</Index>
+    <Description>TgsRem      - stringa di commento                 </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>163</Index>
+    <Description>TgsStrPar   - parametro stringa                   </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>164</Index>
+    <Description>TgsStrLine  - stringa della linea corrente        </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>167</Index>
+    <Description>parametro TgsLgPar[0]                             </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>168</Index>
+    <Description>parametro TgsLgPar[1]                             </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>169</Index>
+    <Description>parametro TgsLgPar[2]                             </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>170</Index>
+    <Description>parametro TgsLgPar[3]                             </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>171</Index>
+    <Description>parametro TgsLgPar[4]                             </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>172</Index>
+    <Description>parametro TgsLgPar[5]                             </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>173</Index>
+    <Description>parametro TgsLgPar[6]                             </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>174</Index>
+    <Description>parametro TgsLgPar[7]                             </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>175</Index>
+    <Description>TgsBlkCode                                        </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>176</Index>
+    <Description>TgsCmdCode                                        </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>177</Index>
+    <Description>TgsCurLine                                        </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>178</Index>
+    <Description>TgsTotLine                                        </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>179</Index>
+    <Description>TgsCmdStatus                                      </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>180</Index>
+    <Description>TgsErrCode                                        </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>181</Index>
+    <Description>IntpCmdPar1                                       </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>182</Index>
+    <Description>IntpCmd                                           </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>183</Index>
+    <Description>IntpErrCode                                       </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>true</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>184</Index>
+    <Description>IntpStatus                                        </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>185</Index>
+    <Description>IntpStatus1                                       </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>186</Index>
+    <Description>IntpIntpStatus                                    </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+  <VFK>
+    <Index>187</Index>
+    <Description>IntpIntpReq                                       </Description>
+    <CanRead>true</CanRead>
+    <CanWrite>false</CanWrite>
+    <DataType>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</DataType>
+  </VFK>
+</DocumentElement>

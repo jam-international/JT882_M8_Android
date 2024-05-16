@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Button
+        android:id="@+id/button_Z_ago2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/tasto_z_ago_c2"
+        android:onClick="Onclick_Z_Ago_C2"
+        app:layout_constraintStart_toEndOf="@+id/button_report_to_usb"
+        app:layout_constraintTop_toTopOf="@+id/button_Z_ago" />
+
+    <Button
+        android:id="@+id/button_grafico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/tasto_grafico"
+        android:onClick="OnclickGrafico"
+        app:layout_constraintStart_toEndOf="@+id/button_copia_file"
+        app:layout_constraintTop_toTopOf="@+id/button_copia_file" />
+
+    <Button
+        android:id="@+id/button_orologio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tasto_orologio"
+        android:onClick="OnclickOrologio"
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toTopOf="@+id/button_grafico" />
+
+    <Button
+        android:id="@+id/btn_fai_spola"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/ic_fai_spola"
+        app:layout_constraintStart_toEndOf="@+id/button_pagina_punto_carico"
+        app:layout_constraintTop_toTopOf="@+id/button_pagina_punto_carico" />
+
+    <Button
+        android:id="@+id/btn_sgancio_ago"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/ic_sblocca_ago"
+        app:layout_constraintStart_toEndOf="@+id/btn_fai_spola"
+        app:layout_constraintTop_toTopOf="@+id/btn_fai_spola" />
+
+    <Button
+        android:id="@+id/button_pagina_par_piegatore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/pag_param_folder"
+        android:onClick="On_click_par_piegatore"
+        app:layout_constraintStart_toEndOf="@+id/button_pagina_par"
+        app:layout_constraintTop_toTopOf="@+id/button_pagina_par_udf_C" />
+
+    <Button
+        android:id="@+id/button_pagina_par_scaric"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/pag_param_scaric"
+        android:onClick="On_click_par_scaric"
+        app:layout_constraintStart_toEndOf="@+id/button_pagina_par_piegatore"
+        app:layout_constraintTop_toTopOf="@+id/button_pagina_par_udf_C" />
+
+    <Button
+        android:id="@+id/button_pagina_punto_carico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:background="@drawable/tasto_punto_carico"
+        android:onClick="onClick_pagina_punto_carico_t1"
+        app:layout_constraintStart_toStartOf="@+id/button_pagina_par_udf_C"
+        app:layout_constraintTop_toBottomOf="@+id/button_pagina_par_udf_C" />
+
+    <Button
+        android:id="@+id/button_pagina_par_udf_C"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/pag_par_prog"
+        android:onClick="On_click_par_udf"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_pagina_par"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/pag_par_mac"
+        android:onClick="On_click_par_Testa"
+        app:layout_constraintStart_toEndOf="@+id/button_pagina_par_udf_C"
+        app:layout_constraintTop_toTopOf="@+id/button_pagina_par_udf_C" />
+
+    <Button
+        android:id="@+id/button_usb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/tasco_usb"
+        android:onClick="OnclickUsbPage"
+        app:layout_constraintStart_toEndOf="@+id/button_tasca_quote"
+        app:layout_constraintTop_toTopOf="@+id/button_tasca_quote" />
+
+    <Button
+        android:id="@+id/button_test_io"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/tasto_test_io"
+        android:onClick="onClick_test_io"
+        app:layout_constraintStart_toStartOf="@+id/btn_fai_spola"
+        app:layout_constraintTop_toBottomOf="@+id/btn_fai_spola" />
+
+    <Button
+        android:id="@+id/button_upgrade_usb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/tasto_upgrade_hmi"
+        android:onClick="Button_update_click"
+        app:layout_constraintStart_toEndOf="@+id/button_test_io"
+        app:layout_constraintTop_toTopOf="@+id/button_test_io" />
+
+    <Button
+        android:id="@+id/button_upgrade_plc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/tasto_upgrade_plc"
+        android:onClick="Button_update_plc_click"
+        app:layout_constraintStart_toEndOf="@+id/button_upgrade_usb"
+        app:layout_constraintTop_toTopOf="@+id/button_test_io" />
+
+    <Button
+        android:id="@+id/button_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/tasto_exit"
+        android:onClick="onClick_exit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button_disegna"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/tasto_disegna"
+        android:onClick="on_click_modifica_programma"
+        app:layout_constraintStart_toEndOf="@+id/button_pagina_par_scaric"
+        app:layout_constraintTop_toTopOf="@+id/button_pagina_par_scaric" />
+
+    <Button
+        android:id="@+id/button_copia_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/tasto_copia_file"
+        android:onClick="on_click_copia_file"
+        app:layout_constraintStart_toEndOf="@+id/btn_sgancio_ago"
+        app:layout_constraintTop_toTopOf="@+id/button_pagina_punto_carico" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/tasto_tasca_frecce"
+        android:onClick="BtnTascaFrecce"
+        app:layout_constraintStart_toEndOf="@+id/button_disegna"
+        app:layout_constraintTop_toTopOf="@+id/button_pagina_par_udf_C" />
+
+    <Button
+        android:id="@+id/button_tasca_quote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:background="@drawable/tasto_tasca_quote"
+        android:onClick="onClick_tascaQuote"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toTopOf="@+id/button" />
+    <Button
+        android:id="@+id/button_disegna_C2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/pag_modifica_prog_t2"
+        android:onClick="on_click_modifica_programma_C2"
+        app:layout_constraintStart_toEndOf="@+id/button_pagina_par_scaric"
+        app:layout_constraintTop_toTopOf="@+id/button_pagina_par2_C2" />
+
+    <Button
+        android:id="@+id/button_pagina_par2_C2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/pag_par_mact2"
+        android:onClick="On_click_par_Testa_C2"
+        app:layout_constraintStart_toEndOf="@+id/button_pagina_par_udf_C"
+        app:layout_constraintTop_toTopOf="@+id/button_pagina_par_udf_C2" />
+
+
+    <Button
+        android:id="@+id/button_pagina_par_udf_C2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/pag_par_progt2"
+        android:onClick="On_click_par_udf_C2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_pagina_par_udf_C" />
+
+    <Button
+        android:id="@+id/button_pagina_par_traslat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/pag_param_traslat"
+        android:onClick="On_click_par_traslat"
+        app:layout_constraintStart_toEndOf="@+id/button_pagina_par2_C2"
+        app:layout_constraintTop_toTopOf="@+id/button_pagina_par2_C2" />
+
+    <Button
+        android:id="@+id/button_pagina_punto_carico_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/tasto_punto_carico_t2"
+        android:onClick="onClick_pagina_punto_carico_t2"
+        app:layout_constraintStart_toEndOf="@+id/button_pagina_par_traslat"
+        app:layout_constraintTop_toTopOf="@+id/button_pagina_par_traslat" />
+
+    <Button
+        android:id="@+id/button_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/tasto_setting"
+        android:onClick="on_click_setting"
+        app:layout_constraintStart_toEndOf="@+id/button_Delta"
+        app:layout_constraintTop_toTopOf="@+id/button_Delta" />
+
+    <Button
+        android:id="@+id/button_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/ic_password"
+        android:onClick="on_click_password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/button_pagina_par_udf_C" />
+
+    <Button
+        android:id="@+id/button_Delta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/button_delta"
+        android:onClick="on_click_Delta"
+        app:layout_constraintStart_toStartOf="@+id/button_pagina_par_udf_C"
+        app:layout_constraintTop_toBottomOf="@+id/button_test_io" />
+
+    <Button
+        android:id="@+id/button_Z_ago"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/tasto_z_ago"
+        android:onClick="Onclick_Z_Ago"
+        app:layout_constraintStart_toStartOf="@id/button_pagina_par_udf_C"
+        app:layout_constraintTop_toBottomOf="@+id/button_pagina_punto_carico" />
+
+    <Button
+        android:id="@+id/button_report_to_usb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/tasto_report_to_usb"
+        android:onClick="on_click_report_to_usb"
+        app:layout_constraintStart_toEndOf="@+id/button_upgrade_plc"
+        app:layout_constraintTop_toTopOf="@+id/button_upgrade_plc" />
+</androidx.constraintlayout.widget.ConstraintLayout>

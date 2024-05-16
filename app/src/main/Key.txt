@@ -1,0 +1,11 @@
+Alias: KeyJam
+Password: 07167872
+
+Variant: release
+Config: KeyJam
+Store: C:\Users\ELETTRICISTI-JTL\Desktop\JT862H_Siax200\app\src\main\KayJam.jks
+Alias: KeyJam
+MD5: 70:5E:D9:FA:B3:17:A3:B7:EC:56:7F:00:19:51:8D:8E
+SHA1: 98:9B:44:9C:34:D0:68:76:21:FB:D9:63:03:C9:F2:AB:D3:96:85:FB
+SHA-256: 10:74:B6:3A:D0:E0:5F:95:69:53:73:27:3F:85:AA:7D:12:5F:EC:73:FB:34:59:C3:3D:79:4F:19:FA:F4:E7:E6
+Valid until: lunedì 12 settembre 2044

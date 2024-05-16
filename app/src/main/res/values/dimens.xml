@@ -1,0 +1,11 @@
+<resources>
+
+    <dimen name="main_activity_framelayout_width">330dp</dimen>
+    <dimen name="main_activity_framelayout_height">300dp</dimen>
+
+    <dimen name="modifica_programma_activity_framelayout_width">410dp</dimen>
+    <dimen name="modifica_programma_activity_framelayout_height">337dp</dimen>
+    
+    <dimen name="result_activity_framelayout_width">500dp</dimen>
+    <dimen name="result_activity_framelayout_height">500dp</dimen>
+</resources>

@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/button_load_T1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="24dp"
+
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/tasto_load_prog_t1"
+        android:onClick="On_click_Load_T1"
+        app:layout_constraintBottom_toTopOf="@+id/btn_pagina_tools"
+        app:layout_constraintEnd_toStartOf="@+id/button_load_T2" />
+
+    <Button
+        android:id="@+id/button_load_T2"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="20dp"
+
+        android:background="@drawable/tasto_load_prog_t2"
+        android:onClick="On_click_Load_T2"
+        app:layout_constraintBottom_toTopOf="@+id/btn_pagina_tools"
+        app:layout_constraintStart_toStartOf="@+id/btn_pagina_tools" />
+
+    <TextView
+        android:id="@+id/textView_macchina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="on_click_machine_model"
+        android:text="null"
+        android:textColor="@color/opaque_red"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_verde"
+        app:layout_constraintStart_toStartOf="@+id/button_verde"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_pagina_tools"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/tasto_pagina_tools"
+        android:onClick="onclick_pagina_tools"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/debug"
+        android:onClick="onclick_debug"
+        app:layout_constraintBottom_toTopOf="@+id/button_load_T2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button_verde"
+        android:layout_width="225dp"
+        android:layout_height="225dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/tasto_verde"
+        android:onClick="onclick_buttonv_dito"
+        android:textSize="85sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_connection_status"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:background="#fc0303"
+        android:text="No Connect"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/textView_cnt_comunicazione"
+        app:layout_constraintTop_toBottomOf="@+id/textView_cnt_comunicazione" />
+    <Button
+        android:id="@+id/btn_TCP_status"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="12dp"
+        android:background="#fc0303"
+        android:text="TCP"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/textView_cnt_comunicazione"
+        app:layout_constraintTop_toBottomOf="@+id/btn_connection_status" />
+
+    <Button
+        android:id="@+id/btn_eth_operational"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="48dp"
+        android:background="#fc0303"
+        android:text="Eth Operational"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/btn_connection_status"
+        app:layout_constraintTop_toTopOf="@+id/btn_connection_status" />
+
+    <TextView
+        android:id="@+id/textView_programma_in_esecuzione"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Programma in esecuzione:"
+        android:textColor="@color/opaque_red"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/textView_riga_fork"
+        app:layout_constraintTop_toBottomOf="@+id/textView_riga_fork" />
+
+    <TextView
+        android:id="@+id/textView_riga_fork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Riga in esecuzione:"
+        android:textColor="@color/opaque_red"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <TextView
+        android:id="@+id/textView_cnt_comunicazione"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cnt:"
+        android:textColor="@color/opaque_red"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/textView_programma_in_esecuzione"
+        app:layout_constraintTop_toBottomOf="@+id/textView_programma_in_esecuzione" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="746dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraint_checkbox_motors">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/allarm_textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Alarm:"
+                android:textColor="@color/opaque_red"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textView_allarmi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="365dp"
+        android:layout_height="146dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border1"
+        app:layout_constraintStart_toEndOf="@+id/button_verde"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="92dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="5dp"
+            android:text="Version:"
+            android:textColor="@color/opaque_red"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView_testo_HMI_ver"
+            android:layout_width="31dp"
+            android:layout_height="19dp"
+            android:text="..."
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/textView_testo_PLC_ver"
+            app:layout_constraintTop_toTopOf="@+id/textView_scritta_ver_HMI" />
+
+        <TextView
+            android:id="@+id/textView_scritta_ver_PLC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Ver PLC software:"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/textView_scritta_ver_firm"
+            app:layout_constraintTop_toBottomOf="@+id/textView_scritta_ver_firm" />
+
+        <TextView
+            android:id="@+id/textView_testo_Firmware"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="........................."
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/textView_scritta_ver_firm"
+            app:layout_constraintTop_toTopOf="@+id/textView_scritta_ver_firm" />
+
+        <TextView
+            android:id="@+id/textView_scritta_ver_HMI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Ver HMI software:"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/textView_scritta_ver_PLC"
+            app:layout_constraintTop_toBottomOf="@+id/textView_scritta_ver_PLC" />
+
+        <TextView
+            android:id="@+id/textView_scritta_ver_firm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="8dp"
+            android:text="Ver PLC Firmware:"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView_testo_PLC_ver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="........................."
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/textView_testo_Firmware"
+            app:layout_constraintTop_toTopOf="@+id/textView_scritta_ver_PLC" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="350dp"
+        android:layout_height="320dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Input HEAD1:"
+            android:textColor="@color/opaque_red"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView_status2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="176dp"
+            android:text="Input HEAD2:"
+            android:textColor="@color/opaque_red"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/checkBox_status_cn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status CN"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/textView_status"
+            app:layout_constraintTop_toBottomOf="@+id/textView_status" />
+
+        <CheckBox
+            android:id="@+id/checkBox_pressostato"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:text="Air pressure"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/checkBox_status_cn"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox_status_cn" />
+
+        <CheckBox
+            android:id="@+id/checkBox_pinza_esterna_alta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="External clamp sens OFF"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/checkBox_status_cn"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox_pressostato" />
+
+
+        <CheckBox
+            android:id="@+id/checkBox_loader_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:text="Loader up sensor"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/textView_status"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/checkBox_blade_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Blade Back sensor"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/checkBox_loader_up"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox_loader_up" />
+
+        <CheckBox
+            android:id="@+id/checkBox_folder_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Folder Back sensor"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/checkBox_loader_up"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox_blade_back" />
+
+        <CheckBox
+            android:id="@+id/checkBox_MotorX_ready"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Motor X Ready"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/checkBox_folder_back"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox_folder_back" />
+
+        <CheckBox
+            android:id="@+id/checkBox_MotorY_ready"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Motor Y Ready"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/checkBox_MotorX_ready"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox_MotorX_ready" />
+
+        <CheckBox
+            android:id="@+id/checkBox_loader_up_C2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Loader2 clamp up sensor"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/checkBox_status_cn"
+            app:layout_constraintTop_toBottomOf="@+id/textView_status2" />
+        <CheckBox
+            android:id="@+id/checkBox_inner_clamp_C2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:text="Inner clamp sensor"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/checkBox_status_cn"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox_loader_up_C2" />
+
+        <CheckBox
+            android:id="@+id/checkBox_MotorX_ready_C2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Motor X2 Ready"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/checkBox_folder_back"
+            app:layout_constraintTop_toTopOf="@+id/checkBox_loader_up_C2" />
+
+        <CheckBox
+            android:id="@+id/checkBox_MotorY_ready_C2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Motor Y2 Ready"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/checkBox_MotorX_ready"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox_MotorX_ready_C2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView_battery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="168dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="@+id/button2"
+        app:srcCompat="@drawable/battery_full" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_checkbox_motors"
+        android:layout_width="301dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border1"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+        <TextView
+            android:id="@+id/textView_motor_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Motors home HEAD1:"
+            android:textColor="@color/opaque_red"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/constraint_checkbox_motors"
+            app:layout_constraintTop_toTopOf="@+id/constraint_checkbox_motors" />
+
+
+        <TextView
+            android:id="@+id/textView_motor_home2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Motors home HEAD2:"
+            android:textColor="@color/opaque_red"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/constraint_checkbox_motors"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox_ax4_home" />
+
+        <CheckBox
+            android:id="@+id/checkBox_ax1_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="X home done"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/checkBox_ax5_home"
+            app:layout_constraintTop_toTopOf="@+id/checkBox_ax5_home" />
+
+        <CheckBox
+            android:id="@+id/checkBox_ax6_home2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="X2 home done"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/checkBox_ax5_home"
+            app:layout_constraintTop_toBottomOf="@+id/textView_motor_home2" />
+
+        <CheckBox
+            android:id="@+id/checkBox_ax3_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Needle home done"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/checkBox_ax5_home"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox_ax5_home" />
+
+
+        <CheckBox
+            android:id="@+id/checkBox_ax8_home2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Needle2home done"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/checkBox_ax5_home"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox_ax10_home2" />
+
+        <CheckBox
+            android:id="@+id/checkBox_ax4_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hook home done"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/checkBox_ax3_home"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox_ax3_home" />
+
+        <CheckBox
+            android:id="@+id/checkBox_ax9_home2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hook2 home done"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/checkBox_ax3_home"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox_ax8_home2" />
+
+        <CheckBox
+            android:id="@+id/checkBox_ax5_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Loader home done"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/textView_motor_home"
+            app:layout_constraintTop_toBottomOf="@+id/textView_motor_home" />
+
+        <CheckBox
+            android:id="@+id/checkBox_ax10_home2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loader2 home done"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/textView_motor_home"
+            app:layout_constraintTop_toBottomOf="@+id/textView_motor_home2" />
+
+        <CheckBox
+            android:id="@+id/checkBox_ax2_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Y home done"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/checkBox_ax1_home"
+            app:layout_constraintTop_toTopOf="@+id/checkBox_ax3_home" />
+
+        <CheckBox
+            android:id="@+id/checkBox_ax7_home2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Y2 home done"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/checkBox_ax1_home"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox_ax6_home2" />
+
+        />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/button_allarm_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick_alarm_more"
+        android:text="+"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+        app:layout_constraintStart_toEndOf="@+id/scrollView2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

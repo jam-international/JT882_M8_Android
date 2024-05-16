@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TascaFrecceActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border1"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="210dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/border1">
+
+
+                <TableLayout
+                    android:id="@+id/tableLayout_punti"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:isScrollContainer="true"
+                    android:padding="15dip"
+                    tools:layout_editor_absoluteX="6dp"
+                    tools:layout_editor_absoluteY="6dp"></TableLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="412dp"
+                android:layout_height="320dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="5"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="2"
+                        android:background="@drawable/rounded_button"
+                        android:onClick="BtnBackModel"
+                        android:text="-"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp" />
+
+                    <Button
+                        android:id="@+id/button5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="50dp"
+                        android:layout_weight="2"
+                        android:background="@drawable/rounded_button"
+                        android:onClick="BtnNextModel"
+                        android:text="+"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <ViewFlipper
+                    android:id="@+id/ViewFlipper1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="6dp"
+                        android:src="@drawable/ar_1_p" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="6dp"
+                        android:src="@drawable/q_1_p" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="6dp"
+                        android:src="@drawable/qa_1_p" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="6dp"
+                        android:src="@drawable/qs_1_p" />
+                </ViewFlipper>
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/border1">
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/border1"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="642dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/border1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout_quote">
+
+                    <TextView
+                        android:id="@+id/textView_Info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Info:"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="6dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <Button
+                        android:id="@+id/button_arrow_up_left"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/freccia_su_sx_a"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/button_arrow_left"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_left"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/button_arrow_up_left" />
+
+                    <Button
+                        android:id="@+id/button_arrow_down_left"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/freccia_giu_sx_a"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/button_arrow_left" />
+
+                    <Button
+                        android:id="@+id/button_arrow_up"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_up"
+                        app:layout_constraintStart_toEndOf="@+id/button_arrow_up_left"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/button_freccia_giu"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_down"
+                        app:layout_constraintStart_toEndOf="@+id/button_arrow_down_left"
+                        app:layout_constraintTop_toTopOf="@+id/button_arrow_down_left" />
+
+                    <Button
+                        android:id="@+id/button_arrow_up_right"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/freccia_su_dx_a"
+                        app:layout_constraintStart_toEndOf="@+id/button_arrow_up"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/button_arrow_right"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_right"
+                        app:layout_constraintStart_toEndOf="@+id/button_arrow_up"
+                        app:layout_constraintTop_toBottomOf="@+id/button_arrow_up_right" />
+
+                    <Button
+                        android:id="@+id/button_arrow_down_right"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/freccia_giu_dx_a"
+                        app:layout_constraintStart_toEndOf="@+id/button_freccia_giu"
+                        app:layout_constraintTop_toBottomOf="@+id/button_arrow_right" />
+
+                    <Button
+                        android:id="@+id/button_tasto_enter"
+                        android:layout_width="67dp"
+                        android:layout_height="230dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/tasto_enter"
+                        android:onClick="BtnSavePoint"
+                        app:layout_constraintStart_toEndOf="@+id/button_arrow_up_right"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout_quote"
+                    android:layout_width="462dp"
+                    android:layout_height="53dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/border1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/textViewXAss"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X_Ass:  "
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView_XAss_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/textView13"
+                        android:layout_marginStart="10dp"
+                        android:text="TextView"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toEndOf="@+id/textViewXAss"
+                        app:layout_constraintTop_toTopOf="@+id/textViewXAss" />
+
+                    <TextView
+                        android:id="@+id/textViewYAss"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="  Y_Ass:  "
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toEndOf="@+id/textView_XAss_value"
+                        app:layout_constraintTop_toTopOf="@+id/textViewXAss" />
+
+                    <TextView
+                        android:id="@+id/textView_YAss_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="TextView"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toEndOf="@+id/textViewYAss"
+                        app:layout_constraintTop_toTopOf="@+id/textViewYAss" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="850dp"
+                    android:layout_height="120dp"
+                    android:layout_marginBottom="6dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <Button
+                        android:id="@+id/button_punto_carico"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/ic_punto_carico"
+                        android:onClick="BtnPuntoCarico"
+                        app:layout_constraintEnd_toStartOf="@+id/button_sblocca_ago"
+                        app:layout_constraintTop_toTopOf="@+id/button_sblocca_ago" />
+
+                    <Button
+                        android:id="@+id/button_import_dxf"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/ic_button_importdxf"
+                        android:onClick="BtnImportDxf"
+                        app:layout_constraintEnd_toStartOf="@+id/button_punto_carico"
+                        app:layout_constraintTop_toTopOf="@+id/button_sblocca_ago" />
+
+                    <Button
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/ic_usb_pts"
+                        android:onClick="BtnExportPts"
+                        app:layout_constraintEnd_toStartOf="@+id/button_import_dxf"
+                        app:layout_constraintTop_toTopOf="@+id/button_sblocca_ago" />
+
+                    <Button
+                        android:id="@+id/button_sblocca_ago"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/ic_sblocca_ago"
+                        app:layout_constraintEnd_toStartOf="@+id/button_point_up"
+                        app:layout_constraintTop_toTopOf="@+id/button_exit" />
+
+                    <Button
+                        android:id="@+id/button_exit"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/tasto_exit"
+                        android:onClick="onclickExit"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <Button
+                        android:id="@+id/button_nextPage"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/ic_button_next"
+                        android:onClick="on_click_next"
+                        app:layout_constraintEnd_toStartOf="@+id/button_exit"
+                        app:layout_constraintTop_toTopOf="@+id/button_exit" />
+
+                    <Button
+                        android:id="@+id/button_Save"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/ic_button_save"
+                        android:onClick="on_click_save"
+                        app:layout_constraintEnd_toStartOf="@+id/button_nextPage"
+                        app:layout_constraintTop_toTopOf="@+id/button_exit" />
+
+                    <Button
+                        android:id="@+id/button_Load"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/tasto_load_prog"
+                        android:onClick="on_click_load"
+                        app:layout_constraintEnd_toStartOf="@+id/button_Save"
+                        app:layout_constraintTop_toTopOf="@+id/button_exit" />
+
+                    <Button
+                        android:id="@+id/button_point_up"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/edit_point"
+                        android:onClick="on_click_edit_point"
+                        app:layout_constraintEnd_toStartOf="@+id/button_Load"
+                        app:layout_constraintTop_toTopOf="@+id/button_exit" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

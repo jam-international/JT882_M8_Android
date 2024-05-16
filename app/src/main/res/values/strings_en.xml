@@ -1,0 +1,564 @@
+<resources>
+    <string name="app_name">JT882_M8</string>
+    <string name="Arco3P_p2">Move using arrows to second arc point then press Enter</string>
+    <string name="Arco3P_p3">Move using arrows to final arc point then press Enter</string>
+    <string name="DigitaLP">Digit stitch length</string>
+    <string name="Errore">Error</string>
+    <string name="Fatto">Done</string>
+    <string name="StringMove1">Press + - to the last point to move, then press Enter</string>
+    <string name="StringMove2">Move using arrows then press Enter</string>
+    <string name="StringMove3">Select next enity or move using arrows then press Enter</string>
+    <string name="StringMove4">Select next stitch or move using arrows then press Enter</string>
+    <string name="StretchStep">Press - to stretch stitch and then press Enter</string>
+    <string name="StretchPointFrecce">Move using arrows to final stretch position and then press Enter</string>
+    <string name="ZigZag">Move using arrows to final bartack point then press Enter</string>
+    <string name="ZigZag1">Digit bartack width</string>
+    <string name="ZigZag2">Digit bartack pitch</string>
+    <string name="MiddlePointStep">Press + - to Middle arc point then press Enter</string>
+    <string name="Feed">Move using arrows to final feed point then press Enter</string>
+    <string name="EndPointStep">Press + - to End arc point then press Enter</string>
+    <string name="StringRaddrizzaLinea1">Press + - to the last point to align, then press Enter</string>
+    <string name="StringCancella">Press keys + - to the last point to be deleted then press Enter</string>
+    <string name="EndStretchStep">Press + to final stretch stitch and then press Enter</string>
+    <string name="DigitaNuovaLP">Enter new stitch length</string>
+    <string name="Code_error">These codes have been removed: </string>
+    <string name="freccia_sx_all"><![CDATA[<-]]> All</string>
+    <string name="freccia_dx_all">All <![CDATA[->]]></string>
+    <string name="freccia_sx"><![CDATA[<-]]></string>
+    <string name="freccia_dx"><![CDATA[->]]></string>
+    <string name="Stato_azzeramento">Status zero</string>
+    <string name="togliere_ago">Attention, the needle will rotate for a few turns, remove the needle.</string>
+    <string name="Ready">Ready</string>
+    <string name="Done">Successfully done</string>
+    <string name="SelezionaSize">Select Size16 or 32</string>
+    <string name="InserireValore">Enter a value</string>
+    <string name="Press_emergency">Press emergency button to exit </string>
+    <string name="Save">Save</string>
+    <string name="Prog_esecuzione">CN:</string>
+    <string name="Riga_esecuzione">Line: </string>
+    <string name="cnt_thread">Numero Thread:</string>
+    <string name="MachineMemory">Machine memory</string>
+    <string name="FileName_">File Name:</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Folder">Folder</string>
+    <string name="Azz_taccaZ">Z mark reset</string>
+    <string name="Prod_">Prod:</string>
+    <string name="Stitch_">Stitch:</string>
+    <string name="Speed_">Speed:</string>
+    <string name="Prog_name_">Prog_name:</string>
+    <string name="Folder_">Folder:</string>
+    <string name="Prog_nameL_">Prog_name L:</string>
+    <string name="FolderL_">Folder L:</string>
+    <string name="Skip">Skip</string>
+    <string name="Fermature">Backtack</string>
+    <string name="Repeat">Repeat</string>
+    <string name="PointsNumber">Stitches number</string>
+    <string name="Head1">Head 1</string>
+    <string name="Head2">Head 2</string>
+    <string name="DrawThePocket">Draw The Pocket</string>
+    <string name="Next">Next</string>
+    <string name="Back">Back</string>
+    <string name="Exit">Exit</string>
+    <string name="MuoviP1">Move to P1 and press Enter</string>
+    <string name="MuoviP2">Move to P2 and press Enter</string>
+    <string name="MuoviP3">Move to P3 and press Enter</string>
+    <string name="MuoviP4">Move to P4 and press Enter</string>
+    <string name="MuoviP5">Move to P5 and press Enter</string>
+    <string name="MuoviP6">Move to P6 and press Enter</string>
+    <string name="MuoviP7">Move to P7 and press Enter</string>
+    <string name="MuoviP8">Move to P8 and press Enter</string>
+    <string name="MuoviP9">Move to P9 and press Enter</string>
+    <string name="MuoviP10">Move to P10 and press Enter</string>
+    <string name="MuoviP11">Move to P11 and press Enter</string>
+    <string name="MuoviP12">Move to P12 and press Enter</string>
+    <string name="MuoviP13">Move to P13 and press Enter</string>
+    <string name="UsbXmlUnmounted">Usb storage not mounted</string>
+    <string name="DoneNext">Done, Save and go to the next step</string>
+    <string name="ConfirmEditPoint">Move to the new point and press the button Edit Point</string>
+    <string name="UsbXmlWait">Please Wait...</string>
+    <string name="DeleteFile">Cancella File</string>
+    <string name="ClearLog">Clear Log</string>
+    <string name="Production">Produzione</string>
+    <string name="SkipStitch">Punit saltati</string>
+    <string name="ConfermaSalva">Data has been changed, do you want to save it?</string>
+    <string name="SpostoCarZero">Do you want to move the loader to point 0?</string>
+    <string name="ErroreUSB_FAT32">it is not possible to use this USB stick, check that it is formatted in FAT32</string>
+    <string name="PremiTastoVerde">Press Green Button to engage machine</string>
+    <string name="PremiStartAzz">Press the start buttons to make home position</string>
+    <string name="PremiEmergenza">Press the emergency button</string>
+    <string name="MancaAria">Not enough air</string>
+    <string name="MancaSensPiegDietro">The rear folder sensor is turned off</string>
+    <string name="MancaSensLanciaDietro">The rear pocket blade sensor is turned off</string>
+    <string name="SensEsternaAltaAcceso">The sensor of the external clamp is on</string>
+    <string name="DriverXAllarme">The X axis driver is in alarm</string>
+    <string name="DriverYAllarme">The Y axis driver is in alarm</string>
+    <string name="MancaSensCaricAlto">The load clamp sensor high position is off</string>
+    <string name="ToccaTouch">Press the touch in the center of the red circles</string>
+    <string name="ErroreCicloAuto">0) Automatic cycle interrupted, press + for more details</string>
+    <string name="WarningMoceMotor">Attention motors will be returned to their original positions, proceed?</string>
+    <string name="Commessa">Job Order</string>
+    <string name="NumeroDima">Jig N.</string>
+    <string name="ProgDxT1">Right prog.</string>
+    <string name="ProgSxT1">Left prog.</string>
+    <string name="QuantitàCommessa"> Qty</string>
+    <string name="Evaso">Processed</string>
+
+    <string-array name="Descrizione_parametri_Udf_Cucitura_T1">
+        <item> </item>
+        <item>Sewing speed [rpm]</item>“ “<!-- 1 -->
+        <item>Initial slow point numbers </item>“ “<!-- 2 -->
+        <item>Initial slow point speed [rpm]</item>“ “<!-- 3 -->
+        <item>Final slow point numbers</item>“ “<!-- 4 -->
+        <item>Final slow point speed [rpm]</item>“ “<!-- 5 -->
+        <item>Clamp feed speed [%]</item>“ “<!-- 6 -->
+        <item>Thread tension value [%]</item>“ “<!-- 7 -->
+        <item>Folder magnet value[%] </item>“ “<!-- 8 -->
+        <item>Bottom magnet value [%]</item>“ “<!-- 9 -->
+        <item>Loader speed [%]</item>“ “<!-- 10 -->
+
+    </string-array>
+
+    <string-array name="Descrizione_parametri_Udf_Cucitura_T2">
+        <item> </item>
+        <item>Sewing speed [rpm]</item>“ “<!-- 1 -->
+        <item>Initial slow point numbers </item>“ “<!-- 2 -->
+        <item>Initial slow point speed [rpm]</item>“ “<!-- 3 -->
+        <item>Final slow point numbers</item>“ “<!-- 4 -->
+        <item>Final slow point speed [rpm]</item>“ “<!-- 5 -->
+        <item>Clamp feed speed [%]</item>“ “<!-- 6 -->
+        <item>Thread tension value [%]</item>“ “<!-- 7 -->
+    </string-array>
+
+
+    <string-array name="Descrizione_parametri_C1_Param">
+        <item> </item>
+        <item>Enable Thread breakage sensor</item>“ “<!-- 1 -->
+        <item>Enable Bobbin case counter</item>“ “<!-- 2 -->
+        <item>Needle up position [degree]</item>“ “<!-- 3 -->
+        <item>Thread tension Start angle [degree]</item>“ “<!-- 4 -->
+        <item>Thread tension stop angle [degree]</item>“ “<!-- 5 -->
+        <item>Thread trimming Start angle [degree]</item>“ “<!-- 6 -->
+        <item>Thread trimming Stop angle [degree]</item>“ “<!-- 7 -->
+        <item>Presser Foot up time [s]</item>“ “<!-- 8 -->
+        <item>Presser Foot down time [s]</item>“ “<!-- 9 -->
+        <item>Max Sewing speed [RPM]</item>“ “<!-- 10 -->
+        <item>Thread clamp start during first turn [degree]</item>“ “<!-- 11 -->
+        <item>Thread clamp stop during first turn [degree]</item>“ “<!-- 12 -->
+        <item>Thread clamp start during last turn [degree]</item>“ “<!-- 13 -->
+        <item>Thread clamp stop during last turn [degree]</item>“ “<!-- 14 -->
+        <item>Counter Reset</item>“ “<!-- 15 -->
+        <item>Life counter production [unit]</item>“ “<!-- 16 -->
+        <item>Life counter production [x 100.000]</item>“ “<!-- 17 -->
+        <item>Enable Left/right function</item>“ “<!-- 18 -->
+        <item>    </item>“ “<!-- 19  XY motor speed during HMI Reset-->
+        <item>Loader speed during left travel [%]</item>“ “<!-- 20 -->
+        <item>Enable Needle cooler</item>“ “<!-- 21 -->
+        <item>Enable Fullnes Pocket device</item>“ “<!-- 22 -->
+        <item>XY Feeding Time [degree]</item>“ “<!-- 23 -->
+        <item>Clamp Mode</item>“ “<!-- 24 -->
+        <item>Cargo Pocket</item>“ “<!-- 25 -->
+        <item>Y reset quote</item>“ “<!-- 26 -->
+        <item>Vacuum Delay with Fullnes device</item>“ “<!-- 27 -->
+        <item>Reinforcement device</item>“ “<!-- 28 -->
+    </string-array>
+
+    <string-array name="Descrizione_parametri_C2_Param">
+        <item> </item>
+        <item>Enable Thread breakage sensor</item>“ “<!-- 1 -->
+        <item>Enable Bobbin case counter</item>“ “<!-- 2 -->
+        <item>Needle up position [degree</item>“ “<!-- 3 -->
+        <item>Thread tension Start angle [degree]</item>“ “<!-- 4 -->
+        <item>Thread tension stop angle [degree]</item>“ “<!-- 5 -->
+        <item>Thread trimming Start angle [degree]</item>“ “<!-- 6 -->
+        <item>Thread trimming Stop angle [degree]</item>“ “<!-- 7 -->
+        <item>Presser Foot up time [s]</item>“ “<!-- 8 -->
+        <item>Presser Foot down time [s]</item>“ “<!-- 9 -->
+        <item>Max Sewing speed [RPM]</item>“ “<!-- 10 -->
+        <item>Thread clamp start during first turn [degree]</item>“ “<!-- 11 -->
+        <item>Thread clamp stop during first turn [degree]</item>“ “<!-- 12 -->
+        <item>Thread clamp start during last turn [degree]</item>“ “<!-- 13 -->
+        <item>Thread clamp stop during last turn [degree]</item>“ “<!-- 14 -->
+        <item>XY Feeding Time [degree]</item>“ “<!-- 15 -->
+        <item>Flap Loader</item>“ “<!-- 16 -->
+        <item>Y reset quote</item>“ “<!-- 17 -->
+    </string-array>
+
+    <string-array name="Descrizione_parametri_Traslatore">
+        <item> </item>
+        <item>XL Mode</item>“ “<!-- 1 -->
+        <item>XL Mode Waiting position [mm]</item>“ “<!-- 2 -->
+        <item>Speed Motor left movements [%]</item>“ “<!-- 3 -->
+        <item>Speed Motor right movements [%]</item>“ “<!-- 4 -->
+        <item>Delay after clamp down [s]</item>“ “<!-- 5 -->
+        <item>Loading waiting position [mm]</item>“ “<!-- 6 -->
+        <item>UnLoading waiting position [mm]</item>“ “<!-- 7 -->
+    </string-array>
+
+    <string-array name="Descrizione_parametri_Scaricatore">
+        <item> </item>
+        <item>Stacker starting points (starting from the end) [stitch]</item>“ “<!-- 1 -->
+        <item>Time between clmaps up and Bar1 ON[s]</item>“ “<!-- 2 -->
+        <item>Time between Bar1 ON and Bar2 ON [s]</item>“ “<!-- 3 -->
+        <item>Time between Bar2 ON and stacker right [s]</item>“ “<!-- 4 -->
+        <item>Time between stacker right and Bar1-2 OFF [s]</item>“ “<!-- 5 -->
+        <item>Start unloader on thread trimmer</item>“ “<!-- 6 -->
+        <item>Clamp movement distance for short pieces</item>“ “<!-- 7 -->
+        <item>Delay between Stacker and Loader2 forward [s]</item>“ “<!-- 8 -->
+        <item>Bar1 delay with start on thread trimmer [s]</item>“ “<!-- 9 -->
+        <item>Bar2 OFF and Bar1 OFF delay[s]</item>“ “<!-- 10 -->
+    </string-array>
+
+    <string-array name="Descrizione_parametri_Piegatore">
+        <item> </item>
+
+    </string-array>
+
+
+
+    <string-array name="allarmi">
+        <item> </item>
+        <item>overlapping rotation codes</item>                  <!-- 1 -->
+
+    </string-array>
+
+    <string-array name="allarmi_vn2">
+        <item> </item>
+        <item>Change bobbin case</item>                     <!-- 1 -->
+        <item>Thread breakage</item>                        <!-- 2 -->
+        <item>udf first stitch error</item>                 <!-- 3 -->
+        <item>Table creation error</item>                   <!-- 4 -->
+        <item>Needle Axis home error</item>                 <!-- 5-->
+        <item>Hook Axis home error</item>                   <!-- 6-->
+        <item>X Axis home error</item>                      <!-- 7-->
+        <item>Loader1 Axis home error</item>                <!-- 8-->
+        <item>Loader2 Axis home error</item>                <!-- 9-->
+        <item>Hook Axis home error</item>                   <!-- 10-->
+        <item>Current stitch> = total seam stitches</item>  <!-- 11-->
+        <item>Clamp centering with needle</item>            <!-- 12-->
+        <item>vn2 = 13 </item>                              <!-- 13-->
+        <item> X Driver allarm</item>                        <!-- 14-->
+        <item> Y Driver allarm</item>                       <!-- 15-->
+        <item>CN allarm</item>                              <!-- 16-->
+        <item>Loader clamp is down</item>                   <!-- 17-->
+        <item>Folder is not in back position</item>         <!-- 18-->
+        <item>Pocket blade is not in back position</item>   <!-- 19-->
+        <item>Inner clamp is down</item>                    <!-- 20-->
+        <item>External clamp is down</item>                 <!-- 21-->
+        <item>Change clamps function is on</item>           <!-- 22-->
+        <item>Timeout external clamp sensor</item>          <!-- 23-->
+        <item>Timeout external clamp sensor</item>          <!-- 24-->
+        <item>Timeout internal clamp sensor</item>          <!-- 25-->
+        <item>Timeout internal clamp sensor</item>          <!-- 26-->
+        <item>Timeout loader clamp sensor</item>          <!-- 27-->
+        <item>Timeout folder forward sensor</item>          <!-- 28-->
+        <item>Timeout folder backward sensor</item>          <!-- 29-->
+        <item>Timeout pocket blade backward sensor</item>          <!-- 30-->
+        <item>Timeout folder down sensor</item>          <!-- 31-->
+        <item>Timeout folder up sensor</item>          <!-- 32-->
+        <item>Timeout internal clamp sensor ON</item>          <!-- 33-->
+        <item>Timeout internal clamp sensor OFF</item>          <!-- 34-->
+        <item>Timeout loader2 clamp sensor ON</item>          <!-- 35-->
+        <item>Timeout loader2 clamp sensor OFF</item>          <!-- 36-->
+        <item>Change bobbin case 2</item>                     <!-- 37 -->
+        <item>Thread breakage 2</item>                        <!-- 38 -->
+        <item>Lift sewing clamp head 2</item>      <!-- 39 -->
+        <item>Flap loader is empty</item>      <!-- 40 -->
+        <item>Flap Timeout loader home position</item>      <!-- 41 -->
+
+    </string-array>
+    <string-array name="warning_vn4">
+        <item> </item>
+        <item>X Driver allarm</item>                       <!-- 1 -->
+        <item>Y Driver allarm</item>                       <!-- 2 -->
+        <item>Magnet board allarm</item>                 <!-- 3 -->
+        <item>Flap Timeout loader home position</item>      <!-- 4 -->
+    </string-array>
+
+    <string-array name="rotture_filo_JT862M">
+        <item> </item>
+        <item>Thread Brekage sensor </item>               <!-- 1 -->
+    </string-array>
+
+    <string-array name="output_magneti_JT862M">
+        <item> </item>
+        <item>Thread tension solenoid </item>               <!-- 1 -->
+        <item>Thread Catcher solenoid</item>                <!-- 2 -->
+        <item>Bottom folder magnet</item>                   <!-- 3 -->
+        <item>Top folder magnet</item>                      <!-- 4 -->
+    </string-array>
+
+    <string-array name="output_magneti_JT882M">
+        <item> </item>
+        <item>C1 Thread tension solenoid </item>               <!-- 1 -->
+        <item>C2 Thread tension solenoid</item>                <!-- 2 -->
+        <item>Bottom folder magnet</item>               <!-- 3 -->
+        <item>Top folder magnet</item>              <!-- 4 -->
+    </string-array>
+    <string-array name="output_JT882M">
+        <item> </item>
+        <item>o1 Folder Blade 1 OnOff</item>              <!-- 1 -->
+        <item>o2 Folder Blade 2 OnOff</item>                            <!-- 2 -->
+        <item>o3 Folder Blade 3 OnOff</item>        <!-- 3 -->
+        <item>o4 Folder Blade 4 OnOff</item>        <!-- 4 -->
+        <item>o5 Change Body</item>           <!-- 5 -->
+        <item>o6 Change front blade</item>         <!-- 6 -->
+        <item>o7 Change side blades</item>                <!-- 7 -->
+        <item>o8 Change blade 4-5</item>    <!-- 8 -->
+        <item>o9 Pocket Blade BackForw</item>                    <!-- 9 -->
+        <item>o10 Folder BackForw</item>       <!-- 10 -->
+        <item>o11 Folder UpDown</item> <!-- 11 -->
+        <item>o12 Back Folder UpDown</item>         <!-- 12 -->
+        <item>o13 </item>             <!-- 13 -->
+        <item>o14 C1 Thread Trimmer OnOff</item>            <!-- 14 -->
+        <item>o15 Vacuum OnOff</item>                 <!-- 15 -->
+        <item>o16 </item>    <!-- 16 -->
+        <item>o17 C1 Presser foot UpDown</item>           <!-- 17 -->
+        <item>o18 C1 Internal clamp UpDown</item>                           <!-- 18 -->
+        <item>o19 C1 External clamp UpDown</item>          <!-- 19 -->
+        <item>o20 C1 Retractable Open Close</item>                <!-- 20 -->
+        <item>o21 C1 Needle Cooler OnOff</item>                <!-- 21 -->
+        <item>o22 </item>                <!-- 22 -->
+        <item>o23 Fullnes Pocket kit Back/Ford</item>                <!-- 23 -->
+        <item>o24 Loader clamp UpDown</item>   <!-- 24 -->
+        <item>o25 C1 Change Sew Clamps</item>    <!-- 25 -->
+        <item>o26 C1 Presser foot Up level</item>               <!-- 26 -->
+        <item>o27 C1 Retractable UpDown</item>              <!-- 27 -->
+        <item>o28 </item>             <!-- 28 -->
+        <item>o29 </item>                           <!-- 29 -->
+        <item>o30 </item>                           <!-- 30 -->
+        <item>o31 C1 Thread Nipper</item>                           <!-- 31 -->
+        <item>o32 C1 Enable XY Axis</item>         <!-- 32 -->
+        <item>o33 Main Air Valve OnOff</item>                           <!-- 33 -->
+        <item>o34 </item>                            <!-- 34 -->
+        <item>o35 </item>    <!-- 35 -->
+        <item>o36 </item>                           <!-- 36 -->
+        <item>o37 </item>                           <!-- 37 -->
+        <item>o38 </item>                           <!-- 38 -->
+        <item>o39 </item>            <!-- 39 -->
+        <item>o40 </item>                           <!-- 40 -->
+        <item>o41 </item>                <!-- 41 -->
+        <item>o42 </item>                           <!-- 42 -->
+        <item>o43 </item>      <!-- 43 -->
+        <item>o44</item>                            <!-- 44 -->
+        <item>o45 </item>          <!-- 45 -->
+        <item>o46 C2 Thread Trimmer OnOff</item>                            <!-- 46 -->
+        <item>o47</item>                            <!-- 47 -->
+        <item>o48 C2 Enable assi XY </item>                <!-- 48 -->
+        <item>o49 C2 presser foot UpDown</item>              <!-- 49 -->
+        <item>o50 C2 Internal clamp UpDown</item>                            <!-- 50 -->
+        <item>o51</item>                            <!-- 51 -->
+        <item>o52</item>                            <!-- 52 -->
+        <item>o53 C2 Needle Cooler OnOff</item>         <!-- 53 -->
+        <item>o54 Stacker Left Right</item>              <!-- 54 -->
+        <item>o55</item>                            <!-- 55 -->
+        <item>o56 C2 Loader Clamp Up Down</item>                           <!-- 56 -->
+        <item>o57 C2 Change Clamps</item>                            <!-- 57 -->
+        <item>o58 C2 Presser foot Up level</item>                            <!-- 58 -->
+        <item>o59 C2 Retractable Open Close</item>                            <!-- 59 -->
+        <item>o60 Stacker First bar OnOff</item>                            <!-- 60 -->
+        <item>o61 Stacker Second bar OnOff</item>                            <!-- 61 -->
+        <item>o62 </item>    <!-- 62 -->
+        <item>o63 C2 Thread Nipper </item>                           <!-- 63 -->
+        <item>o64 </item>         <!-- 64 -->
+        <item>o65 </item>         <!-- 65-->
+        <item>o66 </item>         <!-- 66 -->
+        <item>o67 </item>         <!-- 67 -->
+    </string-array>
+
+
+
+    <string-array name="output_JT862M">
+        <item> </item>
+        <item>o1 Enable XY Axis</item>              <!-- 1 -->
+        <item>o2 </item>                            <!-- 2 -->
+        <item>o3 Internal clamp UpDown</item>       <!-- 3 -->
+        <item>o4 External clamp UpDown</item>       <!-- 4 -->
+        <item>o5 Retractable UpDown</item>          <!-- 5 -->
+        <item>o6 Loader clmap UpDown</item>         <!-- 6 -->
+        <item>o7 Change Sew Clamps</item>           <!-- 7 -->
+        <item>o8 Retractable Open Close</item>      <!-- 8 -->
+        <item>o9 Thread Trimmer OnOff</item>        <!-- 9 -->
+        <item>o10 Pocket Blade BackForw</item>      <!-- 10 -->
+        <item>o11 Fullnes Pocket kit Back/Ford</item> <!-- 11 -->
+        <item>o12 Change blade 4-5</item>           <!-- 12 -->
+        <item>o13 Presser foot UpDown</item>        <!-- 13 -->
+        <item>o14 Presser foot Up level</item>      <!-- 14 -->
+        <item>o15 Needle Cooler OnOff</item>        <!-- 15 -->
+        <item>o16 Folder BackForw</item>            <!-- 16 -->
+        <item>o17 Folder UpDown</item>              <!-- 17 -->
+        <item>o18 </item>                           <!-- 18 -->
+        <item>o19 Back Folder UpDown</item>         <!-- 19 -->
+        <item>o20 Folder Blade 4 OnOff</item>       <!-- 20 -->
+        <item>o21 Folder Blade 1 OnOff</item>       <!-- 21 -->
+        <item>o22 Folder Blade 2 OnOff</item>       <!-- 22 -->
+        <item>o23 Folder Blade 2 OnOff</item>       <!-- 23 -->
+        <item>o24 Change side blades </item>        <!-- 24 -->
+        <item>o25 Change front blade</item>         <!-- 25 -->
+        <item>o26 Change Body</item>                <!-- 26 -->
+        <item>o27 Vacuum OnOff</item>               <!-- 27 -->
+        <item>o28 Main Air Valve OnOff</item>       <!-- 28 -->
+        <item>o29 Stacker First bar OnOff</item>    <!-- 29 -->
+        <item>o30 Stacker Second bar OnOff</item>   <!-- 30 -->
+        <item>o31 </item>                           <!-- 31 -->
+        <item>o32 Stacker Left Right </item>        <!-- 32 -->
+    </string-array>
+
+    <string-array name="input_JT882M">
+        <item> </item>
+        <item>i1 Start button</item>                  <!-- 1 -->
+        <item>i2 C1 Clamps pedal</item>                    <!-- 2 -->
+        <item>i3 Folder pedal</item>                    <!-- 3 -->
+        <item>i4 C1 Sens. Hook Axis Home</item>                     <!-- 4 -->
+        <item>i5 C1 Sens. Loader clamp Up</item>                       <!-- 5 -->
+        <item>i6 C1 Sens. Loader Axis Home</item>           <!-- 6 -->
+        <item>i7 Sens. Folder Front</item>            <!-- 7 -->
+        <item>i8 Sens. Folder Back</item>          <!-- 8 -->
+        <item>i9 Sens. Folder Down</item>            <!-- 9 -->
+        <item>i10 Sens. Piegatore Alto</item>                                <!-- 10 -->
+        <item>i11 Sens. Back Pocket Blade</item>              <!-- 11 -->
+        <item>i12 Sens. Bilanciere Alto</item>           <!-- 12 -->
+        <item>i13 Sens. Bilanciere Basso</item>   <!-- 13 -->
+        <item>i14 Opt. Reinforcement 1</item>    <!-- 14 -->
+        <item>i15 Opt. Reinforcement 2</item>          <!-- 15 -->
+        <item>i16 </item>         <!-- 16 -->
+        <item>i17 </item>         <!-- 17 -->
+        <item>i18 C1 Thread breakage sensor</item>     <!-- 18 -->
+        <item>i19 C1 Sens. X Axis Home</item>          <!-- 19 -->
+        <item>i20 C1 Sens. Y Axis Home</item>            <!-- 20 -->
+        <item>i21 Emergency button</item>       <!-- 21 -->
+        <item>i22 C1 Sens. Needle Axis Home</item>      <!-- 22 -->
+        <item>i23 C1 Sens. Internal clamp down</item>                 <!-- 23 -->
+        <item>i24 C1 Sens. External Clamp Up</item>                                <!-- 24 -->
+        <item>i25 C1 Folder reset button</item>                 <!-- 25 -->
+        <item>i26 C1 Stop sewing button</item>             <!-- 26 -->
+        <item>i27 C2 Stop sewing button</item>                                <!-- 27 -->
+        <item>i28</item>                                <!-- 28 -->
+        <item>i29</item>                                <!-- 29 -->
+        <item>i30 </item>             <!-- 30 -->
+        <item>i31 C1 X Driver Ready</item>                                <!-- 31 -->
+        <item>i32 C1 Y Driver Ready</item>                                <!-- 32 -->
+        <item>i33 C2 Pedal</item>                                <!-- 33 -->
+        <item>i34 </item>                   <!-- 34 -->
+        <item>i35 Air Sensor</item>                                <!-- 35 -->
+        <item>i36 </item>                               <!-- 36 -->
+        <item>i37 C2 Sens. Hook Axis Home</item>                                <!-- 37 -->
+        <item>i38 C2 Sens. Loader Clamp Up  </item>         <!-- 38 -->
+        <item>i39 C2 Sens. Loader Axis Home</item>           <!-- 39 -->
+        <item>i40 </item>         <!-- 40 -->
+        <item>i41 </item>           <!-- 41 -->
+        <item>i42</item>                                <!-- 42 -->
+        <item>i43 </item>              <!-- 43 -->
+        <item>i44 </item>                               <!-- 44 -->
+        <item>i45 </item>   <!-- 45 -->
+        <item>i46</item>                                <!-- 46 -->
+        <item>i47 C2 Driver X Status</item>          <!-- 47 -->
+        <item>i48 C2 Driver Y Status</item>                                <!-- 48 -->
+        <item>i49 </item>    <!-- 49 -->
+        <item>i50 C2 Thread breakage sensor</item>  <!-- 50 -->
+        <item>i51 C2 Sens. X Axis Home</item>                               <!-- 51 -->
+        <item>i52 C2 Sens. Y Axis Home</item>                               <!-- 52 -->
+        <item>i53 C2 Sens. Y Axis back sensor</item>                                <!-- 53 -->
+        <item>i54 C2 Sens. Needle Axis Home</item>      <!-- 54 -->
+        <item>i55 C2 Sens. Internal clamp down</item>                               <!-- 55 -->
+        <item>i56</item>                                <!-- 56 -->
+        <item>i57</item>                                <!-- 57 -->
+        <item>i58 C2 Stop sewing button</item>             <!-- 58 -->
+        <item>i59</item>                                <!-- 59 -->
+        <item>i60</item>                                <!-- 60 -->
+        <item>i61</item>                                <!-- 61 -->
+        <item>i62 </item>             <!-- 62 -->
+        <item>i63</item>                                <!-- 63 -->
+        <item>i64</item>                                <!-- 64 -->
+    </string-array>
+
+
+    <string-array name="input_JT862M">
+        <item> </item>
+        <item>i1 Start button</item>                <!-- 1 -->
+        <item>i2 Clamps pedal</item>                <!-- 2 -->
+        <item>i3 Folder pedal</item>                <!-- 3 -->
+        <item>i4 Air Sensor</item>                  <!-- 4 -->
+        <item>i5 Emergency button</item>            <!-- 5 -->
+        <item>i6 Thread breakage sensor</item>      <!-- 6 -->
+        <item>i7 Sens. X Axis Home</item>           <!-- 7 -->
+        <item>i8 Sens. Y Axis back sensor</item>    <!-- 8 -->
+        <item>i9 Sens. Y Axis Home</item>           <!-- 9 -->
+        <item>i10</item>                            <!-- 10 -->
+        <item>i11 Sens. Needle Axis Home</item>     <!-- 11 -->
+        <item>i12 Sens. Loader clamp Up</item>      <!-- 12 -->
+        <item>i13 Sens. Internal clamp down</item>  <!-- 13 -->
+        <item>i14 Sens. External Clamp Up</item>    <!-- 14 -->
+        <item>i15 Sens. Hook Axis Home</item>       <!-- 15 -->
+        <item>i16 Sens. Folder Front</item>         <!-- 16 -->
+        <item>i17 Sens. Folder Back</item>          <!-- 17 -->
+        <item>i18 Sens. Loader Axis Home</item>     <!-- 18 -->
+        <item>i19 Sens. Folder Down</item>          <!-- 19 -->
+        <item>i20 Sens. Back Pocket Blade</item>    <!-- 20 -->
+        <item>i21 Folder reset button</item>        <!-- 21 -->
+        <item>i22 Stop sewing button</item>         <!-- 22 -->
+        <item>i23 Opt. Reinforcement 1</item>       <!-- 23 -->
+        <item>i24</item>                            <!-- 24 -->
+        <item>i25 Opt. Reinforcement 2</item>       <!-- 25 -->
+        <item>i26 X Driver Ready</item>             <!-- 26 -->
+        <item>i27</item>                            <!-- 27 -->
+        <item>i28</item>                            <!-- 28 -->
+        <item>i29</item>                            <!-- 29 -->
+        <item>i30 Y Driver Ready</item>             <!-- 30 -->
+        <item>i31</item>                            <!-- 31 -->
+        <item>i32</item>                            <!-- 32 -->
+
+    </string-array>
+    <string-array name="AllarmiCN_Descrizione_JAM">
+        <item>  </item>  <!-- 0 //emergenza all'accensione -->
+        <item>1) Press green button or Emergency pressed (FUN90 2)</item>  <!-- 1 -->
+        <item>2) No air (FUN90 3)</item>  <!-- 2 -->
+        <item>3) Driver X Alarm (FUN90 4)</item>  <!-- 3 -->
+        <item>4) Driver Y Alarm (FUN90 5)</item>  <!-- 4 -->
+        <item>5) Solenoid board alarm (FUN90 6)</item>  <!-- 5 -->
+        <item>6) Alarm FUN90 7</item>  <!-- 6 -->
+
+        <item>7) Needle Motor following error, check the needle mechanics and motor driver</item>  <!-- 7 -->
+        <item>8) Hook Motor following error, check the hook mechanics and motor driver</item>  <!-- 8 -->
+        <item>9) Loader Motor following error, check the Loader mechanics and motor driver</item>  <!-- 9 -->
+        <item>10) Needle2 Motor following error, check the needle2 mechanics and motor driver</item>  <!-- 10 -->
+        <item>11) Hook2 Motor following error, check the hook2 mechanics and motor driver</item>  <!-- 11 -->
+        <item>12) Loader2 Motor following error, check the Loader2 mechanics and motor driver</item>  <!-- 12 -->
+
+        <item>13) X Motor Homing error, check the X mechanics and motor driver</item>  <!-- 13 -->
+        <item>14) Y Motor Homing error, check the Y mechanics and motor driver</item>  <!-- 14 -->
+        <item>15) Needle Motor Homing error, check the needle mechanics and motor driver</item>  <!-- 15 -->
+        <item>16) Hook Motor Homing error, check the hook mechanics and motor driver</item>  <!-- 16 -->
+        <item>17) Loader Motor Homing error,check the loader mechanics and motor driver</item>  <!-- 17 -->
+        <item>18) X2 Motor Homing error, check the X2 mechanics and motor driver</item>  <!-- 18 -->
+        <item>19) Y2 Motor Homing error, check the Y2 mechanics and motor driver</item>  <!-- 19 -->
+        <item>20) Needle2 Motor Homing error, check the needle2 mechanics and motor driver</item>  <!-- 20 -->
+        <item>21) Hook2 Motor Homing error, check the hook2 mechanics and motor driver</item>  <!-- 21 -->
+        <item>22) Loader2 Motor Homing error,check the loader2 mechanics and motor driver</item>  <!-- 22 -->
+
+        <item>23) X Motor homing release error, check the X mechanics and motor driver</item>  <!-- 23 -->
+        <item>24) Y Motor homing release error, check the Y mechanics and motor driver</item>  <!-- 24 -->
+        <item>25) Needle Motor homing release error, check the needle mechanics and motor driver</item>  <!-- 25 -->
+        <item>26) Hook Motor homing release error, check the hook mechanics and motor driver</item>  <!-- 26 -->
+        <item>27) Loader Motor homing release error,check the loader mechanics and motor driver</item>  <!-- 27 -->
+        <item>28) X2 Motor homing release error, check the X2 mechanics and motor driver</item>  <!-- 28 -->
+        <item>29) Y2 Motor homing release error, check the Y2 mechanics and motor driver</item>  <!-- 29 -->
+        <item>30) Needle2 Motor homing release error check the needle2 mechanics and motor driver</item>  <!-- 30 -->
+        <item>31) Hook2 Motor homing release error, check the hook2 mechanics and motor driver</item>  <!-- 31 -->
+        <item>32) Loader2 Motor homing release error,check the loader2 mechanics and motor driver</item>  <!--32 -->
+        <item>33) Needle timeout driver</item>  <!--33 -->
+        <item>34) Hook timeout driver</item>  <!--34 -->
+        <item>35) Loader timeout driver</item>  <!--35 -->
+        <item>36) Needle2 timeout driver</item>  <!--36 -->
+        <item>37) Hook2 timeout driver</item>  <!--37 -->
+        <item>38) Loader2 timeout driver</item>  <!--38 -->
+
+        <item>39) Needle Ethercat error driver</item>  <!--39 -->
+        <item>40) Hook Ethercat error driver</item>  <!--40 -->
+        <item>41) Loader Ethercat error driver</item>  <!--41 -->
+        <item>42) Needle2 Ethercat error driver</item>  <!--42 -->
+        <item>43) Hook2 Ethercat error driver</item>  <!--43 -->
+        <item>44) Loader2 Ethercat error driver</item>  <!--44 -->
+
+
+    </string-array>
+</resources>

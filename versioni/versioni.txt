@@ -1,0 +1,2 @@
+1.3 (12/04/2023) = aggiunto par21 per attivazione needle cooler
+			tasto apri programma sulla pagina Emergenza si vede solo dopo aver premuto il touch

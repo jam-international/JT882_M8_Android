@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Ricetta descrizione="" numero="1" pcx="0.1" pcy="0.1" UdfVelLavRPM="4000" UdfPuntiVelIni="3.0" UdfVelIniRPM="110" UdfPuntiVelRall="3.0" UdfVelRallRPM="100" Udf_FeedG0="50000" Udf_ValTensioneT1="3000" Udf_20="0" Udf_ValElettrocalamitaSopra="9000" Udf_ValElettrocalamitaSotto="9000" Udf_23="0" Udf_24="0" Udf_25="0" Udf_26="0" Udf_27="0" Udf_28="0" Udf_29="0" Udf_30="0" Udf_SequenzaPiegatore_chiusura="1234" Udf_SequenzaPiegatore_apetura="4321">
+  <Feed x-start="0.0" y-start="0.0" x-end="87.45" y-end="67.2" entity="a47ed6d2-b733-491a-8dda-aa7ea33280bc">
+    <Step x="87.45" y="67.2" />
+  </Feed>
+
+</Ricetta>

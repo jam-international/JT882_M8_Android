@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResultActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_button"
+                android:onClick="BtnBackPage"
+                android:text="@string/Back"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_button"
+                android:onClick="BtnExitPage"
+                android:text="@string/Exit"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/DrawThePocket"
+                android:textColor="@android:color/white"
+                android:textSize="32dp"
+                android:visibility="visible" />
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_button"
+                android:onClick="BtnCodesPage"
+                android:text="Codes"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_button"
+                android:onClick="BtnSave"
+                android:text="@string/Save"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:id="@+id/FrameLayout_r"
+                    android:layout_width="@dimen/result_activity_framelayout_width"
+                    android:layout_height="@dimen/result_activity_framelayout_height"
+                    android:layout_weight="1"
+                    android:background="@drawable/border1">
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:background="@color/colorPrimaryDark"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="70dp"
+                        android:background="@drawable/tasto_zoom_all"
+                        android:onClick="Btn_ZoomCenter_H1" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="70dp"
+                        android:background="@drawable/tasto_zoom_piu"
+                        android:onClick="Btn_ZoomIn_H1" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="70dp"
+                        android:background="@drawable/tasto_zoom_meno"
+                        android:onClick="Btn_ZoomOut_H1" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:id="@+id/FrameLayout_r1"
+                    android:layout_width="@dimen/result_activity_framelayout_width"
+                    android:layout_height="@dimen/result_activity_framelayout_height"
+                    android:layout_weight="1"
+                    android:background="@drawable/border1">
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:background="@color/colorPrimaryDark"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/Button_H2ZoomAll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="70dp"
+                        android:background="@drawable/tasto_zoom_all"
+                        android:onClick="Btn_ZoomCenter_H2" />
+
+                    <Button
+                        android:id="@+id/Button_H2ZoomIn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="70dp"
+                        android:background="@drawable/tasto_zoom_piu"
+                        android:onClick="Btn_ZoomIn_H2" />
+
+                    <Button
+                        android:id="@+id/Button_H2ZoomOut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="70dp"
+                        android:background="@drawable/tasto_zoom_meno"
+                        android:onClick="Btn_ZoomOut_H2" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

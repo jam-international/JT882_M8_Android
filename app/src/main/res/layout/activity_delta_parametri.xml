@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/editTextTextWriteValue"
+        android:layout_width="71dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextTextValue_label2"
+        app:layout_constraintStart_toEndOf="@+id/editTextTextValue_label2" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/tasto_exit"
+        android:onClick="onClick_exit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <TextView
+        android:id="@+id/editTextTextReady"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:text="Status:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/editTextTextCategoria_label"
+        android:layout_width="153dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:text="Category number:"
+        app:layout_constraintStart_toStartOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <TextView
+        android:id="@+id/editTextTextParametro_label"
+        android:layout_width="156dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="64dp"
+        android:ems="10"
+        android:text="Parameter number:"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextCategoria_label"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextCategoria_label" />
+
+    <TextView
+        android:id="@+id/editTextTextValue_label2"
+        android:layout_width="69dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:text="Value:"
+        app:layout_constraintStart_toStartOf="@+id/button_read"
+        app:layout_constraintTop_toBottomOf="@+id/button_read" />
+
+    <TextView
+        android:id="@+id/editTextTextError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="40dp"
+        android:ems="10"
+        android:text="Error:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextReady"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextReady">
+
+        <RadioButton
+            android:id="@+id/radioButton_ax1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Needle" />
+
+        <RadioButton
+            android:id="@+id/radioButton_ax2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hook" />
+
+        <RadioButton
+            android:id="@+id/radioButton_ax3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loader" />
+        <RadioButton
+            android:id="@+id/radioButton_ax6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Needle C2" />
+
+        <RadioButton
+            android:id="@+id/radioButton_ax7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hook C2" />
+
+        <RadioButton
+            android:id="@+id/radioButton_ax10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loader C2" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/editTextTextCategoria"
+        android:layout_width="71dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextTextCategoria_label"
+        app:layout_constraintStart_toEndOf="@+id/editTextTextCategoria_label" />
+
+    <EditText
+        android:id="@+id/editTextTextParametro"
+        android:layout_width="71dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextTextParametro_label"
+        app:layout_constraintStart_toEndOf="@+id/editTextTextParametro_label"
+        app:layout_constraintTop_toTopOf="@+id/editTextTextParametro_label" />
+
+    <TextView
+        android:id="@+id/editTextTextReadResult"
+        android:layout_width="70dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="4dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="."
+        app:layout_constraintBottom_toBottomOf="@+id/editTextTextResult_label"
+        app:layout_constraintStart_toEndOf="@+id/editTextTextResult_label" />
+
+    <Button
+        android:id="@+id/button_read"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="116dp"
+        android:onClick="on_click_read"
+        android:text="Read"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextParametro_label"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextParametro_label" />
+
+    <TextView
+        android:id="@+id/editTextTextResult_label"
+        android:layout_width="68dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="4dp"
+        android:ems="10"
+        android:text="Result:"
+        app:layout_constraintBottom_toBottomOf="@+id/button_read"
+        app:layout_constraintStart_toEndOf="@+id/button_read" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:onClick="onClick_Write"
+        android:text="write"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextTextWriteValue"
+        app:layout_constraintStart_toEndOf="@+id/editTextTextWriteValue" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextParametro_label">
+
+        <RadioButton
+            android:id="@+id/radioButton_size32"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Size32" />
+
+        <RadioButton
+            android:id="@+id/radioButton_size16"
+            android:layout_width="113dp"
+            android:layout_height="wrap_content"
+            android:text="Size16" />
+    </RadioGroup>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
