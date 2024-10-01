@@ -425,7 +425,8 @@ public class KeyDialog_lettere extends Activity {
             public void onClick(View v) {
                 String testo = text.getText().toString();
                 testo = testo.substring(0, Math.min(testo.length(), 23));
-                editText.setText(testo);
+                String testo_no_space = testo.replaceAll("\\s+","");    //tolgo gli spazzi
+                editText.setText(testo_no_space);
 
                 dialog.dismiss();
 

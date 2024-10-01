@@ -13,8 +13,8 @@
     <string name="StretchStep">Premi - fino al punto di stretch e poi premi Enter</string>
     <string name="StretchPointFrecce">Muoviti con le frecce al punto finale di stretch e poi premi Enter</string>
     <string name="ZigZag">Muoviti con le frecce al punto finale della travetta e poi premi Enter</string>
-    <string name="ZigZag1">Digita altezza della travetta</string>
-    <string name="ZigZag2">Digita il passo della travetta</string>
+    <string name="ZigZag1">Muoviti con le frecce al punto finale della travetta e poi premi Enter</string>
+    <string name="ZigZag2">Muoviti con le frecce al punto finale della travetta e poi premi Enter</string>
     <string name="MiddlePointStep">Premi + - fino ad un punto medio dell arco e premi Enter</string>
     <string name="Feed">Muoviti con le frecce al punto finale del feed e poi premi Enter</string>
     <string name="EndPointStep">Premi + - fino al punto di fine arco e poi premi Enter</string>
@@ -184,6 +184,10 @@
         <item>Anticipo trasporto cucitura [gradi]</item>“ “<!-- 15 -->
         <item>Caricatore Pattina</item>“ “<!-- 16 -->
         <item>Quota Y durante reset</item>“ “<!-- 17 -->
+        <item>FLAP, durata soffio aghi (ms)</item>“ “<!-- 18 -->
+        <item>FLAP, ritardo partenza prima cucitura (ms)</item>“ “<!-- 19 -->
+        <item>FLAP, ritardo partenza seconda cucitura (ms)</item>“ “<!-- 20 -->
+
 
     </string-array>
     <string-array name="Descrizione_parametri_Scaricatore">

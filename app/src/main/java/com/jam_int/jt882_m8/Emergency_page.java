@@ -339,7 +339,7 @@ public class Emergency_page extends Activity {
 
         // Get the current version of the HMI software
       //  int versionCode = com.android. BuildConfig.VERSION_CODE;
-        ver_softwareHMI.setText("1.8");
+        ver_softwareHMI.setText("1.9");
 
         // Setup the ShoppingList
         try {
@@ -716,7 +716,7 @@ public class Emergency_page extends Activity {
         super.onDestroy();
     }
 
-    private boolean CheckPresenzaProgramma(String file_path) {
+    private boolean CheckPresenzaProgramma_udf(String file_path) {
         MSysFileInfo fi = new MSysFileInfo();
 
         fi = sl.FileDir(file_path, (byte) 0x20);//0x10 = FOLDER , 0X20=FILE
@@ -1412,9 +1412,26 @@ public class Emergency_page extends Activity {
                         sl.WriteItem(Multicmd_Vb4807_PinzeAlteDopoPC);
 
                         // Controllo se esiste il file udf da caricare
-                        String filename1 = SubString.After(Values.File_XML_path_R, "/");
-                        String filename = filename1.replace(".xml", ".udf");
-                        path_udf_presente = CheckPresenzaProgramma("C:\\cnc\\userdata\\" + filename);
+                        path_udf_presente = Utility.CheckPresenzaProgramma_xml(Values.File_XML_path_R);
+
+                        if(path_udf_presente){
+                            String path_filename_T1_xml = SubString.After(Values.File_XML_path_R, "/");
+                            String filenameT1_udf = path_filename_T1_xml.replace(".xml", ".udf");
+                            path_udf_presente = CheckPresenzaProgramma_udf("C:\\cnc\\userdata\\" + filenameT1_udf);
+                        }
+                        if(path_udf_presente){
+                            path_udf_presente = Utility.CheckPresenzaProgramma_xml(Values.File_XML_path_T2_R);
+                            if(path_udf_presente){
+                                String filename_T2_xml = SubString.After(Values.File_XML_path_T2_R, "/");
+                                String filenameT2_udf = filename_T2_xml.replace(".xml", ".udf");
+                                path_udf_presente = CheckPresenzaProgramma_udf("C:\\cnc\\userdata\\" + filenameT2_udf);
+                            }
+
+                        }
+
+
+
+
 
 
 
@@ -1440,7 +1457,7 @@ public class Emergency_page extends Activity {
 
                         //Lettura delle emergenze attive
 
-                        if (Leggi_Emergenze) LeggoEmergenze();
+                        if (Leggi_Emergenze) LeggoEmergenze(str_allarmi);
 
 
                     }
@@ -1464,6 +1481,7 @@ public class Emergency_page extends Activity {
                             //controllo se all'accensione il file udf di cucitura è presente dentro al CN
                             if (!path_udf_presente) {
                                 str_allarmi = str_allarmi + "Missing sewing program file";
+
                             }
 
                             ScriviEmergenza();
@@ -1645,7 +1663,7 @@ public class Emergency_page extends Activity {
 
         }
 
-        private void  LeggoEmergenze() {
+        private void  LeggoEmergenze(String extra_allarme) {
             // String str_allarmi_return ="";
             boolean findJAMCode = false;
             MultiCmdItem mci = new MultiCmdItem(1, MultiCmdItem.dtAL, 9, MultiCmdItem.dpAL_M32, sl);
@@ -1682,6 +1700,10 @@ public class Emergency_page extends Activity {
                     sl.ReadItem(descmci);
                     String d = (String) descmci.getValue();
                     list_allarmi.add(d);
+                }
+                if(extra_allarme!=null && extra_allarme.length()>0) {
+                    list_allarmi.add(extra_allarme);
+                    str_allarmi ="";
                 }
 
             } catch (Exception e) {

@@ -619,6 +619,14 @@ public class Utility {
         context.startActivity(intent);
     }
 
+    public static Boolean CheckPresenzaProgramma_xml(String fileXmlPathR) {
+        File file = new File(fileXmlPathR);
+        if(file.exists())
+            return true;
+        else return
+            false;
+    }
+
     /**
      * Function for create an empty Ricetta
      *

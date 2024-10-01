@@ -36,6 +36,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -1222,12 +1223,14 @@ boolean test = false;
      */
     private void Load_XML(String percorso_file,String N_Testa) {
         try {
-            File file = new File(percorso_file);
 
+            File file = new File(percorso_file);
             // If the file doesn't exist create a new empty program
             if (!file.exists() || file.length() <= 0) {
+
                 Utility.CreaProgCucituraVuoto(this);
                 percorso_file = Environment.getExternalStorageDirectory() + "/JamData/file_empty.xml";
+
             }
 
             file = new File(percorso_file);
@@ -1339,129 +1342,129 @@ boolean test = false;
     }
 
     private void Gestione_tascaDxSX() {
-        try {
-            switch (mc_stati_tasca_dx_sx) {
+        if ((Double) MultiCmd_Vb21_DxSx_pocket.getValue() == 1.0d) {
+            try {
+                switch (mc_stati_tasca_dx_sx) {
 
-                case 0: //inizio
-                    Toggle_Button.Disabilita_Imagebutton(Button_tascaSX, "ic_tasca_sx_disable", getApplicationContext());
-                    Toggle_Button.Disabilita_Imagebutton(Button_tascaDX, "ic_tasca_dx_disable", getApplicationContext());
-                    Toggle_Button.Disabilita_Imagebutton(Button_load_L, "ic_open_file_disable", getApplicationContext());
-                    TextView_nomeprog2.setVisibility(View.GONE);
-                    TextView_nomeprog_L_val.setVisibility(View.GONE);
-                    TextView_folder2.setVisibility(View.GONE);
-                    TextView_folder_L_val.setVisibility(View.GONE);
-                    if(Values.Machine_model.equals("JT882M")){
+                    case 0: //inizio
+                        Toggle_Button.Disabilita_Imagebutton(Button_tascaSX, "ic_tasca_sx_disable", getApplicationContext());
+                        Toggle_Button.Disabilita_Imagebutton(Button_tascaDX, "ic_tasca_dx_disable", getApplicationContext());
+                        Toggle_Button.Disabilita_Imagebutton(Button_load_L, "ic_open_file_disable", getApplicationContext());
+                        TextView_nomeprog2.setVisibility(View.GONE);
+                        TextView_nomeprog_L_val.setVisibility(View.GONE);
+                        TextView_folder2.setVisibility(View.GONE);
+                        TextView_folder_L_val.setVisibility(View.GONE);
+                        if (Values.Machine_model.equals("JT882M")) {
 
-                        Toggle_Button.Disabilita_Imagebutton(Button_tascaSX_C2, "ic_tasca_sx_disable", getApplicationContext());
-                        Toggle_Button.Disabilita_Imagebutton(Button_tascaDX_C2, "ic_tasca_dx_disable", getApplicationContext());
-                        Toggle_Button.Disabilita_Imagebutton(Button_load_L_C2, "ic_open_file_disable", getApplicationContext());
-                        TextView_nomeprog_L2_C2.setVisibility(View.GONE);
-                        TextView_nomeprog_L_val_C2.setVisibility(View.GONE);
-                        TextView_folder_L2_C2.setVisibility(View.GONE);
-                        TextView_folder_L_val_C2.setVisibility(View.GONE);
-
-                    }
-
-                    mc_stati_tasca_dx_sx = 10;  //
-                    break;
-                case 10:    //attivo
-                    if ((Double) MultiCmd_Vb21_DxSx_pocket.getValue() == 1.0d) {
-                        Toggle_Button.Abilita_Imagebutton(Button_tascaSX, "ic_tasca_sx", getApplicationContext());
-                        Toggle_Button.Abilita_Imagebutton(Button_tascaDX, "ic_tasca_dx", getApplicationContext());
-                        Toggle_Button.Abilita_Imagebutton(Button_load_L, "ic_open_file", getApplicationContext());
-                        TextView_nomeprog2.setVisibility(View.VISIBLE);
-                        TextView_nomeprog_L_val.setVisibility(View.VISIBLE);
-                        TextView_folder2.setVisibility(View.VISIBLE);
-                        TextView_folder_L_val.setVisibility(View.VISIBLE);
-                        mc_stati_tasca_dx_sx = 20;
-
-                        if(Values.Machine_model.equals("JT882M")){
-
-                            Toggle_Button.Abilita_Imagebutton(Button_tascaSX_C2, "ic_tasca_sx", getApplicationContext());
-                            Toggle_Button.Abilita_Imagebutton(Button_tascaDX_C2, "ic_tasca_dx", getApplicationContext());
-                            Toggle_Button.Abilita_Imagebutton(Button_load_L_C2, "ic_open_file", getApplicationContext());
-                            TextView_nomeprog_L2_C2.setVisibility(View.VISIBLE);
-                            TextView_nomeprog_L_val_C2.setVisibility(View.VISIBLE);
-                            TextView_folder_L2_C2.setVisibility(View.VISIBLE);
-                            TextView_folder_L_val_C2.setVisibility(View.VISIBLE);
+                            Toggle_Button.Disabilita_Imagebutton(Button_tascaSX_C2, "ic_tasca_sx_disable", getApplicationContext());
+                            Toggle_Button.Disabilita_Imagebutton(Button_tascaDX_C2, "ic_tasca_dx_disable", getApplicationContext());
+                            Toggle_Button.Disabilita_Imagebutton(Button_load_L_C2, "ic_open_file_disable", getApplicationContext());
+                            TextView_nomeprog_L2_C2.setVisibility(View.GONE);
+                            TextView_nomeprog_L_val_C2.setVisibility(View.GONE);
+                            TextView_folder_L2_C2.setVisibility(View.GONE);
+                            TextView_folder_L_val_C2.setVisibility(View.GONE);
 
                         }
 
-                    }
-                    break;
-                case 20:
-                    if ((Double) MultiCmd_Vb21_DxSx_pocket.getValue() == 0.0d) {
-                        mc_stati_tasca_dx_sx = 0;
-                    }
-                    if (Double.compare(Mci_write_Vn196_tasca_right_C1.valore_precedente, (Double) MultiCmd_Vn196_num_prog_right_C1.getValue()) != 0
-                            || Double.compare(Mci_write_Vn197_tasca_left_C1.valore_precedente, (Double) MultiCmd_Vn197_num_prog_left_C1.getValue()) != 0) {
-                        if ((Double) MultiCmd_Vn196_num_prog_right_C1.getValue() == 1.0d) {
-                            Button_tascaSX.setBackground(getApplicationContext().getResources().getDrawable((R.drawable.ic_tasca_sx)));
-                            Button_tascaDX.setBackground(getApplicationContext().getResources().getDrawable((R.drawable.ic_tasca_dx_press)));
+                        mc_stati_tasca_dx_sx = 10;  //
+                        break;
+                    case 10:    //attivo
+                        if ((Double) MultiCmd_Vb21_DxSx_pocket.getValue() == 1.0d) {
+                            Toggle_Button.Abilita_Imagebutton(Button_tascaSX, "ic_tasca_sx", getApplicationContext());
+                            Toggle_Button.Abilita_Imagebutton(Button_tascaDX, "ic_tasca_dx", getApplicationContext());
+                            Toggle_Button.Abilita_Imagebutton(Button_load_L, "ic_open_file", getApplicationContext());
+                            TextView_nomeprog2.setVisibility(View.VISIBLE);
+                            TextView_nomeprog_L_val.setVisibility(View.VISIBLE);
+                            TextView_folder2.setVisibility(View.VISIBLE);
+                            TextView_folder_L_val.setVisibility(View.VISIBLE);
+                            mc_stati_tasca_dx_sx = 20;
 
-                            Carica_programma(Values.File_XML_path_R,"T1", "DX");
+                            if (Values.Machine_model.equals("JT882M")) {
 
-                         //   try {
-                         //       Thread.sleep((long) 300d);
+                                Toggle_Button.Abilita_Imagebutton(Button_tascaSX_C2, "ic_tasca_sx", getApplicationContext());
+                                Toggle_Button.Abilita_Imagebutton(Button_tascaDX_C2, "ic_tasca_dx", getApplicationContext());
+                                Toggle_Button.Abilita_Imagebutton(Button_load_L_C2, "ic_open_file", getApplicationContext());
+                                TextView_nomeprog_L2_C2.setVisibility(View.VISIBLE);
+                                TextView_nomeprog_L_val_C2.setVisibility(View.VISIBLE);
+                                TextView_folder_L2_C2.setVisibility(View.VISIBLE);
+                                TextView_folder_L_val_C2.setVisibility(View.VISIBLE);
 
-                         //   } catch (InterruptedException e) {
-                         //       e.printStackTrace();
-                         //   }
-                        } else {
-                            Button_tascaSX.setBackground(getApplicationContext().getResources().getDrawable((R.drawable.ic_tasca_sx_press)));
-                            Button_tascaDX.setBackground(getApplicationContext().getResources().getDrawable((R.drawable.ic_tasca_dx)));
-                            Carica_programma(Values.File_XML_path_L,"T1", "SX");
-                          //  try {
-                          //      Thread.sleep((long) 300d);
-
-                          //  } catch (InterruptedException e) {
-                          //      e.printStackTrace();
-                         //   }
-                        }
-                        Mci_write_Vn196_tasca_right_C1.valore_precedente = (Double) MultiCmd_Vn196_num_prog_right_C1.getValue();
-                        Mci_write_Vn197_tasca_left_C1.valore_precedente = (Double) MultiCmd_Vn197_num_prog_left_C1.getValue();
-                    }
-
-                    if(Values.Machine_model.equals("JT882M")) {
-                        if (Double.compare(Mci_write_Vn198_tasca_right_C2.valore_precedente, (Double) MultiCmd_Vn198_num_prog_right_C2.getValue()) != 0
-                                || Double.compare(Mci_write_Vn199_tasca_left_C2.valore_precedente, (Double) MultiCmd_Vn199_num_prog_left_C2.getValue()) != 0) {
-                            if ((Double) MultiCmd_Vn198_num_prog_right_C2.getValue() == 1.0d) {
-                                Button_tascaSX_C2.setBackground(getApplicationContext().getResources().getDrawable((R.drawable.ic_tasca_sx)));
-                                Button_tascaDX_C2.setBackground(getApplicationContext().getResources().getDrawable((R.drawable.ic_tasca_dx_press)));
-
-                                Carica_programma(Values.File_XML_path_T2_R, "T2", "DX");
-
-                             //   try {
-                             //       Thread.sleep((long) 300d);
-
-                             //   } catch (InterruptedException e) {
-                            //        e.printStackTrace();
-                            //    }
-                            } else {
-                                Button_tascaSX_C2.setBackground(getApplicationContext().getResources().getDrawable((R.drawable.ic_tasca_sx_press)));
-                                Button_tascaDX_C2.setBackground(getApplicationContext().getResources().getDrawable((R.drawable.ic_tasca_dx)));
-
-                                Carica_programma(Values.File_XML_path_T2_L, "T2", "SX");
-                             //   try {
-                             //       Thread.sleep((long) 300d);
-
-                            //    } catch (InterruptedException e) {
-                            //        e.printStackTrace();
-                            //    }
                             }
-                            Mci_write_Vn198_tasca_right_C2.valore_precedente = (Double) MultiCmd_Vn198_num_prog_right_C2.getValue();
-                            Mci_write_Vn199_tasca_left_C2.valore_precedente = (Double) MultiCmd_Vn199_num_prog_left_C2.getValue();
+
                         }
-                    }
+                        break;
+                    case 20:
+                        if ((Double) MultiCmd_Vb21_DxSx_pocket.getValue() == 0.0d) {
+                            mc_stati_tasca_dx_sx = 0;
+                        }
+                        if (Double.compare(Mci_write_Vn196_tasca_right_C1.valore_precedente, (Double) MultiCmd_Vn196_num_prog_right_C1.getValue()) != 0
+                                || Double.compare(Mci_write_Vn197_tasca_left_C1.valore_precedente, (Double) MultiCmd_Vn197_num_prog_left_C1.getValue()) != 0) {
+                            if ((Double) MultiCmd_Vn196_num_prog_right_C1.getValue() == 1.0d) {
+                                Button_tascaSX.setBackground(getApplicationContext().getResources().getDrawable((R.drawable.ic_tasca_sx)));
+                                Button_tascaDX.setBackground(getApplicationContext().getResources().getDrawable((R.drawable.ic_tasca_dx_press)));
+
+                                Carica_programma(Values.File_XML_path_R, "T1", "DX");
+
+                                //   try {
+                                //       Thread.sleep((long) 300d);
+
+                                //   } catch (InterruptedException e) {
+                                //       e.printStackTrace();
+                                //   }
+                            } else {
+                                Button_tascaSX.setBackground(getApplicationContext().getResources().getDrawable((R.drawable.ic_tasca_sx_press)));
+                                Button_tascaDX.setBackground(getApplicationContext().getResources().getDrawable((R.drawable.ic_tasca_dx)));
+                                Carica_programma(Values.File_XML_path_L, "T1", "SX");
+                                //  try {
+                                //      Thread.sleep((long) 300d);
+
+                                //  } catch (InterruptedException e) {
+                                //      e.printStackTrace();
+                                //   }
+                            }
+                            Mci_write_Vn196_tasca_right_C1.valore_precedente = (Double) MultiCmd_Vn196_num_prog_right_C1.getValue();
+                            Mci_write_Vn197_tasca_left_C1.valore_precedente = (Double) MultiCmd_Vn197_num_prog_left_C1.getValue();
+                        }
+
+                        if (Values.Machine_model.equals("JT882M")) {
+                            if (Double.compare(Mci_write_Vn198_tasca_right_C2.valore_precedente, (Double) MultiCmd_Vn198_num_prog_right_C2.getValue()) != 0
+                                    || Double.compare(Mci_write_Vn199_tasca_left_C2.valore_precedente, (Double) MultiCmd_Vn199_num_prog_left_C2.getValue()) != 0) {
+                                if ((Double) MultiCmd_Vn198_num_prog_right_C2.getValue() == 1.0d) {
+                                    Button_tascaSX_C2.setBackground(getApplicationContext().getResources().getDrawable((R.drawable.ic_tasca_sx)));
+                                    Button_tascaDX_C2.setBackground(getApplicationContext().getResources().getDrawable((R.drawable.ic_tasca_dx_press)));
+
+                                    Carica_programma(Values.File_XML_path_T2_R, "T2", "DX");
+
+                                    //   try {
+                                    //       Thread.sleep((long) 300d);
+
+                                    //   } catch (InterruptedException e) {
+                                    //        e.printStackTrace();
+                                    //    }
+                                } else {
+                                    Button_tascaSX_C2.setBackground(getApplicationContext().getResources().getDrawable((R.drawable.ic_tasca_sx_press)));
+                                    Button_tascaDX_C2.setBackground(getApplicationContext().getResources().getDrawable((R.drawable.ic_tasca_dx)));
+
+                                    Carica_programma(Values.File_XML_path_T2_L, "T2", "SX");
+                                    //   try {
+                                    //       Thread.sleep((long) 300d);
+
+                                    //    } catch (InterruptedException e) {
+                                    //        e.printStackTrace();
+                                    //    }
+                                }
+                                Mci_write_Vn198_tasca_right_C2.valore_precedente = (Double) MultiCmd_Vn198_num_prog_right_C2.getValue();
+                                Mci_write_Vn199_tasca_left_C2.valore_precedente = (Double) MultiCmd_Vn199_num_prog_left_C2.getValue();
+                            }
+                        }
 
 
-
-
-                default:
-                    break;
+                    default:
+                        break;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
@@ -1839,6 +1842,7 @@ boolean test = false;
     private void Emergenza(Activity activity) {
         if ((Double) MultiCmd_tasto_verde.getValue() == 0.0d || (Double) MultiCmd_CH1_in_emergenza.getValue() == 1.0d) {
             KillThread();
+
             Utility.ClearActivitiesTopToEmergencyPage(activity);
         }
     }
@@ -2973,6 +2977,17 @@ boolean test = false;
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        /*
+        if(myView_T1 != null) {
+            myView_T1.release();    //rilascio la memoria delle bitmap
+            myView_T1 = null;
+        }
+        if(myView_T2 != null) {
+            myView_T2.release();    //rilascio la memoria delle bitmap
+            myView_T2 = null;
+        }
+
+         */
         Log.d("JAM TAG", "End MainActivity Thread");
     }
 

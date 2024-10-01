@@ -807,6 +807,7 @@ public class Modifica_programma extends Activity {
     @Override                   //your activity is no longer visible to the user
     public void onDestroy() {
         super.onDestroy();
+
         KillThread();
     }
 
@@ -3476,7 +3477,10 @@ public class Modifica_programma extends Activity {
     }
 
     private void KillThread() {
-
+        if(myView != null) {
+            myView.release();    //rilascio la memoria delle bitmap
+            myView = null;
+        }
         StopThread = true;
         try {
 

@@ -1079,6 +1079,12 @@ public class TascaFrecceActivity extends Activity {
     protected void onResume() {
         if (sl != null) {
             sl.Clear();
+            if (!Thread_Running && !Debug_mode) {
+                StopThread = false;
+                MyAndroidThread_Modifica myTask = new MyAndroidThread_Modifica(TascaFrecceActivity.this);
+                t1 = new Thread(myTask, "Main myTask");
+                t1.start();
+            }
         } else {
             sl = SocketHandler.getSocket();
 

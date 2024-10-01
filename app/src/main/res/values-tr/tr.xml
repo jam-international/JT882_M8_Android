@@ -181,6 +181,9 @@
         <item>XY Feeding Time [degree]</item>“ “<!-- 15 -->
         <item>Flap Loader</item>“ “<!-- 16 -->
         <item>Y reset quote</item>“ “<!-- 17 -->
+        <item>FLAP, needle blowing duration (ms)</item>“ “<!-- 18 -->
+        <item>FLAP, first seam start delay (ms)</item>“ “<!-- 19 -->
+        <item>FLAP, second seam start delay (ms)</item>“ “<!-- 20 -->
     </string-array>
 
     <string-array name="Descrizione_parametri_Traslatore">

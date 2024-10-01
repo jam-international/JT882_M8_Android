@@ -52,7 +52,37 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3466ec17-389f-45e0-8922-7b9ae6cced6e" name="Changes" comment="ver1.8 Fiera Francoforta con bozza Pattina" />
+    <list default="true" id="3466ec17-389f-45e0-8922-7b9ae6cced6e" name="Changes" comment="ver1.8 Fiera Francoforta con bozza Pattina">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/9x0d4hvybypjfgigs8kkhg5ya/buildfingerprint.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/9x0d4hvybypjfgigs8kkhg5ya/buildfingerprint.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/9x0d4hvybypjfgigs8kkhg5ya/work.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/9x0d4hvybypjfgigs8kkhg5ya/work.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/cbngny7vmeq10ks1esuvg880b/buildfingerprint.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/cbngny7vmeq10ks1esuvg880b/buildfingerprint.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/cbngny7vmeq10ks1esuvg880b/work.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/cbngny7vmeq10ks1esuvg880b/work.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/JT882_M8_Android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/JT882_M8_Android.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/release/JamPocket_J882M-1.8.apk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/release/output-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/release/output-metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Emergency_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Emergency_page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/KeyDialog_lettere.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/KeyDialog_lettere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Modifica_programma.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Modifica_programma.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Parametri_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Parametri_page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/TascaFrecceActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/TascaFrecceActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Utility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-it/it.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-it/it.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-tr/tr.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-tr/tr.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings_en.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings_en.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +91,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[120c79d4e6b34649]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\zadsa\.android\avd\Nexus_10_API_22.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -89,6 +119,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/JamData/info_Jam.txt" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/591Q X 882_1.udf" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/591Q_DAN_1.udf" root0="SKIP_INSPECTION" />
     <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/FLAP.udf" root0="SKIP_INSPECTION" />
     <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/FLAP.xml" root0="SKIP_INSPECTION" />
     <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/FLAP11.udf" root0="SKIP_INSPECTION" />
@@ -112,6 +145,7 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2Ya1OOKpUCOAItuGTHhx7L370Us" />
@@ -121,30 +155,14 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ApkExportedModule&quot;: &quot;JT882_M8.app&quot;,
     &quot;DEBUGGABLE_DEVICE&quot;: &quot;freescale-sipro_mx6q-120c79d4e6b34649&quot;,
     &quot;DEBUGGABLE_PROCESS&quot;: &quot;com.jam_int.jt882_m8&quot;,
     &quot;DEBUGGER_ID&quot;: &quot;Auto&quot;,
-    &quot;ExportApk.ApkPathForJT882_M8.app&quot;: &quot;D:\\GitHub\\JT882_M8_Android\\app&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SHOW_ALL_PROCESSES&quot;: &quot;true&quot;,
+    &quot;SHOW_ALL_PROCESSES&quot;: &quot;false&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable&quot;: &quot;ALL&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/GitHub/JT882_M8_Android/FLAP10.xml&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Dependencies&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;ExportApk.BuildVariants&quot;: [
-      &quot;release&quot;
-    ]
+    &quot;last_opened_file_path&quot;: &quot;C:/Temp/591Q_MODIFICATO.xml&quot;
   }
 }</component>
   <component name="PsdUISettings">
@@ -260,21 +278,6 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Punto_carico_page.java</url>
-          <line>784</line>
-          <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Punto_carico_page.java</url>
-          <line>440</line>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Punto_carico_page.java</url>
-          <line>230</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Punto_carico_page.java</url>
           <line>270</line>
           <option name="timeStamp" value="51" />
         </line-breakpoint>
@@ -284,19 +287,9 @@
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Punto_carico_page.java</url>
-          <line>163</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Tool_page.java</url>
           <line>329</line>
           <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Punto_carico_page.java</url>
-          <line>437</line>
-          <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$USER_HOME$/.gradle/caches/transforms-3/8fa2ae5dc06cd95689686864fae3eadc/transformed/ricette-debug/jars/classes.jar!/com/jamint/ricette/Ricetta.class</url>
@@ -325,8 +318,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Modifica_programma.java</url>
-          <line>3019</line>
+          <line>3020</line>
           <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/MainActivity.java</url>
+          <line>1429</line>
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/MainActivity.java</url>
+          <line>1346</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/KeyDialog_lettere.java</url>
+          <line>400</line>
+          <option name="timeStamp" value="103" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
