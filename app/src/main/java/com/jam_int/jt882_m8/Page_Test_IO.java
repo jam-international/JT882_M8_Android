@@ -65,6 +65,7 @@ public class Page_Test_IO extends Activity {
     Double[] Stato_uscite;
     Double[] Stato_ingressi = new Double[numero_in];
     Boolean out_Background_Pausa = false,macchina_armata = false;
+    Integer[] Elenco_Vb_output = new Integer[numero_out];
 
 
   //  TextView TextView_rotturaFilo_C1;
@@ -80,14 +81,16 @@ public class Page_Test_IO extends Activity {
             int button_id = b.getId();
             ColorDrawable buttonColor = (ColorDrawable) b.getBackground();
             int colorId = buttonColor.getColor();
+            int id_vb_out = Elenco_Vb_output[button_id-1];
+
             if (colorId != Color.RED) {
-                MultiCmdItem mci = sl.Add("Io", 1, MultiCmdItem.dtVB, 4133+button_id - 1, MultiCmdItem.dpNONE);
+                MultiCmdItem mci = sl.Add("Io", 1, MultiCmdItem.dtVB, id_vb_out, MultiCmdItem.dpNONE);
                 Mci_output = new Mci_write();
                 Mci_output.mci = mci;
                 Mci_output.write_flag = true;
                 Mci_output.valore = 1.0d;
             } else {
-                MultiCmdItem mci = sl.Add("Io", 1, MultiCmdItem.dtVB, 4133+button_id - 1, MultiCmdItem.dpNONE);
+                MultiCmdItem mci = sl.Add("Io", 1, MultiCmdItem.dtVB, id_vb_out, MultiCmdItem.dpNONE);
                 Mci_output = new Mci_write();
                 Mci_output.mci = mci;
                 Mci_output.write_flag = true;
@@ -200,13 +203,35 @@ public class Page_Test_IO extends Activity {
             Machine_model="";
         }
 
-        if( Machine_model.equals("JT882M")) {
+        if( Machine_model.equals("JT882M") || Machine_model.equals("JT882MA")) {
             numero_in = 64;
         }
         else {
             numero_in = 32;
         }
 
+        if( Machine_model.equals("JT882M"))
+            Elenco_Vb_output = new Integer[]{4133,4134,4135,4136,4137,4138,4139,4140,4141,4142,
+                                             4143,4144,4145,4146,4147,4148,4149,4150,4151,4152,
+                                             4153,4154,4155,4156,4157,4158,4159,4160,4161,4162,
+                                             4163,4164,4165,4181,4182,4185,4186,4188,4189,4190,
+                                             4187,4192,4193,4176,4177,4178,4195,4180,4166,4167,
+                                             4183,4184,4170,4171,4173,4174,4175,4168,4169,4170,
+                                             4172,4179,4191,4194
+
+
+            };
+        if( Machine_model.equals("JT882MA"))
+            Elenco_Vb_output = new Integer[]{4133,4134,4135,4136,4137,4138,4139,4140,4141,4142,
+                                            4143,4144,4145,4146,4147,4148,4149,4150,4151,4152,
+                                            4153,4154,4155,4156,4157,4158,4159,4160,4161,4162,
+                                            4163,4164,4165,4166,4167,4168,4169,4170,4171,4172,
+                                            4173,4174,4175,4176,4177,4178,4179,4180,4181,4182,
+                                            4183,4184,4185,4186,4187,4188,4189,4190,4191,4192,
+                                            4193,4194,4195,4196
+
+
+            };
 
         try {
             Bundle extras = getIntent().getExtras();
@@ -383,12 +408,13 @@ public class Page_Test_IO extends Activity {
 
         switch (Values.Machine_model) {
             case "JT882M":
+            case "JT882MA":
                 Descrizioni = getResources().getStringArray(R.array.output_magneti_JT882M);
                 break;
             case "JT862M":
             case "JT862HM":
 
-                Descrizioni = getResources().getStringArray(R.array.output_magneti_JT862M);
+
                 break;
             default:
                 break;
@@ -465,11 +491,14 @@ public class Page_Test_IO extends Activity {
 
         switch (Values.Machine_model) {
             case "JT882M":
-                Descrizioni = getResources().getStringArray(R.array.output_JT882M);
+                Descrizioni = getResources().getStringArray(R.array.output_JT882M_3SchedeIO);
+                break;
+            case "JT882MA":
+                Descrizioni = getResources().getStringArray(R.array.output_JT882M_4SchedeIO);
                 break;
             case "JT862M":
             case "JT862HM":
-                Descrizioni = getResources().getStringArray(R.array.output_JT862M);
+
                 break;
             default:
                 Toast.makeText(getApplicationContext(), "Model machine error", Toast.LENGTH_SHORT).show();
@@ -549,11 +578,16 @@ public class Page_Test_IO extends Activity {
         String[] Descrizioni = new String[]{};
         switch (Values.Machine_model) {
             case "JT882M":
-                Descrizioni = getResources().getStringArray(R.array.input_JT882M);
+                Descrizioni = getResources().getStringArray(R.array.input_JT882M_3SchedeIO);
+                break;
+            case "JT882MA":
+                Descrizioni = getResources().getStringArray(R.array.input_JT882M_4SchedeIO);
                 break;
             case "JT862M":
             case "JT862HM":
-                Descrizioni = getResources().getStringArray(R.array.input_JT862M);
+                //Descrizioni = getResources().getStringArray(R.array.input_JT862M);
+                break;
+            default:
                 break;
         }
 
@@ -702,7 +736,7 @@ public class Page_Test_IO extends Activity {
             while (true) {
                 Thread_Running = true;
                 try {
-                    Thread.sleep((long) 100d);
+                    Thread.sleep((long) 10d);
                     if (StopThread) {
                         Thread_Running = false;
                         MultiCmd_Vn3804_pagina_touch.setValue(0.0d);
@@ -735,8 +769,8 @@ public class Page_Test_IO extends Activity {
 
                         if (sl.getReturnCode() == 0) {
                             for (int i = 0; i < numero_out; i = i + 1) {
-                               // int n_out = vbOutList[i] - 4100;
-                                MultiCmdItem elem = sl.Add("Io", 1, MultiCmdItem.dtDO, i+1, MultiCmdItem.dpNONE);
+                                int n_out = Elenco_Vb_output[i];
+                                MultiCmdItem elem = sl.Add("Io", 1, MultiCmdItem.dtVB, n_out, MultiCmdItem.dpNONE);
                                 sl.ReadItem(elem);
                                 Double stato = (Double) elem.getValue();
                                 Stato_uscite[i] = stato;

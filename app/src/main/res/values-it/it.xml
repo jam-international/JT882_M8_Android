@@ -294,7 +294,7 @@
 
 
 
-    <string-array name="output_JT882M">
+    <string-array name="output_JT882M_4SchedeIO">
         <item> </item>
         <item>o1 Piegatore 1</item>              <!-- 1 -->
         <item>o2 Piegatore 2</item>                            <!-- 2 -->
@@ -364,9 +364,78 @@
         <item>o66 </item>         <!-- 66 -->
         <item>o67 </item>         <!-- 67 -->
     </string-array>
+    <string-array name="output_JT882M_3SchedeIO">
+        <item> </item>
+        <item>o1 Piegatore 1</item>              <!-- 1 -->
+        <item>o2 Piegatore 2</item>                            <!-- 2 -->
+        <item>o3 Piegatore 3</item>        <!-- 3 -->
+        <item>o4 Piegatore 4</item>        <!-- 4 -->
+        <item>o5 Cambio corpo</item>           <!-- 5 -->
+        <item>o6 Cambio lamelle frontale</item>         <!-- 6 -->
+        <item>o7 Cambio lamelle laterale</item>                <!-- 7 -->
+        <item>o8 Cambio Lamelle 4-5</item>    <!-- 8 -->
+        <item>o9 Lancia Avanti Dietro</item>                    <!-- 9 -->
+        <item>o10 Piegatore Avanti Dietro</item>       <!-- 10 -->
+        <item>o11 Piegatore Su Giu</item> <!-- 11 -->
+        <item>o12 Bilanciere Su Giu</item>         <!-- 12 -->
+        <item>o13 </item>             <!-- 13 -->
+        <item>o14 C1 Rasafilo</item>            <!-- 14 -->
+        <item>o15 Ev Aspiratore</item>                 <!-- 15 -->
+        <item>o16 </item>    <!-- 16 -->
+        <item>o17 C1 Piedino su giu</item>           <!-- 17 -->
+        <item>o18 C1 Pinza Interna Su Giu</item>                           <!-- 18 -->
+        <item>o19 C1 Pinza Esterna Su Giu</item>          <!-- 19 -->
+        <item>o20 C1 Retrattile Aperta Chiusa</item>                <!-- 20 -->
+        <item>o21 C1 Raffreddamento Ago</item>                <!-- 21 -->
+        <item>o22 </item>                <!-- 22 -->
+        <item>o23 Kit lentezza Avanti Dietro</item>                <!-- 23 -->
+        <item>o24 Pinza Carico Su Giu</item>   <!-- 24 -->
+        <item>o25 Cambio Pinza</item>    <!-- 25 -->
+        <item>o26 C1 Scalino Piedino</item>               <!-- 26 -->
+        <item>o27 C1 Retrattile Su Giu</item>              <!-- 27 -->
+        <item>o28 Rullo Rinforzo</item>             <!-- 28 -->
+        <item>o29 Coltello Rinforzo</item>                           <!-- 29 -->
+        <item>o30 MagneteSuGiu Rinforzo</item>                           <!-- 30 -->
+        <item>o31 C1 BloccaFilo</item>                           <!-- 31 -->
+        <item>o32 C1 Enable assi XY</item>         <!-- 32 -->
+        <item>o33 Valvolone aria</item>                           <!-- 33 -->
+        <item>o34 C2 Piedino su giu</item>                            <!-- 34 -->
+        <item>o35 C2 Pinza Interna Su Giu</item>    <!-- 35 -->
+        <item>o36 C2 Raffreddamento ago</item>                           <!-- 36 -->
+        <item>o37 Scaricatore dx sx</item>                           <!-- 37 -->
+        <item>o38 Pinza traslatore Su Giu</item>                           <!-- 38 -->
+        <item>o39 C2 Cambio Pinza</item>            <!-- 39 -->
+        <item>o40 C2 Scalino Piedino</item>                           <!-- 40 -->
+        <item>o41 C2 Retrattile Aperta Chiusa</item>                <!-- 41 -->
+        <item>o42 Prima barra</item>                           <!-- 42 -->
+        <item>o43 Seconda barra</item>      <!-- 43 -->
+        <item>o44</item>                            <!-- 44 -->
+        <item>o45 </item>          <!-- 45 -->
+        <item>o46 C2 Rasafilo</item>                            <!-- 46 -->
+        <item>o47 C2 BloccaFilo</item>                            <!-- 47 -->
+        <item>o48 C2 Enable assi XY </item>                <!-- 48 -->
+        <item>o49 </item>              <!-- 49 -->
+        <item>o50 </item>                            <!-- 50 -->
+        <item>o51</item>                            <!-- 51 -->
+        <item>o52</item>                            <!-- 52 -->
+        <item>o53 </item>         <!-- 53 -->
+        <item>o54 </item>              <!-- 54 -->
+        <item>o55</item>                            <!-- 55 -->
+        <item>o56 </item>                           <!-- 56 -->
+        <item>o57 </item>                            <!-- 57 -->
+        <item>o58 </item>                            <!-- 58 -->
+        <item>o59 </item>                            <!-- 59 -->
+        <item>o60 </item>                            <!-- 60 -->
+        <item>o61 </item>                            <!-- 61 -->
+        <item>o62 </item>    <!-- 62 -->
+        <item>o63  </item>                           <!-- 63 -->
+        <item>o64 </item>         <!-- 64 -->
+        <item>o65 </item>         <!-- 65-->
+        <item>o66 </item>         <!-- 66 -->
+        <item>o67 </item>         <!-- 67 -->
+    </string-array>
 
-
-    <string-array name="input_JT882M">
+    <string-array name="input_JT882M_4SchedeIO">
         <item> </item>
         <item>i1 Pulsanti Start</item>                  <!-- 1 -->
         <item>i2 C1 Pedana Dx</item>                    <!-- 2 -->
@@ -433,7 +502,73 @@
         <item>i63</item>                                <!-- 63 -->
         <item>i64</item>                                <!-- 64 -->
     </string-array>
-
+    <string-array name="input_JT882M_3SchedeIO">
+        <item> </item>
+        <item>i1 Pulsanti Start</item>                  <!-- 1 -->
+        <item>i2 C1 Pedana Dx</item>                    <!-- 2 -->
+        <item>i3 C1 Pedana Sx</item>                    <!-- 3 -->
+        <item>i4 C1 Sens. Zero Crochet</item>                     <!-- 4 -->
+        <item>i5 C1 Sens. Carico Alta</item>                       <!-- 5 -->
+        <item>i6 Sens. Zero Asse Caricatore</item>           <!-- 6 -->
+        <item>i7 Sens. Piegatore Avanti</item>            <!-- 7 -->
+        <item>i8 Sens. Piegatore Dietro</item>          <!-- 8 -->
+        <item>i9 Sens. Piegatore Basso</item>            <!-- 9 -->
+        <item> </item>                                <!-- 10 -->
+        <item>i11 Sens. Lancia Dietro</item>              <!-- 11 -->
+        <item>i12 Sens. Bilanciere Alto</item>           <!-- 12 -->
+        <item>i13 Sens. Bilanciere Basso</item>   <!-- 13 -->
+        <item>i14 Opt. RInforzo1</item>    <!-- 14 -->
+        <item>i15 Opt. Rinforzo2</item>          <!-- 15 -->
+        <item>i16 </item>         <!-- 16 -->
+        <item>i17 </item>         <!-- 17 -->
+        <item>i18 </item>     <!-- 18 -->
+        <item>i19 C1 Sens. Zero Asse X</item>          <!-- 19 -->
+        <item>i20 C1 Sens. Zero Asse Y</item>            <!-- 20 -->
+        <item>i21 Emergenza</item>       <!-- 21 -->
+        <item>i22 C1 Sens. Zero Ago</item>      <!-- 22 -->
+        <item>i23 C1 Sens. Pinza Interna Bassa</item>                 <!-- 23 -->
+        <item>i24 C1 Sens. Pinza Esterna Alta</item>                                <!-- 24 -->
+        <item>i25 C1 Pulsante Reset Piegatore</item>                 <!-- 25 -->
+        <item>i26 C1 Pulsante Stop Cucitura</item>             <!-- 26 -->
+        <item>i27 C2 Pulsante Stop Cucitura</item>                                <!-- 27 -->
+        <item>i28</item>                                <!-- 28 -->
+        <item>i29</item>                                <!-- 29 -->
+        <item>i30 </item>             <!-- 30 -->
+        <item>i31 C1 Driver X Status</item>                                <!-- 31 -->
+        <item>i32 C1 Driver Y Status</item>                                <!-- 32 -->
+        <item>i33 </item>                                <!-- 33 -->
+        <item>i34 C2 Pedana Dx</item>                   <!-- 34 -->
+        <item>i35 </item>                                <!-- 35 -->
+        <item>i36 C2 Sens. Zero Crochet</item>                               <!-- 36 -->
+        <item>i37 C2 Sens. Zero Asse X</item>                                <!-- 37 -->
+        <item>i38 C2 Sens. Zero Asse Y </item>         <!-- 38 -->
+        <item>i39 C2 Sens. Dietro Asse Y </item>           <!-- 39 -->
+        <item>i40 C2 Sens. Zero Ago</item>         <!-- 40 -->
+        <item>i41 C2 Sens. Pinza Interna Bassa</item>           <!-- 41 -->
+        <item>i42 Sens. Pinza Traslatore Alta</item>                                <!-- 42 -->
+        <item>i43 C2 Sens. Zero Asse Caricatore</item>              <!-- 43 -->
+        <item>i44 Pressostato</item>                               <!-- 44 -->
+        <item>i45 C2 Pulsante Stop Cucitura</item>   <!-- 45 -->
+        <item>i46</item>                                <!-- 46 -->
+        <item>i47 C2 Driver X Status</item>          <!-- 47 -->
+        <item>i48 C2 Driver Y Status</item>                                <!-- 48 -->
+        <item>i49 Flap Top SUGIu</item>    <!-- 49 -->
+        <item>i50 Flap Middle SUGIu</item>  <!-- 50 -->
+        <item>i51 Flap Bottom SUGIu</item>                               <!-- 51 -->
+        <item>i52 Flap Tastatore</item>                               <!-- 52 -->
+        <item>i53 Flap vuoto</item>                                <!-- 53 -->
+        <item>i54 Flap posizione dietro</item>      <!-- 54 -->
+        <item>i55 Flap Cil oriz Lungo  L</item>                               <!-- 55 -->
+        <item>i56 Flap Cil oriz Lungo R</item>                                <!-- 56 -->
+        <item>i57 Flap Cil oriz Corto L</item>                                <!-- 57 -->
+        <item>i58 Flap Cil oriz Corto R</item>             <!-- 58 -->
+        <item>i59</item>                                <!-- 59 -->
+        <item>i60</item>                                <!-- 60 -->
+        <item>i61</item>                                <!-- 61 -->
+        <item>i62 </item>             <!-- 62 -->
+        <item>i63</item>                                <!-- 63 -->
+        <item>i64</item>                                <!-- 64 -->
+    </string-array>
 
     <string-array name="AllarmiCN_Descrizione_JAM">
         <item>  </item>  <!-- 0 //emergenza all'accensione -->

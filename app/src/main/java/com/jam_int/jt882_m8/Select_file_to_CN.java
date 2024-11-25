@@ -299,15 +299,19 @@ public class Select_file_to_CN extends Activity {
      * @param view
      */
     public void onclick_confirm(View view) {
-        if (FileSelezionato != null) {
-            databack_load_udf.setData(Uri.parse("CARICATO"));
-            setResult(RESULT_OK, databack_load_udf);   //indico al prossimo activityResult che ho caricato un udf quindi va riletto
-            DisabilitaListView();
-            IButton_Back.setVisibility(View.GONE);
-            IButton_LoadFromUsb.setVisibility(View.GONE);
-            IButton_Exit.setVisibility(View.GONE);
-            IButton_Confirm.setVisibility(View.GONE);
-            InviaFileSelezionato();
+        if(!FileSelezionato.getPath().contains(" ")){
+            if (FileSelezionato != null) {
+                databack_load_udf.setData(Uri.parse("CARICATO"));
+                setResult(RESULT_OK, databack_load_udf);   //indico al prossimo activityResult che ho caricato un udf quindi va riletto
+                DisabilitaListView();
+                IButton_Back.setVisibility(View.GONE);
+                IButton_LoadFromUsb.setVisibility(View.GONE);
+                IButton_Exit.setVisibility(View.GONE);
+                IButton_Confirm.setVisibility(View.GONE);
+                InviaFileSelezionato();
+            }
+        }else {
+            Toast.makeText(getApplicationContext(), "Warning, filename contains space", Toast.LENGTH_LONG).show();
         }
     }
 

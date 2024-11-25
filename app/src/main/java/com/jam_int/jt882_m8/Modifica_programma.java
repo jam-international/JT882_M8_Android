@@ -1,5 +1,7 @@
 package com.jam_int.jt882_m8;
 
+import static com.jam_int.jt882_m8.Values.Machine_model;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
@@ -411,7 +413,7 @@ public class Modifica_programma extends Activity {
                 MultiCmd_Vb_OutPiedino_giu = sl.Add("Io", 1, MultiCmdItem.dtVB, 2004, MultiCmdItem.dpNONE);
                 MultiCmd_quota_destinazione_X = sl.Add("Io", 1, MultiCmdItem.dtVQ, 7102, MultiCmdItem.dpNONE);
                 MultiCmd_quota_destinazione_Y = sl.Add("Io", 1, MultiCmdItem.dtVQ, 7122, MultiCmdItem.dpNONE);
-                MultiCmd_Status_Piedino = sl.Add("Io", 1, MultiCmdItem.dtDO,49, MultiCmdItem.dpNONE);
+
                 MultiCmd_Start_movimento_X = sl.Add("Io", 1, MultiCmdItem.dtVB, 7105, MultiCmdItem.dpNONE);
                 MultiCmd_Start_movimento_Y = sl.Add("Io", 1, MultiCmdItem.dtVB, 7125, MultiCmdItem.dpNONE);
                 MultiCmd_posizione_X = sl.Add("Io", 1, MultiCmdItem.dtVQ, 56, MultiCmdItem.dpNONE);
@@ -444,7 +446,16 @@ public class Modifica_programma extends Activity {
                 MultiCmd_HmiMoveXY = sl.Add("Io", 1, MultiCmdItem.dtVB, 73, MultiCmdItem.dpNONE);
                 MultiCmd_RichiestaPiedinoSu = sl.Add("Io", 1, MultiCmdItem.dtVB, 75, MultiCmdItem.dpNONE);
                 MultiCmd_Vb4014_JogSlowFast = sl.Add("Io", 1, MultiCmdItem.dtVB, 4014, MultiCmdItem.dpNONE);
-
+                switch (Machine_model) {
+                    case "JT882M":
+                        MultiCmd_Status_Piedino = sl.Add("Io", 1, MultiCmdItem.dtDO,34, MultiCmdItem.dpNONE);
+                        break;
+                    case "JT882MA": //Argentina con 4 schede IO Belli
+                        MultiCmd_Status_Piedino = sl.Add("Io", 1, MultiCmdItem.dtDO,49, MultiCmdItem.dpNONE);
+                        break;
+                    default:
+                        break;
+                }
 
                 break;
 

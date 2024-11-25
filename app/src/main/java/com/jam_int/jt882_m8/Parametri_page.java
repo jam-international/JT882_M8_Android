@@ -580,7 +580,7 @@ public class Parametri_page extends Activity {
                 Lista_parametri.add(new Parametro_mac(Multicmd_Vb170KitTascaCargo, 25, 0, 1, 0, true, false, false, false, true, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
                 Lista_parametri.add(new Parametro_mac(MultiCmd_Vq3092, 26, 20, 270, 30, false, false, true, false, false, true, true, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
                 Lista_parametri.add(new Parametro_mac(MultiCmd_Vq3091, 27, 0, 5, 0.2f, false, true, true, false, false, true, true, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
-                Lista_parametri.add(new Parametro_mac(MultiCmd_Vn180, 28, 0, 2, 0, false, false, false, false, false, true, true, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
+                Lista_parametri.add(new Parametro_mac(MultiCmd_Vn180, 28, 0, 3, 0, false, false, false, false, false, true, true, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
 
 
 

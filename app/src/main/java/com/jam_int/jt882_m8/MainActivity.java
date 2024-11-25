@@ -85,12 +85,13 @@ public class MainActivity extends Activity {
             Multicmd_C1_Udf_ValEletSopra, Multicmd_C1_Udf_ValEletSotto, Multicmd_Vb4061_AppTensAumenta,Multicmd_Vb4063_AppTensAumenta, Multicmd_Vb4062_AppTensDiminuisce,Multicmd_Vb4064_AppTensDiminuisce, MultiCmd_Vn_etichetta, MultiCmd_Vb21_DxSx_pocket,
             MultiCmd_Vn196_num_prog_right_C1, MultiCmd_Vn197_num_prog_left_C1, Multicmd_Vb4804_AppReloadParamC1, MultiCmd_i31_AsseX_error, MultiCmd_i32_AsseY_error, MultiCmd_Vn4_Warning, MultiCmd_Vb4806_AppPinzaAltaC1,
             Multicmd_Vb4807_PinzeAlteDopoPC,Multicmd_Vb4907_PinzeAlteDopoPC_C2, Multicmd_Vb4058_C1_AsseX_YFermo, MultiCmd_Vn11McStatoCuci1, MultiCmd_Vn132_DebugPie, MultiCmd_Vb30_C1_InCucitura, MultiCmd_Vb80ShowIconaTools,
-            Multicmd_vn109, Multicmd_vn110, Multicmd_Vq3511_VelLavCaricatore, Multicmd_vb4519_ScaricoPinza,MultiCmd_i14_Rinforzo,MultiCmd_vb4060_SalvaUdf,
+            Multicmd_vn109, Multicmd_vn110, Multicmd_Vq3511_VelLavCaricatore, Multicmd_vb4519_ScaricoPinza,MultiCmd_vb4060_SalvaUdf,
             Multicmd_C1_Udf_ValTensione,Multicmd_C2_Udf_ValTensione,MultiCmd_Vb4189_C2_Cambio_Pinze_All,MultiCmd_Vb2018_SbloccaAgo_T2,MultiCmd_Vb4512_TastoAbilitaTesta2,MultiCmd_Vb4904_AppPedaleHmiC2,MultiCmd_Vb4901_start_cucitura_T2,
             MultiCmd_Vb4513_StatoAbilitaTesta2,Multicmd_dtDB_progT2_Right_name,Multicmd_vb2019_Load_Prog_T2_Right,MultiCmd_Vq2913_C2_UdfVelLavRPM,MultiCmd_Vq2110_Speed_T2,MultiCmd_Vq2951_punti_totali_C2,
             MultiCmd_Vq2952_punti_parziali_C2,MultiCmd_posizione_X_C2, MultiCmd_posizione_Y_C2,Multicmd_Vb4074_AllarmeContSpola_C2,MultiCmd_Vn198_num_prog_right_C2, MultiCmd_Vn199_num_prog_left_C2,
 
-            Multicmd_Vb4018_TrigrHMITascaCucita, Multicmd_Vb152_Pattina_OnOff,Multicmd_Vb157_Pattina_PassoPasso,MultiCmd_Vb151EnableCarPattine,MultiCmd_Vn180_Device_Rinforzo;
+            Multicmd_Vb4018_TrigrHMITascaCucita, Multicmd_Vb152_Pattina_OnOff,Multicmd_Vb157_Pattina_PassoPasso,MultiCmd_Vb151EnableCarPattine,Multicmd_Vn180_Device_Rinforzo,Multicnd_Vb115CricchettoRinforzo;
+                    ;
     Mci_write Mci_write_Vb4000_pulsante_Automatico = new Mci_write(),
             Mci_Vb4507_stato_ManAut = new Mci_write(),
             Mci_write_Vq1913_C1_UdfVelLavRPM = new Mci_write(),
@@ -208,9 +209,9 @@ public class MainActivity extends Activity {
             Mci_write_Vb4018_TrigrHMITascaCucita = new Mci_write(),
             Mci_write_Vb152_Pattina_OnOff = new Mci_write(),
 
-            Mci_write_Vb157_Pattina_PassoPasso = new Mci_write();
+            Mci_write_Vb157_Pattina_PassoPasso = new Mci_write(),
 
-
+            Mci_write_Vb115CricchettoRinforzo = new Mci_write();
 
     /**
      * UI components
@@ -362,7 +363,7 @@ boolean test = false;
             }
         });
 
-        if(Values.Machine_model.equals("JT882M")){
+        if(Values.Machine_model.equals("JT882M") || Values.Machine_model.equals("JT882MA")){
             seekBar_speed_C2 = findViewById(R.id.seekBar_speed_C2);
             seekBar_speed_C2.setMax(100);
             seekBar_speed_C2.setProgress(100);
@@ -467,7 +468,8 @@ boolean test = false;
         EdgeButton.CreaEdgeButton(Mci_Vb4510_TastoCaricatore, Button_loader, "ic_loader_press", "ic_loader", getApplicationContext());
         EdgeButton.CreaEdgeButton(Mci_Vb4514_TastoScaricatore, Button_stacker, "ic_stacker_press", "ic_stacker", getApplicationContext());
         EdgeButton.CreaEdgeButton(Mci_Vb4521_TastoTestPiegatore, Button_test_piegatore, "ic_test_piegatore_press", "ic_test_piegatore", getApplicationContext());
-        EdgeButton.CreaEdgeButton(Mci_write_Vb4512_TastoAbilitaTesta2, Button_testa_1_2, "ic_una_testa", "ic_due_teste", getApplicationContext());
+       // EdgeButton.CreaEdgeButton(Mci_write_Vb4512_TastoAbilitaTesta2, Button_testa_1_2, "ic_una_testa", "ic_due_teste", getApplicationContext());
+        EdgeButton.CreaEdgeButton(Mci_write_Vb4512_TastoAbilitaTesta2, Button_testa_1_2, null, null, getApplicationContext());
 
 
         Toggle_Button.CreaToggleButton(Mci_write_Vb1018_SbloccaAgo, Button_Sgancio_ago, "ic_sblocca_ago_press", "ic_sblocca_ago", getApplicationContext(), sl);
@@ -486,9 +488,9 @@ boolean test = false;
         CreaEventoEditText(Mci_write_C1_Udf_ValTensione, TextView_valore_tensione, 100d, 0d, false, false, false);
         if( Values.Machine_model.equals("JT862HM"))
             CreaEventoEditText(Mci_write_Vq1110_Speed, TextView_val_speed, 3500d, 100d, false, false, false);
-        if( Values.Machine_model.equals("JT862M") ||  Values.Machine_model.equals("JT882M"))
+        if( Values.Machine_model.equals("JT862M") ||  Values.Machine_model.equals("JT882M") ||  Values.Machine_model.equals("JT882MA"))
             CreaEventoEditText(Mci_write_Vq1110_Speed, TextView_val_speed, 4200d, 100d, false, false, false);
-        if( Values.Machine_model.equals("JT882M")) {
+        if( Values.Machine_model.equals("JT882M") || Values.Machine_model.equals("JT882M")) {
             CreaEventoEditText(Mci_write_Vq2110_Speed, TextView_val_speedT2, 4200d, 100d, false, false, false);
             EdgeButton.CreaEdgeButton(Mci_write_Vb4074_AllarmeContSpola_C2, Button_reset_spola_C2, "ic_spola_reset_red", "ic_spola_reset_yellow", getApplicationContext());
             CreaEventoEditText(Mci_write_C2_Udf_ValTensione, TextView_valore_tensione_C2, 100d, 0d, false, false, false);
@@ -546,7 +548,7 @@ boolean test = false;
 
         TextView_errore.setText("");
         TextView_punti_parziale.setText("0");
-        if(Values.Machine_model.equals("JT882M"))
+        if(Values.Machine_model.equals("JT882M") || Values.Machine_model.equals("JT882MA"))
             TextView_punti_parziale_C2.setText("0");
 
         // Setup the event when the text change (put the same value on the seekbar)
@@ -596,7 +598,13 @@ boolean test = false;
                     String speed_touch = String.valueOf(s);
                     speed = Float.parseFloat(speed_touch);
                     String speed_max = TextView_max_speed_value_C2.getText().toString();
-                    speedmax = Float.parseFloat(speed_max);
+
+                    try {
+                        speedmax = Float.parseFloat(speed_max);
+                    } catch (NumberFormatException nfe) {
+                        // Handle the condition when str is not a number.
+                    }
+
 
                     double delta = speed / speedmax;
                     seekBar_speed_C2.setProgress((100 * (int) (delta * 100)) / 100);
@@ -660,7 +668,7 @@ boolean test = false;
             // Load the right program
             Carica_programma(File_XML_path_R,"T1", "DX");
 
-            if(Values.Machine_model.equals("JT882M")){
+            if(Values.Machine_model.equals("JT882M") || Values.Machine_model.equals("JT882MA")){
 
                 File_XML_path_R_T2 = Info_file.Leggi_campo("storage/emulated/0/JamData/info_Jam.txt", "LastProgram", "null", null, null, "LastProgram_R_T2", getApplicationContext());
 
@@ -878,7 +886,6 @@ boolean test = false;
         Multicmd_vn110 = sl.Add("Io", 1, MultiCmdItem.dtVN, 110, MultiCmdItem.dpNONE);
         Multicmd_Vq3511_VelLavCaricatore = sl.Add("Io", 1, MultiCmdItem.dtVQ, 3511, MultiCmdItem.dpNONE);
         Multicmd_vb4519_ScaricoPinza = sl.Add("Io", 1, MultiCmdItem.dtVB, 4519, MultiCmdItem.dpNONE);
-        MultiCmd_i14_Rinforzo = sl.Add("Io", 1, MultiCmdItem.dtDI, 14, MultiCmdItem.dpNONE);
         MultiCmd_vb4060_SalvaUdf = sl.Add("Io", 1, MultiCmdItem.dtVB, 4060, MultiCmdItem.dpNONE);
         MultiCmd_Vb4189_C2_Cambio_Pinze_All  = sl.Add("Io", 1, MultiCmdItem.dtVB, 4189, MultiCmdItem.dpNONE);
         MultiCmd_Vb2018_SbloccaAgo_T2 = sl.Add("Io", 1, MultiCmdItem.dtVB, 2018, MultiCmdItem.dpNONE);
@@ -895,7 +902,9 @@ boolean test = false;
         Multicmd_Vb152_Pattina_OnOff = sl.Add("Io", 1, MultiCmdItem.dtVB, 152, MultiCmdItem.dpNONE);
         Multicmd_Vb157_Pattina_PassoPasso = sl.Add("Io", 1, MultiCmdItem.dtVB, 157, MultiCmdItem.dpNONE);
         MultiCmd_Vb151EnableCarPattine = sl.Add("Io", 1, MultiCmdItem.dtVB, 151, MultiCmdItem.dpNONE);
-        MultiCmd_Vn180_Device_Rinforzo = sl.Add("Io", 1, MultiCmdItem.dtVN, 180, MultiCmdItem.dpNONE);
+        Multicmd_Vn180_Device_Rinforzo = sl.Add("Io", 1, MultiCmdItem.dtVN, 180, MultiCmdItem.dpNONE);
+        Multicnd_Vb115CricchettoRinforzo = sl.Add("Io", 1, MultiCmdItem.dtVB, 115, MultiCmdItem.dpNONE);
+
 
 
         Mci_write_Vq1110_Speed.mci = MultiCmd_Vq1110_Speed;Mci_write_Vq1110_Speed.tipoVariabile = Mci_write.TipoVariabile.VQ;
@@ -981,23 +990,23 @@ boolean test = false;
         Mci_write_Vb4018_TrigrHMITascaCucita.mci = Multicmd_Vb4018_TrigrHMITascaCucita;
         Mci_write_Vb152_Pattina_OnOff.mci = Multicmd_Vb152_Pattina_OnOff;
         Mci_write_Vb157_Pattina_PassoPasso.mci = Multicmd_Vb157_Pattina_PassoPasso;
+        Mci_write_Vb115CricchettoRinforzo.mci = Multicnd_Vb115CricchettoRinforzo;
 
         mci_array_read_all = new MultiCmdItem[]{MultiCmd_Vq1110_Speed, MultiCmd_CH1_in_emergenza, MultiCmd_Vb4000_pulsante_Automatico, MultiCmd_tasto_verde, MultiCmd_Vq1913_C1_UdfVelLavRPM, MultiCmd_Vq1951_punti_totali,
                 MultiCmd_Vq1952_punti_parziali, Multicmd_Vq3596_ContPuntiSpola, Multicmd_Vb4072_AllarmeContSpola, MultiCmd_posizione_X, MultiCmd_posizione_Y, MultiCmd_VQ1036_BufErrCode,
                 MultiCmd_VQ1037_BufErrStepNum, MultiCmd_VQ1038_BufErrPar, MultiCmd_Vn2_allarmi_da_CN, MultiCmd_Debug14_prog_cn_in_esecuzione, MultiCmd_Debug8_riga_cn_in_esecuzione,
-                Multicmd_Vq3591_CNT_CicliAutomaticoUser,MultiCmd_vb4060_SalvaUdf//,Multicmd_C1_Udf_ValTensione
-        };
+                Multicmd_Vq3591_CNT_CicliAutomaticoUser,MultiCmd_vb4060_SalvaUdf   };
         mci_array_read_all1 = new MultiCmdItem[]{MultiCmd_Vb1034_Test_Cuci, MultiCmd_Ch1_cucitrice1_Fermo, MultiCmd_Ch2_cucitrice2_Fermo, MultiCmd_Ch3_cicli_Fermo, MultiCmd_Vb4504_ok_per_automatico, MultiCmd_Vb4509_StatoTastoPiegatore,
                 MultiCmd_Vb4511_StatoTastoCaricatore, MultiCmd_Vb4515_StatoTastoScaricatore, MultiCmd_Vb4001_StatusTestPiegatore, MultiCmd_Vb4157_C1_Cambio_Pinze_All, MultiCmd_Vn_etichetta,
                 MultiCmd_Vb21_DxSx_pocket, MultiCmd_Vn196_num_prog_right_C1, MultiCmd_Vn197_num_prog_left_C1, Multicmd_dtDB_prog_name, MultiCmd_Vn4_Warning, MultiCmd_Vb4806_AppPinzaAltaC1,
                 Multicmd_Vb4058_C1_AsseX_YFermo, MultiCmd_Vn11McStatoCuci1, MultiCmd_Vb4507_stato_ManAut, MultiCmd_Vn132_DebugPie, MultiCmd_Vb30_C1_InCucitura, MultiCmd_Vb80ShowIconaTools,
-                Multicmd_vb4519_ScaricoPinza,MultiCmd_i14_Rinforzo,MultiCmd_Vb4006_status_test_traslo,Multicmd_Vb4018_TrigrHMITascaCucita
+                Multicmd_vb4519_ScaricoPinza,MultiCmd_Vb4006_status_test_traslo,Multicmd_Vb4018_TrigrHMITascaCucita
         };
         mci_array_read_882 =new MultiCmdItem[]{
                 MultiCmd_Vb4189_C2_Cambio_Pinze_All,MultiCmd_Vb2018_SbloccaAgo_T2,MultiCmd_Vb4512_TastoAbilitaTesta2,MultiCmd_Vb4904_AppPedaleHmiC2,MultiCmd_Vb4901_start_cucitura_T2,MultiCmd_Vq2913_C2_UdfVelLavRPM,MultiCmd_Vq2110_Speed_T2,
                 MultiCmd_Vq2951_punti_totali_C2,MultiCmd_Vq2952_punti_parziali_C2,MultiCmd_posizione_X_C2,MultiCmd_posizione_Y_C2,Multicmd_C2_Udf_ValTensione,Multicmd_Vq3598_ContPuntiSpola_C2,
                 MultiCmd_Vb2034_Test_Cuci_C2,MultiCmd_Vn198_num_prog_right_C2,MultiCmd_Vn199_num_prog_left_C2,MultiCmd_Vb4513_StatoAbilitaTesta2,Multicmd_Vb4074_AllarmeContSpola_C2,
-                Multicmd_Vb152_Pattina_OnOff, Multicmd_Vb157_Pattina_PassoPasso,MultiCmd_Vb151EnableCarPattine,MultiCmd_Vn180_Device_Rinforzo
+                Multicmd_Vb152_Pattina_OnOff, Multicmd_Vb157_Pattina_PassoPasso,MultiCmd_Vb151EnableCarPattine,Multicmd_Vn180_Device_Rinforzo
         };
         mci_array_read_one_shot = new MultiCmdItem[]{};
     }
@@ -1162,7 +1171,7 @@ boolean test = false;
      */
     private void DrawTasca(String N_Testa) {
 
-        if( !Values.Machine_model.equals("JT882M")){
+        if( !Values.Machine_model.equals("JT882M") && !Values.Machine_model.equals("JT882MA")){
             try {
                 ArrayList List_entità_T1 = (ArrayList<Element>) ricetta_T1.elements;
 
@@ -1221,7 +1230,7 @@ boolean test = false;
      *
      * @param percorso_file
      */
-    private void Load_XML(String percorso_file,String N_Testa) {
+    public void Load_XML(String percorso_file, String N_Testa) {
         try {
 
             File file = new File(percorso_file);
@@ -1341,8 +1350,22 @@ boolean test = false;
         }
     }
 
+
+    /**
+     * Button for on_click_button_auto_bobbin_changer all pliers
+     *
+     * @param view
+     */
+    public void on_click_button_rinforzo(View view) {
+        if((Double)Multicmd_Vn180_Device_Rinforzo.getValue() == 3.0d){
+            KillThread();
+            Intent ABC_intent = new Intent(getApplicationContext(), Rinforzo.class);
+            startActivity(ABC_intent);
+        }
+    }
+
     private void Gestione_tascaDxSX() {
-        if ((Double) MultiCmd_Vb21_DxSx_pocket.getValue() == 1.0d) {
+     //   if ((Double) MultiCmd_Vb21_DxSx_pocket.getValue() == 1.0d) {
             try {
                 switch (mc_stati_tasca_dx_sx) {
 
@@ -1354,7 +1377,7 @@ boolean test = false;
                         TextView_nomeprog_L_val.setVisibility(View.GONE);
                         TextView_folder2.setVisibility(View.GONE);
                         TextView_folder_L_val.setVisibility(View.GONE);
-                        if (Values.Machine_model.equals("JT882M")) {
+                        if (Values.Machine_model.equals("JT882M") || Values.Machine_model.equals("JT882M")) {
 
                             Toggle_Button.Disabilita_Imagebutton(Button_tascaSX_C2, "ic_tasca_sx_disable", getApplicationContext());
                             Toggle_Button.Disabilita_Imagebutton(Button_tascaDX_C2, "ic_tasca_dx_disable", getApplicationContext());
@@ -1379,7 +1402,7 @@ boolean test = false;
                             TextView_folder_L_val.setVisibility(View.VISIBLE);
                             mc_stati_tasca_dx_sx = 20;
 
-                            if (Values.Machine_model.equals("JT882M")) {
+                            if (Values.Machine_model.equals("JT882M") || Values.Machine_model.equals("JT882M")) {
 
                                 Toggle_Button.Abilita_Imagebutton(Button_tascaSX_C2, "ic_tasca_sx", getApplicationContext());
                                 Toggle_Button.Abilita_Imagebutton(Button_tascaDX_C2, "ic_tasca_dx", getApplicationContext());
@@ -1426,7 +1449,7 @@ boolean test = false;
                             Mci_write_Vn197_tasca_left_C1.valore_precedente = (Double) MultiCmd_Vn197_num_prog_left_C1.getValue();
                         }
 
-                        if (Values.Machine_model.equals("JT882M")) {
+                        if (Values.Machine_model.equals("JT882M") || Values.Machine_model.equals("JT882MA")) {
                             if (Double.compare(Mci_write_Vn198_tasca_right_C2.valore_precedente, (Double) MultiCmd_Vn198_num_prog_right_C2.getValue()) != 0
                                     || Double.compare(Mci_write_Vn199_tasca_left_C2.valore_precedente, (Double) MultiCmd_Vn199_num_prog_left_C2.getValue()) != 0) {
                                 if ((Double) MultiCmd_Vn198_num_prog_right_C2.getValue() == 1.0d) {
@@ -1465,7 +1488,7 @@ boolean test = false;
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
+       // }
     }
 
     private void Riga_CN_Esecuzione() {
@@ -1857,15 +1880,7 @@ boolean test = false;
         }
     }
 
-    private void GestioneButtonRinforzo() {
 
-        if ((Double) MultiCmd_Vn180_Device_Rinforzo.getValue() == 1.0d) {
-            Button_rinforzo.setVisibility(View.VISIBLE);
-        }else {
-            Button_rinforzo.setVisibility(View.GONE);
-
-        }
-    }
     /**
      * Function for set tool button visible/hidden
      */
@@ -1874,7 +1889,7 @@ boolean test = false;
             Button_pagina_tools.setVisibility(View.VISIBLE);
             Button_load_R.setVisibility(View.VISIBLE);
             Button_load_L.setVisibility(View.VISIBLE);
-            if(Values.Machine_model.equals("JT882M")){
+            if(Values.Machine_model.equals("JT882M") || Values.Machine_model.equals("JT882MA")){
                 Button_load_L_C2.setVisibility(View.VISIBLE);
                 Button_load_R_C2.setVisibility(View.VISIBLE);
             }
@@ -1882,7 +1897,7 @@ boolean test = false;
             Button_pagina_tools.setVisibility(View.GONE);
             Button_load_R.setVisibility(View.GONE);
             Button_load_L.setVisibility(View.GONE);
-            if(Values.Machine_model.equals("JT882M")){
+            if(Values.Machine_model.equals("JT882M") || Values.Machine_model.equals("JT882MA")){
                 Button_load_L_C2.setVisibility(View.GONE);
                 Button_load_R_C2.setVisibility(View.GONE);
             }
@@ -2394,6 +2409,10 @@ boolean test = false;
      * @param view
      */
     public void on_click_debug(View view) {
+        String[] memory = Utility.logHeap();
+        Log.d("tag", "Main Debug memory");
+        Log.d("tag", memory[0]);
+        Log.d("tag", memory[1]);
         // I register the receiver but it will be unregistered inside it so i don't need it in KillThread()
         LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver_debug, new IntentFilter("KeyDialog_parameter_ret"));
         KeyDialog.Lancia_KeyDialogo(null, MainActivity.this, null, 99999d, 0d, false, false, 0d, true, "KeyDialog_parameter_ret", false,"");
@@ -2519,12 +2538,15 @@ boolean test = false;
 
 
         String returnedResult = "";
-        try {
-            returnedResult = databack.getData().toString();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if(databack != null) {
+            try {
+                returnedResult = databack.getData().toString();
+            } catch (Exception e) {
+                e.printStackTrace();
+                returnedResult = "";
+            }
+        }else
             returnedResult = "";
-        }
         StopThread = false;
         if (!Thread_Running) {
             StopThread = false;
@@ -2977,7 +2999,7 @@ boolean test = false;
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        /*
+
         if(myView_T1 != null) {
             myView_T1.release();    //rilascio la memoria delle bitmap
             myView_T1 = null;
@@ -2987,7 +3009,7 @@ boolean test = false;
             myView_T2 = null;
         }
 
-         */
+
         Log.d("JAM TAG", "End MainActivity Thread");
     }
 
@@ -3063,7 +3085,7 @@ boolean test = false;
                         double delta = speed / speedmax;
                         seekBar_speed.setProgress((100 * (int) (delta * 100)) / 100);
 
-                        if (Values.Machine_model.equals("JT882M")){
+                        if (Values.Machine_model.equals("JT882M") || Values.Machine_model.equals("JT882MA")){
 
                             sl.ReadItem(MultiCmd_Vq2110_Speed_T2);
                             sl.ReadItem(MultiCmd_Vq2913_C2_UdfVelLavRPM);
@@ -3089,7 +3111,7 @@ boolean test = false;
                     if (sl.getReturnCode() != 0) {
                         rc_error = true;
                     }
-                    if( Values.Machine_model.equals("JT882M")){
+                    if( Values.Machine_model.equals("JT882M") || Values.Machine_model.equals("JT882MA")){
                         sl.ReadItems(mci_array_read_882);
                         if (sl.getReturnCode() != 0) {
                             rc_error = true;
@@ -3150,7 +3172,7 @@ boolean test = false;
                         Utility.ScrivoVbVnVq(sl,Mci_write_Vb4062_AppTensDiminuisce);
                         Utility.ScrivoVbVnVq(sl,Mci_write_Vb4064_AppTensDiminuisce);
                         Utility.GestiscoMci_Edge_Out(sl,Mci_write_Vb4901_start_cucitura_T2);
-
+                        Utility.GestiscoMci_Edge_Out(sl,Mci_write_Vb115CricchettoRinforzo);
 
                         Utility.GestiscoMci_Edge_Out(sl,Mci_write_Vb4074_AllarmeContSpola_C2);
                         Utility.GestiscoMci_Out_Toggle(sl, Mci_write_Vb2034_Test_Cuci_C2);
@@ -3205,7 +3227,7 @@ boolean test = false;
                         }
 
                         Coord_Pinza.set(X, Y, ricetta_T1);
-                        if(Values.Machine_model.equals("JT882M")) {
+                        if(Values.Machine_model.equals("JT882M") || Values.Machine_model.equals("JT882MA")) {
                             Coord_Pinza_C2.set(X_C2, Y_C2, ricetta_T2);
                             if (Mci_write_C2_Udf_ValTensione.write_flag) {
                                 double v = (double) Mci_write_C2_Udf_ValTensione.valore;
@@ -3216,11 +3238,21 @@ boolean test = false;
 
                         }
 
+
+
+
                     }
 
                     activity.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+
+
+
+
+
+
+
                             int max_speed = (int) ((double) MultiCmd_Vq1913_C1_UdfVelLavRPM.getValue() / 1000);
                             if(Values.Machine_model.equals("JT862HM") && max_speed > 3500) max_speed =3500;
                             TextView_max_speed_value.setText(""+max_speed); //scrivo la massima velelocità associata al programma
@@ -3248,17 +3280,15 @@ boolean test = false;
                             Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_Vb4138_C1_Cambio_Frontali, Button_cambio_frontale, "ic_cambio_frontale_press", "ic_cambio_frontale");
                             Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_Vb4137_C1_Cambio_Corpo, Button_cambio_corpo, "ic_cambio_corpo_press", "ic_cambio_corpo");
                             Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_Vb4140_Cambio_spigoli, Button_cambio_spigoli, "ic_cambio_spigoli_press", "ic_cambio_spigoli");
+                            Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_Vb4140_Cambio_spigoli, Button_cambio_spigoli, "ic_cambio_spigoli_press", "ic_cambio_spigoli");
                             Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_Vb1018_SbloccaAgo, Button_Sgancio_ago, "ic_sblocca_ago_press", "ic_sblocca_ago");
                             Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_Vb4072_AllarmeContSpola, Button_reset_spola, "ic_spola_reset_red", "ic_spola_reset_yellow");
                             Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_Vb1034_Test_Cuci, Button_test_cuci, "ic_test_cucitura_press", "ic_test_cucitura");
-                            Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_vb4519_Scarico_pinza, Button_Scarico_Pinza, "ic_scaricatore_pinza_p", "ic_scaricatore_pinza");
-                            Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_vb4519_Scarico_pinza, Button_Scarico_Pinza, "ic_scaricatore_pinza_p", "ic_scaricatore_pinza");
                             Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_vb4519_Scarico_pinza, Button_Scarico_Pinza, "ic_scaricatore_pinza_p", "ic_scaricatore_pinza");
                             Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_Vb152_Pattina_OnOff, Button_pattina_on_off, "ic_pattina_onoff_press", "ic_pattina_onoff");
                             Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_Vb157_Pattina_PassoPasso, Button_pattina_test, "ic_pattina_test_press", "ic_pattina_test");
 
 
-                            GestioneVisualizzazioneToggleButton_da_Ingresso(MultiCmd_i14_Rinforzo, Button_rinforzo, "rinforzo_auto_press", "rinforzo_auto");
 
                             Gestione_icona_etichetta(Mci_write_Vn_etichetta);
 
@@ -3274,7 +3304,7 @@ boolean test = false;
 
 
 
-                            if(Values.Machine_model.equals("JT882M")){
+                            if(Values.Machine_model.equals("JT882M") || Values.Machine_model.equals("JT882MA")){
                                 Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_Vb4189_C2_Cambio_Pinze_All, Button_Cambio_pinza_C2, "ic_cambio_all2_press", "ic_cambio_all2");
                                 Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_Vb2018_SbloccaAgo_T2, Button_sgancio_ago_T2, "ic_sblocca_ago_t2_press", "ic_sblocca_ago_t2");
                                   Visualizza_contatore(TextView_val_speedT2, Mci_write_Vq2110_Speed, false, true, false);     //velocità
@@ -3327,7 +3357,7 @@ boolean test = false;
                             GestiscoWarning();
                             GestioneButtonTools();
                             GestioneButtonPattina();
-                            GestioneButtonRinforzo();
+
                             try {
                                 Tcp4_0Counter();
                             } catch (IOException e) {}
@@ -3340,14 +3370,14 @@ boolean test = false;
                             if (cnt_comunicazione > 1000) cnt_comunicazione = 0;
 
                             TextView_cnt_thread.setText(getString(R.string.cnt_thread) + thread_cnt + "  Cnt: " + cnt_comunicazione);
-
+/*
                             if (Coord_Pinza.XCoord_precedente != Coord_Pinza.XCoordPosPinza || Coord_Pinza.YCoord_precedente != Coord_Pinza.YCoordPosPinza) {
                                 if (myView_T1 != null)
                                     myView_T1.AggiornaCanvas(true);
                                 Coord_Pinza.XCoord_precedente = Coord_Pinza.XCoordPosPinza;
                                 Coord_Pinza.YCoord_precedente = Coord_Pinza.YCoordPosPinza;
                             }
-                            if(Values.Machine_model.equals("JT882M")){
+                            if(Values.Machine_model.equals("JT882M") || Values.Machine_model.equals("JT882MA")){
                                 if (Coord_Pinza_C2.XCoord_precedente != Coord_Pinza_C2.XCoordPosPinza || Coord_Pinza_C2.YCoord_precedente != Coord_Pinza_C2.YCoordPosPinza) {
                                     if (myView_T2 != null)
                                         myView_T2.AggiornaCanvas(true);
@@ -3357,7 +3387,7 @@ boolean test = false;
 
 
                             }
-
+*/
 
                         }
 

@@ -3,6 +3,9 @@ package com.jam_int.jt882_m8;
 import android.os.Environment;
 
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -145,4 +148,6 @@ public class MachineLog {
             MachineLog.clear();
         }
     }
+
+
 }

@@ -34,6 +34,7 @@ import java.nio.channels.FileChannel;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 import communication.ShoppingList;
@@ -255,6 +256,7 @@ public class Utility {
                 }
             }
         } else {
+
             UsbFile f = folderUsb.search(sourceFile.getName());
             if (f != null) f.delete();
 
@@ -262,10 +264,47 @@ public class Utility {
 
             OutputStream os = new UsbFileOutputStream(file);
 
-            os.write(getByte(sourceFile.getPath()));
+            //conto i byte del file da copiare
+            byte[] bite = getByte(sourceFile.getPath());
+            int nbyte = bite.length;
+
+            if(nbyte > 1000){           //sembra che spezzando il file da scrivere in più scrittura lo copia senza errori. Da approfondire
+                byte[][] arraybyte = splitBytes(bite,100);  //spezzetto il file in più array
+                for (byte[] b: arraybyte
+                ) {
+                    os.write(b);
+                    try {
+                        Thread.sleep((long) 5d);
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }else
+                os.write(getByte(sourceFile.getPath()));
             os.close();
         }
         return true;
+    }
+
+    public static byte[][] splitBytes(byte[] data, final int chunkSize)
+    {
+        final int length = data.length;
+        final byte[][] dest = new byte[(length + chunkSize - 1)/chunkSize][];
+        int destIndex = 0;
+        int stopIndex = 0;
+
+        for (int startIndex = 0; startIndex + chunkSize <= length; startIndex += chunkSize)
+        {
+            stopIndex += chunkSize;
+            dest[destIndex++] = Arrays.copyOfRange(data, startIndex, stopIndex);
+        }
+
+        if (stopIndex < length)
+            dest[destIndex] = Arrays.copyOfRange(data, stopIndex, length);
+
+        return dest;
     }
 
     /**

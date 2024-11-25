@@ -81,7 +81,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="40dp"
         android:background="#fc0303"
         android:text="No Connect"
         android:textSize="14sp"
@@ -144,6 +144,24 @@
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/textView_programma_in_esecuzione"
         app:layout_constraintTop_toBottomOf="@+id/textView_programma_in_esecuzione" />
+    <TextView
+        android:id="@+id/textView_File_XML_path_R"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="File_XML_path_R:"
+        android:textColor="@color/opaque_red"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/textView_programma_in_esecuzione"
+        app:layout_constraintTop_toBottomOf="@+id/textView_cnt_comunicazione" />
+    <TextView
+        android:id="@+id/textView_File_XML_path_T2_R"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="File_XML_path_T2_R:"
+        android:textColor="@color/opaque_red"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/textView_programma_in_esecuzione"
+        app:layout_constraintTop_toBottomOf="@+id/textView_File_XML_path_R" />
 
     <ScrollView
         android:id="@+id/scrollView2"

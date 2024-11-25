@@ -6,6 +6,369 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/button_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:background="@drawable/ic_password"
+        android:onClick="on_click_password"
+        app:layout_constraintBottom_toTopOf="@+id/button_exit"
+        app:layout_constraintStart_toStartOf="@+id/button_exit" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".3"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView_firmware"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:text="Firmware ver: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/scrollview_var" />
+
+            <TextView
+                android:id="@+id/textView_plc_ver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Plc ver: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_firmware" />
+
+            <CheckBox
+                android:id="@+id/checkBox_loader_up_C2"
+                android:layout_width="136dp"
+                android:layout_height="wrap_content"
+                android:text="Vb300"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textView_hmi_ver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Hmi ver: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_plc_ver" />
+
+            <TextView
+                android:id="@+id/textView_VnStatoCuci1_vn11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="VnStatoCuci1 vn11: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_hmi_ver" />
+            <TextView
+                android:id="@+id/textView_VnStatoCuci2_vn12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="VnStatoCuci2 vn12: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_VnStatoCuci1_vn11" />
+
+            <TextView
+                android:id="@+id/textView_Vn132_DebugPie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Vn132_DebugPie: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_VnStatoCuci1_vn12" />
+
+            <TextView
+                android:id="@+id/textView_chanel1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:text="Chanel1: "
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="743dp" />
+
+            <TextView
+                android:id="@+id/textView_chanel2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Chanel2: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_chanel1" />
+
+            <TextView
+                android:id="@+id/textView_chanel3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Chanel3: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_chanel2" />
+
+            <TextView
+                android:id="@+id/textView_fork1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Fork1: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_chanel3" />
+
+            <TextView
+                android:id="@+id/textView_fork2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Fork2: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_fork1" />
+
+            <TextView
+                android:id="@+id/textView_File_XML_path_R"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="XML_path_R: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_fork2" />
+
+            <TextView
+                android:id="@+id/textView_File_XML_path_L"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="XML_path_L: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_File_XML_path_R" />
+            <TextView
+                android:id="@+id/textView_vq3564_debug_sposta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Vq3564_Debug_sposta: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_File_XML_path_L" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <CheckBox
+                    android:id="@+id/checkBox_Vb300"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vb300"
+                    android:textSize="12sp" />
+                <CheckBox
+                    android:id="@+id/checkBox_Vb301"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vb301"
+                    android:textSize="12sp" />
+                <CheckBox
+                    android:id="@+id/checkBox_Vb302"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vb302"
+                    android:textSize="12sp" />
+                <CheckBox
+                    android:id="@+id/checkBox_Vb303"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vb303"
+                    android:textSize="12sp" />
+                <CheckBox
+                    android:id="@+id/checkBox_Vb304"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vb304"
+                    android:textSize="12sp" />
+                <CheckBox
+                    android:id="@+id/checkBox_Vb305"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vb305"
+                    android:textSize="12sp" />
+                <CheckBox
+                    android:id="@+id/checkBox_Vb306"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vb306"
+                    android:textSize="12sp" />
+                <CheckBox
+                    android:id="@+id/checkBox_Vb307"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vb307"
+                    android:textSize="12sp" />
+                <CheckBox
+                    android:id="@+id/checkBox_Vb308"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vb308"
+                    android:textSize="12sp" />
+                <CheckBox
+                    android:id="@+id/checkBox_Vb309"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vb309"
+                    android:textSize="12sp" />
+                <CheckBox
+                    android:id="@+id/checkBox_Vb310"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vb310"
+                    android:textSize="12sp" />
+                <CheckBox
+                    android:id="@+id/checkBox_Vb4513"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vb4513"
+                    android:textSize="12sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <CheckBox
+                    android:id="@+id/checkBox_Vn120"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vn120"
+                    android:textSize="12sp" />
+                <CheckBox
+                    android:id="@+id/checkBox_Vb4006"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vb4006"
+                    android:textSize="12sp" />
+                <CheckBox
+                    android:id="@+id/checkBox_Vb4509"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vb4509"
+                    android:textSize="12sp" />
+                <CheckBox
+                    android:id="@+id/checkBox_Vb4515"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vb4515"
+                    android:textSize="12sp" />
+                <CheckBox
+                    android:id="@+id/checkBox_Vb4001"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vb4001"
+                    android:textSize="12sp" />
+                <CheckBox
+                    android:id="@+id/checkBox_Vb4519"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vb4519"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout_variabili"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_add_vb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="on_click_addVB"
+                    android:text="ADD VB" />
+
+                <Button
+                    android:id="@+id/button_add_vn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="on_click_addVN"
+                    android:text="ADD VN"
+                    app:layout_constraintStart_toEndOf="@+id/button_add_vb"
+                    app:layout_constraintTop_toTopOf="@+id/button_add_vb" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_add_vq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="on_click_addVQ"
+                    android:text="ADD VQ"
+                    app:layout_constraintStart_toEndOf="@+id/button_add_vn"
+                    app:layout_constraintTop_toTopOf="@+id/button_add_vb" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="on_click_refresh"
+                    android:text="Refresh"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/button_add_vq" />
+            </LinearLayout>
+
+            <ScrollView
+                android:id="@+id/scrollview_var"
+                android:layout_width="200dp"
+                android:layout_height="339dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_add_vb">
+
+                <TableLayout
+                    android:id="@+id/Tablet_Layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </TableLayout>
+            </ScrollView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
         android:id="@+id/button_exit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,80 +380,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/button_add_vb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="24dp"
-        android:onClick="on_click_addVB"
-        android:text="ADD VB"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button_add_vn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:onClick="on_click_addVN"
-        android:text="ADD VN"
-        app:layout_constraintStart_toEndOf="@+id/button_add_vb"
-        app:layout_constraintTop_toTopOf="@+id/button_add_vb" />
-
-    <Button
-        android:id="@+id/button_add_vq"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:onClick="on_click_addVQ"
-        android:text="ADD VQ"
-        app:layout_constraintStart_toEndOf="@+id/button_add_vn"
-        app:layout_constraintTop_toTopOf="@+id/button_add_vb" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="48dp"
-        android:onClick="on_click_refresh"
-        android:text="Refresh"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button_add_vq" />
-
-    <ScrollView
-        android:id="@+id/scrollview_var"
-        android:layout_width="1000dp"
-        android:layout_height="339dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_add_vb">
-
-        <TableLayout
-            android:id="@+id/Tablet_Layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </TableLayout>
-    </ScrollView>
 
     <Switch
         android:id="@+id/switch_cuciture_infinite"
         android:layout_width="170dp"
         android:layout_height="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="24dp"
         android:text="endless sew"
         android:textOff="OFF"
         android:textOn="ON"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/scrollview_var"
-        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="1000dp"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintTop_toBottomOf="@+id/scrollview_var"
-        tools:layout_editor_absoluteX="1dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

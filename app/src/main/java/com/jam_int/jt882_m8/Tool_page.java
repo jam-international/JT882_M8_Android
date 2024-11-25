@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -36,6 +37,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.nio.file.Files;
 import java.util.Collection;
 import java.util.HashMap;
 
@@ -113,6 +115,10 @@ public class Tool_page extends Activity {
     private boolean isReceiverRegistered = false;
     ProgressDialog progress;
     Intent databack_toMainActivity;
+    TextView TextView_status_Report_to_usb;
+    boolean Read_Syslog = false,ret_read_syslog=false, Finito_lettura_Syslog = false;
+    int mc_stati_Report_to_usb = 0;
+    UsbDevice device_prova;
     /**
      * Receiver for handle the unlock of all the buttons
      */
@@ -192,8 +198,13 @@ public class Tool_page extends Activity {
         Button_Fai_spola = (Button) findViewById(R.id.btn_fai_spola);
         Button_pagina_punto_carico = (Button) findViewById(R.id.button_pagina_punto_carico);
 
+        TextView_status_Report_to_usb = (TextView)findViewById(R.id.textView_status_Report_to_usb) ;
+        TextView_status_Report_to_usb.setVisibility(View.GONE);
+
         Bundle extras = getIntent().getExtras();
         databack_toMainActivity = getIntent();
+
+
 
         if (extras != null) {
             Lato_tasca_T1 = extras.getString("Lato_tasca_T1");
@@ -329,6 +340,7 @@ public class Tool_page extends Activity {
         Intent intent_punto_carico = new Intent(getApplicationContext(), Punto_carico_page.class);
         if(Values.File_XML_path_T2_R != null) {
 
+            if (Lato_tasca_T2 == null || Lato_tasca_T2.equals("")) Lato_tasca_T2 = "DX";
             if(Lato_tasca_T2.equals("SX")) {
                 intent_punto_carico.putExtra("Chiamante", PAGE_UDF_T2_SX);
                 startActivityForResult(intent_punto_carico, PAGE_UDF_T2_SX);
@@ -410,52 +422,7 @@ public class Tool_page extends Activity {
      */
     public void on_click_report_to_usb(View view) {
         Log.d("JAM TAG", "Toolpage OnclickCrashReport");
-        try {
-            root = currentFs.getRootDirectory();
-            UsbManager m = (UsbManager) getApplicationContext().getSystemService(USB_SERVICE);
-            HashMap<String, UsbDevice> devices = m.getDeviceList();
-            Collection<UsbDevice> ite = devices.values();
-            UsbDevice[] usbs = ite.toArray(new UsbDevice[]{});
-            // Check if at least 1 usb is connected
-            if (usbs.length > 0) {
-                File rootFolder = android.os.Environment.getExternalStorageDirectory();
-                File dir = new File(rootFolder.getAbsolutePath() + "/JamData");
-                final String extensions = "deb";
-                File[] files = dir.listFiles(new FilenameFilter() {
-                    public boolean accept(final File a_directory,
-                                          final String a_name) {
-                        return a_name.endsWith(extensions);
-                    }
-                });
-
-                // Copy every deb file
-                for (File file : files) {
-                    Utility.copyFileToUsb(file, root);
-                }
-
-                // Copy the info_Jam file
-                try {
-                    File file_info_Jam = new File(rootFolder.getAbsolutePath() + "/JamData/info_Jam.txt");
-                    Utility.copyFileToUsb(file_info_Jam, root);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                // Copy the MachineLog file
-                try {
-                    File file_MachineLog = new File(rootFolder.getAbsolutePath() + "/JamData/MachineLog.txt");
-                    Utility.copyFileToUsb(file_MachineLog, root);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                Toast.makeText(this, "Files successfully copied", Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(this, getString(R.string.UsbXmlUnmounted), Toast.LENGTH_LONG).show();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(this, getString(R.string.UsbXmlUnmounted), Toast.LENGTH_LONG).show();
-        }
+        mc_stati_Report_to_usb = 10;
     }
 
     /**
@@ -755,8 +722,9 @@ public class Tool_page extends Activity {
         super.onResume();
         Toggle_Button.Disabilita_Imagebutton(Button_upgrade_hmi, "ic_upgrade_disable", getApplicationContext());
         LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver, new IntentFilter("KeyDialog_password_ret"));
-        if(!isReceiverRegistered)
-            Registra_USB();
+
+            if (!isReceiverRegistered)
+                Registra_USB();
 
         if (!Thread_Running) {
             Thread_Running = false;
@@ -1142,6 +1110,15 @@ public class Tool_page extends Activity {
                         first_cycle = false;
                     }
 
+                    if (Read_Syslog) {
+                        Read_Syslog = false;
+                        ret_read_syslog = sl.FileDownload("c:\\cnc\\param\\par2kax.txt", "storage/emulated/0/JamData/par2kax.txt", null);
+                        ret_read_syslog = sl.FileDownload("S:\\syslog.txt", "storage/emulated/0/JamData/syslog.txt", null);
+                        Finito_lettura_Syslog = true;
+
+
+                    }
+
                     MultiCmd_Vn3804_pagina_touch.setValue(1002.0d);
                     sl.WriteItem(MultiCmd_Vn3804_pagina_touch);
                     sl.ReadItems(mci_array_read_all);
@@ -1160,6 +1137,7 @@ public class Tool_page extends Activity {
                         public void run() {
                             if (!chiamante.equals("Pagina_emergenza"))
                                 Emergenza();
+                            Report_to_usb(mc_stati_Report_to_usb);
                             Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_Sblocca_Ago, Button_Sgancio_ago, "ic_sblocca_ago_press", "ic_sblocca_ago");
                             Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_Vb4075_GiraAgoFaiSpolaC1, Button_Fai_spola, "ic_fai_spola_premuto", "ic_fai_spola");
                         }
@@ -1170,27 +1148,159 @@ public class Tool_page extends Activity {
             }
         }
     }
+    private void Report_to_usb(int mcStatiReportToUsb) {
+        switch (mcStatiReportToUsb){
 
+            case 0:
+                break;
+            case 10:
+                TextView_status_Report_to_usb.setVisibility(View.VISIBLE);
+                TextView_status_Report_to_usb.setText("Syslog reading....");
+
+                Read_Syslog = true;
+                mc_stati_Report_to_usb = 20;
+                break;
+            case 20:    //aspetto risultato della lettura del syslog
+                if(Finito_lettura_Syslog) {
+                    Finito_lettura_Syslog = false;
+                    mc_stati_Report_to_usb = 30;
+                }
+                break;
+            case 30:
+                if(ret_read_syslog)
+                    TextView_status_Report_to_usb.setText("Syslog read OK");
+
+                else
+                    TextView_status_Report_to_usb.setText("Syslog read error");
+
+                mc_stati_Report_to_usb = 35;
+                break;
+
+                case 35:
+                    TextView_status_Report_to_usb.setText("Writing USB....");
+                    mc_stati_Report_to_usb = 40;
+                    break;
+            case 40:
+                try {
+
+                    root = currentFs.getRootDirectory();
+                    UsbManager m = (UsbManager) getApplicationContext().getSystemService(USB_SERVICE);
+                    HashMap<String, UsbDevice> devices = m.getDeviceList();
+                    Collection<UsbDevice> ite = devices.values();
+                    UsbDevice[] usbs = ite .toArray(new UsbDevice[]{});
+                    // Check if at least 1 usb is connected
+                    if (usbs.length > 0) {
+                        TextView_status_Report_to_usb.setVisibility(View.GONE);
+                        File rootFolder = android.os.Environment.getExternalStorageDirectory();
+                        File dir = new File(rootFolder.getAbsolutePath() + "/JamData");
+                        final String extensions = "deb";
+                        File[] files = dir.listFiles(new FilenameFilter() {
+                            public boolean accept(final File a_directory,
+                                                  final String a_name) {
+                                return a_name.endsWith(extensions);
+                            }
+                        });
+
+                        // Copy every deb file
+                        for (File file : files) {
+                            Utility.copyFileToUsb(file, root);
+                        }
+
+                        // Copy the info_Jam file
+                        try {
+                            File file_info_Jam = new File(rootFolder.getAbsolutePath() + "/JamData/info_Jam.txt");
+                            Utility.copyFileToUsb(file_info_Jam, root);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                        // Copy the MachineLog file
+                        try {
+                            File file_MachineLog = new File(rootFolder.getAbsolutePath() + "/JamData/MachineLog.txt");
+                            Utility.copyFileToUsb(file_MachineLog, root);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+
+                        // Copy the syslog file
+                        try {
+                            File file_syslog = new File(rootFolder.getAbsolutePath() + "/JamData/syslog.txt");
+
+                            Utility.copyFileToUsb(file_syslog, root);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        // Copy the par2kax file
+                        try {
+                            File file_par2kax = new File(rootFolder.getAbsolutePath() + "/JamData/par2kax.txt");
+                            Utility.copyFileToUsb(file_par2kax, root);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+
+
+                        // File file_xml_path_R = new File(Values.File_XML_path_R);
+                        try {
+                            File file_xml_path_R = new File(Values.File_XML_path_R);
+
+                            Utility.copyFileToUsb(file_xml_path_R, root);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        // File file_xml_path_R udf;
+                        try {
+                            String path_file_udf = Values.File_XML_path_R;
+                            path_file_udf = path_file_udf.replace(".xml",".udf");
+
+                            File file_xml_path_R_udf = new File(path_file_udf);
+
+                            Utility.copyFileToUsb(file_xml_path_R_udf, root);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                        Toast.makeText(getApplicationContext(), "Files successfully copied", Toast.LENGTH_LONG).show();
+
+                    } else {
+                        Toast.makeText(getApplicationContext(), getString(R.string.UsbXmlUnmounted), Toast.LENGTH_LONG).show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), getString(R.string.UsbXmlUnmounted), Toast.LENGTH_LONG).show();
+                }
+
+                mc_stati_Report_to_usb = 0;
+
+                break;
+            default:
+                break;
+        }
+    }
     /**
      * Receiver for handle the usb events
      */
     private final BroadcastReceiver usbReceiver = new BroadcastReceiver() {
 
         public void onReceive(Context context, Intent intent) {
+
             String action = intent.getAction();
 
             if (ACTION_USB_DEVICE_ATTACHED.equals(action)) {
 
                 UsbMassStorageDevice[] devices = UsbMassStorageDevice.getMassStorageDevices(getApplicationContext());
                 if (devices.length > 0) {
-
                     device_usb = devices[0];
 
-                    PendingIntent permissionIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, new Intent(ACTION_USB_PERMISSION), PendingIntent.FLAG_IMMUTABLE);
+                    PendingIntent permissionIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, new Intent(ACTION_USB_PERMISSION), 0);
                     IntentFilter filter = new IntentFilter(ACTION_USB_PERMISSION);
                     registerReceiver(usbReceiver, filter);
                     UsbManager manager = (UsbManager) getSystemService(Context.USB_SERVICE);
                     manager.requestPermission(device_usb.getUsbDevice(), permissionIntent);
+
+                    device_prova = intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
+
                 }
             }
 
@@ -1212,17 +1322,21 @@ public class Tool_page extends Activity {
                     UsbDevice device = intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
 
                     if (intent.getBooleanExtra(UsbManager.EXTRA_PERMISSION_GRANTED, false)) {
-                        if (device != null) {
+                        if (device != null || device_prova != null) {
                             try {
                                 device_usb.init();
 
                                 // Only uses the first partition on the device
                                 currentFs = device_usb.getPartitions().get(0).getFileSystem();
-                                root = currentFs.getRootDirectory();
                                 Log.d("TAG", "Capacity: " + currentFs.getCapacity());
                                 Log.d("TAG", "Occupied Space: " + currentFs.getOccupiedSpace());
                                 Log.d("TAG", "Free Space: " + currentFs.getFreeSpace());
                                 Log.d("TAG", "Chunk size: " + currentFs.getChunkSize());
+                                root = currentFs.getRootDirectory();
+
+                                UsbFile[] files = root.listFiles();
+
+
 
                                 Toggle_Button.Abilita_Imagebutton(Button_upgrade_hmi, "ic_upgrade", getApplicationContext());
 

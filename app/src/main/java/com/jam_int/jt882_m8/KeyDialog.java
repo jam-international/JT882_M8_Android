@@ -36,7 +36,8 @@ public class KeyDialog extends Activity {
         final Dialog dialog = new Dialog(activityctivity);
 
         try {
-            Text = Text_premuto.getText().toString();
+            if(Text_premuto != null)
+                Text = Text_premuto.getText().toString();
         } catch (Exception e) {
             e.printStackTrace();
         }

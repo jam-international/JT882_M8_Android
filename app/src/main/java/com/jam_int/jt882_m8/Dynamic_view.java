@@ -259,12 +259,14 @@ public class Dynamic_view extends View {
             Disegna_pts(List_punti_pts);
         try {
             paint.setColor(Color.BLUE);
-            frameDrawer.drawCircle((float) CoordPosPinza.XCoordPosPinza, (float) CoordPosPinza.YCoordPosPinza, 2F, paint);
+            if (frameDrawer != null) {
+                frameDrawer.drawCircle((float) CoordPosPinza.XCoordPosPinza, (float) CoordPosPinza.YCoordPosPinza, 2F, paint);
 
-            frameDrawer.drawLine(-8, -5, 300, -5, paint);           //riquadro area macchina
-            frameDrawer.drawLine(300, -5, 300, 262, paint);         //riquadro area macchina
-            frameDrawer.drawLine(300, 262, -8, 262, paint);         //riquadro area macchina
-            frameDrawer.drawLine(-8, 262, -8, -5, paint);           //riquadro area macchina
+                frameDrawer.drawLine(-8, -5, 300, -5, paint);           //riquadro area macchina
+                frameDrawer.drawLine(300, -5, 300, 262, paint);         //riquadro area macchina
+                frameDrawer.drawLine(300, 262, -8, 262, paint);         //riquadro area macchina
+                frameDrawer.drawLine(-8, 262, -8, -5, paint);           //riquadro area macchina
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -368,7 +370,7 @@ public class Dynamic_view extends View {
         // Release the Bitmap Memory
         this.frame.recycle();
         // Release the canvas
-        this.frameDrawer = null;
+       //// this.frameDrawer = null;
     }
 
     /**
@@ -376,7 +378,8 @@ public class Dynamic_view extends View {
      *
      * @param cancella
      */
-    public void AggiornaCanvas(boolean cancella) {
+    public void
+    AggiornaCanvas(boolean cancella) {
         if (cancella)
             frame.eraseColor(Color.TRANSPARENT);
         this.invalidate();
@@ -413,11 +416,13 @@ public class Dynamic_view extends View {
                             paint.setColor(Color.YELLOW);
                         } else
                             paint.setColor(Color.RED);
-                        frameDrawer.drawLine(entita.pStart.x, entita.pStart.y, entita.pEnd.x, entita.pEnd.y, paint);
+                        if(frameDrawer != null)
+                         frameDrawer.drawLine(entita.pStart.x, entita.pStart.y, entita.pEnd.x, entita.pEnd.y, paint);
                     } else if (entita instanceof ElementFeed) {
 
                         paint.setColor(Color.GREEN);
-                        frameDrawer.drawLine(entita.pStart.x, entita.pStart.y, entita.pEnd.x, entita.pEnd.y, paint);
+                        if(frameDrawer != null)
+                            frameDrawer.drawLine(entita.pStart.x, entita.pStart.y, entita.pEnd.x, entita.pEnd.y, paint);
                     } else if (entita instanceof ElementArc) {
                         if (entita.isSelected) {
                             paint.setColor(Color.YELLOW);
@@ -519,7 +524,8 @@ public class Dynamic_view extends View {
 
                     paint.setColor(Color.BLUE);
                     float radius = 1F;
-                    frameDrawer.drawCircle(punto.x, punto.y, radius, paint);
+                    if(frameDrawer !=null)
+                        frameDrawer.drawCircle(punto.x, punto.y, radius, paint);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -527,7 +533,7 @@ public class Dynamic_view extends View {
         }
 
         // TODO Fix too much codes
-        if (List_code.size() > 0) {
+        if (List_code.size() > 0 && frameDrawer != null) {
             for (int i = 0; i < List_code.size(); i++) {
                 try {
                     //x Murat

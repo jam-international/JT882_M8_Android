@@ -32,7 +32,7 @@ public class EdgeButton {
                         return true; // if you want to handle the touch event
                     case MotionEvent.ACTION_UP:
                         // RELEASED
-                        if (ic_button_press != null) {
+                        if (ic_button != null) {
                             int image_Non_Premuto = applicationContext.getResources().getIdentifier(ic_button, "drawable", applicationContext.getPackageName());
                             button.setBackground(applicationContext.getResources().getDrawable((image_Non_Premuto)));
                         }

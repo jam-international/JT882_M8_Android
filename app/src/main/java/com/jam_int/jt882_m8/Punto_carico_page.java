@@ -215,12 +215,12 @@ public class Punto_carico_page extends Activity {
 
         CheckBox_decimi.setChecked(false);
         CheckBox_1mm.setChecked(true);
-
-        if(!Machine_model.equals("JT882M")) {
+/*
+        if(!Machine_model.equals("JT882M") && !Machine_model.equals("JT882MA")) {
             ToggleButton_traslatore_P1.setVisibility(View.GONE);
             ToggleButton_traslatore_P2.setVisibility(View.GONE);
         }
-
+*/
         // Setup ShoppingList
         sl = SocketHandler.getSocket();
 
@@ -283,8 +283,8 @@ public class Punto_carico_page extends Activity {
                 Multicmd_go_to_PC = sl.Add("Io", 1, MultiCmdItem.dtVB, 53, MultiCmdItem.dpNONE);
                 Multicmd_Load_Prog = sl.Add("Io", 1, MultiCmdItem.dtVB, 2019, MultiCmdItem.dpNONE);
 
-                ToggleButton_caricatore_P1.setVisibility(View.GONE);
-                ToggleButton_caricatore_P2.setVisibility(View.GONE);
+                ToggleButton_caricatore_P1.setVisibility(View.VISIBLE);
+                ToggleButton_caricatore_P2.setVisibility(View.VISIBLE);
                 break;
             case PAGE_UDF_T2_SX:
                 try {
@@ -302,6 +302,9 @@ public class Punto_carico_page extends Activity {
                 MultiCmd_Sblocca_Ago = sl.Add("Io", 1, MultiCmdItem.dtVB, 2018, MultiCmdItem.dpNONE);
                 Multicmd_go_to_PC = sl.Add("Io", 1, MultiCmdItem.dtVB, 53, MultiCmdItem.dpNONE);
                 Multicmd_Load_Prog = sl.Add("Io", 1, MultiCmdItem.dtVB, 2019, MultiCmdItem.dpNONE);
+                ToggleButton_caricatore_P1.setVisibility(View.VISIBLE);
+                ToggleButton_caricatore_P2.setVisibility(View.VISIBLE);
+
                 break;
             default:
                 break;

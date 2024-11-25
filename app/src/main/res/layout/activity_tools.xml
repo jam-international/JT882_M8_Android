@@ -6,6 +6,16 @@
     android:layout_height="match_parent">
 
 
+    <TextView
+        android:id="@+id/textView_status_Report_to_usb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/button_report_to_usb"
+        app:layout_constraintTop_toBottomOf="@+id/button_report_to_usb" />
+
     <Button
         android:id="@+id/button_Z_ago2"
         android:layout_width="wrap_content"

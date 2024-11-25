@@ -44,6 +44,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.xml.validation.Validator;
+
 import communication.MSysFileInfo;
 import communication.MultiCmdItem;
 import communication.ShoppingList;
@@ -90,21 +92,21 @@ public class Emergency_page extends Activity {
      * PLC vars
      */
     MultiCmdItem[] mci_array_read_all,mci_array_read_882;
-    MultiCmdItem mci_tasto_verde, mci_Vb7903_Reset_Ch1, mci_CH1_in_emergenza, mc1_Vb50_macchina_azzerata, Multicmd_vb4503_Cn_allarme, Multicmd_i35_Pressostato,
+    MultiCmdItem mci_tasto_verde, mci_Vb7903_Reset_Ch1, mci_CH1_in_emergenza, mc1_Vb50_macchina_azzerata, Multicmd_vb4503_Cn_allarme, Multicmd_in_Pressostato,
             Multicmd_vb7013_ax1_home, Multicmd_vb7033_ax2_home, Multicmd_vb7053_ax3_home, Multicmd_vb7073_ax4_home, Multicmd_vb7093_ax5_home, MultiCmd_VA31_Ver_PLC,
             MultiCmd_livello_batteria, MultiCmd_Vn3910_udf_error, Multicmd_dtDB_prog_name,Multicmd_dtDB_prog_name_T2, MultiCmd_Vn198_num_prog_right, MultiCmd_Vn199_num_prog_left, MultiCmd_Vn2_allarmi_da_CN,
             MultiCmd_Vb7814_Eth_operational, MultiCmd_Debug14_prog_cn_in_esecuzione, MultiCmd_Debug8_riga_cn_in_esecuzione, Multicmd_i5_loader_up, Multicmd_i8_folder_back,
             Multicmd_i11_Lancia_back, MultiCmd_Vn4_Warning, Multicmd_Vb4807_PinzeAlteDopoPC, MultiCmd_ver_macchine,Multicmd_i23_interna_bassa,Multicmd_i24_esterna_alta,
-            Multicmd_i31_motoreX_ready,Multicmd_i32_motoreY_ready,Multicmd_i38_trasl_alto,Multicmd_i55_interna_bassa,Multicmd_i47_C2_ReadyAsseX, Multicmd_i48_C2_ReadyAsseY,Multicmd_vb7193_ax10_home,
+            Multicmd_i31_motoreX_ready,Multicmd_i32_motoreY_ready,Multicmd_in_trasl_alto,Multicmd_in_interna_bassa,Multicmd_i47_C2_ReadyAsseX, Multicmd_i48_C2_ReadyAsseY,Multicmd_vb7193_ax10_home,
             Multicmd_vb7153_ax8_home,Multicmd_vb7173_ax9_home,Multicmd_vb7113_ax6_home,Multicmd_vb7133_ax7_home,Multicmd_i1_pulsanti_start,MultiCmd_Vn3804_pagina_touch;
     Mci_write Mci_write_dtDB_prog_name = new Mci_write(),Mci_write_dtDB_prog_name_T2 = new Mci_write(), Mci_write_Vn4_Warning = new Mci_write();
     List<String> list_allarmi = new ArrayList<>();
     Boolean path_udf_presente = false;
-    int mc_stati_riarmo = 0,mc_stati_riarmo_prec = -1, cnt_comunicazione = 0, alarm_CN_cnt = 0, mc_stati_visualizzazione_allarmi = 0,mc_stati_visualizzazione_allarmi_prec = -1;
+    int mc_stati_riarmo = 0,mc_stati_riarmo_prec = -1, cnt_comunicazione = 0, alarm_CN_cnt = 0, mc_stati_visualizzazione_allarmi = 0,mc_stati_visualizzazione_allarmi_prec = -1,warning_debug = -1;
     String[] tab_names = new String[]{};
     Double warning_old = 0.0d;
     String info = "", str_allarmi = "", Machine_model = "", str_allarmi_udf = "", str_allarmi_old = "x", str_allarmi_print = "",str_allarmi_more = "";
-   static String ver_firmware,PLCver;
+
     Animation anim;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -339,7 +341,7 @@ public class Emergency_page extends Activity {
 
         // Get the current version of the HMI software
       //  int versionCode = com.android. BuildConfig.VERSION_CODE;
-        ver_softwareHMI.setText("1.9");
+        ver_softwareHMI.setText(Values.HMI_softver);
 
         // Setup the ShoppingList
         try {
@@ -362,14 +364,14 @@ public class Emergency_page extends Activity {
         mci_CH1_in_emergenza = sl.Add("Io", 1, MultiCmdItem.dtVB, 7909, MultiCmdItem.dpNONE);
         mc1_Vb50_macchina_azzerata = sl.Add("Io", 1, MultiCmdItem.dtVB, 50, MultiCmdItem.dpNONE);
         Multicmd_vb4503_Cn_allarme = sl.Add("Io", 1, MultiCmdItem.dtVB, 4503, MultiCmdItem.dpNONE);
-        Multicmd_i35_Pressostato = sl.Add("Io", 1, MultiCmdItem.dtDI, 35, MultiCmdItem.dpNONE);
+
         Multicmd_vb7013_ax1_home = sl.Add("Io", 1, MultiCmdItem.dtVB, 7013, MultiCmdItem.dpNONE);
         Multicmd_vb7033_ax2_home = sl.Add("Io", 1, MultiCmdItem.dtVB, 7033, MultiCmdItem.dpNONE);
         Multicmd_vb7053_ax3_home = sl.Add("Io", 1, MultiCmdItem.dtVB, 7053, MultiCmdItem.dpNONE);
         Multicmd_vb7073_ax4_home = sl.Add("Io", 1, MultiCmdItem.dtVB, 7073, MultiCmdItem.dpNONE);
         Multicmd_vb7093_ax5_home = sl.Add("Io", 1, MultiCmdItem.dtVB, 7093, MultiCmdItem.dpNONE);
-        Multicmd_i38_trasl_alto = sl.Add("Io", 1, MultiCmdItem.dtDI, 38, MultiCmdItem.dpNONE);
-        Multicmd_i55_interna_bassa= sl.Add("Io", 1, MultiCmdItem.dtDI, 55, MultiCmdItem.dpNONE);
+
+
         Multicmd_i47_C2_ReadyAsseX = sl.Add("Io", 1, MultiCmdItem.dtDI, 47, MultiCmdItem.dpNONE);
         Multicmd_i48_C2_ReadyAsseY = sl.Add("Io", 1, MultiCmdItem.dtDI, 48, MultiCmdItem.dpNONE);
         Multicmd_vb7193_ax10_home = sl.Add("Io", 1, MultiCmdItem.dtVB, 7193, MultiCmdItem.dpNONE);
@@ -401,19 +403,37 @@ public class Emergency_page extends Activity {
         Multicmd_i1_pulsanti_start= sl.Add("Io", 1, MultiCmdItem.dtDI, 1, MultiCmdItem.dpNONE);
         MultiCmd_Vn3804_pagina_touch = sl.Add("Io", 1, MultiCmdItem.dtVN, 3804, MultiCmdItem.dpNONE);
 
+
+        switch (Machine_model) {
+            case "JT882M":
+            default:
+                Values.Machine_model = "JT882M";  //per la prima accensione
+                Multicmd_in_Pressostato = sl.Add("Io", 1, MultiCmdItem.dtDI, 44, MultiCmdItem.dpNONE);
+                Multicmd_in_trasl_alto = sl.Add("Io", 1, MultiCmdItem.dtDI, 42, MultiCmdItem.dpNONE);
+                Multicmd_in_interna_bassa= sl.Add("Io", 1, MultiCmdItem.dtDI, 41, MultiCmdItem.dpNONE);
+                break;
+            case "JT882MA": //Argentina con 4 schede IO Belli
+                Multicmd_in_Pressostato = sl.Add("Io", 1, MultiCmdItem.dtDI, 35, MultiCmdItem.dpNONE);
+                Multicmd_in_trasl_alto = sl.Add("Io", 1, MultiCmdItem.dtDI, 38, MultiCmdItem.dpNONE);
+                Multicmd_in_interna_bassa= sl.Add("Io", 1, MultiCmdItem.dtDI, 55, MultiCmdItem.dpNONE);
+                break;
+
+
+        }
+
         Mci_write_dtDB_prog_name.mci = Multicmd_dtDB_prog_name;
         Mci_write_dtDB_prog_name_T2.mci = Multicmd_dtDB_prog_name_T2;
         Mci_write_Vn4_Warning.mci = MultiCmd_Vn4_Warning;
 
         mci_array_read_all = new MultiCmdItem[]{
-                Multicmd_vb4503_Cn_allarme, Multicmd_i35_Pressostato, Multicmd_vb7013_ax1_home, Multicmd_vb7033_ax2_home, Multicmd_vb7053_ax3_home,Multicmd_i1_pulsanti_start,
+                Multicmd_vb4503_Cn_allarme, Multicmd_in_Pressostato, Multicmd_vb7013_ax1_home, Multicmd_vb7033_ax2_home, Multicmd_vb7053_ax3_home,Multicmd_i1_pulsanti_start,
                 Multicmd_vb7073_ax4_home, Multicmd_vb7093_ax5_home, MultiCmd_VA31_Ver_PLC, MultiCmd_livello_batteria, MultiCmd_Vb7814_Eth_operational,
                 MultiCmd_Debug14_prog_cn_in_esecuzione, MultiCmd_Debug8_riga_cn_in_esecuzione, Multicmd_i5_loader_up, Multicmd_i8_folder_back, Multicmd_i11_Lancia_back,
                 MultiCmd_Vn4_Warning, MultiCmd_ver_macchine,Multicmd_i23_interna_bassa, Multicmd_i24_esterna_alta, Multicmd_i31_motoreX_ready, Multicmd_i32_motoreY_ready,
         };
         mci_array_read_882 = new MultiCmdItem[]{
-                Multicmd_i38_trasl_alto,Multicmd_i47_C2_ReadyAsseX, Multicmd_i48_C2_ReadyAsseY,Multicmd_vb7193_ax10_home,
-                Multicmd_vb7153_ax8_home,Multicmd_vb7173_ax9_home,Multicmd_vb7113_ax6_home,Multicmd_vb7133_ax7_home,Multicmd_i55_interna_bassa
+                Multicmd_in_trasl_alto,Multicmd_i47_C2_ReadyAsseX, Multicmd_i48_C2_ReadyAsseY,Multicmd_vb7193_ax10_home,
+                Multicmd_vb7153_ax8_home,Multicmd_vb7173_ax9_home,Multicmd_vb7113_ax6_home,Multicmd_vb7133_ax7_home,Multicmd_in_interna_bassa
         };
 
         Inizializzo_dati_macchina();
@@ -422,6 +442,11 @@ public class Emergency_page extends Activity {
         try {
             Values.File_XML_path_R = Info_file.Leggi_campo("storage/emulated/0/JamData/info_Jam.txt", "LastProgram", "null", null, null, "LastProgram_R", getApplicationContext());
             Values.File_XML_path_T2_R = Info_file.Leggi_campo("storage/emulated/0/JamData/info_Jam.txt", "LastProgram", "null", null, null, "LastProgram_R_T2", getApplicationContext());
+            TextView TextView_File_XML_path_R = (TextView) findViewById(R.id.textView_File_XML_path_R);
+            TextView TextView_File_XML_path_T2_R = (TextView) findViewById(R.id.textView_File_XML_path_T2_R);
+            TextView_File_XML_path_R.setText("XML path T1 R: "+Values.File_XML_path_R);
+            TextView_File_XML_path_T2_R.setText("XML path T2 R: "+Values.File_XML_path_T2_R);
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -476,7 +501,12 @@ public class Emergency_page extends Activity {
         return ret;
     }
 
-
+    public static String getFirmware() {
+        return Values.ver_firmware;
+    }
+    public static String getPLCver() {
+        return Values.PLCver;
+    }
     /**
      * Function for init the machine files (JamData, ricette, info_jam ....)
      */
@@ -540,7 +570,7 @@ public class Emergency_page extends Activity {
                 final Spinner input = new Spinner(this);
                 input.setFocusable(false);
                 String[] arraySpinner = new String[]{
-                        "JT862M", "JT863M","JT862HM","JT882M","JT882HM"
+                        "JT862M", "JT863M","JT862HM","JT882M","JT882MA","JT882HM"
                 };
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arraySpinner);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -746,8 +776,8 @@ public class Emergency_page extends Activity {
      */
     private void ShowFirmwareVersion() {
         try {
-            if (!ver_firmware.equals("")) {
-                String ver1 = ver_firmware.substring(6, (ver_firmware.length() - 4));
+            if (!Values.ver_firmware.equals("")) {
+                String ver1 = Values.ver_firmware.substring(6, (Values.ver_firmware.length() - 4));
                 TextView_testo_Firmware.setText(ver1);
             }
         } catch (Exception e) {
@@ -812,7 +842,7 @@ public class Emergency_page extends Activity {
         CheckBox CheckBox_MotorY_ready = findViewById(R.id.checkBox_MotorY_ready);
 
         CheckBox_status_cn.setChecked((Double) Multicmd_vb4503_Cn_allarme.getValue() == 0.0d);
-        CheckBox_pressostato.setChecked((Double) Multicmd_i35_Pressostato.getValue() == 0.0d);
+        CheckBox_pressostato.setChecked((Double) Multicmd_in_Pressostato.getValue() == 0.0d);
         CheckBox_ax1_home.setChecked((Double) Multicmd_vb7013_ax1_home.getValue() == 1.0d);
         CheckBox_ax2_home.setChecked((Double) Multicmd_vb7033_ax2_home.getValue() == 1.0d);
         CheckBox_ax3_home.setChecked((Double) Multicmd_vb7053_ax3_home.getValue() == 1.0d);
@@ -828,7 +858,7 @@ public class Emergency_page extends Activity {
         CheckBox_MotorY_ready.setChecked((Double) Multicmd_i32_motoreY_ready.getValue() == 1.0d);
 
         //882
-        if( Machine_model.equals("JT882M")) {
+        if( Machine_model.equals("JT882M") ||Machine_model.equals("JT882MA")) {
             CheckBox CheckBox_loader_up_C2 = findViewById(R.id.checkBox_loader_up_C2);
             CheckBox CheckBox_inner_clamp_C2 = findViewById(R.id.checkBox_inner_clamp_C2);
             CheckBox CheckBox_MotorX_ready_C2 = findViewById(R.id.checkBox_MotorX_ready_C2);
@@ -840,8 +870,8 @@ public class Emergency_page extends Activity {
             CheckBox CheckBox_ax7_home2 = findViewById(R.id.checkBox_ax7_home2);
 
 
-            CheckBox_loader_up_C2.setChecked((Double) Multicmd_i38_trasl_alto.getValue() == 1.0d);
-            CheckBox_inner_clamp_C2.setChecked((Double) Multicmd_i55_interna_bassa.getValue() == 1.0d);
+            CheckBox_loader_up_C2.setChecked((Double) Multicmd_in_trasl_alto.getValue() == 1.0d);
+            CheckBox_inner_clamp_C2.setChecked((Double) Multicmd_in_interna_bassa.getValue() == 1.0d);
             CheckBox_MotorX_ready_C2.setChecked((Double) Multicmd_i47_C2_ReadyAsseX.getValue() == 1.0d);
             CheckBox_MotorY_ready_C2.setChecked((Double) Multicmd_i48_C2_ReadyAsseY.getValue() == 1.0d);
             CheckBox_ax10_home2.setChecked((Double) Multicmd_vb7193_ax10_home.getValue() == 1.0d);
@@ -1003,7 +1033,7 @@ public class Emergency_page extends Activity {
 
                         sl.ReadItem(mc1_Vb50_macchina_azzerata);      //controllo se la macchina è azzerata
                         if (sl.getReturnCode() == 0) {
-                            if ((Double) mc1_Vb50_macchina_azzerata.getValue() == 1.0d && (Double) Multicmd_i35_Pressostato.getValue() == 0.0d) {
+                            if ((Double) mc1_Vb50_macchina_azzerata.getValue() == 1.0d && (Double) Multicmd_in_Pressostato.getValue() == 0.0d) {
                                 StopThread = true;
                                 Intent intent_par = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent_par);
@@ -1367,32 +1397,21 @@ public class Emergency_page extends Activity {
                     if (first_cycle) {
                         first_cycle = false;
 
+                        CaricaProgrammi();
+
+
                         MultiCmd_Vn3804_pagina_touch.setValue(0.0d);
                         sl.WriteItem(MultiCmd_Vn3804_pagina_touch);
                         // Get the current PLC version
-                        ver_firmware = get_ver_firmware();
+                        Values.ver_firmware = get_ver_firmware();
 
                         // Write the machine model on PLC
                         switch (Machine_model) {
-                            case "JT862M":
-
-                                MultiCmd_ver_macchine.setValue(862.0d);
-                                break;
-                            case "JT862HM":
-                                MultiCmd_ver_macchine.setValue(860.0d);
-                                break;
-
-                            case "JT863M":
-                                MultiCmd_ver_macchine.setValue(863.0d);
-                                break;
-                            case "JT865M":
-                                MultiCmd_ver_macchine.setValue(865.0d);
-                                break;
                             case "JT882M":
-                                MultiCmd_ver_macchine.setValue(882.0d);
+                                MultiCmd_ver_macchine.setValue(8823.0d);
                                 break;
-                            case "JT882HM":
-                                MultiCmd_ver_macchine.setValue(8821.0d);
+                            case "JT882MA":
+                                MultiCmd_ver_macchine.setValue(8824.0d);
                                 break;
                             default:
                                 break;
@@ -1445,7 +1464,7 @@ public class Emergency_page extends Activity {
                     if (sl.getReturnCode() != 0) {
                         rc_error = true;
                     }
-                    if(Machine_model.equals("JT882M"))
+                    if(Machine_model.equals("JT882M") || Machine_model.equals("JT882MA"))
                         sl.ReadItems(mci_array_read_882);
                     if (sl.getReturnCode() != 0) {
                         rc_error = true;
@@ -1472,6 +1491,7 @@ public class Emergency_page extends Activity {
                             UpdateCheckBox();
                             Riga_CN_Esecuzione();
                             GestiscoWarning();
+                            ShowWarningDebug();
                             if(Values.Tcp_enable_status.equals("true")) Icona_TCP();
 
                             cnt_comunicazione++;
@@ -1487,8 +1507,9 @@ public class Emergency_page extends Activity {
                             ScriviEmergenza();
 
 
+                            Values.PLCver = MultiCmd_VA31_Ver_PLC.getValue().toString();
+                            TextView_testo_PLC_ver.setText(Values.PLCver);
 
-                            TextView_testo_PLC_ver.setText(MultiCmd_VA31_Ver_PLC.getValue().toString());
 
                             if(mc_stati_visualizzazione_allarmi != mc_stati_visualizzazione_allarmi_prec){
 
@@ -1615,7 +1636,7 @@ public class Emergency_page extends Activity {
                 case 101:
 
 
-                    if((Double) Multicmd_i35_Pressostato.getValue() == 1.0d){
+                    if((Double) Multicmd_in_Pressostato.getValue() == 1.0d){
                         Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
                         TextView_allarmi.setTextColor(Color.RED);
                         TextView_allarmi.setText(R.string.MancaAria);
@@ -1712,12 +1733,61 @@ public class Emergency_page extends Activity {
             Leggi_Emergenze = false;
         }
     }
-    public static String getFirmware() {
-        return ver_firmware;
+
+    private void ShowWarningDebug() {
+        if(warning_debug >0){
+
+            Toast.makeText(getApplicationContext(), "WarningDebug Err"+warning_debug, Toast.LENGTH_LONG).show();
+            warning_debug = -1;
+        }
     }
-    public static String getPLCver() {
-        return PLCver;
+
+    private void CaricaProgrammi() {
+        String path_xml_T1 = Values.File_XML_path_R;
+        try {
+            if(path_xml_T1.contains(" ")){
+                warning_debug = 5;
+            }else {
+                if (path_xml_T1 != null && !path_xml_T1.equals("")) {
+                    File file = new File(path_xml_T1);
+                    int i = file.getName().lastIndexOf('.');
+                    String name = file.getName().substring(0, i);
+                    String path_file_udf = "c:\\cnc\\userdata\\" + name + ".udf";
+                    Multicmd_dtDB_prog_name = sl.Add("Io", 1, MultiCmdItem.dtDB, 30, MultiCmdItem.dpDB_MAIN1);
+                    Multicmd_dtDB_prog_name.setValue(path_file_udf);
+                    sl.WriteItem(Multicmd_dtDB_prog_name);
+
+                } else
+                    warning_debug = 1;
+            }
+        } catch (Exception e) {
+            warning_debug = 2;
+
+        }
+        try {
+            String path_xml_T2 = Values.File_XML_path_T2_R;
+            if(path_xml_T2.contains(" ")){
+                warning_debug = 6;
+            }else {
+                if (path_xml_T2 != null && !path_xml_T2.equals("") ) {
+                    File file = new File(path_xml_T2);
+                    int i = file.getName().lastIndexOf('.');
+                    String name = file.getName().substring(0, i);
+                    String path_file_udf = "c:\\cnc\\userdata\\" + name + ".udf";
+                    Multicmd_dtDB_prog_name_T2 = sl.Add("Io", 1, MultiCmdItem.dtDB, 30, MultiCmdItem.dpDB_MAIN2);
+                    Multicmd_dtDB_prog_name_T2.setValue(path_file_udf);
+                    sl.WriteItem(Multicmd_dtDB_prog_name_T2);
+
+                } else
+                    warning_debug = 3;
+            }
+        } catch (Exception e) {
+            warning_debug = 4;
+
+        }
     }
+
+
     private List<String> DecodificaCodiceErrore() {
 
         List<String> ret = new ArrayList<>();
