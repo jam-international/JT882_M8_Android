@@ -1137,8 +1137,7 @@
                 android:id="@+id/btn_pagina_tools"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:layout_marginEnd="
-                6dp"
+                android:layout_marginEnd="6dp"
                 android:background="@drawable/tasto_pagina_tools"
                 android:onClick="onclickPaginaTools"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -1225,6 +1224,7 @@
                 android:background="@drawable/ic_start_cucitura_c2"
                 app:layout_constraintStart_toEndOf="@+id/btn_testa_1_2"
                 app:layout_constraintTop_toTopOf="@+id/btn_testa_1_2" />
+
             <Button
                 android:id="@+id/btn_pedale_singolo"
                 android:layout_width="70dp"
@@ -1247,6 +1247,7 @@
                 android:layout_height="70dp"
                 android:layout_marginStart="8dp"
                 android:background="@drawable/ic_pattina_test"
+                android:onClick="on_click_test_pattina"
                 app:layout_constraintStart_toEndOf="@+id/btn_pattina_on_off"
                 app:layout_constraintTop_toTopOf="@+id/btn_pattina_on_off" />
 
@@ -1311,37 +1312,26 @@
 
 
             <TextView
-                android:id="@+id/textView_riga_fork"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Riga Fork:"
-                android:textColor="@color/opaque_red"
-                android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="@+id/textView_programma_in_esecuzione"
-                app:layout_constraintTop_toTopOf="@+id/button_debug" />
-
-            <TextView
-                android:id="@+id/textView_programma_in_esecuzione"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="36dp"
-                android:text="Programma in esecuzione:"
-                android:textColor="@color/opaque_red"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toStartOf="@+id/button_debug"
-                app:layout_constraintTop_toBottomOf="@+id/textView_riga_fork" />
-
-            <TextView
                 android:id="@+id/textView_cnt_thread"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:text="Cnt Thread:"
                 android:textColor="@color/opaque_red"
                 android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="@+id/textView_programma_in_esecuzione"
-                app:layout_constraintTop_toBottomOf="@+id/textView_programma_in_esecuzione" />
+                app:layout_constraintStart_toEndOf="@+id/btn_pedale_singolo"
+                app:layout_constraintTop_toTopOf="@+id/btn_pedale_singolo" />
 
+            <TextView
+                android:id="@+id/textView_cnt_rc_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Cnt rc error:"
+                android:textColor="@color/opaque_red"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/btn_pedale_singolo"
+                app:layout_constraintTop_toBottomOf="@+id/textView_cnt_thread" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout

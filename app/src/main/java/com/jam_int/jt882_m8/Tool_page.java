@@ -4,6 +4,7 @@ import static android.content.Intent.ACTION_MEDIA_MOUNTED;
 import static android.hardware.usb.UsbManager.ACTION_USB_DEVICE_ATTACHED;
 import static android.hardware.usb.UsbManager.ACTION_USB_DEVICE_DETACHED;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
@@ -11,6 +12,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbManager;
 import android.net.Uri;
@@ -26,6 +28,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.app.ActivityCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import java.io.BufferedReader;
@@ -34,10 +37,12 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 
@@ -143,7 +148,7 @@ public class Tool_page extends Activity {
             if (val.equals(linea1) || val.equals("67874")) {
                 if (!chiamante.equals("Pagina_emergenza")) {
                     Button_Z_ago.setVisibility(View.VISIBLE);
-                    if( Machine_model.equals("JT882M"))
+                    if( Machine_model.equals("JT882M") || Machine_model.equals("JT882MA") ||Machine_model.equals("JT882MB"))
                         Button_Z_ago_C2.setVisibility(View.VISIBLE);
                 }
                 Button_upgrade_hmi.setVisibility(View.VISIBLE);
@@ -200,6 +205,37 @@ public class Tool_page extends Activity {
 
         TextView_status_Report_to_usb = (TextView)findViewById(R.id.textView_status_Report_to_usb) ;
         TextView_status_Report_to_usb.setVisibility(View.GONE);
+
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 100);
+        }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
+        }
+
+        if (GetUSBConnectionStatus()) {
+            UsbMassStorageDevice[] devices = UsbMassStorageDevice.getMassStorageDevices(getApplicationContext());
+            if (devices.length > 0) {
+                device_usb = devices[0];
+
+                PendingIntent permissionIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, new Intent(ACTION_USB_PERMISSION), 0);
+                IntentFilter filter = new IntentFilter(ACTION_USB_PERMISSION);
+                registerReceiver(usbReceiver, filter);
+                UsbManager manager = (UsbManager) getSystemService(Context.USB_SERVICE);
+                manager.requestPermission(device_usb.getUsbDevice(), permissionIntent);
+            }
+        }
+
+        // Register Usb events
+        IntentFilter filter_attached = new IntentFilter(ACTION_USB_DEVICE_ATTACHED);
+        registerReceiver(usbReceiver, filter_attached);
+        IntentFilter filter_mounted = new IntentFilter(ACTION_MEDIA_MOUNTED);
+        registerReceiver(usbReceiver, filter_mounted);
+        IntentFilter filter_permission = new IntentFilter(ACTION_USB_PERMISSION);
+        registerReceiver(usbReceiver, filter_permission);
+        IntentFilter filter_detached = new IntentFilter(ACTION_USB_DEVICE_DETACHED);
+        registerReceiver(usbReceiver, filter_detached);
 
         Bundle extras = getIntent().getExtras();
         databack_toMainActivity = getIntent();
@@ -274,22 +310,28 @@ public class Tool_page extends Activity {
     }
 
     private void Registra_USB() {
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 100);
+        }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
+        }
+
         if (GetUSBConnectionStatus()) {
             UsbMassStorageDevice[] devices = UsbMassStorageDevice.getMassStorageDevices(getApplicationContext());
             if (devices.length > 0) {
                 device_usb = devices[0];
 
-                PendingIntent permissionIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, new Intent(ACTION_USB_PERMISSION), PendingIntent.FLAG_IMMUTABLE);
+                PendingIntent permissionIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, new Intent(ACTION_USB_PERMISSION), 0);
                 IntentFilter filter = new IntentFilter(ACTION_USB_PERMISSION);
                 registerReceiver(usbReceiver, filter);
-                UsbManager manager = (UsbManager) getSystemService(getApplicationContext().USB_SERVICE);
+                UsbManager manager = (UsbManager) getSystemService(Context.USB_SERVICE);
                 manager.requestPermission(device_usb.getUsbDevice(), permissionIntent);
             }
         }
 
-        // Register the usb events
-
-
+        // Register Usb events
         IntentFilter filter_attached = new IntentFilter(ACTION_USB_DEVICE_ATTACHED);
         registerReceiver(usbReceiver, filter_attached);
         IntentFilter filter_mounted = new IntentFilter(ACTION_MEDIA_MOUNTED);
@@ -1106,6 +1148,7 @@ public class Tool_page extends Activity {
                 }
                 if (sl.IsConnected()) {
                     sl.Clear();
+                    try{
                     if (first_cycle) {
                         first_cycle = false;
                     }
@@ -1131,15 +1174,21 @@ public class Tool_page extends Activity {
                     }
 
                     Utility.ScrivoVbVnVq(sl, Mci_Vb1002_Init_CAM);
+                    } catch (Exception e) {
 
+                    }
                     activity.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            try{
                             if (!chiamante.equals("Pagina_emergenza"))
                                 Emergenza();
                             Report_to_usb(mc_stati_Report_to_usb);
                             Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_Sblocca_Ago, Button_Sgancio_ago, "ic_sblocca_ago_press", "ic_sblocca_ago");
                             Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_Vb4075_GiraAgoFaiSpolaC1, Button_Fai_spola, "ic_fai_spola_premuto", "ic_fai_spola");
+                            } catch (Exception e) {
+
+                            }
                         }
                     });
                 } else {
@@ -1154,6 +1203,8 @@ public class Tool_page extends Activity {
             case 0:
                 break;
             case 10:
+                if (!isReceiverRegistered)
+                    Registra_USB();
                 TextView_status_Report_to_usb.setVisibility(View.VISIBLE);
                 TextView_status_Report_to_usb.setText("Syslog reading....");
 
@@ -1190,6 +1241,7 @@ public class Tool_page extends Activity {
                     UsbDevice[] usbs = ite .toArray(new UsbDevice[]{});
                     // Check if at least 1 usb is connected
                     if (usbs.length > 0) {
+
                         TextView_status_Report_to_usb.setVisibility(View.GONE);
                         File rootFolder = android.os.Environment.getExternalStorageDirectory();
                         File dir = new File(rootFolder.getAbsolutePath() + "/JamData");
@@ -1260,6 +1312,13 @@ public class Tool_page extends Activity {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
+                        if(device_usb != null)
+                           device_usb.close(); //chiudo la chiavetta USB
+
+                       isReceiverRegistered = false;
+
+                       // UsbManager.ACTION_USB_ACCESSORY_DETACHED;
+                        //and UsbManager.ACTION_USB_ACCESSORY_ATTACHED)
 
                         Toast.makeText(getApplicationContext(), "Files successfully copied", Toast.LENGTH_LONG).show();
 
@@ -1327,7 +1386,8 @@ public class Tool_page extends Activity {
                                 device_usb.init();
 
                                 // Only uses the first partition on the device
-                                currentFs = device_usb.getPartitions().get(0).getFileSystem();
+                                 currentFs = device_usb.getPartitions().get(0).getFileSystem();
+
                                 Log.d("TAG", "Capacity: " + currentFs.getCapacity());
                                 Log.d("TAG", "Occupied Space: " + currentFs.getOccupiedSpace());
                                 Log.d("TAG", "Free Space: " + currentFs.getFreeSpace());
@@ -1339,6 +1399,7 @@ public class Tool_page extends Activity {
 
 
                                 Toggle_Button.Abilita_Imagebutton(Button_upgrade_hmi, "ic_upgrade", getApplicationContext());
+                                isReceiverRegistered = true;
 
                             } catch (Exception e) {
                                 e.printStackTrace();

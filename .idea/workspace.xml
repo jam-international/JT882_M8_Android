@@ -46,6 +46,17 @@
           <theme>@style/AppTheme</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_parametri.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_pattina.xml">
+        <config>
+          <state>Landscape</state>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_punto_carico.xml">
         <config>
           <state>Landscape</state>
@@ -63,6 +74,11 @@
           <theme>@style/AppTheme</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_tcp4_0.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_test_io.xml">
         <config>
           <state>Landscape</state>
@@ -74,6 +90,11 @@
           <theme>@style/AppTheme</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_usb_files.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
     </layouts>
   </component>
   <component name="AutoImportSettings">
@@ -81,15 +102,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3466ec17-389f-45e0-8922-7b9ae6cced6e" name="Changes" comment="ver1.8 Fiera Francoforta con bozza Pattina">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Rinforzo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rinforzo_tipo2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rinforzo_tipo2_1ciclo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rinforzo_tipo2_1ciclo_press.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rinforzo_tipo2_giu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rinforzo_tipo2_giu_press.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/tasto_rinforzo_giu.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/tasto_rinforzo_un_ciclo.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_rinforzo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Pattina.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_pattina.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.bin" afterDir="false" />
@@ -101,34 +117,29 @@
       <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/9x0d4hvybypjfgigs8kkhg5ya/work.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/9x0d4hvybypjfgigs8kkhg5ya/work.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/cbngny7vmeq10ks1esuvg880b/buildfingerprint.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/cbngny7vmeq10ks1esuvg880b/buildfingerprint.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/cbngny7vmeq10ks1esuvg880b/work.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/cbngny7vmeq10ks1esuvg880b/work.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/eelzgr7457r03a3bk7zqan0mr/buildfingerprint.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/eelzgr7457r03a3bk7zqan0mr/buildfingerprint.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/eelzgr7457r03a3bk7zqan0mr/work.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/configuration-cache/eelzgr7457r03a3bk7zqan0mr/work.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/debug/JamPocket_JT862M-1.5.apk" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/debug/output-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/debug/output-metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/release/JamPocket_J882M-1.9.apk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/release/JamPocket_J882M-2.3.apk" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/release/output-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/release/output-metadata.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Debug.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Debug.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Delta_parametri.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Delta_parametri.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Dynamic_view.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Dynamic_view.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/EdgeButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/EdgeButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Emergency_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Emergency_page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/KeyDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/KeyDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/MachineLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/MachineLog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Modifica_programma.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Modifica_programma.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Page_Test_IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Page_Test_IO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Parametri_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Parametri_page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Punto_carico_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Punto_carico_page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Select_file_to_CN.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Select_file_to_CN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Thread_LoopEmergenza.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Thread_LoopEmergenza.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Tool_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Tool_page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Upgrade_activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Upgrade_activity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Utility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Values.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Values.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_debug.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_debug.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_emergenza882.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_emergenza882.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main882.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main882.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_tools.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_tools.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values-it/it.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-it/it.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values-tr/tr.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-tr/tr.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings_en.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings_en.xml" afterDir="false" />
@@ -141,7 +152,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[120c79d4e6b34649]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\zadsa\.android\avd\Nexus_10_API_22.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -159,6 +170,14 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="layoutResourceFile" />
+      </list>
+    </option>
+  </component>
   <component name="GenerateSignedApkSettings">
     <option name="KEY_STORE_PATH" value="D:\GitHub\JT882_M8_Android\app\src\main\KayJam.jks" />
     <option name="KEY_ALIAS" value="KeyJam" />
@@ -171,9 +190,18 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/Nexus 10 API 22/_/storage/sdcard/JamData/Tabella_var_debug.txt" root0="SKIP_INSPECTION" />
     <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/JamData/2024-11-20 04-46-49 PM.deb" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/JamData/MachineLog.txt" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/JamData/MainTryCatch.txt" root0="SKIP_INSPECTION" />
     <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/JamData/info_Jam.txt" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/JamData/syslog.txt" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/logcat.txt" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/591 QBTK.xml" root0="SKIP_INSPECTION" />
     <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/591Q X 882_1.udf" root0="SKIP_INSPECTION" />
     <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/591Q_DAN_1.udf" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/591_1.udf" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/591_1.xml" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/591_2.xml" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/ARL_0034_4-6-8.xml" root0="SKIP_INSPECTION" />
     <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/FLAP.udf" root0="SKIP_INSPECTION" />
     <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/FLAP.xml" root0="SKIP_INSPECTION" />
     <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/FLAP11.udf" root0="SKIP_INSPECTION" />
@@ -187,6 +215,10 @@
     <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/FLAP7.udf" root0="SKIP_INSPECTION" />
     <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/FLAP8.udf" root0="SKIP_INSPECTION" />
     <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/FLAP9.udf" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/P1NAME_1.xml" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/P1NAME_2.udf" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/P1NAME_2.usr" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/P1NAME_2.xml" root0="SKIP_INSPECTION" />
     <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/PATTINA.udf" root0="SKIP_INSPECTION" />
     <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.2/device-explorer/freescale SIPRO-MX6Q/_/storage/emulated/0/ricette/PATTINA.xml" root0="SKIP_INSPECTION" />
   </component>
@@ -216,7 +248,11 @@
     &quot;SHOW_ALL_PROCESSES&quot;: &quot;false&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/GitHub/JT882_M8_Android/app/src/main/java/com/jam_int/jt882_m8&quot;
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/GitHub/SiproM8_JT882M/FLAP14.udf&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Dependencies&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;ExportApk.BuildVariants&quot;: [
@@ -352,7 +388,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Tool_page.java</url>
-          <line>340</line>
+          <line>382</line>
           <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -377,58 +413,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Modifica_programma.java</url>
-          <line>578</line>
+          <line>577</line>
           <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Modifica_programma.java</url>
-          <line>3031</line>
+          <line>3030</line>
           <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/MainActivity.java</url>
-          <line>1452</line>
+          <line>1479</line>
           <option name="timeStamp" value="79" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/KeyDialog_lettere.java</url>
           <line>400</line>
           <option name="timeStamp" value="103" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Usb_Files_Activity.java</url>
-          <line>1470</line>
-          <option name="timeStamp" value="119" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Usb_Files_Activity.java</url>
-          <line>150</line>
-          <option name="timeStamp" value="123" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Tool_page.java</url>
-          <line>1291</line>
-          <option name="timeStamp" value="128" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Tool_page.java</url>
-          <line>1311</line>
-          <option name="timeStamp" value="129" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Tool_page.java</url>
-          <line>1303</line>
-          <option name="timeStamp" value="132" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Tool_page.java</url>
-          <line>1323</line>
-          <option name="timeStamp" value="133" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Tool_page.java</url>
-          <line>1229</line>
-          <option name="timeStamp" value="134" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Dynamic_view.java</url>
@@ -442,8 +443,93 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/MainActivity.java</url>
-          <line>1283</line>
-          <option name="timeStamp" value="167" />
+          <line>1677</line>
+          <option name="timeStamp" value="190" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/MainActivity.java</url>
+          <line>1871</line>
+          <option name="timeStamp" value="199" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/MainActivity.java</url>
+          <line>1885</line>
+          <option name="timeStamp" value="200" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/MainActivity.java</url>
+          <line>1899</line>
+          <option name="timeStamp" value="201" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/MainActivity.java</url>
+          <line>1900</line>
+          <option name="timeStamp" value="202" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Tool_page.java</url>
+          <line>1242</line>
+          <option name="timeStamp" value="204" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Tool_page.java</url>
+          <line>1332</line>
+          <option name="timeStamp" value="238" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Tool_page.java</url>
+          <line>1322</line>
+          <option name="timeStamp" value="239" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Tool_page.java</url>
+          <line>1314</line>
+          <option name="timeStamp" value="242" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Tool_page.java</url>
+          <line>1205</line>
+          <option name="timeStamp" value="260" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/MainActivity.java</url>
+          <line>3173</line>
+          <option name="timeStamp" value="272" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/MainActivity.java</url>
+          <line>1374</line>
+          <option name="timeStamp" value="274" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/MainActivity.java</url>
+          <line>2411</line>
+          <option name="timeStamp" value="276" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/MainActivity.java</url>
+          <line>3249</line>
+          <option name="timeStamp" value="303" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/MainActivity.java</url>
+          <line>1724</line>
+          <option name="timeStamp" value="306" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Modifica_programma.java</url>
+          <line>3578</line>
+          <option name="timeStamp" value="310" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Pattina.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="312" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jam_int/jt882_m8/Pattina.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="319" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

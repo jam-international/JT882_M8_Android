@@ -203,7 +203,7 @@ public class Page_Test_IO extends Activity {
             Machine_model="";
         }
 
-        if( Machine_model.equals("JT882M") || Machine_model.equals("JT882MA")) {
+        if( Machine_model.equals("JT882M") || Machine_model.equals("JT882MA")|| Machine_model.equals("JT882MB")) {
             numero_in = 64;
         }
         else {
@@ -221,7 +221,7 @@ public class Page_Test_IO extends Activity {
 
 
             };
-        if( Machine_model.equals("JT882MA"))
+        if( Machine_model.equals("JT882MA") ||  Machine_model.equals("JT882MB"))
             Elenco_Vb_output = new Integer[]{4133,4134,4135,4136,4137,4138,4139,4140,4141,4142,
                                             4143,4144,4145,4146,4147,4148,4149,4150,4151,4152,
                                             4153,4154,4155,4156,4157,4158,4159,4160,4161,4162,
@@ -232,6 +232,7 @@ public class Page_Test_IO extends Activity {
 
 
             };
+
 
         try {
             Bundle extras = getIntent().getExtras();
@@ -409,6 +410,7 @@ public class Page_Test_IO extends Activity {
         switch (Values.Machine_model) {
             case "JT882M":
             case "JT882MA":
+            case "JT882MB":
                 Descrizioni = getResources().getStringArray(R.array.output_magneti_JT882M);
                 break;
             case "JT862M":
@@ -494,9 +496,11 @@ public class Page_Test_IO extends Activity {
                 Descrizioni = getResources().getStringArray(R.array.output_JT882M_3SchedeIO);
                 break;
             case "JT882MA":
+            case "JT882MB":  //da controllare
                 Descrizioni = getResources().getStringArray(R.array.output_JT882M_4SchedeIO);
                 break;
-            case "JT862M":
+
+                case "JT862M":
             case "JT862HM":
 
                 break;
@@ -581,8 +585,10 @@ public class Page_Test_IO extends Activity {
                 Descrizioni = getResources().getStringArray(R.array.input_JT882M_3SchedeIO);
                 break;
             case "JT882MA":
+            case "JT882MB": //da controllare
                 Descrizioni = getResources().getStringArray(R.array.input_JT882M_4SchedeIO);
                 break;
+
             case "JT862M":
             case "JT862HM":
                 //Descrizioni = getResources().getStringArray(R.array.input_JT862M);
@@ -836,7 +842,7 @@ public class Page_Test_IO extends Activity {
                     activity.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-
+                            try{
                             // Check if i need to display the connection problem or not
                             if (macchina_armata)
                                 Emergenza();
@@ -905,7 +911,9 @@ public class Page_Test_IO extends Activity {
                             double ContSensPiegatoreSu = (double)Multicmd_Vq3160_ContSensPiegatoreSu.getValue();
                             TextView TextView_IRQ3 = findViewById(R.id.textView_IRQ3);
                             TextView_IRQ3.setText("IRQ3: "+ContSensPiegatoreSu);
+                            } catch (Exception e) {
 
+                            }
                         }
                     });
                 } else {

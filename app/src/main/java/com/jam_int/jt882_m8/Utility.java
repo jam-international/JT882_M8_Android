@@ -268,7 +268,7 @@ public class Utility {
             byte[] bite = getByte(sourceFile.getPath());
             int nbyte = bite.length;
 
-            if(nbyte > 1000){           //sembra che spezzando il file da scrivere in più scrittura lo copia senza errori. Da approfondire
+            if(nbyte > 100){           //sembra che spezzando il file da scrivere in più scrittura lo copia senza errori. Da approfondire
                 byte[][] arraybyte = splitBytes(bite,100);  //spezzetto il file in più array
                 for (byte[] b: arraybyte
                 ) {
@@ -325,7 +325,8 @@ public class Utility {
             int nRead;
 
             //byte[] data = new byte[16384];
-            byte[] data = new byte[4080];
+            //byte[] data = new byte[4080];
+            byte[] data = new byte[100];
 
             while ((nRead = is.read(data, 0, data.length)) != -1) {
                 buffer.write(data, 0, nRead);

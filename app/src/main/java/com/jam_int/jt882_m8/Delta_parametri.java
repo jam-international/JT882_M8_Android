@@ -86,7 +86,7 @@ public class Delta_parametri extends Activity {
         RadioButton_ax7 = findViewById(R.id.radioButton_ax7);
         RadioButton_ax10 = findViewById(R.id.radioButton_ax10);
 
-        if( Machine_model.equals("JT882M") || Machine_model.equals("JT882MA")){
+        if( Machine_model.equals("JT882M") || Machine_model.equals("JT882MA") || Machine_model.equals("JT882MB")){
             RadioButton_ax6.setVisibility(View.VISIBLE);
             RadioButton_ax7.setVisibility(View.VISIBLE);
             RadioButton_ax10.setVisibility(View.VISIBLE);

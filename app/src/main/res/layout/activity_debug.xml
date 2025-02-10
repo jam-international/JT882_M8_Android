@@ -49,13 +49,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView_firmware" />
 
-            <CheckBox
-                android:id="@+id/checkBox_loader_up_C2"
-                android:layout_width="136dp"
-                android:layout_height="wrap_content"
-                android:text="Vb300"
-                android:textSize="12sp" />
-
             <TextView
                 android:id="@+id/textView_hmi_ver"
                 android:layout_width="wrap_content"

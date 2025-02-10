@@ -6,7 +6,7 @@ import android.util.Log;
 import communication.MultiCmdItem;
 import communication.ShoppingList;
 
-public class Thread_LoopEmergenza {
+public class  Thread_LoopEmergenza {
     ShoppingList sl;
     boolean Thread_Running = false, StopThread = false, Macchina_armata = false,first_cycle = true;
     Thread thread_LoopEmergenza;
@@ -102,6 +102,12 @@ public class Thread_LoopEmergenza {
                     // ------------------------ RX -------------------------------
                     sl.ReadItems(mci_array_read_all);
                     if (sl.getReturnCode() != 0) {
+                        //se non riceve bene i valori provo a chiudere e riaprire il Socket
+                        sl.Close();
+                        Thread.sleep((long) 300d);
+                        sl.Connect();
+                        Thread.sleep((long) 300d);
+                        //
                         rc_error = true;
                     }
 

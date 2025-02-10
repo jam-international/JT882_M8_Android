@@ -187,6 +187,7 @@
         <item>FLAP, durata soffio aghi (ms)</item>“ “<!-- 18 -->
         <item>FLAP, ritardo partenza prima cucitura (ms)</item>“ “<!-- 19 -->
         <item>FLAP, ritardo partenza seconda cucitura (ms)</item>“ “<!-- 20 -->
+        <item>Abilita Raffreddamento ago</item>“ “<!-- 21 -->
 
 
     </string-array>
@@ -269,7 +270,7 @@
         <item>Sollevare la pinza cucitura della testa 2</item>      <!-- 39 -->
         <item>Finite Pattine</item>      <!-- 40 -->
         <item>Timeout zero caricatore pattine</item>      <!-- 41 -->
-
+        <item>Overlap XY Frequency</item>      <!-- 42 -->
 
     </string-array>
     <string-array name="warning_vn4">
@@ -278,7 +279,8 @@
         <item>Allarme Driver Y</item>                       <!-- 2 -->
         <item>Allarme scheda magneti</item>                 <!-- 3 -->
         <item>Timeout zero caricatore pattine</item>      <!-- 4 -->
-
+        <item>Allarme driver X2</item>                       <!-- 5 -->
+        <item>Allarme Driver Y2</item>                       <!-- 6 -->
     </string-array>
 
 
@@ -620,5 +622,8 @@
         <item>42) Error Ethercat driver Ago2</item>  <!--42 -->
         <item>43) Error Ethercat driver Crochet2</item>  <!--43 -->
         <item>44) Error Ethercat driver Traslatore</item>  <!--44 -->
+
+        <item>45) Allarme driver X2 (FUN90 8)</item>  <!-- 45 -->
+        <item>46) Allarme driver Y2 (FUN90 9)</item>  <!-- 46 -->
     </string-array>
 </resources>

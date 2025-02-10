@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 31
+    compileSdk 33
     signingConfigs {
         jamint {
             storeFile file('src\\main\\KayJam.jks')
@@ -16,7 +16,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 31
         versionCode 1
-        versionName "2.3"
+        versionName "3.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -72,6 +72,7 @@ dependencies {
 
  //   implementation 'org.apache.ftpserver:ftpserver-core:1.1.1'
     implementation 'commons-io:commons-io:2.6'
-    implementation 'me.jahnen.libaums:core:0.9.1'
+  //  implementation 'me.jahnen.libaums:core:0.9.1'
+    implementation 'me.jahnen.libaums:core:0.10.0'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }

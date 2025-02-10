@@ -184,6 +184,7 @@
         <item>FLAP, needle blowing duration (ms)</item>“ “<!-- 18 -->
         <item>FLAP, first seam start delay (ms)</item>“ “<!-- 19 -->
         <item>FLAP, second seam start delay (ms)</item>“ “<!-- 20 -->
+        <item>Enable Needle cooler</item>“ “<!-- 21 -->
     </string-array>
 
     <string-array name="Descrizione_parametri_Traslatore">
@@ -267,6 +268,8 @@
         <item>Lift sewing clamp head 2</item>      <!-- 39 -->
         <item>Flap loader is empty</item>      <!-- 40 -->
         <item>Flap Timeout loader home position</item>      <!-- 41 -->
+        <item>Overlap XY Frequency</item>      <!-- 42 -->
+
     </string-array>
     <string-array name="warning_vn4">
         <item> </item>
@@ -274,6 +277,10 @@
         <item>Y Driver allarm</item>                       <!-- 2 -->
         <item>Magnet board allarm</item>                 <!-- 3 -->
         <item>Flap Timeout loader home position</item>      <!-- 4 -->
+        <item>X2 Driver allarm</item>                       <!-- 5 -->
+        <item>Y2 Driver allarm</item>                       <!-- 6 -->
+
+
     </string-array>
 
     <string-array name="rotture_filo_JT862M">
@@ -660,6 +667,9 @@
         <item>42) Needle2 Ethercat error driver</item>  <!--42 -->
         <item>43) Hook2 Ethercat error driver</item>  <!--43 -->
         <item>44) Loader2 Ethercat error driver</item>  <!--44 -->
+
+        <item>45) Driver X2 Alarm (FUN90 8)</item>  <!-- 8 -->
+        <item>46) Driver Y2 Alarm (FUN90 9)</item>  <!-- 9 -->
 
 
     </string-array>

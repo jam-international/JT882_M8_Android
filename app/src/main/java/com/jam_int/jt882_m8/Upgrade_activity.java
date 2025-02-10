@@ -877,6 +877,41 @@ public class Upgrade_activity extends Activity {
 
 
                 if (File_path_da_inviare.contains("param")) {
+                    //controllo se nella chiavetta c'è un file ecat da scrivere, se si sotto cancello quello nel CN per poi sostituirlo
+                    boolean del_file_ecat = false;
+                    for (File file : File_list_param_da_inviare) {
+                        if(file.getName().contains("ecat")){
+                            del_file_ecat = true;
+                        }
+                    }
+
+                    if(del_file_ecat)
+                    {
+                        MSysFileInfo fi = new MSysFileInfo();
+                        String path_folder = "C:\\cnc\\param\\*.*";
+                        try {
+                            fi = sl.FileDir(path_folder, (byte) 0x20);//0x10 = FOLDER , 0X20=FILE
+                            if (fi != null)    //se la cartella contiene almeno un file
+                            {
+
+                                while (true) {
+                                    fi = sl.FileDir();
+                                    if (fi != null)    //se la cartella contiene almeno un file
+                                    {
+                                        if(fi.FName.contains("ecat") && fi.FName.contains("xml")) {
+                                            //cancello il file ecat
+                                            result_delete = sl.FileDelete("C:\\cnc\\param\\" + fi.FName);
+                                            val_progress.add(CN_file_path + " Deleting ecat file");
+                                            publishProgress(val_progress);
+                                        }
+                                    } else
+                                        break;
+                                }
+                            }
+                        } catch (Exception ex) {}
+
+                    }
+
                     CN_file_path = "C:\\cnc\\param\\" + File_name;
                     result_delete = true;
                 }

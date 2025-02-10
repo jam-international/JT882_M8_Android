@@ -1,5 +1,12 @@
 package com.jam_int.jt882_m8;
-
+//2.4 risolto problema che si rallentava il touch
+//2.5 ora salva i valori della tensione anche della seconda testa.
+//2.6 se copio un file ecat da chiavetta prima cancella quelli esistenti
+//2.7 sistemati valori default Nipper
+//2.8 messi alcuni try catch
+//2.9 aggiunti allarmi Driver X2 Y2
+//3.1 se la comunicazione da errore chiudo e riapro il socket
+//3.2 riapro il socket anche in ModificaProgrammi.
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -98,9 +105,11 @@ public class Emergency_page extends Activity {
             MultiCmd_Vb7814_Eth_operational, MultiCmd_Debug14_prog_cn_in_esecuzione, MultiCmd_Debug8_riga_cn_in_esecuzione, Multicmd_i5_loader_up, Multicmd_i8_folder_back,
             Multicmd_i11_Lancia_back, MultiCmd_Vn4_Warning, Multicmd_Vb4807_PinzeAlteDopoPC, MultiCmd_ver_macchine,Multicmd_i23_interna_bassa,Multicmd_i24_esterna_alta,
             Multicmd_i31_motoreX_ready,Multicmd_i32_motoreY_ready,Multicmd_in_trasl_alto,Multicmd_in_interna_bassa,Multicmd_i47_C2_ReadyAsseX, Multicmd_i48_C2_ReadyAsseY,Multicmd_vb7193_ax10_home,
-            Multicmd_vb7153_ax8_home,Multicmd_vb7173_ax9_home,Multicmd_vb7113_ax6_home,Multicmd_vb7133_ax7_home,Multicmd_i1_pulsanti_start,MultiCmd_Vn3804_pagina_touch;
+            Multicmd_vb7153_ax8_home,Multicmd_vb7173_ax9_home,Multicmd_vb7113_ax6_home,Multicmd_vb7133_ax7_home,Multicmd_i1_pulsanti_start,MultiCmd_Vn3804_pagina_touch,Multicmd_Vb98_mcInclinata;
     Mci_write Mci_write_dtDB_prog_name = new Mci_write(),Mci_write_dtDB_prog_name_T2 = new Mci_write(), Mci_write_Vn4_Warning = new Mci_write();
     List<String> list_allarmi = new ArrayList<>();
+    List<String> list_allarmi_rec = new ArrayList<>();
+
     Boolean path_udf_presente = false;
     int mc_stati_riarmo = 0,mc_stati_riarmo_prec = -1, cnt_comunicazione = 0, alarm_CN_cnt = 0, mc_stati_visualizzazione_allarmi = 0,mc_stati_visualizzazione_allarmi_prec = -1,warning_debug = -1;
     String[] tab_names = new String[]{};
@@ -347,7 +356,7 @@ public class Emergency_page extends Activity {
         try {
             sl = SocketHandler.getSocket();
             if (sl == null) {    //se è la prima accensione entro altrimenti se provengo da un'altra pagina non c'è bisogno di instanziare nnuovamente
-                sl = new ShoppingList("192.168.0.92", 12001, 10d, 2d);
+                sl = new ShoppingList("192.168.0.92", 12001, 0.1d, 2d);
                 sl.getAlarms().registerAlarmListener(AlarmListener);
                 SocketHandler.setSocket(sl);
             }
@@ -402,6 +411,7 @@ public class Emergency_page extends Activity {
         Multicmd_i32_motoreY_ready= sl.Add("Io", 1, MultiCmdItem.dtDI, 32, MultiCmdItem.dpNONE);
         Multicmd_i1_pulsanti_start= sl.Add("Io", 1, MultiCmdItem.dtDI, 1, MultiCmdItem.dpNONE);
         MultiCmd_Vn3804_pagina_touch = sl.Add("Io", 1, MultiCmdItem.dtVN, 3804, MultiCmdItem.dpNONE);
+        Multicmd_Vb98_mcInclinata = sl.Add("Io", 1, MultiCmdItem.dtVB, 98, MultiCmdItem.dpNONE);
 
 
         switch (Machine_model) {
@@ -413,10 +423,12 @@ public class Emergency_page extends Activity {
                 Multicmd_in_interna_bassa= sl.Add("Io", 1, MultiCmdItem.dtDI, 41, MultiCmdItem.dpNONE);
                 break;
             case "JT882MA": //Argentina con 4 schede IO Belli
+            case "JT882MB": //macchina inclinata con moduli IO Sipro
                 Multicmd_in_Pressostato = sl.Add("Io", 1, MultiCmdItem.dtDI, 35, MultiCmdItem.dpNONE);
                 Multicmd_in_trasl_alto = sl.Add("Io", 1, MultiCmdItem.dtDI, 38, MultiCmdItem.dpNONE);
                 Multicmd_in_interna_bassa= sl.Add("Io", 1, MultiCmdItem.dtDI, 55, MultiCmdItem.dpNONE);
                 break;
+
 
 
         }
@@ -427,7 +439,7 @@ public class Emergency_page extends Activity {
 
         mci_array_read_all = new MultiCmdItem[]{
                 Multicmd_vb4503_Cn_allarme, Multicmd_in_Pressostato, Multicmd_vb7013_ax1_home, Multicmd_vb7033_ax2_home, Multicmd_vb7053_ax3_home,Multicmd_i1_pulsanti_start,
-                Multicmd_vb7073_ax4_home, Multicmd_vb7093_ax5_home, MultiCmd_VA31_Ver_PLC, MultiCmd_livello_batteria, MultiCmd_Vb7814_Eth_operational,
+                Multicmd_vb7073_ax4_home, Multicmd_vb7093_ax5_home, MultiCmd_VA31_Ver_PLC, MultiCmd_Vb7814_Eth_operational,
                 MultiCmd_Debug14_prog_cn_in_esecuzione, MultiCmd_Debug8_riga_cn_in_esecuzione, Multicmd_i5_loader_up, Multicmd_i8_folder_back, Multicmd_i11_Lancia_back,
                 MultiCmd_Vn4_Warning, MultiCmd_ver_macchine,Multicmd_i23_interna_bassa, Multicmd_i24_esterna_alta, Multicmd_i31_motoreX_ready, Multicmd_i32_motoreY_ready,
         };
@@ -570,7 +582,7 @@ public class Emergency_page extends Activity {
                 final Spinner input = new Spinner(this);
                 input.setFocusable(false);
                 String[] arraySpinner = new String[]{
-                        "JT862M", "JT863M","JT862HM","JT882M","JT882MA","JT882HM"
+                        "JT862M", "JT863M","JT862HM","JT882M","JT882MA","JT882MB","JT882HM"
                 };
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arraySpinner);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -709,6 +721,14 @@ public class Emergency_page extends Activity {
     public void onResume() {
         super.onResume();
         StopThread = false;
+
+    //    String filePath = Environment.getExternalStorageDirectory() + "/logcat.txt";
+    //    try {
+     //      Runtime.getRuntime().exec(new String[]{"logcat", "-f", filePath, "com.jam_int.jt882_m8 :V", "*:W,*:E,*:D,*:I"});
+     //        } catch (IOException e) {
+     //       throw new RuntimeException(e);
+      //  }
+
         if (Btn_eth_operational == null) {
             try {
                 Init_Activity_Emergenza();
@@ -858,7 +878,7 @@ public class Emergency_page extends Activity {
         CheckBox_MotorY_ready.setChecked((Double) Multicmd_i32_motoreY_ready.getValue() == 1.0d);
 
         //882
-        if( Machine_model.equals("JT882M") ||Machine_model.equals("JT882MA")) {
+        if( Machine_model.equals("JT882M") ||Machine_model.equals("JT882MA") ||Machine_model.equals("JT882MB")) {
             CheckBox CheckBox_loader_up_C2 = findViewById(R.id.checkBox_loader_up_C2);
             CheckBox CheckBox_inner_clamp_C2 = findViewById(R.id.checkBox_inner_clamp_C2);
             CheckBox CheckBox_MotorX_ready_C2 = findViewById(R.id.checkBox_MotorX_ready_C2);
@@ -1393,136 +1413,162 @@ public class Emergency_page extends Activity {
                 if (sl.IsConnected()) {
                     rc_error = false;
                     sl.Clear();
+                    try{
+                        if (first_cycle) {
+                            first_cycle = false;
+                            sl.ReadItem(MultiCmd_livello_batteria);
+                            CaricaProgrammi();
 
-                    if (first_cycle) {
-                        first_cycle = false;
 
-                        CaricaProgrammi();
+                            MultiCmd_Vn3804_pagina_touch.setValue(0.0d);
+                            sl.WriteItem(MultiCmd_Vn3804_pagina_touch);
+                            // Get the current PLC version
+                            Values.ver_firmware = get_ver_firmware();
 
+                            // Write the machine model on PLC
+                            switch (Machine_model) {
+                                case "JT882M":
+                                    MultiCmd_ver_macchine.setValue(8823.0d);
+                                    Multicmd_Vb98_mcInclinata.setValue(0.0d);
+                                    break;
+                                case "JT882MA":
+                                    MultiCmd_ver_macchine.setValue(8824.0d);
+                                    Multicmd_Vb98_mcInclinata.setValue(0.0d);
+                                    break;
+                                case "JT882MB":
+                                    MultiCmd_ver_macchine.setValue(8824.0d);
+                                    Multicmd_Vb98_mcInclinata.setValue(1.0d);
+                                    break;
 
-                        MultiCmd_Vn3804_pagina_touch.setValue(0.0d);
-                        sl.WriteItem(MultiCmd_Vn3804_pagina_touch);
-                        // Get the current PLC version
-                        Values.ver_firmware = get_ver_firmware();
-
-                        // Write the machine model on PLC
-                        switch (Machine_model) {
-                            case "JT882M":
-                                MultiCmd_ver_macchine.setValue(8823.0d);
-                                break;
-                            case "JT882MA":
-                                MultiCmd_ver_macchine.setValue(8824.0d);
-                                break;
-                            default:
-                                break;
-                        }
-                        sl.WriteItem(MultiCmd_ver_macchine);
-
-                        MultiCmd_Vn4_Warning.setValue(0.0d);
-                        sl.WriteItem(MultiCmd_Vn4_Warning);
-
-                        MultiCmd_Vn198_num_prog_right.setValue(1.0d);
-                        MultiCmd_Vn199_num_prog_left.setValue(0.0d);
-                        sl.WriteItem(MultiCmd_Vn198_num_prog_right);
-                        sl.WriteItem(MultiCmd_Vn199_num_prog_left);
-                        MultiCmd_Vn2_allarmi_da_CN.setValue(0.0d);
-                        sl.WriteItem(MultiCmd_Vn2_allarmi_da_CN);
-                        Multicmd_Vb4807_PinzeAlteDopoPC.setValue(1.0d);
-                        sl.WriteItem(Multicmd_Vb4807_PinzeAlteDopoPC);
-
-                        // Controllo se esiste il file udf da caricare
-                        path_udf_presente = Utility.CheckPresenzaProgramma_xml(Values.File_XML_path_R);
-
-                        if(path_udf_presente){
-                            String path_filename_T1_xml = SubString.After(Values.File_XML_path_R, "/");
-                            String filenameT1_udf = path_filename_T1_xml.replace(".xml", ".udf");
-                            path_udf_presente = CheckPresenzaProgramma_udf("C:\\cnc\\userdata\\" + filenameT1_udf);
-                        }
-                        if(path_udf_presente){
-                            path_udf_presente = Utility.CheckPresenzaProgramma_xml(Values.File_XML_path_T2_R);
-                            if(path_udf_presente){
-                                String filename_T2_xml = SubString.After(Values.File_XML_path_T2_R, "/");
-                                String filenameT2_udf = filename_T2_xml.replace(".xml", ".udf");
-                                path_udf_presente = CheckPresenzaProgramma_udf("C:\\cnc\\userdata\\" + filenameT2_udf);
+                                default:
+                                    break;
                             }
+                            sl.WriteItem(MultiCmd_ver_macchine);
+                            sl.WriteItem(Multicmd_Vb98_mcInclinata);
+
+                            MultiCmd_Vn4_Warning.setValue(0.0d);
+                            sl.WriteItem(MultiCmd_Vn4_Warning);
+
+                            MultiCmd_Vn198_num_prog_right.setValue(1.0d);
+                            MultiCmd_Vn199_num_prog_left.setValue(0.0d);
+                            sl.WriteItem(MultiCmd_Vn198_num_prog_right);
+                            sl.WriteItem(MultiCmd_Vn199_num_prog_left);
+                            MultiCmd_Vn2_allarmi_da_CN.setValue(0.0d);
+                            sl.WriteItem(MultiCmd_Vn2_allarmi_da_CN);
+                            Multicmd_Vb4807_PinzeAlteDopoPC.setValue(1.0d);
+                            sl.WriteItem(Multicmd_Vb4807_PinzeAlteDopoPC);
+
+
+
+                                // Controllo se esiste il file udf da caricare
+                                path_udf_presente = Utility.CheckPresenzaProgramma_xml(Values.File_XML_path_R);
+
+                                if(path_udf_presente){
+                                    String path_filename_T1_xml = SubString.After(Values.File_XML_path_R, "/");
+                                    String filenameT1_udf = path_filename_T1_xml.replace(".xml", ".udf");
+                                    path_udf_presente = CheckPresenzaProgramma_udf("C:\\cnc\\userdata\\" + filenameT1_udf);
+                                }
+                                if(path_udf_presente){
+                                    path_udf_presente = Utility.CheckPresenzaProgramma_xml(Values.File_XML_path_T2_R);
+                                    if(path_udf_presente){
+                                        String filename_T2_xml = SubString.After(Values.File_XML_path_T2_R, "/");
+                                        String filenameT2_udf = filename_T2_xml.replace(".xml", ".udf");
+                                        path_udf_presente = CheckPresenzaProgramma_udf("C:\\cnc\\userdata\\" + filenameT2_udf);
+                                    }
+
+                                }
+
+
+
+
+
+
 
                         }
 
+                        ScrivoStringaDB(Mci_write_dtDB_prog_name);
+                        ScrivoStringaDB(Mci_write_dtDB_prog_name_T2);
+
+                        try{
+                        sl.ReadItems(mci_array_read_all);
+                        }catch (Exception e){}
+                        if (sl.getReturnCode() != 0) {
+                            //se non riceve bene i valori provo a chiudere e riaprire il Socket
+                            sl.Close();
+                            Thread.sleep((long) 300d);
+                            sl.Connect();
+                            Thread.sleep((long) 300d);
+                            //
+                            rc_error = true;
+                        }
+                        if(Machine_model.equals("JT882M") || Machine_model.equals("JT882MA")|| Machine_model.equals("JT882MB"))
+                            sl.ReadItems(mci_array_read_882);
+                        if (sl.getReturnCode() != 0) {
+                            rc_error = true;
+                        }
 
 
+                        if (!rc_error) {
+                            mc_stati_riarmo();
+
+                            //Lettura delle emergenze attive
+
+                            if (Leggi_Emergenze) LeggoEmergenze(str_allarmi);
 
 
-
-
-                    }
-
-                    ScrivoStringaDB(Mci_write_dtDB_prog_name);
-                    ScrivoStringaDB(Mci_write_dtDB_prog_name_T2);
-
-
-                    sl.ReadItems(mci_array_read_all);
-                    if (sl.getReturnCode() != 0) {
+                        }
+                    } catch (Exception e) {
                         rc_error = true;
-                    }
-                    if(Machine_model.equals("JT882M") || Machine_model.equals("JT882MA"))
-                        sl.ReadItems(mci_array_read_882);
-                    if (sl.getReturnCode() != 0) {
-                        rc_error = true;
-                    }
-
-
-                    if (!rc_error) {
-                        mc_stati_riarmo();
-
-                        //Lettura delle emergenze attive
-
-                        if (Leggi_Emergenze) LeggoEmergenze(str_allarmi);
-
-
                     }
                     activity.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            ShowFirmwareVersion();
+                            try{
+                                cnt_comunicazione++;
+                                if (cnt_comunicazione > 1000) cnt_comunicazione = 0;
+                                TextView_cnt_comunicazione.setText("Cnt: " + cnt_comunicazione);
 
-                            Verifica_batteria();
-                            Icona_tasto_verde();
-                            Icona_IP(sl);
-                            UpdateCheckBox();
-                            Riga_CN_Esecuzione();
-                            GestiscoWarning();
-                            ShowWarningDebug();
-                            if(Values.Tcp_enable_status.equals("true")) Icona_TCP();
 
-                            cnt_comunicazione++;
-                            if (cnt_comunicazione > 1000) cnt_comunicazione = 0;
-                            TextView_cnt_comunicazione.setText("Cnt: " + cnt_comunicazione);
+                                ShowFirmwareVersion();
 
-                            //controllo se all'accensione il file udf di cucitura è presente dentro al CN
-                            if (!path_udf_presente) {
-                                str_allarmi = str_allarmi + "Missing sewing program file";
+                                Verifica_batteria();
+                                Icona_tasto_verde();
+                                Icona_IP(sl);
+                                UpdateCheckBox();
+                                Riga_CN_Esecuzione();
+                                GestiscoWarning();
+                                ShowWarningDebug();
+                                if(Values.Tcp_enable_status.equals("true")) Icona_TCP();
+
+
+
+                                //controllo se all'accensione il file udf di cucitura è presente dentro al CN
+                                if (!path_udf_presente) {
+                                    str_allarmi = str_allarmi + "Missing sewing program file";
+
+                                }
+
+                                ScriviEmergenza();
+
+
+                                Values.PLCver = MultiCmd_VA31_Ver_PLC.getValue().toString();
+                                TextView_testo_PLC_ver.setText(Values.PLCver);
+
+
+                                if(mc_stati_visualizzazione_allarmi != mc_stati_visualizzazione_allarmi_prec){
+
+                                    mc_stati_visualizzazione_allarmi_prec =mc_stati_visualizzazione_allarmi;
+                                    Log.d("JAM TAG", "mc_stati_visualizzazione_allarmi =  " + mc_stati_visualizzazione_allarmi);
+                                }
+                                if(mc_stati_riarmo != mc_stati_riarmo_prec){
+
+                                    mc_stati_riarmo_prec =mc_stati_riarmo;
+                                    Log.d("JAM TAG", "mc_stati_riarmo =  " + mc_stati_riarmo + " list_allarmi.size()"+ list_allarmi.size());
+                                }
+
+                            } catch (Exception e) {
 
                             }
-
-                            ScriviEmergenza();
-
-
-                            Values.PLCver = MultiCmd_VA31_Ver_PLC.getValue().toString();
-                            TextView_testo_PLC_ver.setText(Values.PLCver);
-
-
-                            if(mc_stati_visualizzazione_allarmi != mc_stati_visualizzazione_allarmi_prec){
-
-                                mc_stati_visualizzazione_allarmi_prec =mc_stati_visualizzazione_allarmi;
-                                Log.d("JAM TAG", "mc_stati_visualizzazione_allarmi =  " + mc_stati_visualizzazione_allarmi);
-                            }
-                            if(mc_stati_riarmo != mc_stati_riarmo_prec){
-
-                                mc_stati_riarmo_prec =mc_stati_riarmo;
-                                Log.d("JAM TAG", "mc_stati_riarmo =  " + mc_stati_riarmo + " list_allarmi.size()"+ list_allarmi.size());
-                            }
-
-
 
                         }
                     });
@@ -1585,7 +1631,7 @@ public class Emergency_page extends Activity {
                     break;
 
                 case 50:    //mostro gli errori
-                    if(list_allarmi.size()>0){
+                    if(list_allarmi.size()>0 && !list_allarmi_rec.equals(list_allarmi)){
                         Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
                         TextView_allarmi.setTextSize(15);
                         TextView_allarmi.setTextColor(Color.RED);
@@ -2023,7 +2069,20 @@ public class Emergency_page extends Activity {
                 testo = testo + d + "\n";
                 findJAMCode = true;
             } //44  Emergenza da nodo Ethercat CAricatore
-
+            //45 inizio
+            if (d.contains("30800008")) {
+                d = Descrizioni[45];
+                testo = testo + d;
+                findJAMCode = true;
+                //45 fine
+            }
+            //46 inizio
+            if (d.contains("30800009")) {
+                d = Descrizioni[46];
+                testo = testo + d;
+                findJAMCode = true;
+                //46 fine
+            }
 
             if (d.contains("140045900") || d.contains("240045900") || d.contains("340045900")) {  //"Automatic cycle interrupted due to an emergency
                 d = getString(R.string.ErroreCicloAuto);

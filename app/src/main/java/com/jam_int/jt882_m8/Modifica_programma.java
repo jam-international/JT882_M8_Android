@@ -451,8 +451,10 @@ public class Modifica_programma extends Activity {
                         MultiCmd_Status_Piedino = sl.Add("Io", 1, MultiCmdItem.dtDO,34, MultiCmdItem.dpNONE);
                         break;
                     case "JT882MA": //Argentina con 4 schede IO Belli
+                    case "JT882MB": //macchina inclinata con moduli IO Sipro
                         MultiCmd_Status_Piedino = sl.Add("Io", 1, MultiCmdItem.dtDO,49, MultiCmdItem.dpNONE);
                         break;
+
                     default:
                         break;
                 }
@@ -1804,7 +1806,7 @@ public class Modifica_programma extends Activity {
      */
     public void on_click_7(View view) {
         if (Utility.isNumeric((String) TextView_info.getText()))
-            TextView_info.setText(TextView_info.getText() + "1");
+            TextView_info.setText(TextView_info.getText() + "7");
         else {
             info_StepPiuMeno.last_testo_textView_info = (String) TextView_info.getText();
             TextView_info.setText("7");
@@ -3575,6 +3577,7 @@ public class Modifica_programma extends Activity {
                 }
 
                 if (sl.IsConnected()) {
+
                     if (first_cycle) {
 
                         first_cycle = false;
@@ -3591,12 +3594,25 @@ public class Modifica_programma extends Activity {
                         sl.ReadItem(MultiCmd_Vq_107_READ_FC_ava_Y);
 
                     }
+                    try{
+                        MultiCmd_Vn3804_pagina_touch.setValue(1003.0d);
+                        sl.WriteItem(MultiCmd_Vn3804_pagina_touch);
+                        sl.WriteQueued();
+                        sl.ReadItems(mci_array_read_all);
+                        rc_error = sl.getReturnCode() != 0;
 
-                    MultiCmd_Vn3804_pagina_touch.setValue(1003.0d);
-                    sl.WriteItem(MultiCmd_Vn3804_pagina_touch);
-                    sl.WriteQueued();
-                    sl.ReadItems(mci_array_read_all);
-                    rc_error = sl.getReturnCode() != 0;
+                        if (sl.getReturnCode() != 0) {
+                            //se non riceve bene i valori provo a chiudere e riaprire il Socket
+                            sl.Close();
+                            Thread.sleep((long) 300d);
+                            sl.Connect();
+                            Thread.sleep((long) 300d);
+                            //
+                            rc_error = true;
+                        }
+                    }catch (Exception err){
+                        rc_error = true;
+                    }
 
                     if (rc_error == false) { //se ho avuto un errore di ricezione salto
 
@@ -3676,9 +3692,9 @@ public class Modifica_programma extends Activity {
                             }
                         }
                         AggiornaGuiDaThread();
-                    } else {
-                        sl.Connect();
                     }
+                }else {
+                    sl.Connect();
                 }
             }
         }
@@ -3693,6 +3709,7 @@ public class Modifica_programma extends Activity {
             UpdateHandler.post(new Runnable() {
                 @Override
                 public void run() {
+                    try{
                       Emergenza();
 
 
@@ -3736,6 +3753,9 @@ public class Modifica_programma extends Activity {
                     }
                     Show_info_entità();
                     MostraAllarmiCn(str_allarmi);
+                    } catch (Exception e) {
+
+                    }
                 }
             });
         }

@@ -117,7 +117,7 @@ public class Parametri_page extends Activity {
             Multicmd_Vq1916, Multicmd_Vq1917, Multicmd_Vq1918, Multicmd_Vq1919, Multicmd_Vq2913, Multicmd_Vq2914, Multicmd_Vq2915,
             Multicmd_Vq2916, Multicmd_Vq2917, Multicmd_Vq2918, Multicmd_Vq2919, MultiCmd_Vb21,MultiCmd_Vb22, MultiCmd_Vn3804_pagina_touch, Multicmd_vn101, Multicmd_vn102,
             Multicmd_vn103, Multicmd_vn104, MultiCmd_Vq3071, MultiCmd_Vq3085,Multicmd_Vq3054, Multicmd_Vb4034_ScaricOnSuRasafilo, Multicmd_Vq3084_SpostamentoPinzaPezziCorti,
-            Multicmd_HMI_C1_UdfVelLavRPM,Multicmd_Vb23,Multicmd_Vn120_ClampMode,Multicmd_Vb170KitTascaCargo,Multicmd_Vb151EnableCarPattine,MultiCmd_Vq3079,MultiCmd_Vq3092,MultiCmd_Vq3093,
+            Multicmd_HMI_C1_UdfVelLavRPM,Multicmd_Vb23,Multicmd_Vb24,Multicmd_Vn120_ClampMode,Multicmd_Vb170KitTascaCargo,Multicmd_Vb151EnableCarPattine,MultiCmd_Vq3079,MultiCmd_Vq3092,MultiCmd_Vq3093,
             MultiCmd_Vq3091,MultiCmd_Vn180,Multicmd_Vq3201,Multicmd_Vq3202,Multicmd_Vq3203,Multicmd_Vq3205;
     //Multicmd_HMI_C1_UdfPuntiVelIni, Multicmd_HMI_C1_UdfVelIniRPM, Multicmd_HMI_C1_UdfPuntiVelRall,
       //      Multicmd_HMI_C1_UdfVelRallRPM, Multicmd_HMI_C1_Udf_FeedG0,Multicmd_HMI_C1_Udf_ValTensione,Multicmd_HMI_C1_Udf_ValEletSopra,Multicmd_HMI_C1_Udf_ValEletSotto,
@@ -436,6 +436,7 @@ public class Parametri_page extends Activity {
         MultiCmd_Vb21 = sl.Add("Io", 1, MultiCmdItem.dtVB, 21, MultiCmdItem.dpNONE);
         MultiCmd_Vb22 = sl.Add("Io", 1, MultiCmdItem.dtVB, 22, MultiCmdItem.dpNONE);
         Multicmd_Vb23 = sl.Add("Io", 1, MultiCmdItem.dtVB, 23, MultiCmdItem.dpNONE);
+        Multicmd_Vb24 = sl.Add("Io", 1, MultiCmdItem.dtVB, 24, MultiCmdItem.dpNONE);
         MultiCmd_Vn3804_pagina_touch = sl.Add("Io", 1, MultiCmdItem.dtVN, 3804, MultiCmdItem.dpNONE);
         Multicmd_vn101 = sl.Add("Io", 1, MultiCmdItem.dtVN, 101, MultiCmdItem.dpNONE);
         Multicmd_vn102 = sl.Add("Io", 1, MultiCmdItem.dtVN, 102, MultiCmdItem.dpNONE);
@@ -499,7 +500,7 @@ public class Parametri_page extends Activity {
                 Multicmd_Vq3523, Multicmd_Vq3525, Multicmd_Vq3530, Multicmd_Vq3531, Multicmd_Vq3070, Multicmd_Vq1913, Multicmd_Vq1914, Multicmd_Vq1915,
                 Multicmd_Vq1916, Multicmd_Vq1917, Multicmd_Vq1918, Multicmd_Vq1919, Multicmd_Vq2913, Multicmd_Vq2914, Multicmd_Vq2915,
                 Multicmd_Vq2916, Multicmd_Vq2917, Multicmd_Vq2918, Multicmd_Vq2919, MultiCmd_Vb21,MultiCmd_Vb22, Multicmd_vn101, Multicmd_vn102, Multicmd_vn103, Multicmd_vn104,
-                MultiCmd_Vq3071, MultiCmd_Vq3085, Multicmd_Vq3054, Multicmd_Vq3084_SpostamentoPinzaPezziCorti,Multicmd_vb20,Multicmd_Vb23,Multicmd_Vn120_ClampMode,Multicmd_Vb170KitTascaCargo,
+                MultiCmd_Vq3071, MultiCmd_Vq3085, Multicmd_Vq3054, Multicmd_Vq3084_SpostamentoPinzaPezziCorti,Multicmd_vb20,Multicmd_Vb23,Multicmd_Vb24,Multicmd_Vn120_ClampMode,Multicmd_Vb170KitTascaCargo,
                 Multicmd_Vb151EnableCarPattine,MultiCmd_Vq3079,MultiCmd_Vq3092,MultiCmd_Vq3093,MultiCmd_Vq3091,MultiCmd_Vn180,Multicmd_Vq3201,Multicmd_Vq3202,Multicmd_Vq3203,Multicmd_Vq3205
 
         };
@@ -565,8 +566,8 @@ public class Parametri_page extends Activity {
                     Lista_parametri.add(new Parametro_mac(MultiCmd_Vq1710, 10, 0, 3500, 3500, false, false, true, false, false, true, true, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
                 Lista_parametri.add(new Parametro_mac(Multicmd_vq1718, 11, 0, 360, 110, false, false, true, true, false, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
                 Lista_parametri.add(new Parametro_mac(Multicmd_vq1719, 12, 0, 360, 250, false, false, true, false, false, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
-                Lista_parametri.add(new Parametro_mac(Multicmd_vq1720, 13, 0, 360, 210, false, false, true, true, false, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
-                Lista_parametri.add(new Parametro_mac(Multicmd_vq1721, 14, 0, 360, 350, false, false, true, false, false, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
+                Lista_parametri.add(new Parametro_mac(Multicmd_vq1720, 13, 0, 360, 230, false, false, true, true, false, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
+                Lista_parametri.add(new Parametro_mac(Multicmd_vq1721, 14, 0, 360, 240, false, false, true, false, false, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
                 Lista_parametri.add(new Parametro_mac(Multicmd_vb20, 15, 0, 1, 0, true, false, false, false, true, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
                 Lista_parametri.add(new Parametro_mac(MultiCmd_Vq3592, 16, 0, 100000, 0, false, false, false, false, false, false, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
                 Lista_parametri.add(new Parametro_mac(MultiCmd_Vq3593, 17, 0, 100000, 0, false, false, false, false, false, false, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
@@ -597,16 +598,17 @@ public class Parametri_page extends Activity {
                 Lista_parametri.add(new Parametro_mac(MultiCmd_Vq2708, 8, 0, 100, 0.1f, false, true, true, false, false, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
                 Lista_parametri.add(new Parametro_mac(MultiCmd_Vq2709, 9, 0, 100, 0.1f, false, true, true, false, false, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
                 Lista_parametri.add(new Parametro_mac(MultiCmd_Vq2710, 10, 0, 4000, 4000, false, false, true, false, false, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
-                Lista_parametri.add(new Parametro_mac(Multicmd_vq2718, 11, 0, 360, 174, false, false, true, true, false, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
-                Lista_parametri.add(new Parametro_mac(Multicmd_vq2719, 12, 0, 360, 41, false, false, true, false, false, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
-                Lista_parametri.add(new Parametro_mac(Multicmd_vq2720, 13, 0, 360, 210, false, false, true, true, false, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
-                Lista_parametri.add(new Parametro_mac(Multicmd_vq2721, 14, 0, 360, 350, false, false, true, false, false, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
+                Lista_parametri.add(new Parametro_mac(Multicmd_vq2718, 11, 0, 360, 110, false, false, true, true, false, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
+                Lista_parametri.add(new Parametro_mac(Multicmd_vq2719, 12, 0, 360, 250, false, false, true, false, false, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
+                Lista_parametri.add(new Parametro_mac(Multicmd_vq2720, 13, 0, 360, 230, false, false, true, true, false, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
+                Lista_parametri.add(new Parametro_mac(Multicmd_vq2721, 14, 0, 360, 240, false, false, true, false, false, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
                 Lista_parametri.add(new Parametro_mac(MultiCmd_Vq2701, 15, -25, 25, 174, false, false, true, false, true, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,-170));
                 Lista_parametri.add(new Parametro_mac(Multicmd_Vb151EnableCarPattine, 16, 0, 1, 0, true, false, false, false, true, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
                 Lista_parametri.add(new Parametro_mac(MultiCmd_Vq3093, 17, 20, 270, 30, false, false, true, false, false, true, true, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
                 Lista_parametri.add(new Parametro_mac(Multicmd_Vq3201, 18, 0, 2000, 300, false, false, false, false, false, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
                 Lista_parametri.add(new Parametro_mac(Multicmd_Vq3203, 19, 0, 2000, 300, false, false, false, false, false, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
                 Lista_parametri.add(new Parametro_mac(Multicmd_Vq3205, 20, 0, 2000, 300, false, false, false, false, false, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
+                Lista_parametri.add(new Parametro_mac(Multicmd_Vb24, 21, 0, 1, 0, true, false, false, false, true, true, false, new ArrayList<>(), new ArrayList<>(), null, false, 0.0d,false,0));
 
 
                 break;
