@@ -686,7 +686,18 @@
                         app:layout_constraintTop_toTopOf="@+id/textView_folder_L2_C2" />
 
 
-
+                    <Button
+                        android:id="@+id/btn_connection_status"
+                        android:layout_width="140dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:background="#fc0303"
+                        android:text="No Connect"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -1233,6 +1244,8 @@
                 android:background="@drawable/pedale_singolo"
                 app:layout_constraintStart_toEndOf="@+id/btn_test_cuci_C2"
                 app:layout_constraintTop_toTopOf="@+id/btn_test_cuci_C2" />
+
+
             <Button
                 android:id="@+id/btn_pattina_on_off"
                 android:layout_width="70dp"
@@ -1241,15 +1254,6 @@
                 android:background="@drawable/ic_pattina_onoff"
                 app:layout_constraintStart_toEndOf="@+id/btn_start_cucitura_T2"
                 app:layout_constraintTop_toTopOf="@+id/btn_start_cucitura_T2" />
-            <Button
-                android:id="@+id/btn_pattina_test"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="8dp"
-                android:background="@drawable/ic_pattina_test"
-                android:onClick="on_click_test_pattina"
-                app:layout_constraintStart_toEndOf="@+id/btn_pattina_on_off"
-                app:layout_constraintTop_toTopOf="@+id/btn_pattina_on_off" />
 
             <Button
                 android:id="@+id/btn_cambio_spigoli"

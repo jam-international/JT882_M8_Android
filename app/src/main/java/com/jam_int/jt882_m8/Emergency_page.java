@@ -7,6 +7,8 @@ package com.jam_int.jt882_m8;
 //2.9 aggiunti allarmi Driver X2 Y2
 //3.1 se la comunicazione da errore chiudo e riapro il socket
 //3.2 riapro il socket anche in ModificaProgrammi.
+//3.3 sistemato blocca filo seconda testa + fatta pagina pattina + rifatto gestione tasto verde+touch Emergenza
+//3.4 migliorato salvataggio parametri udf
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -92,7 +94,7 @@ public class Emergency_page extends Activity {
      * Components
      */
     TextView TView_barra_bassa, TextView_allarmi, TextView_testo_PLC_ver, ver_softwareHMI, TextView_testo_Firmware, TextView_macchina, TextView_lingua, Allarm_textView,
-            TextView_programma_in_esecuzione, TextView_riga_in_esecuzione, TextView_cnt_comunicazione;
+            TextView_programma_in_esecuzione, TextView_riga_in_esecuzione, TextView_cnt_comunicazione,TextView_mc_stati_emergenza;
     Button btn_connection_status, Button_verde, Btn_eth_operational,Button_load_T1,Button_load_T2,Btn_TCP_status;
     ImageView ImageView_battery;
     /**
@@ -105,18 +107,21 @@ public class Emergency_page extends Activity {
             MultiCmd_Vb7814_Eth_operational, MultiCmd_Debug14_prog_cn_in_esecuzione, MultiCmd_Debug8_riga_cn_in_esecuzione, Multicmd_i5_loader_up, Multicmd_i8_folder_back,
             Multicmd_i11_Lancia_back, MultiCmd_Vn4_Warning, Multicmd_Vb4807_PinzeAlteDopoPC, MultiCmd_ver_macchine,Multicmd_i23_interna_bassa,Multicmd_i24_esterna_alta,
             Multicmd_i31_motoreX_ready,Multicmd_i32_motoreY_ready,Multicmd_in_trasl_alto,Multicmd_in_interna_bassa,Multicmd_i47_C2_ReadyAsseX, Multicmd_i48_C2_ReadyAsseY,Multicmd_vb7193_ax10_home,
-            Multicmd_vb7153_ax8_home,Multicmd_vb7173_ax9_home,Multicmd_vb7113_ax6_home,Multicmd_vb7133_ax7_home,Multicmd_i1_pulsanti_start,MultiCmd_Vn3804_pagina_touch,Multicmd_Vb98_mcInclinata;
+            Multicmd_vb7153_ax8_home,Multicmd_vb7173_ax9_home,Multicmd_vb7113_ax6_home,Multicmd_vb7133_ax7_home,Multicmd_i1_pulsanti_start,MultiCmd_Vn3804_pagina_touch,Multicmd_Vb98_mcInclinata,Vq121_DebugErrGantry,
+            Vq122_DebugErrGantry,Vq123_DebugErrGantry,Vq124_DebugErrGantry,Vq125_DebugErrGantry,Vq126_DebugErrGantry,Vq127_DebugErrGantry,Vq128_DebugErrGantry,Vn239CntErrori;
     Mci_write Mci_write_dtDB_prog_name = new Mci_write(),Mci_write_dtDB_prog_name_T2 = new Mci_write(), Mci_write_Vn4_Warning = new Mci_write();
     List<String> list_allarmi = new ArrayList<>();
     List<String> list_allarmi_rec = new ArrayList<>();
 
     Boolean path_udf_presente = false;
-    int mc_stati_riarmo = 0,mc_stati_riarmo_prec = -1, cnt_comunicazione = 0, alarm_CN_cnt = 0, mc_stati_visualizzazione_allarmi = 0,mc_stati_visualizzazione_allarmi_prec = -1,warning_debug = -1;
+    int mc_stati_riarmo = 0,mc_stati_riarmo_prec = -1, cnt_comunicazione = 0, alarm_CN_cnt = 0, mc_stati_visualizzazione_allarmi = 0,mc_stati_visualizzazione_allarmi_prec = -1,warning_debug = -1,cnt_riconessione = 0,
+            mc_stati_riarmo_new = 0,mc_stati_visualizzazione_allarmi_new=0;
     String[] tab_names = new String[]{};
     Double warning_old = 0.0d;
-    String info = "", str_allarmi = "", Machine_model = "", str_allarmi_udf = "", str_allarmi_old = "x", str_allarmi_print = "",str_allarmi_more = "";
+    String info = "", str_allarmi = "", Machine_model = "", Provenienza = "", str_allarmi_old = "x", str_allarmi_print = "",str_allarmi_more = "";
 
     Animation anim;
+    Integer OnResume_event = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -174,6 +179,12 @@ public class Emergency_page extends Activity {
                 throw new RuntimeException(e);
             }
         }
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            Provenienza = extras.getString("provenienza");
+        }else
+            Provenienza ="";
     }
 
     /**
@@ -308,6 +319,7 @@ public class Emergency_page extends Activity {
         TextView_testo_Firmware = findViewById(R.id.textView_testo_Firmware);
         TextView_macchina = findViewById(R.id.textView_macchina);
         Allarm_textView = findViewById(R.id.allarm_textView);
+        TextView_mc_stati_emergenza = findViewById(R.id.textView_mc_stati_emergenza);
 
         anim = new AlphaAnimation(0.0f, 1.0f);
         anim.setDuration(50); //You can manage the blinking time with this parameter
@@ -356,7 +368,7 @@ public class Emergency_page extends Activity {
         try {
             sl = SocketHandler.getSocket();
             if (sl == null) {    //se è la prima accensione entro altrimenti se provengo da un'altra pagina non c'è bisogno di instanziare nnuovamente
-                sl = new ShoppingList("192.168.0.92", 12001, 0.1d, 2d);
+                sl = new ShoppingList("192.168.0.92", 12001, 10d, 2d);
                 sl.getAlarms().registerAlarmListener(AlarmListener);
                 SocketHandler.setSocket(sl);
             }
@@ -412,7 +424,17 @@ public class Emergency_page extends Activity {
         Multicmd_i1_pulsanti_start= sl.Add("Io", 1, MultiCmdItem.dtDI, 1, MultiCmdItem.dpNONE);
         MultiCmd_Vn3804_pagina_touch = sl.Add("Io", 1, MultiCmdItem.dtVN, 3804, MultiCmdItem.dpNONE);
         Multicmd_Vb98_mcInclinata = sl.Add("Io", 1, MultiCmdItem.dtVB, 98, MultiCmdItem.dpNONE);
+        Vq121_DebugErrGantry = sl.Add("Io", 1, MultiCmdItem.dtVQ, 121, MultiCmdItem.dpNONE);
+        Vq122_DebugErrGantry = sl.Add("Io", 1, MultiCmdItem.dtVQ, 122, MultiCmdItem.dpNONE);
+        Vq123_DebugErrGantry = sl.Add("Io", 1, MultiCmdItem.dtVQ, 123, MultiCmdItem.dpNONE);
+        Vq124_DebugErrGantry = sl.Add("Io", 1, MultiCmdItem.dtVQ, 124, MultiCmdItem.dpNONE);
+        Vq125_DebugErrGantry = sl.Add("Io", 1, MultiCmdItem.dtVQ, 125, MultiCmdItem.dpNONE);
+        Vq126_DebugErrGantry = sl.Add("Io", 1, MultiCmdItem.dtVQ, 126, MultiCmdItem.dpNONE);
+        Vq127_DebugErrGantry = sl.Add("Io", 1, MultiCmdItem.dtVQ, 127, MultiCmdItem.dpNONE);
+        Vq128_DebugErrGantry = sl.Add("Io", 1, MultiCmdItem.dtVQ, 128, MultiCmdItem.dpNONE);
+        Vn239CntErrori = sl.Add("Io", 1, MultiCmdItem.dtVN, 239, MultiCmdItem.dpNONE);
 
+        Inizializzo_dati_macchina();
 
         switch (Machine_model) {
             case "JT882M":
@@ -445,10 +467,11 @@ public class Emergency_page extends Activity {
         };
         mci_array_read_882 = new MultiCmdItem[]{
                 Multicmd_in_trasl_alto,Multicmd_i47_C2_ReadyAsseX, Multicmd_i48_C2_ReadyAsseY,Multicmd_vb7193_ax10_home,
-                Multicmd_vb7153_ax8_home,Multicmd_vb7173_ax9_home,Multicmd_vb7113_ax6_home,Multicmd_vb7133_ax7_home,Multicmd_in_interna_bassa
+                Multicmd_vb7153_ax8_home,Multicmd_vb7173_ax9_home,Multicmd_vb7113_ax6_home,Multicmd_vb7133_ax7_home,Multicmd_in_interna_bassa,Vq121_DebugErrGantry,Vq122_DebugErrGantry,Vq123_DebugErrGantry,Vq124_DebugErrGantry,Vq125_DebugErrGantry,Vq126_DebugErrGantry,
+                Vq127_DebugErrGantry,Vq128_DebugErrGantry,Vn239CntErrori
         };
 
-        Inizializzo_dati_macchina();
+
         TextView_macchina.setText(Values.Machine_model);
 
         try {
@@ -744,6 +767,7 @@ public class Emergency_page extends Activity {
             thread_emerg.start();
             Log.d("JAM TAG", "Start Emergency Thread from Resume");
         }
+        OnResume_event =1;
     }
 
     @Override
@@ -939,17 +963,18 @@ public class Emergency_page extends Activity {
      * Selector for the status of the green button
      */
     private void Icona_tasto_verde() {
-        switch (mc_stati_riarmo) {
+        switch (mc_stati_riarmo_new) {
             case 0:
                 Button_verde.setBackgroundResource(R.drawable.tasto_verde);
 
                 break;
-            case 10:
-            case 20:
+            case 110:
+            case 120:
                 Button_verde.setBackgroundResource(R.drawable.dito1);
-                mc_stati_visualizzazione_allarmi = 20;  //scrivo che bisogna premere il touch screen
+                Visualizzazione_PremiTouch();//scrivo che bisogna premere il touch screen
+               // mc_stati_visualizzazione_allarmi = 20;
                 break;
-            case 30:
+            case 130:
                 Button_verde.setBackgroundResource(R.drawable.casetta);
 
                 Button_load_T1.setVisibility(View.VISIBLE);
@@ -962,6 +987,227 @@ public class Emergency_page extends Activity {
                 break;
         }
     }
+    private void  mc_stati_riarmo_new(){
+        switch (mc_stati_riarmo_new){
+            case 0: //primo giro
+                sl.ReadItem(mci_tasto_verde);
+                //controllo se il tasto verde è già premuto
+                if (sl.getReturnCode() == 0) {
+                    if ((Double) mci_tasto_verde.getValue() == 1.0d)    //se premo pulsante verde salto a 10
+                    {
+                        mc_stati_riarmo_new = 1;    // se al primo giro il tasto verde è premuto è probabile che è successa un'emergenza oppure è
+                        //stata ravviata l'APP ----> vado a gestire dai case sopra a 100
+                    } else
+                        mc_stati_riarmo_new = 100;    //ho acceso con il tasto verde no premuto ---> 1
+
+                }
+            break;
+
+             //INIZIO CASO PRIMO GIRO CON VERDE ACCESO
+            //**** ho fatto il primo giro di questa pagina e il tasto verde era acceso, probabilmente c'è stata un emergenza da CN oppure è stata ravviata APP
+            case 1:
+                Leggi_Emergenze = true;     //faccio leggere glia allarmi CN dal Thread di comunicazione
+                mc_stati_riarmo_new = 2;        //salto e aspetto la fine della lettura degli allarmi CN
+
+                break;
+            case 2:
+                if(!Leggi_Emergenze) {      //se il thread ha finito di leggere gli allarmi CN...
+                    if (list_allarmi.size() > 0) {   //se ho almeno un allarme..
+
+                        VisualizzazioneAllarmi(); //allora chiamo la visualizzazione dalla procedura di visualizzazione del Thread GUI
+                    }else
+                    {
+                        VisualizzazioneAllarmi(); //VisualizzazioneAllarmi(70); //il tasto verde è premuto ma non ci sono allarmi, strano, faccio scrivere dal GUI "Premere il pulsante emergenza (70)"
+                    }
+                    mc_stati_riarmo_new = 3;   // se metto a 32 Scorciatoia per me, normale lo metto 99
+                }
+                break;
+
+            case 3: //arrivo qui se il primo giro il verde era già acceso, qui aspetto che venga premuta emergenza e poi riparto
+                sl.ReadItem(mci_tasto_verde);
+                if (sl.getReturnCode() == 0) {
+
+                    if ((Double) mci_tasto_verde.getValue() == 0.0d) {    //se premo pulsante verde salto a 10
+                        mc_stati_riarmo_new = 0;    //ho acceso con il tasto verde no premuto ---> 1
+                        VisualizzazionePremiTastoVerde(); //scrivo su gui = premi tasto verde
+                    }
+                    else {
+                        if (list_allarmi.size() > 0) {   //se ho almeno un allarme..
+                            boolean solo_errore_30800002 = true;
+                            for (String al : list_allarmi) {
+                                if(! al.contains("30800002"))
+                                    solo_errore_30800002 = false;
+                            }
+
+                            if(! solo_errore_30800002){ //entra qui se è una emergenza NON da fungo
+                                mc_stati_riarmo_new = 4;
+                                OnResume_event = 2;
+                            }
+                            else {
+                                VisualizzaionePremiEmergenza();
+                                mc_stati_riarmo_new = 4;
+                            }
+                        }
+
+
+
+                        //hai acceso con il tasto verde premuto
+
+
+                    }
+                }
+
+                break;
+            case 4: //ho acceso con il verde premuto, aspetto che premo emergenza
+                sl.ReadItem(mci_tasto_verde);
+                if (sl.getReturnCode() == 0) {
+
+                    if ((Double) mci_tasto_verde.getValue() == 0.0d) {    //se premo pulsante verde salto a 10
+                        mc_stati_riarmo_new = 0;    //ho acceso con il tasto verde no premuto ---> 1
+                    }
+                }
+                break;
+
+            //*FINE di: PRIMO GIRO CON VERDE ACCESO
+
+            //INIZIO CASO: PRIMO GIRO CON VERDE SPENTO
+            //**** ho fatto il primo giro di questa pagina e il tasto verde non era acceso, allora aspetto che qualcuno lo prema
+            case 100:
+              //  VisualizzazioneAllarmi(10);  //scrivo che bisogna premere il tasto verde
+                Leggi_Emergenze = true;     //faccio leggere glia allarmi CN dal Thread di comunicazione
+
+                mc_stati_riarmo_new = 101;        //salto e aspetto la fine della lettura degli allarmi CN
+
+                break;
+            case 101:
+                if(!Leggi_Emergenze) {      //se il thread ha finito di leggere gli allarmi CN...
+
+                    if (list_allarmi.size() > 0) {   //se ho almeno un allarme..
+                        boolean solo_errore_30800002 = true;
+                       for (String al : list_allarmi) {
+                           if(! al.contains("30800002"))
+                               solo_errore_30800002 = false;
+                       }
+
+                        if(! solo_errore_30800002){
+                            VisualizzazioneAllarmi();
+                            OnResume_event = 2;
+                        }
+                        else
+                            VisualizzazionePremiTastoVerde();
+
+                    }
+                }
+                mc_stati_riarmo_new = 102;
+
+                break;
+
+            case 102:
+
+                sl.ReadItem(mci_tasto_verde);
+                if (sl.getReturnCode() == 0) {
+                    if ((Double) mci_tasto_verde.getValue() == 1.0d)    //se premo pulsante verde salto a 10
+                    {
+                        mc_stati_riarmo_new = 110;
+                    }
+                }
+                break;
+            case 110://ho premuto il tasto verde e lo schermo sta scrivendo di premere il touch, qui l'onclick metta questo case al passo successivo oppure può accadere
+                //che venga premuto emergenza e quindi il tasto verde torni a 0
+
+
+                //mentre aspetto che qualcuno prema il touch controllo se viene spento il verde con emergenza
+                sl.ReadItem(mci_tasto_verde);
+
+                if (sl.getReturnCode() == 0) {
+                    if ((Double) mci_tasto_verde.getValue() == 0.0d)    //mentre aspetto onclick dal touch che imposterà 20..
+                    {
+                        mc_stati_riarmo_new = 200;
+                    }
+                }
+                break;
+            case 120:    //qualcuno a premuto il touch, il suo onclick ha chiamato questo case, qui resetto il CN
+                mci_Vb7903_Reset_Ch1.setValue(1.0);     //ho premuto il touch, resetto CH1 e vado in 30
+                sl.WriteItem(mci_Vb7903_Reset_Ch1);
+
+                mc_stati_riarmo_new = 130;
+
+                break;
+            case 130:
+                VisualizzazionePremiStart(); //scrivo a schermo di premere i pulsanti di start---> STRADA NORMALE
+                mc_stati_riarmo_new = 140;
+               break;
+
+            case 140:   //aspetto pressione start per azzeramento
+                //avendo richiesto il reset del CH1, qui verifico se è avvenuto senza allarmi, se ci sono allarmi li leggo dal CN e vado a visualizzarli,
+                //se non ci sono allarmi aspetto l'azzeramento e poi lancio la MainActivity
+
+                sl.ReadItem(mci_tasto_verde);           //controllo se si spegne pulsante verde (emergenza hardware)
+                sl.ReadItem(mci_CH1_in_emergenza);      //controllo se il CH1 è in emergenza
+                if (sl.getReturnCode() == 0) {
+                    if ((Double) mci_tasto_verde.getValue() == 0.0d || (Double) mci_CH1_in_emergenza.getValue() == 1.0d) {
+                        //ho premuto il tasto verde oppure il CH1 è ancora in errore (per esempio durante azzeramento)
+                        Leggi_Emergenze = true;
+                        mc_stati_riarmo_new = 300;
+                        break;
+                    }
+                }
+                sl.ReadItem(mc1_Vb50_macchina_azzerata);      //controllo se la macchina è azzerata
+                if (sl.getReturnCode() == 0) {
+                    if ((Double) mc1_Vb50_macchina_azzerata.getValue() == 1.0d && (Double) Multicmd_in_Pressostato.getValue() == 0.0d) {
+                        StopThread = true;
+                        Intent intent_par = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent_par);
+                    }
+                }
+
+                break;
+            //*FINE di: PRIMO GIRO CON VERDE SPENTO
+
+                // INIZIO CASO: mentre aspetto che qualcuno prema il touch controllo se viene spento il verde con emergenza
+            case 200:
+                mc_stati_riarmo_new = 0;
+
+            break;
+            //*FINE di: mentre aspetto che qualcuno prema il touch controllo se viene spento il verde con emergenza
+
+            //*FINE di: PRIMO GIRO CON VERDE SPENTO
+
+            // INIZIO CASO: mentre aspetto che qualcuno prema i pulsanti di start viene premuta emergenza
+            case 300:
+                mc_stati_riarmo_new = 0;
+
+                break;
+            //*FINE di: mentre aspetto che qualcuno prema i pulsanti di start viene premuta emergenza
+
+
+            //*INIZIO
+
+            default:
+                break;
+        }
+
+    }
+
+    private void VisualizzazioneAllarmi() {
+        mc_stati_visualizzazione_allarmi_new = 100;
+    }
+
+    private void Visualizzazione_PremiTouch() {
+        mc_stati_visualizzazione_allarmi_new = 200;
+    }
+    private void VisualizzazionePremiTastoVerde() {
+        mc_stati_visualizzazione_allarmi_new = 300;
+    }
+
+    private void VisualizzazionePremiStart() {
+        mc_stati_visualizzazione_allarmi_new = 400;
+    }
+    private void VisualizzaionePremiEmergenza() {
+        mc_stati_visualizzazione_allarmi_new = 500;
+    }
+
+
 
     private void mc_stati_riarmo() {
         switch (mc_stati_riarmo) {
@@ -1012,7 +1258,7 @@ public class Emergency_page extends Activity {
             //Fine ZONA gestione tasto Verde spento
 
             //Inizio ZONA premere su touch screen
-            case 10: //aspetto click touch
+            case 10: //aspetto click touch, toccando il touch il suo onclick mettere
                 sl.ReadItem(mci_tasto_verde);
                 if (sl.getReturnCode() == 0) {
                     if ((Double) mci_tasto_verde.getValue() == 0.0d)    //mentre aspetto onclick dal touch che imposterà 20..
@@ -1085,11 +1331,10 @@ public class Emergency_page extends Activity {
                         mc_stati_riarmo = 0;
                     }
                 }
-                Leggi_Emergenze = true;
-                if (list_allarmi.size() > 0) {
-                    mc_stati_visualizzazione_allarmi = 50;
-
-                }
+         //       Leggi_Emergenze = true;
+         //       if (list_allarmi.size() > 0) {
+         //           mc_stati_visualizzazione_allarmi = 50;
+         //       }
 
                 break;
             // fine ZONA ci sono stati allarmi dopo che ho tentato di resettare il CH1 oppure mentre stava facendo l'azzeramento
@@ -1138,12 +1383,12 @@ public class Emergency_page extends Activity {
      * @param view
      */
     public void onclick_buttonv_dito(View view) {
-        if (mc_stati_riarmo == 10) {
-            mc_stati_riarmo = 20;
+        if (mc_stati_riarmo_new == 110) {
+            mc_stati_riarmo_new = 120;
         }
         //mia scorciatoia
-        if (mc_stati_riarmo == 32) {
-            mc_stati_riarmo = 5;
+        if (mc_stati_riarmo_new == 32) {
+            mc_stati_riarmo_new = 5;
         }
 
     }
@@ -1197,6 +1442,47 @@ public class Emergency_page extends Activity {
         startActivityForResult(intent, RESULT_PAGE_LOAD_UDF);
     }
 
+    /**
+     * Button for copy every crash files, the info_jam file and machine log to the usb
+     *
+     * @param view
+     */
+    public void on_click_report_to_usb(View view) {
+        Log.d("JAM TAG", "Toolpage OnclickCrashReport");
+
+        Values.PLCver = MultiCmd_VA31_Ver_PLC.getValue().toString();
+        TextView_testo_PLC_ver.setText(Values.PLCver);
+
+        Double Vq121 = (Double) Vq121_DebugErrGantry.getValue() /1000;
+        Double Vq122 = (Double) Vq122_DebugErrGantry.getValue() /1000;
+        Double Vq123 = (Double) Vq123_DebugErrGantry.getValue() /1000;
+        Double Vq124 = (Double) Vq124_DebugErrGantry.getValue() /1000;
+        Double Vq125 = (Double) Vq125_DebugErrGantry.getValue() /1000;
+        Double Vq126 = (Double) Vq126_DebugErrGantry.getValue() /1000;
+        Double Vq127 = (Double) Vq127_DebugErrGantry.getValue() /1000;
+        Double Vq128 = (Double) Vq128_DebugErrGantry.getValue() /1000;
+
+        KillThread();
+        Intent intent_report = new Intent(getApplicationContext(), ReportToUsb.class);
+        String[] myStrings = new String[] {
+                Values.ver_firmware,
+                Values.PLCver,
+                Values.HMI_softver,
+                "Vq121: "+Vq121,
+                "Vq122: "+Vq122,
+                "Vq123: "+Vq123,
+                "Vq124: "+Vq124,
+                "Vq125: "+Vq125,
+                "Vq126: "+Vq126,
+                "Vq127: "+Vq127,
+                "Vq128: "+Vq128,
+        };
+        intent_report.putExtra("strings", myStrings);
+        startActivity(intent_report);
+
+
+
+    }
 
 
     /**
@@ -1495,11 +1781,8 @@ public class Emergency_page extends Activity {
                         if (sl.getReturnCode() != 0) {
                             //se non riceve bene i valori provo a chiudere e riaprire il Socket
                             sl.Close();
-                            Thread.sleep((long) 300d);
-                            sl.Connect();
-                            Thread.sleep((long) 300d);
-                            //
                             rc_error = true;
+
                         }
                         if(Machine_model.equals("JT882M") || Machine_model.equals("JT882MA")|| Machine_model.equals("JT882MB"))
                             sl.ReadItems(mci_array_read_882);
@@ -1509,14 +1792,60 @@ public class Emergency_page extends Activity {
 
 
                         if (!rc_error) {
-                            mc_stati_riarmo();
+                         //   mc_stati_riarmo();
+                            mc_stati_riarmo_new();
 
                             //Lettura delle emergenze attive
 
-                            if (Leggi_Emergenze) LeggoEmergenze(str_allarmi);
+                            if (Leggi_Emergenze) LeggoEmergenze();
 
 
                         }
+
+                        if(OnResume_event==2){
+
+                            Double cnt_emergenze = (Double)Vn239CntErrori.getValue();
+                            String cntEmeg = (""+cnt_emergenze).replace(".0","");
+
+                            String FileDestinationName = "storage/emulated/0/JamData/syslog_cnt" + cntEmeg+".txt";
+                            boolean ret_read_syslog = sl.FileDownload("S:\\syslog.txt", FileDestinationName, null);
+
+
+
+
+                            cnt_emergenze++;
+                            //controllo se ho già scritto più di 100 file, se si li cancello e riparto
+                            if(cnt_emergenze > 100){
+                                File rootFolder = android.os.Environment.getExternalStorageDirectory();
+                                File folder = new File(rootFolder.getAbsolutePath() + "/JamData");
+                                File[] listOfFiles = folder.listFiles();
+                                if(listOfFiles != null) {
+                                    for (int i = 0; i < listOfFiles.length; i++) {
+                                        if (listOfFiles[i].isFile()) {
+                                            System.out.println("File " + listOfFiles[i].getName());
+                                            String filename = listOfFiles[i].getName();
+                                            if (filename.contains("syslog")){
+
+                                                File file_syslog = new File(rootFolder.getAbsolutePath() + "/JamData/"+listOfFiles[i].getName());
+                                                file_syslog.delete();
+
+                                            }
+                                        } else if (listOfFiles[i].isDirectory()) {
+                                            System.out.println("Directory " + listOfFiles[i].getName());
+                                        }
+                                    }
+                                }
+                                cnt_emergenze = 1.0d;
+
+                            }
+                            Vn239CntErrori.setValue(cnt_emergenze);
+                            sl.WriteItem(Vn239CntErrori);
+
+
+                            OnResume_event =3;
+                        }
+                        
+
                     } catch (Exception e) {
                         rc_error = true;
                     }
@@ -1524,50 +1853,57 @@ public class Emergency_page extends Activity {
                         @Override
                         public void run() {
                             try{
-                                cnt_comunicazione++;
-                                if (cnt_comunicazione > 1000) cnt_comunicazione = 0;
-                                TextView_cnt_comunicazione.setText("Cnt: " + cnt_comunicazione);
+                                if(!rc_error) {
+                                    cnt_comunicazione++;
+                                    if (cnt_comunicazione > 1000) cnt_comunicazione = 0;
+                                    TextView_cnt_comunicazione.setText("Cnt: " + cnt_comunicazione+ " Cnt Riconnessione: " +cnt_riconessione);
 
 
-                                ShowFirmwareVersion();
+                                    ShowFirmwareVersion();
 
-                                Verifica_batteria();
-                                Icona_tasto_verde();
-                                Icona_IP(sl);
-                                UpdateCheckBox();
-                                Riga_CN_Esecuzione();
-                                GestiscoWarning();
-                                ShowWarningDebug();
-                                if(Values.Tcp_enable_status.equals("true")) Icona_TCP();
-
-
-
-                                //controllo se all'accensione il file udf di cucitura è presente dentro al CN
-                                if (!path_udf_presente) {
-                                    str_allarmi = str_allarmi + "Missing sewing program file";
-
-                                }
-
-                                ScriviEmergenza();
+                                    Verifica_batteria();
+                                    Icona_tasto_verde();
+                                    Icona_IP(sl);
+                                    UpdateCheckBox();
+                                    Riga_CN_Esecuzione();
+                                    GestiscoWarning();
+                                    ShowWarningDebug();
+                                    if(Values.Tcp_enable_status.equals("true")) Icona_TCP();
+                                    TextView_mc_stati_emergenza.setText("McStati Emg: "+ mc_stati_riarmo_new + " McStati VisEmg: "+mc_stati_visualizzazione_allarmi_new);
 
 
-                                Values.PLCver = MultiCmd_VA31_Ver_PLC.getValue().toString();
-                                TextView_testo_PLC_ver.setText(Values.PLCver);
+
+                                    //controllo se all'accensione il file udf di cucitura è presente dentro al CN
+                                    if (!path_udf_presente) {
+                                        str_allarmi = str_allarmi + "Missing sewing program file";
+
+                                    }
+
+                                //    ScriviEmergenza();
+                                    ScriviEmergenza_new();
 
 
-                                if(mc_stati_visualizzazione_allarmi != mc_stati_visualizzazione_allarmi_prec){
+                                    Values.PLCver = MultiCmd_VA31_Ver_PLC.getValue().toString();
+                                    TextView_testo_PLC_ver.setText(Values.PLCver);
 
-                                    mc_stati_visualizzazione_allarmi_prec =mc_stati_visualizzazione_allarmi;
-                                    Log.d("JAM TAG", "mc_stati_visualizzazione_allarmi =  " + mc_stati_visualizzazione_allarmi);
-                                }
-                                if(mc_stati_riarmo != mc_stati_riarmo_prec){
 
-                                    mc_stati_riarmo_prec =mc_stati_riarmo;
-                                    Log.d("JAM TAG", "mc_stati_riarmo =  " + mc_stati_riarmo + " list_allarmi.size()"+ list_allarmi.size());
+                                    if(mc_stati_visualizzazione_allarmi != mc_stati_visualizzazione_allarmi_prec){
+
+                                        mc_stati_visualizzazione_allarmi_prec =mc_stati_visualizzazione_allarmi;
+                                        Log.d("JAM TAG", "mc_stati_visualizzazione_allarmi =  " + mc_stati_visualizzazione_allarmi);
+                                    }
+                                    if(mc_stati_riarmo != mc_stati_riarmo_prec){
+
+                                        mc_stati_riarmo_prec =mc_stati_riarmo;
+                                        Log.d("JAM TAG", "mc_stati_riarmo =  " + mc_stati_riarmo + " list_allarmi.size()"+ list_allarmi.size());
+                                    }
+                                }else {
+
                                 }
 
                             } catch (Exception e) {
-
+                                cnt_riconessione++;
+                                TextView_cnt_comunicazione.setText("Cnt: " + cnt_comunicazione+ " Cnt Riconnessione: " +cnt_riconessione);
                             }
 
                         }
@@ -1600,7 +1936,124 @@ public class Emergency_page extends Activity {
                 }
             }
         }
+        private void ScriviEmergenza_new(){
+            switch (mc_stati_visualizzazione_allarmi_new){
+                case 100:
+                    if(list_allarmi.size()>0 && !list_allarmi_rec.equals(list_allarmi)){
+                        list_allarmi_rec = list_allarmi;
+                        Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
+                        TextView_allarmi.setTextSize(15);
+                        TextView_allarmi.setTextColor(Color.RED);
+                        TextView_allarmi.setText("");
+                        String testo = "";
+                      //  OnResume_event = 0;
+                        List<String> listAllarmiDecodificati = new ArrayList<>();
+                        listAllarmiDecodificati =  DecodificaCodiceErrore();
+                        for (String s : listAllarmiDecodificati) {
+                            testo = testo + s;
+                        }
+                        // TextView_allarmi.setText(testo + "cnt:"+ Vn239CntErrori.getValue()+ " case 50");
 
+                        TextView_allarmi.setText(testo);
+                        mc_stati_visualizzazione_allarmi_new = 0;
+                    }
+
+                    break;
+
+                case 200: //scrivo che bisogna premere il touch screen
+                    Allarm_textView.setText("");     //non faccio vedere la scritta rossa Alarm
+                    TextView_allarmi.setTextSize(25);
+                    TextView_allarmi.setTextColor(Color.BLUE);
+                    TextView_allarmi.setText(R.string.ToccaTouch);
+                    mc_stati_visualizzazione_allarmi_new = 0;
+
+
+                    break;
+
+                case 300: //scrivo che bisogna premere il tasto verde
+                    Allarm_textView.setText("");     //non faccio vedere la scritta rossa Alarm
+                    TextView_allarmi.setTextSize(25);
+                    TextView_allarmi.setTextColor(Color.BLUE);
+                    TextView_allarmi.setText(R.string.PremiTastoVerde);
+                    mc_stati_visualizzazione_allarmi = 0;
+
+                    break;
+
+                case 400:
+                    Allarm_textView.setText("");     // faccio vedere la scritta rossa Allarm
+                    TextView_allarmi.setTextColor(Color.BLUE);
+                    TextView_allarmi.setText(R.string.PremiStartAzz);
+
+                    mc_stati_visualizzazione_allarmi = 401;
+                    break;
+                case 401:
+
+                    if((Double) Multicmd_in_Pressostato.getValue() == 1.0d){
+                        Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
+                        TextView_allarmi.setTextColor(Color.RED);
+                        TextView_allarmi.setText(R.string.MancaAria);
+                    }else{
+                        if((Double) Multicmd_i8_folder_back.getValue() == 0.0d){
+
+                            Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
+                            TextView_allarmi.setTextColor(Color.RED);
+                            TextView_allarmi.setText(R.string.MancaSensPiegDietro);
+                        }else {
+
+                            if ((Double) Multicmd_i11_Lancia_back.getValue() == 0.0d) {
+                                Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
+                                TextView_allarmi.setTextColor(Color.RED);
+                                TextView_allarmi.setText(R.string.MancaSensLanciaDietro);
+                            }else {
+                                if ((Double) Multicmd_i24_esterna_alta.getValue() == 1.0d) {
+                                    Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
+                                    TextView_allarmi.setTextColor(Color.RED);
+                                    TextView_allarmi.setText(R.string.SensEsternaAltaAcceso);
+                                }else {
+
+                                    if ((Double) Multicmd_i31_motoreX_ready.getValue() == 0.0d) {
+                                        Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
+                                        TextView_allarmi.setTextColor(Color.RED);
+                                        TextView_allarmi.setText(R.string.DriverXAllarme);
+                                    }else {
+                                        if ((Double) Multicmd_i32_motoreY_ready.getValue() == 0.0d) {
+                                            Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
+                                            TextView_allarmi.setTextColor(Color.RED);
+                                            TextView_allarmi.setText(R.string.DriverYAllarme);
+                                        }else {
+                                            if ((Double) Multicmd_i5_loader_up.getValue() == 0.0d) {
+                                                Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
+                                                TextView_allarmi.setTextColor(Color.RED);
+                                                TextView_allarmi.setText(R.string.MancaSensCaricAlto);
+                                            }else
+                                                mc_stati_visualizzazione_allarmi_new = 400;
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    //   }
+                    break;
+
+                case 500:
+                    Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
+                    TextView_allarmi.setTextColor(Color.RED);
+                    TextView_allarmi.setTextSize(15);
+                    TextView_allarmi.setText(R.string.AccesoConVerdePremuto);
+                    mc_stati_visualizzazione_allarmi_new = 0;
+
+                    break;
+
+                default:
+                    break;
+
+
+            }
+
+
+        }
         private void ScriviEmergenza() {
 
             switch (mc_stati_visualizzazione_allarmi){
@@ -1623,6 +2076,7 @@ public class Emergency_page extends Activity {
                     TextView_allarmi.setTextColor(Color.BLUE);
                     TextView_allarmi.setText(R.string.ToccaTouch);
                     mc_stati_visualizzazione_allarmi = 0;
+                    OnResume_event = 0;
 
                     break;
 
@@ -1632,16 +2086,20 @@ public class Emergency_page extends Activity {
 
                 case 50:    //mostro gli errori
                     if(list_allarmi.size()>0 && !list_allarmi_rec.equals(list_allarmi)){
+                        list_allarmi_rec = list_allarmi;
                         Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
                         TextView_allarmi.setTextSize(15);
                         TextView_allarmi.setTextColor(Color.RED);
                         TextView_allarmi.setText("");
                         String testo = "";
+                        OnResume_event = 0;
                         List<String> listAllarmiDecodificati = new ArrayList<>();
                         listAllarmiDecodificati =  DecodificaCodiceErrore();
                         for (String s : listAllarmiDecodificati) {
                             testo = testo + s;
                         }
+                       // TextView_allarmi.setText(testo + "cnt:"+ Vn239CntErrori.getValue()+ " case 50");
+
                         TextView_allarmi.setText(testo);
                         mc_stati_visualizzazione_allarmi = 999;
                     }
@@ -1660,10 +2118,17 @@ public class Emergency_page extends Activity {
                             testo = testo + s;
                         }
                         TextView_allarmi.setText(testo);
-                        mc_stati_visualizzazione_allarmi = 1000;
+                        mc_stati_visualizzazione_allarmi = 61;
                     }
                     break;
+                case 61:
 
+                    OnResume_event = 2;
+                    TextView_allarmi.setText("ho acceso con il tasto verde premuto");
+
+                    //   Toast.makeText(getApplicationContext(), "Writing syslog file, please wait", Toast.LENGTH_SHORT).show();
+                    mc_stati_visualizzazione_allarmi = 1000;
+                    break;
                 case 70:
                     Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
                     TextView_allarmi.setTextColor(Color.RED);
@@ -1686,39 +2151,47 @@ public class Emergency_page extends Activity {
                         Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
                         TextView_allarmi.setTextColor(Color.RED);
                         TextView_allarmi.setText(R.string.MancaAria);
-                    }
-                    if((Double) Multicmd_i8_folder_back.getValue() == 0.0d){
+                    }else{
+                        if((Double) Multicmd_i8_folder_back.getValue() == 0.0d){
 
-                        Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
-                        TextView_allarmi.setTextColor(Color.RED);
-                        TextView_allarmi.setText(R.string.MancaSensPiegDietro);
-                    }
+                            Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
+                            TextView_allarmi.setTextColor(Color.RED);
+                            TextView_allarmi.setText(R.string.MancaSensPiegDietro);
+                        }else {
 
-                    if((Double) Multicmd_i11_Lancia_back.getValue() == 0.0d){
-                        Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
-                        TextView_allarmi.setTextColor(Color.RED);
-                        TextView_allarmi.setText(R.string.MancaSensLanciaDietro);
-                    }
-                    if((Double) Multicmd_i24_esterna_alta.getValue() == 1.0d){
-                        Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
-                        TextView_allarmi.setTextColor(Color.RED);
-                        TextView_allarmi.setText(R.string.SensEsternaAltaAcceso);
-                    }
+                            if ((Double) Multicmd_i11_Lancia_back.getValue() == 0.0d) {
+                                Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
+                                TextView_allarmi.setTextColor(Color.RED);
+                                TextView_allarmi.setText(R.string.MancaSensLanciaDietro);
+                            }else {
+                                if ((Double) Multicmd_i24_esterna_alta.getValue() == 1.0d) {
+                                    Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
+                                    TextView_allarmi.setTextColor(Color.RED);
+                                    TextView_allarmi.setText(R.string.SensEsternaAltaAcceso);
+                                }else {
 
-                    if((Double) Multicmd_i31_motoreX_ready.getValue() == 0.0d){
-                        Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
-                        TextView_allarmi.setTextColor(Color.RED);
-                        TextView_allarmi.setText(R.string.DriverXAllarme);
-                    }
-                    if((Double) Multicmd_i32_motoreY_ready.getValue() == 0.0d){
-                        Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
-                        TextView_allarmi.setTextColor(Color.RED);
-                        TextView_allarmi.setText(R.string.DriverYAllarme);
-                    }
-                    if((Double) Multicmd_i5_loader_up.getValue() == 0.0d){
-                        Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
-                        TextView_allarmi.setTextColor(Color.RED);
-                        TextView_allarmi.setText(R.string.MancaSensCaricAlto);
+                                    if ((Double) Multicmd_i31_motoreX_ready.getValue() == 0.0d) {
+                                        Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
+                                        TextView_allarmi.setTextColor(Color.RED);
+                                        TextView_allarmi.setText(R.string.DriverXAllarme);
+                                    }else {
+                                        if ((Double) Multicmd_i32_motoreY_ready.getValue() == 0.0d) {
+                                            Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
+                                            TextView_allarmi.setTextColor(Color.RED);
+                                            TextView_allarmi.setText(R.string.DriverYAllarme);
+                                        }else {
+                                            if ((Double) Multicmd_i5_loader_up.getValue() == 0.0d) {
+                                                Allarm_textView.setText("Alarm:");     // faccio vedere la scritta rossa Allarm
+                                                TextView_allarmi.setTextColor(Color.RED);
+                                                TextView_allarmi.setText(R.string.MancaSensCaricAlto);
+                                            }else
+                                                mc_stati_visualizzazione_allarmi = 100;
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                     //   }
                     break;
@@ -1730,7 +2203,7 @@ public class Emergency_page extends Activity {
 
         }
 
-        private void  LeggoEmergenze(String extra_allarme) {
+        private void  LeggoEmergenze() {
             // String str_allarmi_return ="";
             boolean findJAMCode = false;
             MultiCmdItem mci = new MultiCmdItem(1, MultiCmdItem.dtAL, 9, MultiCmdItem.dpAL_M32, sl);
@@ -1767,10 +2240,6 @@ public class Emergency_page extends Activity {
                     sl.ReadItem(descmci);
                     String d = (String) descmci.getValue();
                     list_allarmi.add(d);
-                }
-                if(extra_allarme!=null && extra_allarme.length()>0) {
-                    list_allarmi.add(extra_allarme);
-                    str_allarmi ="";
                 }
 
             } catch (Exception e) {

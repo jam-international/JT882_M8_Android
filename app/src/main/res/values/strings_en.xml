@@ -86,6 +86,7 @@
     <string name="PremiTastoVerde">Press Green Button to engage machine</string>
     <string name="PremiStartAzz">Press the start buttons to make home position</string>
     <string name="PremiEmergenza">Press the emergency button</string>
+    <string name="AccesoConVerdePremuto">You turned on the machine with the green light on, press Emergency</string>
     <string name="MancaAria">Not enough air</string>
     <string name="MancaSensPiegDietro">The rear folder sensor is turned off</string>
     <string name="MancaSensLanciaDietro">The rear pocket blade sensor is turned off</string>
@@ -269,6 +270,8 @@
         <item>Flap loader is empty</item>      <!-- 40 -->
         <item>Flap Timeout loader home position</item>      <!-- 41 -->
         <item>Overlap XY Frequency</item>      <!-- 42 -->
+        <item>43) G1 pulse emission error T1</item>          <!-- 43-->
+        <item>44) G1 pulse emission error T2</item>          <!-- 44-->
 
     </string-array>
     <string-array name="warning_vn4">

@@ -179,6 +179,6 @@ public class Values {
     public static int Udf_30_T2 = 0;
     public static int Udf_SequenzaPiegatore_chiusura_T2 = 1230;
     public static int Udf_SequenzaPiegatore_apetura_T2 = 321;
-    static String ver_firmware,PLCver,HMI_softver ="3.2";
+    static String ver_firmware,PLCver,HMI_softver ="3.4";
 
 }

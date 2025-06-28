@@ -96,7 +96,7 @@ public class TascaFrecceActivity extends Activity {
     /**
      * Thread
      */
-    Boolean Thread_Running = false, StopThread = false, Debug_mode = false, first_cycle = true,Esegui_Azzeramento = false,Fai_finish = false;
+    Boolean Thread_Running = false, StopThread = false, Debug_mode = false, first_cycle = true,Esegui_Azzeramento = false,Fai_finish = false, rc_error = false;
     /**
      * PLC vars
      */
@@ -2391,7 +2391,7 @@ public class TascaFrecceActivity extends Activity {
             Log.d("JAM TAG", "-- TascaFrecce start thread");
             while (true) {
                 Thread_Running = true;
-                Boolean rc_error;
+
                 try {
                     Thread.sleep((long) 10d);
                     if (StopThread) {
@@ -2408,19 +2408,29 @@ public class TascaFrecceActivity extends Activity {
 
                 if (sl.IsConnected()) {
                     boolean error = false;
+                    rc_error = false;
+                    sl.Clear();
 
-                   // if (first_cycle) {
-                        MultiCmd_Vn3804_pagina_touch.setValue(1007.0d);
-                        sl.WriteItem(MultiCmd_Vn3804_pagina_touch);
-                        Multicmd_Vb4807_PinzeAlteDopoPC.setValue(0.0d);
-                        sl.WriteItem(Multicmd_Vb4807_PinzeAlteDopoPC);
-                    //    first_cycle = false;
-                  //  }
+                    MultiCmd_Vn3804_pagina_touch.setValue(1007.0d);
+                    sl.WriteItem(MultiCmd_Vn3804_pagina_touch);
+                    Multicmd_Vb4807_PinzeAlteDopoPC.setValue(0.0d);
+                    sl.WriteItem(Multicmd_Vb4807_PinzeAlteDopoPC);
 
 
                     sl.WriteQueued();
                     sl.ReadItems(mci_array_read_all);
-                    rc_error = sl.getReturnCode() != 0;
+
+                    try {
+                        sl.ReadItems(mci_array_read_all);
+                        if (sl.getReturnCode() != 0) {
+                            //se non riceve bene i valori provo a chiudere e riaprire il Socket
+                            sl.Close();
+
+                            rc_error = true;
+                        }
+                    }catch (Exception err){
+                        rc_error = true;
+                    }
 
                     if (rc_error == false) { //se ho avuto un errore di ricezione salto
 

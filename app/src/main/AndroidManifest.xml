@@ -62,6 +62,7 @@
         <activity android:name=".Statistiche" />
         <activity android:name=".Tcp4_0" />
         <activity android:name=".Rinforzo" />
+        <activity android:name=".ReportToUsb" />
         <activity android:name=".Pattina" />
         <activity
             android:name=".Emergency_page"

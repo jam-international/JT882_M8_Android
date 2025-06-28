@@ -44,6 +44,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 
 import communication.MultiCmdItem;
@@ -96,8 +97,8 @@ public class MainActivity extends Activity {
             MultiCmd_Vb4513_StatoAbilitaTesta2,Multicmd_dtDB_progT2_Right_name,Multicmd_vb2019_Load_Prog_T2_Right,MultiCmd_Vq2913_C2_UdfVelLavRPM,MultiCmd_Vq2110_Speed_T2,MultiCmd_Vq2951_punti_totali_C2,
             MultiCmd_Vq2952_punti_parziali_C2,MultiCmd_posizione_X_C2, MultiCmd_posizione_Y_C2,Multicmd_Vb4074_AllarmeContSpola_C2,MultiCmd_Vn198_num_prog_right_C2, MultiCmd_Vn199_num_prog_left_C2,
 
-            Multicmd_Vb4018_TrigrHMITascaCucita, Multicmd_Vb152_Pattina_OnOff,Multicmd_Vb157_Pattina_PassoPasso,MultiCmd_Vb151EnableCarPattine,Multicmd_Vn180_Device_Rinforzo,Multicnd_Vb115CricchettoRinforzo,
-            Multicmd_VbTest;
+            Multicmd_Vb4018_TrigrHMITascaCucita,MultiCmd_Vb151EnableCarPattine,Multicmd_Vn180_Device_Rinforzo,Multicnd_Vb115CricchettoRinforzo,
+            Multicmd_VbTest,Multicmd_Vb31_C2_InCucitura,Multicmd_Vb152_Pattina_OnOff;
                     ;
     Mci_write Mci_write_Vb4000_pulsante_Automatico = new Mci_write(),
             Mci_Vb4507_stato_ManAut = new Mci_write(),
@@ -214,11 +215,9 @@ public class MainActivity extends Activity {
             Mci_Vb4006_StatusTestTraslatore = new Mci_write(),
 
             Mci_write_Vb4018_TrigrHMITascaCucita = new Mci_write(),
-            Mci_write_Vb152_Pattina_OnOff = new Mci_write(),
 
-            Mci_write_Vb157_Pattina_PassoPasso = new Mci_write(),
-
-            Mci_write_Vb115CricchettoRinforzo = new Mci_write();
+            Mci_write_Vb115CricchettoRinforzo = new Mci_write(),
+             Mci_write_Vb152_Pattina_OnOff = new Mci_write();
 
     /**
      * UI components
@@ -234,10 +233,10 @@ public class MainActivity extends Activity {
             Button_etichetta, Button_tascaSX, Button_tascaDX, Button_load_R, Button_load_L, Button_loader, Button_Folder, Button_stacker, Button_test_piegatore,Button_test_traslatore, Button_All,Button_All_C2, Button_zoomPiu,Button_zoomPiu_C2,Button_zoomMeno,Button_zoomMeno_C2,
             Button_reset_allarme, Button_Scarico_Pinza,Button_rinforzo,Button_Cambio_pinza_C2,Button_testa_1_2,Button_pedale_singolo,Button_start_cucitura_T2,Button_tascaSX_C2,Button_tascaDX_C2,Button_load_L_C2,
 
-            Button_load_R_C2,Button_Trasl_test_status,Button_4_0,Button_pattina_on_off,Button_pattina_test;
+            Button_load_R_C2,Button_Trasl_test_status,Button_4_0,Button_pattina_on_off,btn_connection_status ;
 
     SeekBar seekBar_speed,seekBar_speed_C2;
-    int mc_stati_tasca_dx_sx = 0, seekbar_value = 100, seekbar_value_C2 = 100, cnt_comunicazione = 0,cnt_rc_error = 0;
+    int mc_stati_tasca_dx_sx = 0, seekbar_value = 100, seekbar_value_C2 = 100, cnt_comunicazione = 0,cnt_rc_error = 0,port=12001,cnt_riconnessioni=0,  thread_cnt = 0;
     String  File_XML_path_R, File_XML_path_L,File_XML_path_R_T2, File_XML_path_L_T2;
     Integer[] Array_foto_allarmi;
     /**
@@ -254,6 +253,7 @@ public class MainActivity extends Activity {
     Dynamic_view myView_T1,myView_T2;
     Double warning_old = 0.0d;
     String errTry ="";
+    int cnt_emergenza = 0;
 boolean test = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -486,12 +486,7 @@ boolean test = false;
         Toggle_Button.CreaToggleButton(Mci_write_Vb2018_SbloccaAgo_T2, Button_sgancio_ago_T2,"ic_sblocca_ago_t2_press","ic_sblocca_ago_t2", getApplicationContext(), sl);
         Toggle_Button.CreaToggleButton(Mci_write_Vb1034_Test_Cuci, Button_test_cuci, "ic_test_cucitura_press", "ic_test_cucitura", getApplicationContext(), sl);
         Toggle_Button.CreaToggleButton(Mci_write_vb4519_Scarico_pinza, Button_Scarico_Pinza, "ic_scaricatore_pinza_p", "ic_scaricatore_pinza", getApplicationContext(), sl);
-
         Toggle_Button.CreaToggleButton(Mci_write_Vb152_Pattina_OnOff, Button_pattina_on_off, "ic_pattina_onoff_press", "ic_pattina_onoff", getApplicationContext(), sl);
-       // Toggle_Button.CreaToggleButton(Mci_write_Vb157_Pattina_PassoPasso, Button_pattina_test, "ic_pattina_test_press", "ic_pattina_test", getApplicationContext(), sl);
-
-
-       // Toggle_Button.CreaToggleButton(Mci_write_Vb4512_TastoAbilitaTesta2, Button_testa_1_2, "ic_una_testa", "ic_due_teste", getApplicationContext(), sl);
 
 
         CreaEventoEditText(Mci_write_Vq3597_ImpPuntiSpola, TextSpola_limite, 50000d, 0d, false, false, false);
@@ -796,7 +791,7 @@ boolean test = false;
         Button_pedale_singolo = (Button)findViewById(R.id.btn_pedale_singolo);
         Button_4_0 = findViewById(R.id.btn_4_0);
         Button_pattina_on_off = findViewById(R.id.btn_pattina_on_off);
-        Button_pattina_test= findViewById(R.id.btn_pattina_test);
+        btn_connection_status = findViewById(R.id.btn_connection_status);
     }
 
     /**
@@ -913,12 +908,14 @@ boolean test = false;
         MultiCmd_Vn198_num_prog_right_C2 = sl.Add("Io", 1, MultiCmdItem.dtVN, 198, MultiCmdItem.dpNONE);    //JT862 JT882Master
         MultiCmd_Vn199_num_prog_left_C2 = sl.Add("Io", 1, MultiCmdItem.dtVN, 199, MultiCmdItem.dpNONE);
         Multicmd_Vb4018_TrigrHMITascaCucita = sl.Add("Io", 1, MultiCmdItem.dtVB, 4018, MultiCmdItem.dpNONE);
-        Multicmd_Vb152_Pattina_OnOff = sl.Add("Io", 1, MultiCmdItem.dtVB, 152, MultiCmdItem.dpNONE);
-        Multicmd_Vb157_Pattina_PassoPasso = sl.Add("Io", 1, MultiCmdItem.dtVB, 157, MultiCmdItem.dpNONE);
+
+
         MultiCmd_Vb151EnableCarPattine = sl.Add("Io", 1, MultiCmdItem.dtVB, 151, MultiCmdItem.dpNONE);
         Multicmd_Vn180_Device_Rinforzo = sl.Add("Io", 1, MultiCmdItem.dtVN, 180, MultiCmdItem.dpNONE);
         Multicnd_Vb115CricchettoRinforzo = sl.Add("Io", 1, MultiCmdItem.dtVB, 115, MultiCmdItem.dpNONE);
-        Multicmd_VbTest= sl.Add("Io", 1, MultiCmdItem.dtVB, 99, MultiCmdItem.dpNONE);
+        Multicmd_VbTest = sl.Add("Io", 1, MultiCmdItem.dtVB, 99, MultiCmdItem.dpNONE);
+        Multicmd_Vb31_C2_InCucitura  = sl.Add("Io", 1, MultiCmdItem.dtVB, 31, MultiCmdItem.dpNONE);
+        Multicmd_Vb152_Pattina_OnOff = sl.Add("Io", 1, MultiCmdItem.dtVB, 152, MultiCmdItem.dpNONE);
 
 
         Mci_write_Vq1110_Speed.mci = MultiCmd_Vq1110_Speed;Mci_write_Vq1110_Speed.tipoVariabile = Mci_write.TipoVariabile.VQ;
@@ -1002,9 +999,8 @@ boolean test = false;
         Mci_write_Vn199_tasca_left_C2.mci = MultiCmd_Vn199_num_prog_left_C2;Mci_write_Vn199_tasca_left_C2.write_flag = false;Mci_write_Vn199_tasca_left_C2.valore_precedente = 0.0d;Mci_write_Vn199_tasca_left_C2.valore = 0.0d;
         Mci_Vb4006_StatusTestTraslatore.mci = MultiCmd_Vb4006_status_test_traslo;
         Mci_write_Vb4018_TrigrHMITascaCucita.mci = Multicmd_Vb4018_TrigrHMITascaCucita;
-        Mci_write_Vb152_Pattina_OnOff.mci = Multicmd_Vb152_Pattina_OnOff;
-        Mci_write_Vb157_Pattina_PassoPasso.mci = Multicmd_Vb157_Pattina_PassoPasso;
         Mci_write_Vb115CricchettoRinforzo.mci = Multicnd_Vb115CricchettoRinforzo;
+        Mci_write_Vb152_Pattina_OnOff.mci = Multicmd_Vb152_Pattina_OnOff;
 
         mci_array_read_all = new MultiCmdItem[]{MultiCmd_Vq1110_Speed, MultiCmd_CH1_in_emergenza, MultiCmd_Vb4000_pulsante_Automatico, MultiCmd_tasto_verde, MultiCmd_Vq1913_C1_UdfVelLavRPM, MultiCmd_Vq1951_punti_totali,
                 MultiCmd_Vq1952_punti_parziali, Multicmd_Vq3596_ContPuntiSpola, Multicmd_Vb4072_AllarmeContSpola, MultiCmd_posizione_X, MultiCmd_posizione_Y, MultiCmd_VQ1036_BufErrCode,
@@ -1019,8 +1015,8 @@ boolean test = false;
         mci_array_read_882 =new MultiCmdItem[]{
                 MultiCmd_Vb4189_C2_Cambio_Pinze_All,MultiCmd_Vb2018_SbloccaAgo_T2,MultiCmd_Vb4512_TastoAbilitaTesta2,MultiCmd_Vb4904_AppPedaleHmiC2,MultiCmd_Vb4901_start_cucitura_T2,MultiCmd_Vq2913_C2_UdfVelLavRPM,MultiCmd_Vq2110_Speed_T2,
                 MultiCmd_Vq2951_punti_totali_C2,MultiCmd_Vq2952_punti_parziali_C2,MultiCmd_posizione_X_C2,MultiCmd_posizione_Y_C2,Multicmd_C2_Udf_ValTensione,Multicmd_Vq3598_ContPuntiSpola_C2,
-                MultiCmd_Vb2034_Test_Cuci_C2,MultiCmd_Vn198_num_prog_right_C2,MultiCmd_Vn199_num_prog_left_C2,MultiCmd_Vb4513_StatoAbilitaTesta2,Multicmd_Vb4074_AllarmeContSpola_C2,
-                Multicmd_Vb152_Pattina_OnOff, Multicmd_Vb157_Pattina_PassoPasso,MultiCmd_Vb151EnableCarPattine,Multicmd_Vn180_Device_Rinforzo
+                MultiCmd_Vb2034_Test_Cuci_C2,MultiCmd_Vn198_num_prog_right_C2,MultiCmd_Vn199_num_prog_left_C2,MultiCmd_Vb4513_StatoAbilitaTesta2,Multicmd_Vb4074_AllarmeContSpola_C2,MultiCmd_Vb151EnableCarPattine,Multicmd_Vn180_Device_Rinforzo,
+                Multicmd_Vb31_C2_InCucitura,Multicmd_Vb152_Pattina_OnOff
         };
         mci_array_read_one_shot = new MultiCmdItem[]{};
     }
@@ -1377,18 +1373,7 @@ boolean test = false;
             startActivity(ABC_intent);
         }
     }
-    /**
-     * Button for on_click_test_pattina
-     *
-     * @param view
-     */
-    public void on_click_test_pattina(View view) {
 
-        KillThread();
-
-        Intent intent_for_tcp = new Intent(getApplicationContext(), Pattina.class);
-        startActivityForResult(intent_for_tcp, RESULT_PAGE_PATTINA);
-    }
 
 
     private void Gestione_tascaDxSX() {
@@ -1962,21 +1947,15 @@ boolean test = false;
      */
     private void Emergenza(Activity activity) {
         if ((Double) MultiCmd_tasto_verde.getValue() == 0.0d || (Double) MultiCmd_CH1_in_emergenza.getValue() == 1.0d){ // || (Double)Multicmd_VbTest.getValue()==1.0d){
-            KillThread();
-
-            Utility.ClearActivitiesTopToEmergencyPage(activity);
-        }
+            cnt_emergenza++;
+            if(cnt_emergenza > 20) {
+                KillThread();
+                Utility.ClearActivitiesTopToEmergencyPage(activity);
+            }
+        } else
+            cnt_emergenza = 0;
     }
-    private void GestioneButtonPattina() {
 
-        if ((Double) MultiCmd_Vb151EnableCarPattine.getValue() == 1.0d) {
-            Button_pattina_on_off.setVisibility(View.VISIBLE);
-            Button_pattina_test.setVisibility(View.VISIBLE);
-        }else {
-            Button_pattina_on_off.setVisibility(View.GONE);
-            Button_pattina_test.setVisibility(View.GONE);
-        }
-    }
 
 
     /**
@@ -1999,6 +1978,26 @@ boolean test = false;
                 Button_load_L_C2.setVisibility(View.GONE);
                 Button_load_R_C2.setVisibility(View.GONE);
             }
+        }
+    }
+    /**
+     * Se attivo FLAP mostro icona
+     */
+    private void GestionePattina() {
+        if((Double) MultiCmd_Vb151EnableCarPattine.getValue()==1.0d){
+            Button_pattina_on_off.setVisibility(View.VISIBLE);
+        }else
+            Button_pattina_on_off.setVisibility(View.GONE);
+
+    }
+    private void Icona_IP(ShoppingList sl) {
+        String IP = sl.getIP();
+        if (sl.IsConnected()) {
+            btn_connection_status.setBackgroundColor(Color.GREEN);
+            btn_connection_status.setText(IP+":"+port);
+        } else {
+            btn_connection_status.setBackgroundColor(Color.RED);
+            btn_connection_status.setText("No Connect");
         }
     }
     /**
@@ -2872,7 +2871,7 @@ boolean test = false;
                 }
 
             case RESULT_PAGE_LOAD_UDF_R_T1:     //ho caricato un programma dalla pagina MAIN
-                if (returnedResult.equals("CARICATO")) {
+                if (returnedResult.equals("CARICATO") || returnedResult.equals("NO")) {
                     try {
                         Thread.sleep((long) 300d);
                     } catch (InterruptedException e) {
@@ -2913,7 +2912,7 @@ boolean test = false;
                 }
                 break;
             case RESULT_PAGE_LOAD_UDF_L_T1:  //ho caricato un programma dalla pagina MAIN
-                if (returnedResult.equals("CARICATO")) {
+                if (returnedResult.equals("CARICATO")|| returnedResult.equals("NO")) {
                     try {
                         Thread.sleep((long) 300d);
                     } catch (InterruptedException e) {
@@ -2956,7 +2955,7 @@ boolean test = false;
                 }
                 break;
             case RESULT_PAGE_LOAD_UDF_R_T2:   //ho caricato un programma dalla pagina MAIN
-                if(returnedResult.equals("CARICATO")) {
+                if(returnedResult.equals("CARICATO")|| returnedResult.equals("NO")) {
                     try {
                         Thread.sleep((long) 300d);
                     } catch (InterruptedException e) {
@@ -3009,7 +3008,7 @@ boolean test = false;
                 break;
 
             case RESULT_PAGE_LOAD_UDF_L_T2:   //ho caricato un programma dalla pagina MAIN
-                if(returnedResult.equals("CARICATO")) {
+                if(returnedResult.equals("CARICATO")|| returnedResult.equals("NO")) {
                     try {
                         Thread.sleep((long) 300d);
                     } catch (InterruptedException e) {
@@ -3062,9 +3061,7 @@ boolean test = false;
 
                 break;
 
-            case RESULT_PAGE_PATTINA:
 
-                break;
 
             default:
                 Mci_write_Vb4807_PinzeAlteDopoPC.valore = 1.0d;
@@ -3248,10 +3245,6 @@ boolean test = false;
                         if (sl.getReturnCode() != 0) {
                             //se non riceve bene i valori provo a chiudere e riaprire il Socket
                             sl.Close();
-                            Thread.sleep((long) 300d);
-                            sl.Connect();
-                            Thread.sleep((long) 300d);
-                            //
                             rc_error = true;
                         }
                         sl.ReadItems(mci_array_read_all1);
@@ -3354,11 +3347,7 @@ boolean test = false;
                         Utility.GestiscoMci_Edge_Out(sl,Mci_Vb4522_TastoTestTraslatore);
                         Utility.GestiscoMci_Out_Toggle(sl,Mci_write_vb4519_Scarico_pinza);
                         Utility.GestiscoMci_Out_Toggle(sl,Mci_write_Vb152_Pattina_OnOff);
-                        Utility.GestiscoMci_Out_Toggle(sl,Mci_write_Vb157_Pattina_PassoPasso);
 
-
-
-                       // Utility.GestiscoMci_Out_Toggle(sl,Mci_write_Vb4512_TastoAbilitaTesta2);
                         Utility.ScrivoVbVnVq(sl,Mci_write_Vn109_sequenza_chiusura_piegatore);
                         Utility.ScrivoVbVnVq(sl,Mci_write_Vn110_sequenza_apertura_piegatore);
 
@@ -3437,7 +3426,6 @@ boolean test = false;
                                 Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_Vb1034_Test_Cuci, Button_test_cuci, "ic_test_cucitura_press", "ic_test_cucitura");
                                 Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_vb4519_Scarico_pinza, Button_Scarico_Pinza, "ic_scaricatore_pinza_p", "ic_scaricatore_pinza");
                                 Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_Vb152_Pattina_OnOff, Button_pattina_on_off, "ic_pattina_onoff_press", "ic_pattina_onoff");
-                          //      Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_Vb157_Pattina_PassoPasso, Button_pattina_test, "ic_pattina_test_press", "ic_pattina_test");
 
 
 
@@ -3506,7 +3494,9 @@ boolean test = false;
                                 ControlloErrori();
                                 GestiscoWarning();
                                 GestioneButtonTools();
-                                GestioneButtonPattina();
+                                GestionePattina();
+
+                                Icona_IP(sl);
 
                                 // Write the Machine log in the fileù
                                 MachineLog.write("0", (Double) MultiCmd_Vb30_C1_InCucitura.getValue(), (Double) Multicmd_Vq3591_CNT_CicliAutomaticoUser.getValue(), (Double) MultiCmd_Vn2_allarmi_da_CN.getValue(), (Double) MultiCmd_Vn4_Warning.getValue(), (Double) MultiCmd_Vq1110_Speed.getValue() / 1000, TextView_nomeprog_R_val.getText().toString(), TextView_nomeprog_L_val.getText().toString());
@@ -3549,9 +3539,69 @@ boolean test = false;
 
 
 
+
                     });
                 } else
                     sl.Connect();
+
+                if (sl.IsConnected()) {
+                    // Inizializzazione della lingua sul CN (Una sola volta dopo la connessione)
+                    MultiCmdItem mci = new MultiCmdItem(1, MultiCmdItem.dtGP, 3081, MultiCmdItem.dpNONE, sl);
+                    String lingua_device = Locale.getDefault().getLanguage();
+
+                    switch (lingua_device) {
+                        case "it":
+                            mci.setValue("it-IT");
+                            break;
+                        case "en":
+                            mci.setValue("gb-GB");
+                            break;
+                        case "tr":
+                            mci.setValue("tr-TR");
+                            break;
+                        default:
+                            mci.setValue("gb-GB");
+                            break;
+                    }
+
+                    sl.WriteItem(mci);
+                }else {
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            cnt_riconnessioni++;
+                            TextView_cnt_thread.setText(getString(R.string.cnt_thread) + thread_cnt + "  Cnt: " + cnt_comunicazione+ " Cnt Reconnect: " +cnt_riconnessioni);
+                            Icona_IP(sl);
+                        }
+                    });
+                    try {
+                        Thread.sleep((long) 200d);
+                        if (StopThread) {
+                            Thread_Running = false;
+                            return;
+                        }
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+
+                    }
+                    if(port <12006)
+                        port++;
+                    else
+                        port=12001;
+                    sl = new ShoppingList("192.168.0.92", port, 1d, 2d);
+                }
+
+
+
+
+
+
+
+
+
+
+
+
             }
         }
     }

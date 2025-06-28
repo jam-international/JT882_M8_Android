@@ -81,7 +81,7 @@ public class Tool_page extends Activity {
     final private static int PAGE_DELTA = 303;
     final private static int PAGE_Z_AGO = 304;
     final private static int RESULT_PAGE_UPGRADE = 106;
-
+    final private static int RESULT_PAGE_PATTINA = 120;
     final private static int TESTA_C1 = 300;
     final private static int TESTA_C2 = 301;
     private static final String ACTION_USB_PERMISSION = "com.android.example.USB_PERMISSION";
@@ -99,13 +99,15 @@ public class Tool_page extends Activity {
      * UI components
      */
     Button Button_Delta, Button_Z_ago,Button_Z_ago_C2, Button_setting, Button_test_io, Button_upgrade_hmi, Button_upgrade_plc, Button_report_to_usb, Button_disegna, Button_password, Button_Sgancio_ago,
-            Button_Fai_spola,Button_pagina_punto_carico;
+            Button_Fai_spola,Button_pagina_punto_carico,Button_pattina;
     /**
      * PLC vars
      */
-    MultiCmdItem MultiCmd_Vn3804_pagina_touch, MultiCmd_tasto_verde, MultiCmd_CH1_in_emergenza, MultiCmd_Sblocca_Ago, MultiCmd_Vb1002_Init_CAM, MultiCmd_Vb4075_GiraAgoFaiSpolaC1;
+    MultiCmdItem MultiCmd_Vn3804_pagina_touch, MultiCmd_tasto_verde, MultiCmd_CH1_in_emergenza, MultiCmd_Sblocca_Ago, MultiCmd_Vb1002_Init_CAM,MultiCmd_Vb2002_Init_CAM, MultiCmd_Vb4075_GiraAgoFaiSpolaC1,
+            MultiCmd_Vb151EnableCarPattine;
     Mci_write Mci_Sblocca_Ago = new Mci_write(),
             Mci_Vb1002_Init_CAM = new Mci_write(),
+            Mci_Vb2002_Init_CAM = new Mci_write(),
             Mci_Vb4075_GiraAgoFaiSpolaC1 = new Mci_write();
     MultiCmdItem[] mci_array_read_all;
     /**
@@ -202,6 +204,8 @@ public class Tool_page extends Activity {
         Button_Sgancio_ago = findViewById(R.id.btn_sgancio_ago);
         Button_Fai_spola = (Button) findViewById(R.id.btn_fai_spola);
         Button_pagina_punto_carico = (Button) findViewById(R.id.button_pagina_punto_carico);
+        Button_pattina= (Button) findViewById(R.id.btn_pattina);
+
 
         TextView_status_Report_to_usb = (TextView)findViewById(R.id.textView_status_Report_to_usb) ;
         TextView_status_Report_to_usb.setVisibility(View.GONE);
@@ -278,7 +282,9 @@ public class Tool_page extends Activity {
         MultiCmd_CH1_in_emergenza = sl.Add("Io", 1, MultiCmdItem.dtVB, 7909, MultiCmdItem.dpNONE);
         MultiCmd_Sblocca_Ago = sl.Add("Io", 1, MultiCmdItem.dtVB, 1018, MultiCmdItem.dpNONE);
         MultiCmd_Vb1002_Init_CAM = sl.Add("Io", 1, MultiCmdItem.dtVB, 1002, MultiCmdItem.dpNONE);
+        MultiCmd_Vb2002_Init_CAM = sl.Add("Io", 1, MultiCmdItem.dtVB, 2002, MultiCmdItem.dpNONE);
         MultiCmd_Vb4075_GiraAgoFaiSpolaC1 = sl.Add("Io", 1, MultiCmdItem.dtVB, 4075, MultiCmdItem.dpNONE);
+        MultiCmd_Vb151EnableCarPattine = sl.Add("Io", 1, MultiCmdItem.dtVB, 151, MultiCmdItem.dpNONE);
 
         Mci_Sblocca_Ago.mci = MultiCmd_Sblocca_Ago;
         Mci_Sblocca_Ago.write_flag = false;
@@ -289,7 +295,11 @@ public class Tool_page extends Activity {
         Mci_Vb1002_Init_CAM.mci = MultiCmd_Vb1002_Init_CAM;
         Mci_Vb1002_Init_CAM.write_flag = false;
 
-        mci_array_read_all = new MultiCmdItem[]{MultiCmd_tasto_verde, MultiCmd_CH1_in_emergenza};
+        Mci_Vb2002_Init_CAM.mci = MultiCmd_Vb2002_Init_CAM;
+        Mci_Vb2002_Init_CAM.write_flag = false;
+
+
+        mci_array_read_all = new MultiCmdItem[]{MultiCmd_tasto_verde, MultiCmd_CH1_in_emergenza,MultiCmd_Vb151EnableCarPattine};
 
         Toggle_Button.CreaToggleButton(Mci_Sblocca_Ago, Button_Sgancio_ago, "ic_sblocca_ago_press", "ic_sblocca_ago", getApplicationContext(), sl);
         Toggle_Button.CreaToggleButton(Mci_Vb4075_GiraAgoFaiSpolaC1, Button_Fai_spola, "ic_fai_spola_premuto", "ic_fai_spola", getApplicationContext(), sl);
@@ -357,7 +367,18 @@ public class Tool_page extends Activity {
         Intent intent_par = new Intent(getApplicationContext(), Copy_Files_Activity.class);
         startActivity(intent_par);
     }
+    /**
+     * Button for on_click_pattina
+     *
+     * @param view
+     */
+    public void on_click_pattina(View view) {
 
+        KillThread();
+
+        Intent intent_for_tcp = new Intent(getApplicationContext(), Pattina.class);
+        startActivityForResult(intent_for_tcp, RESULT_PAGE_PATTINA);
+    }
     /**
      * Button for open punto carico activity
      *
@@ -939,6 +960,12 @@ public class Tool_page extends Activity {
                     Mci_Vb1002_Init_CAM.valore = 1.0d;          //faccio ricalcolare le camme rasafilo/tensione nel caso ho cambiato gli angoli
                     Mci_Vb1002_Init_CAM.write_flag = true;
                     break;
+
+                case RESULT_PAGE_C2_PARAM:
+                    Mci_Vb2002_Init_CAM.valore = 1.0d;          //faccio ricalcolare le camme rasafilo/tensione nel caso ho cambiato gli angoli
+                    Mci_Vb2002_Init_CAM.write_flag = true;
+                    break;
+
                 case RESULT_PAGE_PARAM_PIEGATORE:
                     break;
                 case RESULT_PAGE_PARAM_SCARICATORE:
@@ -958,7 +985,15 @@ public class Tool_page extends Activity {
             }
         }
     }
-
+    /**
+     * Se attivo FLAP mostro icona
+     */
+    private void GestionePattina() {
+        if((Double) MultiCmd_Vb151EnableCarPattine.getValue()==1.0d){
+            Button_pattina.setVisibility(View.VISIBLE);
+        }else
+            Button_pattina.setVisibility(View.GONE);
+    }
     private void KillThread() {
         StopThread = true;
         if(isReceiverRegistered){
@@ -1149,31 +1184,32 @@ public class Tool_page extends Activity {
                 if (sl.IsConnected()) {
                     sl.Clear();
                     try{
-                    if (first_cycle) {
-                        first_cycle = false;
-                    }
+                        if (first_cycle) {
+                            first_cycle = false;
+                        }
 
-                    if (Read_Syslog) {
-                        Read_Syslog = false;
-                        ret_read_syslog = sl.FileDownload("c:\\cnc\\param\\par2kax.txt", "storage/emulated/0/JamData/par2kax.txt", null);
-                        ret_read_syslog = sl.FileDownload("S:\\syslog.txt", "storage/emulated/0/JamData/syslog.txt", null);
-                        Finito_lettura_Syslog = true;
+                        if (Read_Syslog) {
+                            Read_Syslog = false;
+                            ret_read_syslog = sl.FileDownload("c:\\cnc\\param\\par2kax.txt", "storage/emulated/0/JamData/par2kax.txt", null);
+                            ret_read_syslog = sl.FileDownload("S:\\syslog.txt", "storage/emulated/0/JamData/syslog.txt", null);
+                            Finito_lettura_Syslog = true;
 
 
-                    }
+                        }
 
-                    MultiCmd_Vn3804_pagina_touch.setValue(1002.0d);
-                    sl.WriteItem(MultiCmd_Vn3804_pagina_touch);
-                    sl.ReadItems(mci_array_read_all);
-                    if (sl.getReturnCode() != 0) {
-                        rc_error = true;
-                    }
-                    if (!rc_error) {
-                        Utility.GestiscoMci_Out_Toggle(sl, Mci_Sblocca_Ago);
-                        Utility.GestiscoMci_Out_Toggle(sl, Mci_Vb4075_GiraAgoFaiSpolaC1);
-                    }
+                        MultiCmd_Vn3804_pagina_touch.setValue(1002.0d);
+                        sl.WriteItem(MultiCmd_Vn3804_pagina_touch);
+                        sl.ReadItems(mci_array_read_all);
+                        if (sl.getReturnCode() != 0) {
+                            rc_error = true;
+                        }
+                        if (!rc_error) {
+                            Utility.GestiscoMci_Out_Toggle(sl, Mci_Sblocca_Ago);
+                            Utility.GestiscoMci_Out_Toggle(sl, Mci_Vb4075_GiraAgoFaiSpolaC1);
+                        }
 
-                    Utility.ScrivoVbVnVq(sl, Mci_Vb1002_Init_CAM);
+                        Utility.ScrivoVbVnVq(sl, Mci_Vb1002_Init_CAM);
+                        Utility.ScrivoVbVnVq(sl, Mci_Vb2002_Init_CAM);
                     } catch (Exception e) {
 
                     }
@@ -1189,6 +1225,11 @@ public class Tool_page extends Activity {
                             } catch (Exception e) {
 
                             }
+                            /**
+                             * Se attivo FLAP mostro icona
+                             */
+                            GestionePattina();
+
                         }
                     });
                 } else {

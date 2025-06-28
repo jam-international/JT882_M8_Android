@@ -17,7 +17,7 @@ import communication.ShoppingList;
 public class Rinforzo extends Activity {
     ShoppingList sl;
     Thread thread_Rinforzo;
-    boolean Thread_Running = false, StopThread = false, first_cycle = true;
+    boolean Thread_Running = false, StopThread = false, first_cycle = true, rc_error = false;
     Handler UpdateHandler = new Handler();
     MultiCmdItem MultiCmd_tasto_verde,MultiCmd_CH1_in_emergenza,MultiCmd_Vb116RinforzoGiu_HMI,MultiCmd_Vb115CricchettoRinforzo,MultiCmd_Vn3804_pagina_touch;
     MultiCmdItem[] mci_array_read_all;
@@ -191,7 +191,7 @@ public class Rinforzo extends Activity {
         public void run() {
             while (true) {
                 Thread_Running = true;
-                Boolean rc_error;
+
                 try {
                     Thread.sleep((long) 10d);
                     if (StopThread) {
@@ -213,12 +213,22 @@ public class Rinforzo extends Activity {
 
 
                     }
+                    rc_error = false;
+                    sl.Clear();
+                    try {
+                        MultiCmd_Vn3804_pagina_touch.setValue(1009.0d);
+                        sl.WriteItem(MultiCmd_Vn3804_pagina_touch);
+                        sl.WriteQueued();
+                        sl.ReadItems(mci_array_read_all);
+                        if (sl.getReturnCode() != 0) {
+                            //se non riceve bene i valori provo a chiudere e riaprire il Socket
+                            sl.Close();
 
-                    MultiCmd_Vn3804_pagina_touch.setValue(1009.0d);
-                    sl.WriteItem(MultiCmd_Vn3804_pagina_touch);
-                    sl.WriteQueued();
-                    sl.ReadItems(mci_array_read_all);
-                    rc_error = sl.getReturnCode() != 0;
+                            rc_error = true;
+                        }
+                    }catch (Exception err){
+                        rc_error = true;
+                    }
 
                     if (rc_error == false) { //se ho avuto un errore di ricezione salto
 
@@ -243,9 +253,10 @@ public class Rinforzo extends Activity {
             UpdateHandler.post(new Runnable() {
                 @Override
                 public void run() {
-                    Emergenza();
-                    Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_b116RinforzoGiu_HMI, Button_rinforzo_giu, "rinforzo_tipo2_giu_press", "rinforzo_tipo2_giu");
-
+                    if(!rc_error) {
+                        Emergenza();
+                        Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_b116RinforzoGiu_HMI, Button_rinforzo_giu, "rinforzo_tipo2_giu_press", "rinforzo_tipo2_giu");
+                    }
 
                 }
             });

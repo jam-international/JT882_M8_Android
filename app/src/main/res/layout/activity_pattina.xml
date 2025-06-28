@@ -6,16 +6,6 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button_StepAvanti"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="36dp"
-        android:text="Step+"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/button_piu"
         android:layout_width="63dp"
         android:layout_height="63dp"
@@ -34,6 +24,78 @@
         app:layout_constraintTop_toBottomOf="@+id/button_piu" />
 
     <Button
+        android:id="@+id/btn_All"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/tasto_zoom_all"
+        android:onClick="btn_Center_on_click"
+        app:layout_constraintBottom_toTopOf="@+id/textView_info"
+        app:layout_constraintStart_toEndOf="@+id/frameLayout_pattina" />
+
+    <Button
+        android:id="@+id/btn_zoomPiu"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+
+        android:layout_marginStart="16dp"
+        android:background="@drawable/tasto_zoom_piu"
+        android:onClick="btn_ZoomPiu_on_click"
+        app:layout_constraintStart_toEndOf="@+id/btn_All"
+        app:layout_constraintTop_toTopOf="@+id/btn_All" />
+
+    <Button
+        android:id="@+id/btn_zoomMeno"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/tasto_zoom_meno"
+        android:onClick="btn_ZoomMeno_on_click"
+        app:layout_constraintStart_toEndOf="@+id/btn_zoomPiu"
+        app:layout_constraintTop_toTopOf="@+id/btn_zoomPiu" />
+
+
+    <Button
+        android:id="@+id/button_reset_C2"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="12dp"
+        android:background="@drawable/tasto_reset"
+        app:layout_constraintStart_toEndOf="@+id/btn_zoomMeno"
+        app:layout_constraintTop_toTopOf="@+id/btn_zoomMeno" />
+
+    <Button
+        android:id="@+id/button_sposta"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="17dp"
+        android:background="@drawable/tasto_sposta"
+        android:onClick="on_click_sposta"
+        app:layout_constraintStart_toEndOf="@+id/button_tasto_home"
+        app:layout_constraintTop_toTopOf="@+id/button_tasto_home" />
+
+    <Button
+        android:id="@+id/button_tasto_home"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="92dp"
+        android:background="@drawable/tasto_mov_to_home"
+        android:onClick="on_click_move_to_home"
+        app:layout_constraintStart_toEndOf="@+id/frameLayout_pattina"
+        app:layout_constraintTop_toBottomOf="@+id/button_meno" />
+
+    <Button
+        android:id="@+id/button_esc"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/tasto_esc"
+        android:onClick="onclick_Esc"
+        app:layout_constraintStart_toEndOf="@+id/button_sposta"
+        app:layout_constraintTop_toTopOf="@+id/button_sposta" />
+
+    <Button
         android:id="@+id/button_exit"
         android:layout_width="65dp"
         android:layout_height="65dp"
@@ -46,6 +108,101 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+
+    <Button
+        android:id="@+id/btn_motore_pattina_giu"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+
+        android:layout_marginTop="120dp"
+        android:background="@drawable/tasto_motore_pattina_giu"
+        app:layout_constraintStart_toStartOf="@+id/btn_pattina_test"
+        app:layout_constraintTop_toBottomOf="@+id/btn_pattina_test" />
+
+    <Button
+        android:id="@+id/btn_motore_pattina_su"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/tasto_motore_pattina_su"
+        app:layout_constraintStart_toStartOf="@+id/btn_motore_pattina_giu"
+        app:layout_constraintTop_toBottomOf="@+id/btn_motore_pattina_giu" />
+
+    <Button
+        android:id="@+id/btn_motore_pattina_zero"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/tasto_motore_pattina_zero"
+        app:layout_constraintStart_toStartOf="@+id/btn_motore_pattina_su"
+        app:layout_constraintTop_toBottomOf="@+id/btn_motore_pattina_su" />
+
+    <Button
+        android:id="@+id/btn_pattina_on_off"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="52dp"
+        android:background="@drawable/ic_pattina_onoff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_pattina_test"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_pattina_test"
+        app:layout_constraintStart_toStartOf="@+id/btn_pattina_on_off"
+        app:layout_constraintTop_toBottomOf="@+id/btn_pattina_on_off" />
+
+    <Button
+        android:id="@+id/btn_pattina_step_avanti"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/tasto_pattina_step_avanti"
+        app:layout_constraintStart_toStartOf="@+id/btn_pattina_on_off"
+        app:layout_constraintTop_toBottomOf="@+id/btn_pattina_test" />
+
+    <TextView
+        android:id="@+id/textView_errore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="16dp"
+        android:text="Allarm: "
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_cnt_errori_connessione"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cnt errori connesione: "
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView_errore"
+        app:layout_constraintStart_toStartOf="@+id/textView_errore" />
+
+    <Button
+        android:id="@+id/btn_pedale_singolo"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="68dp"
+        android:background="@drawable/pedale_singolo"
+        app:layout_constraintEnd_toStartOf="@+id/btn_motore_pattina_su"
+        app:layout_constraintTop_toTopOf="@+id/btn_motore_pattina_su" />
+
+    <Button
+        android:id="@+id/btn_start_cucitura_T2"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/ic_start_cucitura_c2"
+        app:layout_constraintStart_toStartOf="@+id/btn_pedale_singolo"
+        app:layout_constraintTop_toBottomOf="@+id/btn_pedale_singolo" />
+
     <FrameLayout
         android:id="@+id/frameLayout_pattina"
         android:layout_width="450dp"
@@ -54,126 +211,180 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
     </FrameLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="559dp"
-        android:layout_height="260dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/border1"
+
+    <TextView
+        android:id="@+id/textView_info"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Info:"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/frameLayout_pattina"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout_pattina" />
+
+    <Button
+        android:id="@+id/button_arrow_up"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="36dp"
+        android:layout_weight="1"
+        android:background="@drawable/ic_up"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_info" />
+
+    <Button
+        android:id="@+id/button_freccia_giu"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1"
+        android:background="@drawable/ic_down"
+        app:layout_constraintStart_toStartOf="@+id/button_arrow_up"
+        app:layout_constraintTop_toBottomOf="@+id/button_arrow_right" />
+
+    <Button
+        android:id="@+id/button_arrow_right"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_weight="1"
+        android:background="@drawable/ic_right"
+        app:layout_constraintStart_toEndOf="@+id/button_arrow_up"
+        app:layout_constraintTop_toBottomOf="@+id/button_arrow_up" />
+
+    <Button
+        android:id="@+id/button_arrow_left"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_weight="1"
+        android:background="@drawable/ic_left"
+        app:layout_constraintEnd_toStartOf="@+id/button_arrow_up"
+        app:layout_constraintTop_toBottomOf="@+id/button_arrow_up" />
+
+    <TextView
+        android:id="@+id/textView_delta_x_testo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="12dp"
+        android:text="Delta X:"
         app:layout_constraintStart_toEndOf="@+id/frameLayout_pattina"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView_testo_cucitura_sotto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Flap locking stitching line"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textView_delta_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="ValX"
+        app:layout_constraintStart_toEndOf="@+id/textView_delta_x_testo"
+        app:layout_constraintTop_toTopOf="@+id/textView_delta_x_testo" />
 
-        <Button
-            android:id="@+id/button_arrow_up"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_marginStart="152dp"
-            android:layout_marginTop="84dp"
-            android:layout_weight="1"
-            android:background="@drawable/ic_up"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textView_delta_y_testo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Delta Y:"
+        app:layout_constraintStart_toStartOf="@+id/textView_delta_x_testo"
+        app:layout_constraintTop_toBottomOf="@+id/textView_delta_x_testo" />
 
-        <Button
-            android:id="@+id/button_freccia_giu"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            android:layout_weight="1"
-            android:background="@drawable/ic_down"
-            app:layout_constraintEnd_toEndOf="@+id/button_arrow_up"
-            app:layout_constraintTop_toBottomOf="@+id/button_arrow_up" />
-
-        <Button
-            android:id="@+id/button_arrow_left"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_weight="1"
-            android:background="@drawable/ic_left"
-            app:layout_constraintBottom_toTopOf="@+id/button_freccia_giu"
-            app:layout_constraintEnd_toStartOf="@+id/button_arrow_up"
-            app:layout_constraintHorizontal_bias="0.606"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_arrow_up" />
+    <TextView
+        android:id="@+id/textView_delta_y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="ValY"
+        app:layout_constraintStart_toEndOf="@+id/textView_delta_y_testo"
+        app:layout_constraintTop_toTopOf="@+id/textView_delta_y_testo" />
 
 
-        <Button
-            android:id="@+id/button_arrow_right"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="32dp"
-            android:layout_weight="1"
-            android:background="@drawable/ic_right"
-            app:layout_constraintStart_toEndOf="@+id/button_arrow_up"
-            app:layout_constraintTop_toTopOf="@+id/button_arrow_left" />
+    <TextView
+        android:id="@+id/textView_Dist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text=" Dist:  "
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/textView_delta_y_testo"
+        app:layout_constraintTop_toBottomOf="@+id/textView_delta_y_testo" />
 
-        <Button
-            android:id="@+id/button_tasto_enter"
-            android:layout_width="65dp"
-            android:layout_height="160dp"
-            android:layout_marginTop="28dp"
-            android:layout_marginEnd="4dp"
-            android:background="@drawable/tasto_enter"
-            android:onClick="onclick_button_tasto_enter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textView_Dist_Val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Text"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/textView_Dist"
+        app:layout_constraintTop_toTopOf="@+id/textView_Dist" />
 
-        <TextView
-            android:id="@+id/textView_delta_x_testo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="92dp"
-            android:text="Delta X:"
-            app:layout_constraintStart_toEndOf="@+id/button_arrow_right"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textView_cnt_punti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/textView_Dist"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Dist"
+        tools:text="..." />
 
-        <TextView
-            android:id="@+id/textView_delta_y_testo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Delta Y:"
-            app:layout_constraintStart_toStartOf="@+id/textView_delta_x_testo"
-            app:layout_constraintTop_toBottomOf="@+id/textView_delta_x_testo" />
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" / "
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/textView_cnt_punti"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Dist"
+        android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/textView_delta_x"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:text="ValX"
-            app:layout_constraintStart_toEndOf="@+id/textView_delta_x_testo"
-            app:layout_constraintTop_toTopOf="@+id/textView_delta_x_testo" />
+    <TextView
+        android:id="@+id/textView_tot_punti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Dist"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/textView11"
+        android:text="TextView"
+        android:textSize="12sp"
+        tools:text="...." />
 
-        <TextView
-            android:id="@+id/textView_delta_y"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:text="ValY"
-            app:layout_constraintStart_toEndOf="@+id/textView_delta_y_testo"
-            app:layout_constraintTop_toTopOf="@+id/textView_delta_y_testo" />
+    <TextView
+        android:id="@+id/textView_Code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Code: "
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/textView_cnt_punti"
+        app:layout_constraintTop_toBottomOf="@+id/textView_cnt_punti" />
+    <TextView
+        android:id="@+id/textView_Debug_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Debug number: "
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/textView_Code"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Code" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/button_tasto_enter"
+        android:layout_width="65dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="136dp"
+        android:background="@drawable/tasto_enter"
+        android:onClick="onclick_button_tasto_enter"
+        app:layout_constraintStart_toEndOf="@+id/button_arrow_right"
+        app:layout_constraintTop_toTopOf="@+id/button_arrow_up" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

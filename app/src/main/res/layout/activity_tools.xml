@@ -217,6 +217,16 @@
         app:layout_constraintTop_toTopOf="@+id/button_pagina_par2_C2" />
 
     <Button
+        android:id="@+id/btn_pattina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/ic_pattina_page"
+        android:onClick="on_click_pattina"
+        app:layout_constraintStart_toEndOf="@+id/button_disegna_C2"
+        app:layout_constraintTop_toTopOf="@+id/button_disegna_C2" />
+
+    <Button
         android:id="@+id/button_pagina_par2_C2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

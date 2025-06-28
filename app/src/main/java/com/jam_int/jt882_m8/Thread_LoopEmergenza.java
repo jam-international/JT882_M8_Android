@@ -104,10 +104,7 @@ public class  Thread_LoopEmergenza {
                     if (sl.getReturnCode() != 0) {
                         //se non riceve bene i valori provo a chiudere e riaprire il Socket
                         sl.Close();
-                        Thread.sleep((long) 300d);
-                        sl.Connect();
-                        Thread.sleep((long) 300d);
-                        //
+
                         rc_error = true;
                     }
 

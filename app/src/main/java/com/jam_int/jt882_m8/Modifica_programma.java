@@ -84,6 +84,7 @@ public class Modifica_programma extends Activity {
      * Things displayed on the bitmap
      */
     Ricetta ricetta;
+    Boolean rc_error=false;
     /**
      * Receiver that handle the code edit??? (It's not handled by the OnActivityResult function???)
      * <p>
@@ -2591,7 +2592,7 @@ public class Modifica_programma extends Activity {
      *
      * @param Mci_write
      */
-    private void GestiscoFreccia(Mci_write Mci_write) {
+    public void GestiscoFreccia(Mci_write Mci_write) {
         switch (Mci_write.mc_stati) {
             case 0:
                 if (Mci_write.write_flag == true && Mci_write.valore == 1.0d) {
@@ -3537,7 +3538,7 @@ public class Modifica_programma extends Activity {
         public void run() {
             while (true) {
                 Thread_Running = true;
-                Boolean rc_error;
+
                 try {
                     Thread.sleep((long) 10d);
                     if (StopThread) {
@@ -3594,20 +3595,18 @@ public class Modifica_programma extends Activity {
                         sl.ReadItem(MultiCmd_Vq_107_READ_FC_ava_Y);
 
                     }
+                    rc_error = false;
+                    sl.Clear();
                     try{
                         MultiCmd_Vn3804_pagina_touch.setValue(1003.0d);
                         sl.WriteItem(MultiCmd_Vn3804_pagina_touch);
                         sl.WriteQueued();
                         sl.ReadItems(mci_array_read_all);
-                        rc_error = sl.getReturnCode() != 0;
+
 
                         if (sl.getReturnCode() != 0) {
                             //se non riceve bene i valori provo a chiudere e riaprire il Socket
                             sl.Close();
-                            Thread.sleep((long) 300d);
-                            sl.Connect();
-                            Thread.sleep((long) 300d);
-                            //
                             rc_error = true;
                         }
                     }catch (Exception err){
@@ -3710,49 +3709,49 @@ public class Modifica_programma extends Activity {
                 @Override
                 public void run() {
                     try{
-                      Emergenza();
+                        if(!rc_error) {
+                            Emergenza();
 
 
+                            if (info_StepPiuMeno.tipo_spostamento == Info_StepPiuMeno.Tipo_spostamento.N_SALTO && info_StepPiuMeno.comando == Info_StepPiuMeno.Comando.NULL) {
+                                //finito salto di n punti
+                                info_StepPiuMeno.tipo_spostamento = Info_StepPiuMeno.Tipo_spostamento.NULL;
+                                TextView_info.setText(info_StepPiuMeno.last_testo_textView_info);  //
+                                info_StepPiuMeno.last_testo_textView_info = "Info:";
+                            }
 
-                    if (info_StepPiuMeno.tipo_spostamento == Info_StepPiuMeno.Tipo_spostamento.N_SALTO && info_StepPiuMeno.comando == Info_StepPiuMeno.Comando.NULL) {
-                        //finito salto di n punti
-                        info_StepPiuMeno.tipo_spostamento = Info_StepPiuMeno.Tipo_spostamento.NULL;
-                        TextView_info.setText(info_StepPiuMeno.last_testo_textView_info);  //
-                        info_StepPiuMeno.last_testo_textView_info = "Info:";
-                    }
+                            if (info_modifica.comando == Info_modifica.Comando.HOME_DONE) {
+                                info_modifica.comando = Info_modifica.Comando.Null;
+                                //            Mci_Vn3081_override_rotaz.valore = 10d;
+                                //           Mci_Vn3081_override_rotaz.write_flag = true;
+                                Mostra_Tutte_Icone();
+                            }
 
-                    if (info_modifica.comando == Info_modifica.Comando.HOME_DONE) {
-                        info_modifica.comando = Info_modifica.Comando.Null;
-            //            Mci_Vn3081_override_rotaz.valore = 10d;
-             //           Mci_Vn3081_override_rotaz.write_flag = true;
-                        Mostra_Tutte_Icone();
-                    }
+                            if (info_modifica.comando == Info_modifica.Comando.ESCI_DONE_AZZERAMENTO) {
+                                info_modifica.comando = Info_modifica.Comando.Null;
+                                ricetta.clearActiveStep();  //imposta indice step a -1
+                                ricetta.repair();  //ripara la ricetta nel caso ci siano degli errori di continuità o di coordinate
+                                Run_Alert_dialog();
+                            }
 
-                    if (info_modifica.comando == Info_modifica.Comando.ESCI_DONE_AZZERAMENTO) {
-                        info_modifica.comando = Info_modifica.Comando.Null;
-                        ricetta.clearActiveStep();  //imposta indice step a -1
-                        ricetta.repair();  //ripara la ricetta nel caso ci siano degli errori di continuità o di coordinate
-                        Run_Alert_dialog();
-                    }
-
-                    Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_Sblocca_Ago, Button_Sgancio_ago, "ic_sblocca_ago_press", "ic_sblocca_ago");
-                    Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_Vb4014_JogSlowFast, Button_JOG_SlowFast, "ic_slow", "ic_fast");
-
+                            Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_Sblocca_Ago, Button_Sgancio_ago, "ic_sblocca_ago_press", "ic_sblocca_ago");
+                            Utility.GestioneVisualizzazioneToggleButton(getApplicationContext(), Mci_write_Vb4014_JogSlowFast, Button_JOG_SlowFast, "ic_slow", "ic_fast");
 
 
-                    Scrivi_codice_HMI();
-                    TextView_XAss.setText("" + ((Double) MultiCmd_posizione_X.getValue() / 1000d));
-                    TextView_YAss.setText("" + ((Double) MultiCmd_posizione_Y.getValue() / 1000d));
-                    ShowQuoteRelative();
-                    TextView_tot_punti.setText("" + ricetta.getStepsCount());
-                    ShowIndicePunto(ricetta.getActiveStepIndex());
-                    if (Coord_Pinza.XCoord_precedente != Coord_Pinza.XCoordPosPinza || Coord_Pinza.YCoord_precedente != Coord_Pinza.YCoordPosPinza) {
-                        myView.AggiornaCanvas(true);
-                        Coord_Pinza.XCoord_precedente = Coord_Pinza.XCoordPosPinza;
-                        Coord_Pinza.YCoord_precedente = Coord_Pinza.YCoordPosPinza;
-                    }
-                    Show_info_entità();
-                    MostraAllarmiCn(str_allarmi);
+                            Scrivi_codice_HMI();
+                            TextView_XAss.setText("" + ((Double) MultiCmd_posizione_X.getValue() / 1000d));
+                            TextView_YAss.setText("" + ((Double) MultiCmd_posizione_Y.getValue() / 1000d));
+                            ShowQuoteRelative();
+                            TextView_tot_punti.setText("" + ricetta.getStepsCount());
+                            ShowIndicePunto(ricetta.getActiveStepIndex());
+                            if (Coord_Pinza.XCoord_precedente != Coord_Pinza.XCoordPosPinza || Coord_Pinza.YCoord_precedente != Coord_Pinza.YCoordPosPinza) {
+                                myView.AggiornaCanvas(true);
+                                Coord_Pinza.XCoord_precedente = Coord_Pinza.XCoordPosPinza;
+                                Coord_Pinza.YCoord_precedente = Coord_Pinza.YCoordPosPinza;
+                            }
+                            Show_info_entità();
+                            MostraAllarmiCn(str_allarmi);
+                        }
                     } catch (Exception e) {
 
                     }

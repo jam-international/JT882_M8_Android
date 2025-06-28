@@ -87,7 +87,8 @@
     <string name="ErroreUSB_FAT32">non è possibile utilizzare questa penna USB, controllare che sia formattata in FAT32.</string>
     <string name="PremiTastoVerde">Premere il pulsante verde per attivare la macchina</string>
     <string name="PremiStartAzz">Premere i pulsanti di start per azzeramento</string>
-    <string name="PremiEmergenza">Premere il pulsante emergenza</string>
+    <string name="PremiEmergenza">Premere il pulsante emergenza (70)</string>
+    <string name="AccesoConVerdePremuto">Hai acceso la macchina con il verde attivo,premi emergenza</string>
     <string name="MancaAria">Aria insufficiente</string>
     <string name="MancaSensPiegDietro">Il sensore piegatore dietro è spento</string>
     <string name="MancaSensLanciaDietro">Il sensore dietro della lancia è spento</string>
@@ -271,6 +272,8 @@
         <item>Finite Pattine</item>      <!-- 40 -->
         <item>Timeout zero caricatore pattine</item>      <!-- 41 -->
         <item>Overlap XY Frequency</item>      <!-- 42 -->
+        <item>43) G1 pulse emission error T1</item>          <!-- 43-->
+        <item>44) G1 pulse emission error T2</item>          <!-- 43-->
 
     </string-array>
     <string-array name="warning_vn4">

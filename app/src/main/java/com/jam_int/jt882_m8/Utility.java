@@ -656,6 +656,7 @@ public class Utility {
     public static void ClearActivitiesTopToEmergencyPage(Context context) {
         Intent intent = new Intent(context, Emergency_page.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("provenienza", "MainActivity");
         context.startActivity(intent);
     }
 

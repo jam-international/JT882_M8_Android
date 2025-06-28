@@ -262,10 +262,10 @@ public class Dynamic_view extends View {
             if (frameDrawer != null) {
                 frameDrawer.drawCircle((float) CoordPosPinza.XCoordPosPinza, (float) CoordPosPinza.YCoordPosPinza, 2F, paint);
 
-                frameDrawer.drawLine(-8, -5, 300, -5, paint);           //riquadro area macchina
+                frameDrawer.drawLine(-20, -5, 300, -5, paint);           //riquadro area macchina
                 frameDrawer.drawLine(300, -5, 300, 262, paint);         //riquadro area macchina
-                frameDrawer.drawLine(300, 262, -8, 262, paint);         //riquadro area macchina
-                frameDrawer.drawLine(-8, 262, -8, -5, paint);           //riquadro area macchina
+                frameDrawer.drawLine(300, 262, -20, 262, paint);         //riquadro area macchina
+                frameDrawer.drawLine(-20, 262, -20, -5, paint);           //riquadro area macchina
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -566,6 +566,18 @@ public class Dynamic_view extends View {
                             paint.setStyle(Paint.Style.FILL);
                             frameDrawer.drawRect(code.getStep().p.x, code.getStep().p.y,code.getStep().p.x+2, code.getStep().p.y+2,paint);
                             break;
+                        case "SPLIT1":
+                            paint.setColor(Color.YELLOW);
+                            paint.setStyle(Paint.Style.FILL);
+                            frameDrawer.drawRect(code.getStep().p.x-2, code.getStep().p.y-2,code.getStep().p.x+2, code.getStep().p.y+2,paint);
+                            break;
+                        case "SPLIT2":
+                            paint.setColor(Color.BLACK);
+                            paint.setStyle(Paint.Style.FILL);
+                            frameDrawer.drawRect(code.getStep().p.x-2, code.getStep().p.y-2,code.getStep().p.x+2, code.getStep().p.y+2,paint);
+                            break;
+
+
                     }
 
 
